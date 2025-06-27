@@ -86,10 +86,8 @@ def reshuffle_batch_axis(act, key):
 
 def collect_data(input_path, 
                  filter_layer=None, 
-                 n_loaded_tokens=40, 
+                 min_token_length=5, 
                  n_files=10,
-                 mask=None,
-                #  seed=42,
                  ):
     
     files = list_folder(input_path, desc="chunk_")[:n_files]
@@ -100,8 +98,7 @@ def collect_data(input_path,
 
         for _, sentence in enumerate(data):
             hidden_states = sentence['meta_info']['hidden_states'][0]
-            assert hidden_states.shape[1] >= n_loaded_tokens
-            hidden_states = hidden_states[:, -n_loaded_tokens-mask:-mask]
+            assert hidden_states.shape[1] >= min_token_length
 
             for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
                 if filter_layer is not None:
@@ -121,8 +118,7 @@ def main_ranks(
          layers_B,
          input_path_A, 
          input_path_B, 
-         n_loaded_tokens, 
-         mask,
+         min_token_length, 
          n_files,
          n_tokens_list,
          output_folder0,
@@ -135,14 +131,12 @@ def main_ranks(
     start_time = time()
     
     all_activations_A = collect_data(input_path_A,
-                                     n_loaded_tokens=n_loaded_tokens, 
+                                     min_token_length=min_token_length, 
                                      n_files=n_files,
-                                     mask=mask,
                                      )
     all_activations_B = collect_data(input_path_B,
-                                     n_loaded_tokens=n_loaded_tokens, 
+                                     min_token_length=min_token_length, 
                                      n_files=n_files,
-                                     mask=mask,
                                      )   
 
     total_sample_size = all_activations_B["layer_0"].shape[0]
@@ -226,15 +220,47 @@ def main_compute_II(layers_A,
                 n_tokens_list,
                 avg_flags,
                 diagonal_constraint,):
+    start_time = time()
+
     inf_imb = np.zeros(shape=(2,len(layers_A),len(layers_B)))
     II_fn = build_information_imbalance(k=1)
 
-    # R = np.load(ranks_folder+"R.npz").values()
-    # inf_imb[:,A_counter,B_counter] = II_fn(R[0],R[1])
-    # print(f'{inf_imb[:,A_counter,B_counter]=}')
-    # output_filename = "IIs.npy"
-    # _save = inf_imb
+    for Nbits_id,Nbits in enumerate(Nbits_list):
+        print(f'{Nbits=}')
+        for avg_id,avg_tokens in enumerate(avg_flags):
+            for n_tokens_id,n_tokens in enumerate(n_tokens_list):
+                print(f'{n_tokens=}')
+                for A_counter,layer_A in enumerate(layers_A):
+                    for B_counter,layer_B in enumerate(layers_B):
+                        if diagonal_constraint == 1 and layer_B != layer_A:
+                            continue
+                        ranks_folder = makefolder(base=output_folder0+f'ranks/{method}/',
+                                                create_folder=False,
+                                                Nbits=Nbits,
+                                                n_tokens=n_tokens,
+                                                avg_tokens=avg_tokens,
+                                                batch_shuffle=batch_shuffle,
+                                                layer_A=layer_A,
+                                                layer_B=layer_B,
+                                                )
+                        output_folder = makefolder(base=output_folder0,
+                                                create_folder=True,
+                                                Nbits=Nbits,
+                                                n_tokens=n_tokens,
+                                                avg_tokens=avg_tokens,
+                                                batch_shuffle=batch_shuffle,
+                                                )
+                        
+                        R = np.load(ranks_folder + "R.npz")
+                        R = (jnp.array(R['x_ranks']),jnp.array(R['y_ranks']))
+
+                        inf_imb[:,A_counter,B_counter] = II_fn(R[0],R[1])
+                        print(f'{inf_imb[:,A_counter,B_counter]=}')
+                np.save(output_folder+"II.npy",inf_imb)
+                    
+    print(f'II took {(time()-start_time)/60.} m')
     return
+
 
 def main_compute_coeff(layers_A,
                 layers_B,
@@ -246,7 +272,7 @@ def main_compute_coeff(layers_A,
                 batch_shuffle,
                 ):
     
-    print(f'computing observables')
+    print(f'computing corr coeff')
     start_time = time()
 
     xi = np.zeros(shape=(2,len(layers_A),len(layers_B)))
@@ -295,7 +321,7 @@ def main_compute_coeff(layers_A,
 
                 np.save(output_folder+"corr_coeff.npy",xi)
                     
-    print(f'this took {(time()-start_time)/60.} m')
+    print(f'corr coeff took {(time()-start_time)/60.} m')
     return
 
 
@@ -307,19 +333,14 @@ if __name__ == "__main__":
     parser.add_argument("min_token_length",type=int)
     parser.add_argument("modelA",type=str) # llama or deepseek
     parser.add_argument("modelB",type=str)
-    parser.add_argument("aux_A",type=str) # source or target
-    parser.add_argument("aux_B",type=str)
-    parser.add_argument("languageA",type=str)
-    parser.add_argument("languageB",type=str)
     parser.add_argument("compute_ranks_flag",type=int)
     parser.add_argument("compute_observables_flag",type=int)
     args = parser.parse_args()
 
-    batch_size = 10
-    mask = 2 # greater than zero
-    n_loaded_tokens = args.min_token_length - mask  # the mask excludes final points and quotes
-    method = "max"
-
+    batch_shuffle = 0
+    batch_size = 100
+    min_token_length = args.min_token_length  # the mask excludes final points and quotes
+    method = "min"
 
     layers_A = list(range(1,depths[args.modelA] + 1))
     layers_B = list(range(1,depths[args.modelB] + 1))
@@ -327,29 +348,33 @@ if __name__ == "__main__":
     if 1:
         layers_A = reduce_list_half_preserve_extremes(layers_A)
         layers_B = reduce_list_half_preserve_extremes(layers_B)
-    batch_shuffle = 0
+
+
+
+    Nbits_list = None
+    avg_flags = None
+    diagonal_constraint = None
+    n_files = None
+    n_tokens_list = None
 
     if args.dbg == 0:
         n_files = 500
         if args.min_token_length == 40:
             n_tokens_list = np.array([1,10,20])
-        elif args.min_token_length == 100:
-            n_tokens_list = np.array([1,5,10,20,30,40,50,60,70,80,90,n_loaded_tokens])
         Nbits_list = [0,1]
         avg_flags = [0]
         diagonal_constraint = 1
 
     elif args.dbg == 1:
-        n_files = 100
-        n_tokens_list = np.array([10])
+        n_files = 2
+        n_tokens_list = np.array([min_token_length])
         Nbits_list = [0,1]
         avg_flags = [0]
         diagonal_constraint = 1
     
-    if args.dbg == 2: # llama vs deepseek
+    if args.dbg == 2: 
         n_files = 200
         n_tokens_list = np.array([20])
-        # k_list = [10] 
         Nbits_list = [0,1]
         avg_flags = [0]
         diagonal_constraint = 1
@@ -359,8 +384,9 @@ if __name__ == "__main__":
     print(f'{avg_flags=}')
     print(f'{diagonal_constraint=}')
 
-    input_path_A = input_paths[args.modelA][args.languageA][args.languageB][args.aux_A]['40']
-    input_path_B = input_paths[args.modelB][args.languageA][args.languageB][args.aux_B]['40']
+    input_path_A = input_paths[args.modelA]['0']
+    input_path_B = input_paths[args.modelB]['1']
+
     print("Input path A = ", input_path_A, flush=True)
     print("Input path B = ", input_path_B, flush=True)
     
@@ -368,13 +394,8 @@ if __name__ == "__main__":
                                create_folder=True,
                                modelA=args.modelA,
                                modelB=args.modelB,
-                               aux_A=args.aux_A,
-                               aux_B=args.aux_B,
                                n_files=n_files,
                                min_token_length=args.min_token_length,
-                               languageA=args.languageA,
-                               languageB=args.languageB,
-                               mask=mask,
                                )
     
     if args.compute_ranks_flag:
@@ -383,8 +404,7 @@ if __name__ == "__main__":
             layers_B=layers_B,
             input_path_A=input_path_A,
             input_path_B=input_path_B,
-            n_loaded_tokens=n_loaded_tokens,
-            mask=mask,
+            min_token_length=min_token_length,
             n_files=n_files,
             n_tokens_list=n_tokens_list,
             output_folder0=output_folder0,

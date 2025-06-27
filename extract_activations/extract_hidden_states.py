@@ -72,7 +72,7 @@ if __name__ == "__main__":
         model_path = "/home/rende/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B/snapshots/d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
         file_path = f"/home/acevedo/syn-sem/datasets/matching/sentences{i}.txt"
         output_folder_path = f"/home/acevedo/syn-sem/datasets/activations/matching/{i}/"
-        n_lines = 100
+        n_lines = 10000
         batch_size = 100
 
         main(model_path=model_path,
