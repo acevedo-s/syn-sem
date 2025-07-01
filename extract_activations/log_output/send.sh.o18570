@@ -1,63 +1,0 @@
-/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
-  warnings.warn(
-INFO 06-30 10:17:47 __init__.py:190] Automatically detected platform cuda.
-/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
-  warnings.warn(
-/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
-  warnings.warn(
-INFO 06-30 10:17:55 __init__.py:190] Automatically detected platform cuda.
-INFO 06-30 10:17:55 __init__.py:190] Automatically detected platform cuda.
-Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.08it/s]
-Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.00it/s]
-Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.44it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.29it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.25it/s]
-
-  0%|          | 0/23 [00:00<?, ?it/s]  4%|▍         | 1/23 [00:00<00:16,  1.31it/s]  9%|▊         | 2/23 [00:00<00:08,  2.51it/s] 13%|█▎        | 3/23 [00:01<00:05,  3.56it/s] 17%|█▋        | 4/23 [00:01<00:04,  4.40it/s] 22%|██▏       | 5/23 [00:01<00:03,  5.09it/s] 26%|██▌       | 6/23 [00:01<00:04,  3.84it/s] 30%|███       | 7/23 [00:01<00:03,  4.25it/s] 35%|███▍      | 8/23 [00:02<00:03,  4.46it/s] 39%|███▉      | 9/23 [00:02<00:02,  4.74it/s] 43%|████▎     | 10/23 [00:02<00:02,  5.11it/s] 48%|████▊     | 11/23 [00:02<00:02,  5.22it/s] 52%|█████▏    | 12/23 [00:02<00:02,  5.44it/s] 57%|█████▋    | 13/23 [00:02<00:01,  5.69it/s] 61%|██████    | 14/23 [00:03<00:01,  5.54it/s] 65%|██████▌   | 15/23 [00:03<00:01,  5.75it/s] 70%|██████▉   | 16/23 [00:03<00:01,  5.79it/s] 74%|███████▍  | 17/23 [00:03<00:01,  4.71it/s] 78%|███████▊  | 18/23 [00:03<00:01,  4.99it/s] 83%|████████▎ | 19/23 [00:04<00:00,  5.30it/s] 87%|████████▋ | 20/23 [00:04<00:00,  5.24it/s] 91%|█████████▏| 21/23 [00:04<00:00,  5.71it/s] 96%|█████████▌| 22/23 [00:04<00:00,  5.82it/s]100%|██████████| 23/23 [00:04<00:00,  6.10it/s]100%|██████████| 23/23 [00:04<00:00,  4.84it/s]
-iter 0 | t_step = 3.22
-iter 1 | t_step = 2.18
-iter 2 | t_step = 2.11
-iter 3 | t_step = 2.24
-iter 4 | t_step = 2.16
-iter 5 | t_step = 2.03
-iter 6 | t_step = 2.01
-iter 7 | t_step = 2.04
-iter 8 | t_step = 2.09
-iter 9 | t_step = 2.16
-iter 10 | t_step = 2.07
-iter 11 | t_step = 2.20
-iter 12 | t_step = 2.01
-iter 13 | t_step = 2.14
-iter 14 | t_step = 2.03
-/cm/shared/apps/miniconda/lib/python3.12/multiprocessing/resource_tracker.py:123: UserWarning: resource_tracker: process died unexpectedly, relaunching.  Some resources might leak.
-  warnings.warn('resource_tracker: process died unexpectedly, '
-/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
-  warnings.warn(
-/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
-  warnings.warn(
-INFO 06-30 10:18:46 __init__.py:190] Automatically detected platform cuda.
-INFO 06-30 10:18:46 __init__.py:190] Automatically detected platform cuda.
-Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.09it/s]
-Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.00it/s]
-Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.45it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.29it/s]
-Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.25it/s]
-
-  0%|          | 0/23 [00:00<?, ?it/s]  4%|▍         | 1/23 [00:00<00:16,  1.33it/s]  9%|▊         | 2/23 [00:00<00:08,  2.43it/s] 13%|█▎        | 3/23 [00:01<00:05,  3.50it/s] 17%|█▋        | 4/23 [00:01<00:04,  4.34it/s] 22%|██▏       | 5/23 [00:01<00:03,  5.00it/s] 26%|██▌       | 6/23 [00:01<00:03,  4.99it/s] 30%|███       | 7/23 [00:01<00:03,  4.95it/s] 35%|███▍      | 8/23 [00:01<00:02,  5.43it/s] 39%|███▉      | 9/23 [00:02<00:02,  5.86it/s] 43%|████▎     | 10/23 [00:02<00:02,  6.11it/s] 48%|████▊     | 11/23 [00:02<00:02,  5.42it/s] 52%|█████▏    | 12/23 [00:02<00:02,  5.05it/s] 57%|█████▋    | 13/23 [00:02<00:01,  5.20it/s] 61%|██████    | 14/23 [00:03<00:02,  4.34it/s] 65%|██████▌   | 15/23 [00:03<00:01,  4.20it/s] 70%|██████▉   | 16/23 [00:03<00:01,  4.28it/s] 74%|███████▍  | 17/23 [00:03<00:01,  4.03it/s] 78%|███████▊  | 18/23 [00:04<00:01,  4.60it/s] 83%|████████▎ | 19/23 [00:04<00:00,  5.07it/s] 87%|████████▋ | 20/23 [00:04<00:00,  5.27it/s] 91%|█████████▏| 21/23 [00:04<00:00,  5.11it/s] 96%|█████████▌| 22/23 [00:04<00:00,  4.43it/s]100%|██████████| 23/23 [00:05<00:00,  4.22it/s]100%|██████████| 23/23 [00:05<00:00,  4.47it/s]
-iter 0 | t_step = 3.04
-iter 1 | t_step = 2.21
-iter 2 | t_step = 2.02
-iter 3 | t_step = 2.21
-iter 4 | t_step = 2.20
-iter 5 | t_step = 2.07
-iter 6 | t_step = 2.11
-iter 7 | t_step = 2.04
-iter 8 | t_step = 2.09
-iter 9 | t_step = 2.15
-iter 10 | t_step = 2.12
-iter 11 | t_step = 1.99
-iter 12 | t_step = 2.08
-iter 13 | t_step = 2.03
-iter 14 | t_step = 2.14

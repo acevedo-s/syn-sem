@@ -14,10 +14,9 @@ def get_slurm_config():
     """Automatically determine tp_size and nnodes from SLURM."""
     try:
         nnodes = int(os.environ.get("SLURM_JOB_NUM_NODES", "1"))
-        ngpus_total = int(os.environ.get("SLURM_NTASKS", "1"))
+        gpus_per_node = int(os.environ.get("SLURM_GPUS_ON_NODE", "1"))
 
-        # Assume 1 task per GPU
-        tp_size = ngpus_total  # Tensor parallel size = total number of GPUs
+        tp_size = nnodes * gpus_per_node  # Total number of GPUs
 
         return tp_size, nnodes
 
@@ -25,36 +24,47 @@ def get_slurm_config():
         print(f"Failed to detect SLURM config. Defaulting to 1x1. Error: {e}")
         return 1, 1
 
-
 def get_master_address():
     hostnames = os.popen("scontrol show hostname $SLURM_JOB_NODELIST").read().split()
     return socket.gethostbyname(hostnames[0])
-
-dist_init_addr = f"{get_master_address()}:8000"
-
 
 def batch_generator(lst, batch_size):
     for i in range(0, len(lst), batch_size):
         yield lst[i:i + batch_size]
 
-def main(model_path,
-         file_path,
-         output_folder_path,
-         batch_size,
-         n_lines=None,
-         tp_size=1,  # number of GPU's
-         nnodes=1,  # number of nodes
-         ):
-
-
-
-    with open(file_path, "r") as f:
+def process_file(llm,
+                 sampling_params,
+                 batch_size,
+                 n_lines,
+                 IO_paths,
+                 ):
+    with open(IO_paths["file_path"], "r") as f:
         prompts = [line.strip() for line in f]
 
     if n_lines is not None:
         prompts = prompts[:n_lines]
 
+    os.makedirs(IO_paths["output_folder_path"], exist_ok=True)
+
+    for i, p in enumerate(batch_generator(prompts, batch_size)):
+        start = time.time()
+        outputs = llm.generate(p, sampling_params=sampling_params)
+        with open(f"{IO_paths['output_folder_path']}/chunk_{i}.pkl", "wb") as f:
+            pickle.dump(outputs, f)
+        t_step = time.time() - start
+        print(f"iter {i} | t_step = {t_step:.2f}", flush=True)
+    return
+
+def main(model_path,
+         IO_paths_list,
+         batch_size,
+         n_lines=None,
+         tp_size=1,
+         nnodes=1,
+         ):
+
     NODE_RANK = int(os.environ.get("SLURM_NODEID", 0))
+    dist_init_addr = f"{get_master_address()}:8000"
 
     llm = sgl.Engine(
         model_path=model_path,
@@ -73,16 +83,9 @@ def main(model_path,
         "max_new_tokens": 2,
     }
 
-    os.makedirs(output_folder_path, exist_ok=True)
-
-    for i, p in enumerate(batch_generator(prompts, batch_size)):
-        start = time.time()
-        outputs = llm.generate(p, sampling_params=sampling_params)
-        with open(f"{output_folder_path}/chunk_{i}.pkl", "wb") as f:
-            pickle.dump(outputs, f)
-
-        t_step = time.time() - start
-        print(f"iter {i} | t_step = {t_step:.2f}", flush=True)
+    for IO_paths_id,IO_paths in enumerate(IO_paths_list):
+        print(f'processing file {IO_paths_id}')
+        process_file(llm,sampling_params,batch_size,n_lines,IO_paths)
 
     llm.shutdown()
 
@@ -91,23 +94,26 @@ def main(model_path,
 if __name__ == "__main__":
     
     model = 'deepseek'
-    match_var = 'matching'
+    match_var = 'missmatching'
     tp_size, nnodes = get_slurm_config()
-    tp_size = 16
     print(f'{tp_size=}, {nnodes=}')
+    model_path = model_paths[model]
+    n_lines = 2000
+    batch_size = 100
 
-    for i in [1]:
-        model_path = model_paths[model]
-        file_path = f"/home/acevedo/syn-sem/datasets/txt/{match_var}/sentences{i}.txt"
-        output_folder_path = f"/home/acevedo/syn-sem/datasets/activations/{model}/{match_var}/{i}/"
-        n_lines = 2000
-        batch_size = 100
 
-        main(model_path=model_path,
-            file_path=file_path,
-            output_folder_path=output_folder_path,
-            batch_size=batch_size,
-            n_lines=n_lines,
-            tp_size=tp_size,
-            nnodes=nnodes,
-            )
+    IO_paths_list = [
+        {
+            "file_path": f"/home/acevedo/syn-sem/datasets/txt/{match_var}/sentences{i}.txt",
+            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{model}/{match_var}/{i}/"
+        }
+        for i in [0, 1]
+    ]
+
+    main(model_path=model_path,
+        IO_paths_list=IO_paths_list,
+        batch_size=batch_size,
+        n_lines=n_lines,
+        tp_size=tp_size,
+        nnodes=nnodes,
+        )

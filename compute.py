@@ -4,7 +4,7 @@ sys.path.append('../../')
 
 if __name__ == "__main__":
     dbg = int(sys.argv[1])
-    if dbg == 0:
+    if dbg == 1:
         os.environ["JAX_PLATFORMS"] = "cpu"
 
 import jax
@@ -46,8 +46,8 @@ def main_ranks(
          avg_flags,
          Nbits_list,
          diagonal_constraint,
-         method,
          batch_shuffle,
+         similarity_fn,
          ):
     start_time = time()
     
@@ -72,11 +72,9 @@ def main_ranks(
         print(f'{n_tokens=}')
         for Nbits_id, Nbits in enumerate(Nbits_list):
             print(f'{Nbits=}')
-            distance_fn = hamming_distance if Nbits else normalized_L2_distance 
-            get_ranks = build_get_ranks(key=subkey_distances, 
+            get_similarities = build_get_similarities(key=subkey_distances, 
                                         sample_size=total_sample_size, 
-                                        distance_fn=distance_fn,
-                                        method=method,
+                                        similarity_fn=similarity_fn,
                                         )
             
             for avg_tokens in avg_flags:
@@ -114,24 +112,19 @@ def main_ranks(
                         act_A = flatten_tokens_features(act_A)
                         act_B = flatten_tokens_features(act_B)
 
-                        ranks_folder = makefolder(base=output_folder0+f'ranks/{method}/',
-                                                    create_folder=True,
-                                                    Nbits=Nbits,
-                                                    n_tokens=n_tokens,
-                                                    avg_tokens=avg_tokens,
-                                                    batch_shuffle=batch_shuffle,
-                                                    layer_A=layer_A,
-                                                    layer_B=layer_B,
-                                                    )
-                        if method == 'max':
-                            R,L = get_ranks(act_A,act_B)
-                            np.save(os.path.join(ranks_folder, "x_l.npy"), L[0])
-                            np.save(os.path.join(ranks_folder, "y_l.npy"), L[1])
-                        elif method == 'min':
-                            R = get_ranks(act_A,act_B)
-                        np.save(os.path.join(ranks_folder, "x_ranks.npy"), R[0])
-                        np.save(os.path.join(ranks_folder, "y_ranks.npy"), R[1])
-    print(f'ranks took {(time()-start_time)/60.} m')
+                        sim_folder = makefolder(base=output_folder0+f'similarities/',
+                                                create_folder=True,
+                                                Nbits=Nbits,
+                                                n_tokens=n_tokens,
+                                                avg_tokens=avg_tokens,
+                                                batch_shuffle=batch_shuffle,
+                                                layer_A=layer_A,
+                                                layer_B=layer_B,
+                                                )
+                        sim_A,sim_B = get_similarities(act_A,act_B)
+                        np.save(os.path.join(sim_folder, "sim_A.npy"), sim_A)
+                        np.save(os.path.join(sim_folder, "sim_B.npy"), sim_B)
+    print(f'similarities took {(time()-start_time)/60.} m')
     return
 
 
@@ -146,7 +139,7 @@ def main_compute_II(
                 method,
                 batch_shuffle,
                 ratio_jackknife=0.5,
-                jack_seeds=5,
+                jack_seeds=10,
                 ):
     start_time = time()
 
@@ -169,7 +162,7 @@ def main_compute_II(
                     for B_counter,layer_B in enumerate(layers_B):
                         if diagonal_constraint == 1 and layer_B != layer_A:
                             continue
-                        ranks_folder = makefolder(base=output_folder0+f'ranks/{method}/',
+                        sim_folder = makefolder(base=output_folder0+f'similarities/',
                                                 create_folder=False,
                                                 Nbits=Nbits,
                                                 n_tokens=n_tokens,
@@ -186,16 +179,18 @@ def main_compute_II(
                                                 batch_shuffle=batch_shuffle,
                                                 )
                         
-                        x_ranks = np.load(os.path.join(ranks_folder, "x_ranks.npy"))
-                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))   
+                        sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
+                        sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
 
                         for jack_seed_id,jack_seed in enumerate(jack_seeds):
                             jack_key = jax.random.key(jack_seed)
                             jack_indices = jax.random.choice(key=jack_key,
-                                                             a=x_ranks.shape[0],
-                                                             shape=(int(ratio_jackknife*x_ranks.shape[0]),),
+                                                             a=sim_A.shape[0],
+                                                             shape=(int(ratio_jackknife*sim_A.shape[0]),),
                                                              replace=False)
-                            R_jack = (x_ranks[jack_indices], y_ranks[jack_indices])
+                            
+                            R_jack = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
+                                                                  sim_B[jack_indices, :][:, jack_indices])
 
                             _inf_imb,_inf_imb_std = II_fn(R_jack[0],R_jack[1])
                             (inf_imb[jack_seed_id,:,A_counter,B_counter],
@@ -219,15 +214,15 @@ def main_compute_coeff(layers_A,
                 diagonal_constraint,
                 method,
                 batch_shuffle,
-                ratio_jackknife=.8,
-                jack_seeds=1,
+                ratio_jackknife=.5,
+                jack_seeds=10,
                 ):
     
     print(f'computing corr coeff')
     start_time = time()
 
     jack_seeds = np.arange(jack_seeds,dtype=int)
-    corr_coeff = build_corr_coeff()
+    corr_coeff = build_corr_coeff_ties()
 
     for Nbits_id,Nbits in enumerate(Nbits_list):
         print(f'{Nbits=}')
@@ -241,7 +236,7 @@ def main_compute_coeff(layers_A,
                     for B_counter,layer_B in enumerate(layers_B):
                         if diagonal_constraint == 1 and layer_B != layer_A:
                             continue
-                        ranks_folder = makefolder(base=output_folder0+f'ranks/{method}/',
+                        sim_folder = makefolder(base=output_folder0+f'similarities/',
                                                 create_folder=False,
                                                 Nbits=Nbits,
                                                 n_tokens=n_tokens,
@@ -257,26 +252,24 @@ def main_compute_coeff(layers_A,
                                                 avg_tokens=avg_tokens,
                                                 batch_shuffle=batch_shuffle,
                                                 )                            
-                        x_ranks = jnp.array(np.load(os.path.join(ranks_folder, "x_ranks.npy")))
-                        y_ranks = jnp.array(np.load(os.path.join(ranks_folder, "y_ranks.npy")))
-                        x_l = jnp.array(np.load(os.path.join(ranks_folder, "x_l.npy")))
-                        y_l = jnp.array(np.load(os.path.join(ranks_folder, "y_l.npy")))
+                        sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
+                        sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
+
 
                         for jack_seed_id,jack_seed in enumerate(jack_seeds):
                             jack_key = jax.random.PRNGKey(jack_seed)
                             jack_indices = jax.random.choice(key=jack_key,
-                                                             a=x_ranks.shape[0],
-                                                             shape=(int(ratio_jackknife*x_ranks.shape[0]),),
+                                                             a=sim_A.shape[0],
+                                                             shape=(int(ratio_jackknife*sim_A.shape[0]),),
                                                              replace=False)
-
-                            x_ranks_jack = jnp.take(x_ranks, jack_indices, axis=0)
-                            y_ranks_jack = jnp.take(y_ranks, jack_indices, axis=0)
-                            x_l_jack = jnp.take(x_l, jack_indices, axis=0)
-                            y_l_jack = jnp.take(y_l, jack_indices, axis=0)
+                            A_ranks, B_ranks = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
+                                                                           sim_B[jack_indices, :][:, jack_indices])
+                            A_l,B_l = mapped_compute_ranks(method)(-sim_A[jack_indices, :][:, jack_indices],
+                                                                   -sim_B[jack_indices, :][:, jack_indices])
 
                             (xi[jack_seed_id,:,A_counter,B_counter],
-                            std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((x_ranks_jack,y_ranks_jack))#,(x_l_jack,y_l_jack))
-                            print(corr_coeff((x_ranks_jack,y_ranks_jack)))#,(x_l_jack,y_l_jack)))
+                            std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((A_ranks,B_ranks),(A_l,B_l))
+                            print(corr_coeff((A_ranks,B_ranks),(A_l,B_l)))
 
                 jack_std = xi.std(axis=0)
                 xi = xi.mean(axis=0)
@@ -297,12 +290,12 @@ if __name__ == "__main__":
     parser.add_argument("modelB",type=str)
     parser.add_argument("compute_ranks_flag",type=int)
     parser.add_argument("compute_observables_flag",type=int)
+    parser.add_argument("method",type=str, choices=['max','min'], help="max or min")
     args = parser.parse_args()
 
     batch_shuffle = 0
     batch_size = 100
     min_token_length = args.min_token_length  # the mask excludes final points and quotes
-    method = "max"
 
     layers_A = list(range(1,depths[args.modelA] + 1))
     layers_B = list(range(1,depths[args.modelB] + 1))
@@ -338,7 +331,10 @@ if __name__ == "__main__":
     print(f'{avg_flags=}')
     print(f'{diagonal_constraint=}')
 
-
+    if args.method == 'max':
+        similarity_fn = jnp.dot
+    elif args.method == 'min':
+        similarity_fn = normalized_L2_distance 
 
     for match_var in match_var_list:
         input_path_A = input_paths[args.modelA][match_var]['0']
@@ -369,21 +365,21 @@ if __name__ == "__main__":
                 avg_flags=avg_flags,
                 Nbits_list=Nbits_list,
                 diagonal_constraint=diagonal_constraint,
-                method=method,
                 batch_shuffle=batch_shuffle,
+                similarity_fn=similarity_fn,
             )
         if args.compute_observables_flag:
-            if method == 'max':
+            if args.method == 'max':
                 main_compute_coeff(layers_A,
                                 layers_B,
                                 Nbits_list,
                                 n_tokens_list,
                                 avg_flags,
                                 diagonal_constraint,
-                                method,
+                                args.method,
                                 batch_shuffle,
                                 )
-            elif method == 'min':
+            elif args.method == 'min':
                 main_compute_II(
                             output_folder0,
                             layers_A,
@@ -392,7 +388,7 @@ if __name__ == "__main__":
                             n_tokens_list,
                             avg_flags,
                             diagonal_constraint,
-                            method,
+                            args.method,
                             batch_shuffle,
                 )
         

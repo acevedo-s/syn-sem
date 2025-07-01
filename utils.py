@@ -13,6 +13,8 @@ depths = {"deepseek":61,
           "llama":32}
 emb_dims = {"deepseek":7168,
           "llama":4096}
+batch_sizes = {'deepseek':10,
+               'llama':100}
 
 def extract_index(file):
     match = re.search(r'chunk_(\d+)\.pkl', file.name)

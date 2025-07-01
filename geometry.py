@@ -36,7 +36,37 @@ def compute_ranks(x_dist,y_dist,method):
 def mapped_compute_ranks(method):
     return jax.vmap(partial(compute_ranks,method=method))
 
-def build_get_ranks(key, sample_size, similarity_fn,method):
+# def build_get_ranks(key, sample_size, similarity_fn, method):
+#     """
+
+#     Args:
+#        key: the JAX random key.
+#        X: sets from which we compute the information imbalance.
+#        Y: sets to which we compute the information imbalance.
+#        similarity_fn: function to compute the similarity in spaces X and Y.
+#        method: "max" for correlation coefficient, "min" for II and neighborhood overlap. 
+#     """
+#     indices_rows,indices_columns = separate_samples(key,sample_size)
+#     if method == 'max':
+#         def _get_ranks(X, Y):
+#             assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
+#             d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
+#             d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
+#             R = mapped_compute_ranks(method)(d_X,d_Y)
+#             L = mapped_compute_ranks(method)(-d_X,-d_Y)
+#             return R,L
+        
+#     if method == 'min':
+#         def _get_ranks(X, Y):
+#             assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
+#             d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
+#             d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
+#             R = mapped_compute_ranks(method)(d_X,d_Y)
+#             return R
+    
+#     return jax.jit(_get_ranks)
+
+def build_get_similarities(key, sample_size, similarity_fn):
     """
 
     Args:
@@ -44,27 +74,16 @@ def build_get_ranks(key, sample_size, similarity_fn,method):
        X: sets from which we compute the information imbalance.
        Y: sets to which we compute the information imbalance.
        similarity_fn: function to compute the similarity in spaces X and Y.
-       method: "max" for correlation coefficient, "min" for II and neighborhood overlap. 
     """
     indices_rows,indices_columns = separate_samples(key,sample_size)
-    if method == 'max':
-        def _get_ranks(X, Y):
-            assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
-            d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
-            d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
-            R = mapped_compute_ranks(method)(d_X,d_Y)
-            L = mapped_compute_ranks(method)(-d_X,-d_Y)
-            return R,L
+    def _get_similarities(X, Y):
+        assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
+        sim_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
+        sim_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
+        return sim_X,sim_Y
         
-    if method == 'min':
-        def _get_ranks(X, Y):
-            assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
-            d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
-            d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
-            R = mapped_compute_ranks(method)(d_X,d_Y)
-            return R
     
-    return jax.jit(_get_ranks)
+    return jax.jit(_get_similarities)
 
 def get_relative_ranks(x_rank, y_rank, k):
     """ k = 1 corresponds to first neighbours"""
