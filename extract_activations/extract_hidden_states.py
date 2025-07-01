@@ -1,4 +1,7 @@
-import os
+import os,sys
+sys.path.append('../')
+from modelpaths import *
+
 import torch
 import sglang as sgl
 import pickle
@@ -68,11 +71,14 @@ def main(model_path,
 # Spawn starts a fresh program every time, if there is no __main__, it will run into infinite loop to keep spawning processes from sgl.Engine
 if __name__ == "__main__":
     
+    model = 'deepseek'
+    match_var = 'matching'
+
     for i in range(2):
-        model_path = "/home/rende/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B/snapshots/d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
-        file_path = f"/home/acevedo/syn-sem/datasets/matching/sentences{i}.txt"
-        output_folder_path = f"/home/acevedo/syn-sem/datasets/activations/matching/{i}/"
-        n_lines = 10000
+        model_path = model_paths[model]
+        file_path = f"/home/acevedo/syn-sem/datasets/txt/{match_var}/sentences{i}.txt"
+        output_folder_path = f"/home/acevedo/syn-sem/datasets/activations/{match_var}/{i}/"
+        n_lines = 2000
         batch_size = 100
 
         main(model_path=model_path,

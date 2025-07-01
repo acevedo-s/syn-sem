@@ -1,0 +1,210 @@
+/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+INFO 06-30 23:44:25 __init__.py:190] Automatically detected platform cuda.
+/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+INFO 06-30 23:44:26 __init__.py:190] Automatically detected platform cuda.
+/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+INFO 06-30 23:44:41 __init__.py:190] Automatically detected platform cuda.
+/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+/home/rende/mysglang/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py:590: FutureWarning: The image_processor_class argument is deprecated and will be removed in v4.42. Please use `slow_image_processor_class`, or `fast_image_processor_class` instead
+  warnings.warn(
+INFO 06-30 23:44:43 __init__.py:190] Automatically detected platform cuda.
+INFO 06-30 23:44:43 __init__.py:190] Automatically detected platform cuda.
+[2025-06-30 23:44:51 TP0] Scheduler hit an exception: Traceback (most recent call last):
+  File "/home/rende/sglang/python/sglang/srt/managers/scheduler.py", line 1816, in run_scheduler_process
+    scheduler = Scheduler(server_args, port_args, gpu_id, tp_rank, dp_rank)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/scheduler.py", line 240, in __init__
+    self.tp_worker = TpWorkerClass(
+                     ^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/tp_worker_overlap_thread.py", line 63, in __init__
+    self.worker = TpModelWorker(server_args, gpu_id, tp_rank, dp_rank, nccl_port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/tp_worker.py", line 68, in __init__
+    self.model_runner = ModelRunner(
+                        ^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_executor/model_runner.py", line 195, in __init__
+    self.load_model()
+  File "/home/rende/sglang/python/sglang/srt/model_executor/model_runner.py", line 318, in load_model
+    self.model = get_model(
+                 ^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_loader/__init__.py", line 22, in get_model
+    return loader.load_model(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_loader/loader.py", line 357, in load_model
+    model = _initialize_model(
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_loader/loader.py", line 138, in _initialize_model
+    return model_class(
+           ^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/models/deepseek_v2.py", line 861, in __init__
+    self.model = DeepseekV2Model(config, quant_config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/models/deepseek_v2.py", line 815, in __init__
+    DeepseekV2DecoderLayer(
+  File "/home/rende/sglang/python/sglang/srt/models/deepseek_v2.py", line 704, in __init__
+    self.self_attn = DeepseekV2AttentionMLA(
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/models/deepseek_v2.py", line 428, in __init__
+    self.q_b_proj = ColumnParallelLinear(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/layers/linear.py", line 359, in __init__
+    self.quant_method.create_weights(
+  File "/home/rende/sglang/python/sglang/srt/layers/quantization/fp8.py", line 230, in create_weights
+    data=torch.empty(
+         ^^^^^^^^^^^^
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/utils/_device.py", line 106, in __torch_function__
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 79.10 GiB of which 28.12 MiB is free. Including non-PyTorch memory, this process has 79.06 GiB memory in use. Of the allocated memory 78.46 GiB is allocated by PyTorch, and 8.39 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+[2025-06-30 23:44:51] Received sigquit from a child proces. It usually means the child failed.
+Cache shape torch.Size([163840, 64])
+srun: error: dgx01: task 0: Killed
+[E630 23:54:37.922781137 socket.cpp:1011] [c10d] The client socket has timed out after 600000ms while trying to connect to (10.149.146.53, 8000).
+[W630 23:54:37.018570232 TCPStore.cpp:358] [c10d] TCP client failed to connect/validate to host 10.149.146.53:8000 - retrying (try=0, timeout=600000ms, delay=45575ms): The client socket has timed out after 600000ms while trying to connect to (10.149.146.53, 8000).
+Exception raised from throwTimeoutError at ../torch/csrc/distributed/c10d/socket.cpp:1013 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x155553f6c446 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x15e04c6 (0x15553f1464c6 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x6029d95 (0x155543b8fd95 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x6029f36 (0x155543b8ff36 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: <unknown function> + 0x602a3a4 (0x155543b903a4 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0x5fe8016 (0x155543b4e016 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::TCPStore(std::string, c10d::TCPStoreOptions const&) + 0x20c (0x155543b50f7c in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: <unknown function> + 0xda37d9 (0x15555353c7d9 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #8: <unknown function> + 0x4cc1e3 (0x155552c651e3 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #9: sglang::scheduler() [0x54d2d4]
+frame #10: _PyObject_MakeTpCall + 0x2fb (0x51e38b in sglang::scheduler)
+frame #11: sglang::scheduler() [0x578dbd]
+frame #12: _PyObject_Call + 0x122 (0x55e162 in sglang::scheduler)
+frame #13: sglang::scheduler() [0x55b227]
+frame #14: sglang::scheduler() [0x51eaab]
+frame #15: <unknown function> + 0x4ca90b (0x155552c6390b in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #16: _PyObject_MakeTpCall + 0x2fb (0x51e38b in sglang::scheduler)
+frame #17: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #18: sglang::scheduler() [0x59958e]
+frame #19: sglang::scheduler() [0x54db3c]
+frame #20: PyObject_Vectorcall + 0x51 (0x5416a1 in sglang::scheduler)
+frame #21: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #22: _PyObject_FastCallDictTstate + 0x285 (0x520fa5 in sglang::scheduler)
+frame #23: sglang::scheduler() [0x55afc4]
+frame #24: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #25: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #26: _PyObject_FastCallDictTstate + 0x1e7 (0x520f07 in sglang::scheduler)
+frame #27: sglang::scheduler() [0x55b07c]
+frame #28: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #29: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #30: _PyObject_FastCallDictTstate + 0x285 (0x520fa5 in sglang::scheduler)
+frame #31: sglang::scheduler() [0x55afc4]
+frame #32: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #33: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #34: _PyObject_FastCallDictTstate + 0x1e7 (0x520f07 in sglang::scheduler)
+frame #35: sglang::scheduler() [0x55b07c]
+frame #36: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #37: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #38: PyEval_EvalCode + 0xae (0x5e581e in sglang::scheduler)
+frame #39: sglang::scheduler() [0x60bfd7]
+frame #40: sglang::scheduler() [0x6071c7]
+frame #41: PyRun_StringFlags + 0x5f (0x5f694f in sglang::scheduler)
+frame #42: PyRun_SimpleStringFlags + 0x3a (0x5f687a in sglang::scheduler)
+frame #43: Py_RunMain + 0x45f (0x617def in sglang::scheduler)
+frame #44: Py_BytesMain + 0x39 (0x5d03c9 in sglang::scheduler)
+frame #45: <unknown function> + 0x29d90 (0x155555208d90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x155555208e40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #47: sglang::scheduler() [0x5d01f9]
+
+[E701 00:05:14.028543769 socket.cpp:1011] [c10d] The client socket has timed out after 600000ms while trying to connect to (10.149.146.53, 8000).
+[E701 00:05:14.028900848 TCPStore.cpp:346] [c10d] TCP client failed to connect/validate to host 10.149.146.53:8000 - timed out (try=1, timeout=600000ms): The client socket has timed out after 600000ms while trying to connect to (10.149.146.53, 8000).
+Exception raised from throwTimeoutError at ../torch/csrc/distributed/c10d/socket.cpp:1013 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x155553f6c446 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x15e04c6 (0x15553f1464c6 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x6029d95 (0x155543b8fd95 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x6029f36 (0x155543b8ff36 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #4: <unknown function> + 0x602a3a4 (0x155543b903a4 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: <unknown function> + 0x5fe8016 (0x155543b4e016 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::TCPStore(std::string, c10d::TCPStoreOptions const&) + 0x20c (0x155543b50f7c in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: <unknown function> + 0xda37d9 (0x15555353c7d9 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #8: <unknown function> + 0x4cc1e3 (0x155552c651e3 in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #9: sglang::scheduler() [0x54d2d4]
+frame #10: _PyObject_MakeTpCall + 0x2fb (0x51e38b in sglang::scheduler)
+frame #11: sglang::scheduler() [0x578dbd]
+frame #12: _PyObject_Call + 0x122 (0x55e162 in sglang::scheduler)
+frame #13: sglang::scheduler() [0x55b227]
+frame #14: sglang::scheduler() [0x51eaab]
+frame #15: <unknown function> + 0x4ca90b (0x155552c6390b in /home/rende/mysglang/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #16: _PyObject_MakeTpCall + 0x2fb (0x51e38b in sglang::scheduler)
+frame #17: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #18: sglang::scheduler() [0x59958e]
+frame #19: sglang::scheduler() [0x54db3c]
+frame #20: PyObject_Vectorcall + 0x51 (0x5416a1 in sglang::scheduler)
+frame #21: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #22: _PyObject_FastCallDictTstate + 0x285 (0x520fa5 in sglang::scheduler)
+frame #23: sglang::scheduler() [0x55afc4]
+frame #24: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #25: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #26: _PyObject_FastCallDictTstate + 0x1e7 (0x520f07 in sglang::scheduler)
+frame #27: sglang::scheduler() [0x55b07c]
+frame #28: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #29: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #30: _PyObject_FastCallDictTstate + 0x285 (0x520fa5 in sglang::scheduler)
+frame #31: sglang::scheduler() [0x55afc4]
+frame #32: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #33: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #34: _PyObject_FastCallDictTstate + 0x1e7 (0x520f07 in sglang::scheduler)
+frame #35: sglang::scheduler() [0x55b07c]
+frame #36: _PyObject_MakeTpCall + 0x2cb (0x51e35b in sglang::scheduler)
+frame #37: _PyEval_EvalFrameDefault + 0x6ce (0x528ede in sglang::scheduler)
+frame #38: PyEval_EvalCode + 0xae (0x5e581e in sglang::scheduler)
+frame #39: sglang::scheduler() [0x60bfd7]
+frame #40: sglang::scheduler() [0x6071c7]
+frame #41: PyRun_StringFlags + 0x5f (0x5f694f in sglang::scheduler)
+frame #42: PyRun_SimpleStringFlags + 0x3a (0x5f687a in sglang::scheduler)
+frame #43: Py_RunMain + 0x45f (0x617def in sglang::scheduler)
+frame #44: Py_BytesMain + 0x39 (0x5d03c9 in sglang::scheduler)
+frame #45: <unknown function> + 0x29d90 (0x155555208d90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x155555208e40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #47: sglang::scheduler() [0x5d01f9]
+
+[2025-07-01 00:05:14 TP1] Scheduler hit an exception: Traceback (most recent call last):
+  File "/home/rende/sglang/python/sglang/srt/managers/scheduler.py", line 1816, in run_scheduler_process
+    scheduler = Scheduler(server_args, port_args, gpu_id, tp_rank, dp_rank)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/scheduler.py", line 240, in __init__
+    self.tp_worker = TpWorkerClass(
+                     ^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/tp_worker_overlap_thread.py", line 63, in __init__
+    self.worker = TpModelWorker(server_args, gpu_id, tp_rank, dp_rank, nccl_port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/managers/tp_worker.py", line 68, in __init__
+    self.model_runner = ModelRunner(
+                        ^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_executor/model_runner.py", line 187, in __init__
+    min_per_gpu_memory = self.init_torch_distributed()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/sglang/python/sglang/srt/model_executor/model_runner.py", line 255, in init_torch_distributed
+    init_distributed_environment(
+  File "/home/rende/sglang/python/sglang/srt/distributed/parallel_state.py", line 978, in init_distributed_environment
+    torch.distributed.init_process_group(
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 83, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 97, in wrapper
+    func_return = func(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py", line 1520, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/distributed/rendezvous.py", line 221, in _tcp_rendezvous_handler
+    store = _create_c10d_store(
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/rende/mysglang/lib/python3.12/site-packages/torch/distributed/rendezvous.py", line 189, in _create_c10d_store
+    return TCPStore(
+           ^^^^^^^^^
+torch.distributed.DistNetworkError: The client socket has timed out after 600000ms while trying to connect to (10.149.146.53, 8000).
+
+[2025-07-01 00:05:14] Received sigquit from a child proces. It usually means the child failed.
+srun: error: dgx02: task 1: Killed
+srun: Force Terminated StepId=18614.0

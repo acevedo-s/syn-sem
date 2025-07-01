@@ -1,0 +1,54 @@
+0 7 llama llama 1 1
+2025-06-30 17:04:14
+Nbits_list=[0, 1]
+avg_flags=[0]
+diagonal_constraint=1
+Input path A =  /home/acevedo/syn-sem/datasets/activations/matching/0/
+Input path B =  /home/acevedo/syn-sem/datasets/activations/matching/1/
+Collect File:   0%|          | 0/20 [00:00<?, ?it/s]Collect File:   5%|▌         | 1/20 [00:00<00:04,  3.81it/s]Collect File:  10%|█         | 2/20 [00:00<00:04,  3.82it/s]Collect File:  15%|█▌        | 3/20 [00:00<00:03,  4.35it/s]Collect File:  20%|██        | 4/20 [00:00<00:03,  4.35it/s]Collect File:  25%|██▌       | 5/20 [00:01<00:03,  4.70it/s]Collect File:  30%|███       | 6/20 [00:01<00:02,  4.93it/s]Collect File:  35%|███▌      | 7/20 [00:01<00:02,  5.15it/s]Collect File:  40%|████      | 8/20 [00:01<00:02,  5.30it/s]Collect File:  45%|████▌     | 9/20 [00:01<00:02,  5.42it/s]Collect File:  50%|█████     | 10/20 [00:02<00:01,  5.50it/s]Collect File:  55%|█████▌    | 11/20 [00:02<00:01,  5.64it/s]Collect File:  60%|██████    | 12/20 [00:02<00:01,  5.63it/s]Collect File:  65%|██████▌   | 13/20 [00:02<00:01,  5.71it/s]Collect File:  70%|███████   | 14/20 [00:02<00:01,  5.69it/s]Collect File:  75%|███████▌  | 15/20 [00:02<00:00,  5.73it/s]Collect File:  80%|████████  | 16/20 [00:03<00:00,  5.78it/s]Collect File:  85%|████████▌ | 17/20 [00:03<00:00,  5.64it/s]Collect File:  90%|█████████ | 18/20 [00:03<00:00,  5.69it/s]Collect File:  95%|█████████▌| 19/20 [00:03<00:00,  5.64it/s]Collect File: 100%|██████████| 20/20 [00:03<00:00,  5.15it/s]Collect File: 100%|██████████| 20/20 [00:03<00:00,  5.23it/s]
+Collect File:   0%|          | 0/20 [00:00<?, ?it/s]Collect File:   5%|▌         | 1/20 [00:00<00:02,  9.23it/s]Collect File:  10%|█         | 2/20 [00:00<00:01,  9.65it/s]Collect File:  20%|██        | 4/20 [00:00<00:01,  9.64it/s]Collect File:  25%|██▌       | 5/20 [00:00<00:01,  9.63it/s]Collect File:  35%|███▌      | 7/20 [00:00<00:01,  9.40it/s]Collect File:  40%|████      | 8/20 [00:00<00:01,  9.52it/s]Collect File:  45%|████▌     | 9/20 [00:00<00:01,  9.62it/s]Collect File:  50%|█████     | 10/20 [00:01<00:01,  9.22it/s]Collect File:  55%|█████▌    | 11/20 [00:01<00:00,  9.26it/s]Collect File:  60%|██████    | 12/20 [00:01<00:00,  9.05it/s]Collect File:  65%|██████▌   | 13/20 [00:01<00:00,  9.18it/s]Collect File:  70%|███████   | 14/20 [00:01<00:00,  8.89it/s]Collect File:  75%|███████▌  | 15/20 [00:01<00:00,  8.85it/s]Collect File:  80%|████████  | 16/20 [00:01<00:00,  8.47it/s]Collect File:  85%|████████▌ | 17/20 [00:01<00:00,  8.53it/s]Collect File:  90%|█████████ | 18/20 [00:02<00:00,  7.13it/s]Collect File:  95%|█████████▌| 19/20 [00:02<00:00,  6.59it/s]Collect File: 100%|██████████| 20/20 [00:02<00:00,  6.37it/s]Collect File: 100%|██████████| 20/20 [00:02<00:00,  8.29it/s]
+total_sample_size=2000
+2025-06-30 17:04:25.616451: E external/xla/xla/stream_executor/cuda/cuda_driver.cc:266] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+Traceback (most recent call last):
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/xla_bridge.py", line 879, in backends
+    backend = _init_backend(platform)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/xla_bridge.py", line 970, in _init_backend
+    backend = registration.factory()
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/xla_bridge.py", line 668, in factory
+    return xla_client.make_c_api_client(plugin_name, updated_options, None)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jaxlib/xla_client.py", line 200, in make_c_api_client
+    return _xla.get_c_api_client(plugin_name, options, distributed_client)
+jaxlib.xla_extension.XlaRuntimeError: FAILED_PRECONDITION: No visible GPU devices.
+
+During handling of the above exception, another exception occurred:
+
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/acevedo/syn-sem/compute.py", line 404, in <module>
+    main_ranks(
+  File "/home/acevedo/syn-sem/compute.py", line 115, in main_ranks
+    key_distances = jax.random.key(42)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/random.py", line 214, in key
+    return _key('key', seed, impl)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/random.py", line 195, in _key
+    return prng.random_seed(seed, impl=impl)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/prng.py", line 533, in random_seed
+    seeds_arr = jnp.asarray(np.int64(seeds))
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/numpy/lax_numpy.py", line 3289, in asarray
+    return array(a, dtype=dtype, copy=bool(copy), order=order)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/numpy/lax_numpy.py", line 3214, in array
+    out_array: Array = lax_internal._convert_element_type(
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/lax/lax.py", line 559, in _convert_element_type
+    return convert_element_type_p.bind(operand, new_dtype=new_dtype,
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/core.py", line 416, in bind
+    return self.bind_with_trace(find_top_trace(args), args, params)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/core.py", line 420, in bind_with_trace
+    out = trace.process_primitive(self, map(trace.full_raise, args), params)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/core.py", line 921, in process_primitive
+    return primitive.impl(*tracers, **params)
+  File "/home/acevedo/venv/lib/python3.10/site-packages/jax/_src/dispatch.py", line 87, in apply_primitive
+    outs = fun(*args)
+RuntimeError: Unable to initialize backend 'cuda': FAILED_PRECONDITION: No visible GPU devices. (you may need to uninstall the failing plugin package, or set JAX_PLATFORMS=cpu to skip this backend.)

@@ -93,3 +93,39 @@ def get_acronym(language):
   elif language == 'hungarian':
     acronym = 'hu'
   return acronym
+
+def reduce_list_half_preserve_extremes(lst):
+    """
+    Reduces the input list to approximately half its original size,
+    preserving the first and last elements, and sampling uniformly
+    from the intermediate elements.
+    
+    Parameters:
+    -----------
+    lst : list
+        The input list to reduce.
+    
+    Returns:
+    --------
+    list
+        A reduced list with approximately half the points,
+        preserving the first and last elements.
+    """
+    N = len(lst)
+    if N <= 2:
+        return lst.copy()
+    
+    half_N = max(N // 2, 2)
+    num_points_to_sample = half_N - 2
+    
+    new_lst = [lst[0]]
+    
+    if num_points_to_sample > 0:
+        # Calculate the indices to sample from intermediates
+        step = (N - 2) / (num_points_to_sample + 1)
+        intermediate_indices = [int(round(1 + i * step)) for i in range(num_points_to_sample)]
+        new_lst.extend([lst[i] for i in intermediate_indices])
+    
+    new_lst.append(lst[-1])
+    return new_lst
+

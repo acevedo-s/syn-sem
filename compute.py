@@ -22,6 +22,7 @@ from utils import (bf16_torch_to_jax,
                 makefolder,
                 depths,
                 emb_dims,
+                reduce_list_half_preserve_extremes,
                 )
 from collections import defaultdict
 import numpy as np
@@ -33,40 +34,6 @@ from datapaths import *
 import argparse
 from time import time
 
-def reduce_list_half_preserve_extremes(lst):
-    """
-    Reduces the input list to approximately half its original size,
-    preserving the first and last elements, and sampling uniformly
-    from the intermediate elements.
-    
-    Parameters:
-    -----------
-    lst : list
-        The input list to reduce.
-    
-    Returns:
-    --------
-    list
-        A reduced list with approximately half the points,
-        preserving the first and last elements.
-    """
-    N = len(lst)
-    if N <= 2:
-        return lst.copy()
-    
-    half_N = max(N // 2, 2)
-    num_points_to_sample = half_N - 2
-    
-    new_lst = [lst[0]]
-    
-    if num_points_to_sample > 0:
-        # Calculate the indices to sample from intermediates
-        step = (N - 2) / (num_points_to_sample + 1)
-        intermediate_indices = [int(round(1 + i * step)) for i in range(num_points_to_sample)]
-        new_lst.extend([lst[i] for i in intermediate_indices])
-    
-    new_lst.append(lst[-1])
-    return new_lst
 
 def reshuffle_batch_axis(act, key):
     """
@@ -99,6 +66,7 @@ def collect_data(input_path,
         for _, sentence in enumerate(data):
             hidden_states = sentence['meta_info']['hidden_states'][0]
             assert hidden_states.shape[1] >= min_token_length
+            hidden_states = hidden_states[:, -min_token_length:]
 
             for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
                 if filter_layer is not None:
@@ -204,25 +172,32 @@ def main_ranks(
                                                     )
                         if method == 'max':
                             R,L = get_ranks(act_A,act_B)
-                            np.savez(ranks_folder+"L.npz", x_l=L[0], y_l=L[1])
+                            np.save(os.path.join(ranks_folder, "x_l.npy"), L[0])
+                            np.save(os.path.join(ranks_folder, "y_l.npy"), L[1])
                         elif method == 'min':
                             R = get_ranks(act_A,act_B)
-
-                        np.savez(ranks_folder+"R.npz", x_ranks=R[0], y_ranks=R[1])
-
+                        np.save(os.path.join(ranks_folder, "x_ranks.npy"), R[0])
+                        np.save(os.path.join(ranks_folder, "y_ranks.npy"), R[1])
     print(f'this took {(time()-start_time)/60.} m')
     return
 
 
-def main_compute_II(layers_A,
+def main_compute_II(
+                output_folder0,
+                layers_A,
                 layers_B,
                 Nbits_list,
                 n_tokens_list,
                 avg_flags,
-                diagonal_constraint,):
+                diagonal_constraint,
+                method,
+                batch_shuffle,
+                ratio_jackknife=0.5,
+                jack_seeds=5,
+                ):
     start_time = time()
 
-    inf_imb = np.zeros(shape=(2,len(layers_A),len(layers_B)))
+    jack_seeds = np.arange(jack_seeds,dtype=int)
     II_fn = build_information_imbalance(k=1)
 
     for Nbits_id,Nbits in enumerate(Nbits_list):
@@ -230,6 +205,13 @@ def main_compute_II(layers_A,
         for avg_id,avg_tokens in enumerate(avg_flags):
             for n_tokens_id,n_tokens in enumerate(n_tokens_list):
                 print(f'{n_tokens=}')
+                inf_imb = np.zeros(shape=(len(jack_seeds),
+                                        2,
+                                        len(layers_A),
+                                        len(layers_B))
+                                )
+                inf_imb_std = np.zeros(shape=(inf_imb.shape))
+
                 for A_counter,layer_A in enumerate(layers_A):
                     for B_counter,layer_B in enumerate(layers_B):
                         if diagonal_constraint == 1 and layer_B != layer_A:
@@ -251,12 +233,25 @@ def main_compute_II(layers_A,
                                                 batch_shuffle=batch_shuffle,
                                                 )
                         
-                        R = np.load(ranks_folder + "R.npz")
-                        R = (jnp.array(R['x_ranks']),jnp.array(R['y_ranks']))
+                        x_ranks = np.load(os.path.join(ranks_folder, "x_ranks.npy"))
+                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))                        
+                        for jack_seed_id,jack_seed in enumerate(jack_seeds):
+                            jack_key = jax.random.key(jack_seed)
+                            jack_indices = jax.random.choice(key=jack_key,
+                                                             a=x_ranks.shape[0],
+                                                             shape=(int(ratio_jackknife*x_ranks.shape[0]),),
+                                                             replace=False)
+                            R_jack = (x_ranks[jack_indices], y_ranks[jack_indices])
 
-                        inf_imb[:,A_counter,B_counter] = II_fn(R[0],R[1])
-                        print(f'{inf_imb[:,A_counter,B_counter]=}')
+                            _inf_imb,_inf_imb_std = II_fn(R_jack[0],R_jack[1])
+                            (inf_imb[jack_seed_id,:,A_counter,B_counter],
+                             inf_imb_std[jack_seed_id,:,A_counter,B_counter]) = _inf_imb,_inf_imb_std
+                            
+                jack_std = inf_imb.std(axis=0)
+                inf_imb = inf_imb.mean(axis=0)
                 np.save(output_folder+"II.npy",inf_imb)
+                np.save(output_folder+"II_jack_std.npy",jack_std)
+
                     
     print(f'II took {(time()-start_time)/60.} m')
     return
@@ -270,12 +265,13 @@ def main_compute_coeff(layers_A,
                 diagonal_constraint,
                 method,
                 batch_shuffle,
+                ratio_jackknife=0.5,
+                jack_seeds=5,
                 ):
     
     print(f'computing corr coeff')
     start_time = time()
 
-    xi = np.zeros(shape=(2,len(layers_A),len(layers_B)))
     corr_coeff = build_corr_coeff()
 
     for Nbits_id,Nbits in enumerate(Nbits_list):
@@ -283,6 +279,9 @@ def main_compute_coeff(layers_A,
         for avg_id,avg_tokens in enumerate(avg_flags):
             for n_tokens_id,n_tokens in enumerate(n_tokens_list):
                 print(f'{n_tokens=}')
+                xi = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
+                std = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
+
                 for A_counter,layer_A in enumerate(layers_A):
                     for B_counter,layer_B in enumerate(layers_B):
                         if diagonal_constraint == 1 and layer_B != layer_A:
@@ -302,24 +301,31 @@ def main_compute_coeff(layers_A,
                                                 n_tokens=n_tokens,
                                                 avg_tokens=avg_tokens,
                                                 batch_shuffle=batch_shuffle,
-                                                )
-                        
-                        R_npz = np.load(ranks_folder + "R.npz")
-                        L_npz = np.load(ranks_folder + "L.npz")
+                                                )                            
+                        x_ranks = np.load(os.path.join(ranks_folder, "x_ranks.npy"))
+                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))  
+                        x_l = np.load(os.path.join(ranks_folder, "x_l.npy"))
+                        y_l = np.load(os.path.join(ranks_folder, "y_l.npy"))  
 
-                        R = (
-                            jnp.array(R_npz['x_ranks']),
-                            jnp.array(R_npz['y_ranks'])
-                        )
+                        for jack_seed_id,jack_seed in enumerate(jack_seeds):
+                            jack_key = jax.random.key(jack_seed)
+                            jack_indices = jax.random.choice(key=jack_key,
+                                                             a=x_ranks.shape[0],
+                                                             shape=(int(ratio_jackknife*x_ranks.shape[0]),),
+                                                             replace=False)                      
+                            x_ranks_jack = x_ranks[jack_indices]
+                            y_ranks_jack = y_ranks[jack_indices]
+                            x_l_jack = x_l[jack_indices]
+                            y_l_jack = y_l[jack_indices]
 
-                        L = (
-                            jnp.array(L_npz['x_l']),
-                            jnp.array(L_npz['y_l'])
-                        )
+                            (xi[jack_seed_id,:,A_counter,B_counter],
+                            std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((x_ranks_jack,y_ranks_jack),
+                                                                                  (x_l_jack,y_l_jack))
 
-                        xi[:,A_counter,B_counter] = corr_coeff(R,L)
-
+                jack_std = xi.std(axis=0)
+                xi = xi.mean(axis=0)
                 np.save(output_folder+"corr_coeff.npy",xi)
+                np.save(output_folder+"corr_coeff_jack_std.npy",jack_std)
                     
     print(f'corr coeff took {(time()-start_time)/60.} m')
     return
@@ -349,90 +355,90 @@ if __name__ == "__main__":
         layers_A = reduce_list_half_preserve_extremes(layers_A)
         layers_B = reduce_list_half_preserve_extremes(layers_B)
 
-
-
     Nbits_list = None
     avg_flags = None
     diagonal_constraint = None
     n_files = None
     n_tokens_list = None
+    match_var_list = None
 
     if args.dbg == 0:
-        n_files = 500
-        if args.min_token_length == 40:
-            n_tokens_list = np.array([1,10,20])
+        n_tokens_list = np.array([min_token_length])
+        n_files = 20
         Nbits_list = [0,1]
         avg_flags = [0]
         diagonal_constraint = 1
+        match_var_list = ["matching"]
 
     elif args.dbg == 1:
-        n_files = 2
+        n_files = 1
         n_tokens_list = np.array([min_token_length])
         Nbits_list = [0,1]
         avg_flags = [0]
         diagonal_constraint = 1
-    
-    if args.dbg == 2: 
-        n_files = 200
-        n_tokens_list = np.array([20])
-        Nbits_list = [0,1]
-        avg_flags = [0]
-        diagonal_constraint = 1
+        match_var_list = ["matching"]
 
-    # print(f'{k_list=}')
     print(f'{Nbits_list=}')
     print(f'{avg_flags=}')
     print(f'{diagonal_constraint=}')
 
-    input_path_A = input_paths[args.modelA]['0']
-    input_path_B = input_paths[args.modelB]['1']
 
-    print("Input path A = ", input_path_A, flush=True)
-    print("Input path B = ", input_path_B, flush=True)
-    
-    output_folder0 = makefolder(base=f'./results/',
-                               create_folder=True,
-                               modelA=args.modelA,
-                               modelB=args.modelB,
-                               n_files=n_files,
-                               min_token_length=args.min_token_length,
-                               )
-    
-    if args.compute_ranks_flag:
-        main_ranks(
-            layers_A=layers_A,
-            layers_B=layers_B,
-            input_path_A=input_path_A,
-            input_path_B=input_path_B,
-            min_token_length=min_token_length,
-            n_files=n_files,
-            n_tokens_list=n_tokens_list,
-            output_folder0=output_folder0,
-            avg_flags=avg_flags,
-            Nbits_list=Nbits_list,
-            diagonal_constraint=diagonal_constraint,
-            method=method,
-            batch_shuffle=batch_shuffle,
-        )
-    if args.compute_observables_flag:
-        # main_compute_coeff(layers_A,
-        #                 layers_B,
-        #                 Nbits_list,
-        #                 n_tokens_list,
-        #                 avg_flags,
-        #                 diagonal_constraint,
-        #                 method,
-        #                 batch_shuffle,
-        #                 )
-        main_compute_II(layers_A,
-                        layers_B,
-                        Nbits_list,
-                        n_tokens_list,
-                        avg_flags,
-                        diagonal_constraint,
-                        method,
-                        batch_shuffle,
-        )
-    
+
+    for match_var in match_var_list:
+        input_path_A = input_paths[args.modelA][match_var]['0']
+        input_path_B = input_paths[args.modelB][match_var]['1']
+
+        print("Input path A = ", input_path_A, flush=True)
+        print("Input path B = ", input_path_B, flush=True)
+        
+        output_folder0 = makefolder(base=f'./results/',
+                                create_folder=True,
+                                modelA=args.modelA,
+                                modelB=args.modelB,
+                                match_var=match_var,
+                                n_files=n_files,
+                                min_token_length=args.min_token_length,
+                                )
+        
+        if args.compute_ranks_flag:
+            main_ranks(
+                layers_A=layers_A,
+                layers_B=layers_B,
+                input_path_A=input_path_A,
+                input_path_B=input_path_B,
+                min_token_length=min_token_length,
+                n_files=n_files,
+                n_tokens_list=n_tokens_list,
+                output_folder0=output_folder0,
+                avg_flags=avg_flags,
+                Nbits_list=Nbits_list,
+                diagonal_constraint=diagonal_constraint,
+                method=method,
+                batch_shuffle=batch_shuffle,
+            )
+        if args.compute_observables_flag:
+            if method == 'max':
+                main_compute_coeff(layers_A,
+                                layers_B,
+                                Nbits_list,
+                                n_tokens_list,
+                                avg_flags,
+                                diagonal_constraint,
+                                method,
+                                batch_shuffle,
+                                )
+            elif method == 'min':
+                main_compute_II(
+                            output_folder0,
+                            layers_A,
+                            layers_B,
+                            Nbits_list,
+                            n_tokens_list,
+                            avg_flags,
+                            diagonal_constraint,
+                            method,
+                            batch_shuffle,
+                )
+        
 
 

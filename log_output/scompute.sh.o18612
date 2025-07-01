@@ -1,0 +1,21 @@
+1 7 llama llama 1 1
+2025-06-30 17:02:42
+Nbits_list=[0, 1]
+avg_flags=[0]
+diagonal_constraint=1
+Input path A =  /home/acevedo/syn-sem/datasets/activations/matching/0/
+Input path B =  /home/acevedo/syn-sem/datasets/activations/matching/1/
+Collect File:   0%|          | 0/1 [00:00<?, ?it/s]Collect File: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]Collect File: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]
+Collect File:   0%|          | 0/1 [00:00<?, ?it/s]Collect File: 100%|██████████| 1/1 [00:00<00:00,  4.04it/s]Collect File: 100%|██████████| 1/1 [00:00<00:00,  4.03it/s]
+total_sample_size=100
+n_tokens=7
+Nbits=0
+avg_tokens=0
+Nbits=1
+avg_tokens=0
+this took 0.9767521262168884 m
+Nbits=0
+n_tokens=7
+Nbits=1
+n_tokens=7
+II took 0.0032441417376200357 m

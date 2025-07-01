@@ -1,13 +1,17 @@
-#### format is [model][language][min_token_length]
-
 input_paths = {}
 
 ###  models
-input_paths["deepseek"] = {}
-input_paths["llama"] = {}
+input_paths["deepseek"] = {"matching": {},
+                           "missmatching":{},
+                        }
+input_paths["llama"] = {"matching": {},
+                        "missmatching":{},
+                        }
 
-input_paths["llama"]["0"] = "/home/acevedo/syn-sem/datasets/activations/matching/0"
-input_paths["llama"]["1"] = "/home/acevedo/syn-sem/datasets/activations/matching/1"
+for model in ['llama']:
+    for match_var in [ "matching", "missmatching" ]:
+        for index in range(2):
+            input_paths[model][match_var][f"{index}"] = f"/home/acevedo/syn-sem/datasets/activations/{match_var}/{index}/"
 
 
 # ### source languages

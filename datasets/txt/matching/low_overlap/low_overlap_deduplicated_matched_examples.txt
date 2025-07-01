@@ -1,0 +1,779 @@
+A peaceful resolution and a violent conflict ended differently	The old tradition and the new custom coexisted peacefully	DT JJ NN CC DT JJ NN VBD RB
+The debate will be broadcast live	This law should be enforced strictly	DT NN MD VB VBN RB
+The clear sky and the misty morning changed subtly	A large animal and a small creature lived nearby	DT JJ NN CC DT NN NN VBD RB
+They are clearly confused by the situation	She is certainly capable of the feat	PRP VBZ RB JJ IN DT NN
+It has perfectly matched the description	They have often discussed the problem	PRP VBP RB VBN DT NN
+They should look into the complex problem	You might call in an expert opinion	PRP MD VB RP DT JJ NN
+The sound of the ocean echoed softly	A man in a suit walked briskly	DT NN IN DT NN VBD RB
+A tiny insect on the leaf moved incredibly fast	The wide road across the country stretched incredibly far	DT JJ NN IN DT NN VBD RB RB
+She painted a stunning portrait long ago	He lost a valuable watch somewhere around	PRP VBD DT JJ NN RB RB
+The quiet room felt remarkably peaceful	A strong wind blew fiercely wild	DT JJ NN VBD RB JJ
+A message could be sent instantly	The statement will be retracted publicly	DT NN MD VB VBN RB
+A strong wind from the ocean blew fiercely wild	A famous singer on the stage sang beautifully soft	DT JJ NN IN DT NN VBD RB JJ
+The wolves could hunt the deer	Many people may dislike the change	DT NNS MD VB DT NN
+Lincoln delivered a powerful address at Gettysburg	Edison had a brilliant idea in America	NNP VBD DT JJ NN IN NNP
+It was rapidly transformed into a beautiful garden	She was emotionally touched by the poignant melody	PRP VBD RB VBN IN DT JJ NN
+It was finally solved without the help	You were instantly recognized from the crowd	PRP VBD RB VBN IN DT NN
+A flaw in the design emerged later	An idea from the meeting developed quickly	DT NN IN DT NN VBD RB
+The artifact discovered in the tomb was ancient	A bridge designed by a genius stood strong	DT NN VBN IN DT NN VBD JJ
+It has recently become a trend	We have consistently achieved the goal	PRP VBP RB VBN DT NN
+We should formally request the information	He might eagerly accept the offer	PRP MD RB VB DT NN
+A horrible smell drifted from it	The angry bee flew at me	DT JJ NN VBD IN PRP
+You discovered an error in the report	I smelled some smoke from the kitchen	PRP VBD DT NN IN DT NN
+A heavy rain on the roof fell steadily	The green grass in the field grew rapidly	DT JJ NN IN DT NN VBD RB
+You could clearly articulate the message	They must constantly monitor the progress	PRP MD RB VB DT NN
+The book on the shelf fell suddenly	A ship at the dock unloaded slowly	DT NN IN DT NN VBD RB
+A warm blanket felt incredibly soft	The blue sky looked wonderfully clear	DT JJ NN VBD RB JJ
+A hero from a legend appeared magically	The gift inside the box rattled gently	DT NN IN DT NN VBD RB
+She has regularly visited the library	You have gracefully handled the challenge	PRP VBP RB VBN DT NN
+His condition showed a slower improvement	The architect designed a taller building	DT NN VBD DT JJR NN
+He forced the witness to testify truthfully	She paid a stranger to wait nearby	PRP VBD DT NN TO VB RB
+You are really focused on the goal	She is never late for the meeting	PRP VBZ RB JJ IN DT NN
+You could patiently explain the process	He might truly understand the concept	PRP MD RB VB DT NN
+A solution could be found eventually	The system will be updated automatically	DT NN MD VB VBN RB
+She would outwardly show no real emotion	They might quietly leave the noisy party	PRP MD RB VB DT JJ NN
+She will willingly offer the support	It can effectively present the data	PRP MD RB VB DT NN
+A bright light from the lamp shone intensely clear	The large house in the village stood very tall	DT JJ NN IN DT NN VBD RB JJ
+An email about the project came unexpectedly	The secret of the treasure remained hidden	DT NN IN DT NN VBD RB
+Across the frozen lake the wind whistled	Through the dense fog a light appeared	IN DT JJ NN DT NN VBD
+The sharp edge and the blunt side felt distinctly	A clear path and a blocked route appeared suddenly	DT JJ NN CC DT NN NN VBD RB
+I forgot an important date just now	She received a mysterious package earlier today	PRP VBD DT JJ NN RB RB
+Since the early morning the sun had	Inside the hidden chamber a relic gleamed	IN DT JJ NN DT NN VBD
+From the small village the news spread	Within the dusty attic a memory lingered	IN DT JJ NN DT NN VBD
+Her name will be announced soon	His voice can be heard clearly	PRP$ NN MD VB VBN RB
+Failing on a test is a learning experience	Sharing with another person shows a kind heart	VBG IN DT NN VBZ DT JJ NN
+It has widely accepted the change	You have truly surprised the audience	PRP VBP RB VBN DT NN
+You were emotionally moved by the heartfelt story	She was secretly observed from the nearby building	PRP VBD RB VBN IN DT JJ NN
+Near the bubbling spring a deer drank	Despite the urgent warning the group continued	IN DT JJ NN DT NN VBD
+An old friend talked to us	The new intern reported to me	DT JJ NN VBD TO PRP
+They might just miss the morning train	He can perfectly imitate a famous actor	PRP MD RB VB DT JJ NN
+That antique clock ticked on the mantelpiece	The local team won against the champion	DT JJ NN VBD IN DT NN
+The strange man stared at you	The white rabbit scurried past her	DT JJ NN VBD IN PRP
+The old clock on the wall ticked slowly quietly	A tall tree in the forest grew incredibly slowly	DT JJ NN IN DT NN VBD RB RB
+She was clearly affected by the shocking news	You were diligently trained for the demanding competition	PRP VBD RB VBN IN DT JJ NN
+You were unexpectedly caught in the heavy rain	She was entirely consumed by the pressing urgency	PRP VBD RB VBN IN DT JJ NN
+She found a rare artifact somewhere nearby	He made a terrible mistake once before	PRP VBD DT JJ NN RB RB
+He might secretly hide the treasure	She will eagerly await the news	PRP MD RB VB DT NN
+I can draft a proposal for the new venture	They will hire an entertainer for the corporate function	PRP MD VB DT NN IN DT JJ NN
+You drew a map on a napkin	We borrowed some money from the bank	PRP VBD DT NN IN DT NN
+You have deeply regretted the decision	It has precisely fit the space	PRP VBP RB VBN DT NN
+The programmers should debug the code	All applicants must complete this form	DT NNS MD VB DT NN
+The train at the station departed punctually	A change in the weather occurred rapidly	DT NN IN DT NN VBD RB
+A wise elder spoke profoundly true	A fresh bread tasted delightfully fresh	DT JJ NN VBD RB JJ
+The high mountain stood majestically grand	The green grass appeared beautifully lush	DT JJ NN VBD RB JJ
+He is evidently skilled at the craft	You are really focused on the goal	PRP VBZ RB JJ IN DT NN
+Maria bought an expensive dress in Paris	Churchill gave a defiant speech in London	NNP VBD DT JJ NN IN NNP
+Their secret can be kept forever	Her name will be announced soon	PRP$ NN MD VB VBN RB
+We should broadly support the initiative	They could quietly read the book	PRP MD RB VB DT NN
+Those dogs bark at every passing car	The flowers bloom in the warm spring	DT NNS VBP IN DT JJ NN
+Microsoft competed with a rival company	Cleopatra sailed on a magnificent barge	NNP VBD IN DT JJ NN
+You see a flock while I see a bird	I play the guitar and she plays the violin	PRP VBP DT NN CC PRP VBP DT NN
+A wave crashed onto the shore	The gate opened toward the field	DT NN VBD IN DT NN
+We witnessed a spectacular event over there	He gave a powerful speech back then	PRP VBD DT JJ NN RB RB
+Shakespeare wrote with a sharpened quill	David arrived on a late train	NNP VBD IN DT JJ NN
+You could slowly absorb the knowledge	They must immediately address the issue	PRP MD RB VB DT NN
+A warm blanket on the bed felt incredibly soft	A wise elder in the village spoke profoundly true	DT JJ NN IN DT NN VBD RB JJ
+They were truly surprised by the sudden announcement	He was honorably mentioned in the main speech	PRP VBD RB VBN IN DT JJ NN
+A distant star twinkled in the darkness	An orange cat watched from the fence	DT JJ NN VBD IN DT NN
+You must cut off the supply completely	He will give up the fight reluctantly	PRP MD VB RP DT NN RB
+We can bring forth the evidence clearly	He will throw away the trash quickly	PRP MD VB RP DT NN RB
+We should definitely try that new restaurant	They might eventually find the hidden treasure	PRP MD RB VB DT JJ NN
+A sharp wit seemed surprisingly quick	The cool breeze felt delightfully refreshing	DT JJ NN VBD RB JJ
+Newton believed in a mechanical universe	Mandela emerged from a long imprisonment	NNP VBD IN DT JJ NN
+The candidates will debate the issue	Those dogs could chase the squirrel	DT NNS MD VB DT NN
+It can quickly transfer the files	You could neatly arrange the items	PRP MD RB VB DT NNS
+Caesar marched into a foreign land	Picasso painted in a messy studio	NNP VBD IN DT JJ NN
+They can solve the puzzle in the newspaper	We would sail a boat on the lake	PRP MD VB DT NN IN DT NN
+I heard a strange noise just now	She found a rare artifact somewhere nearby	PRP VBD DT JJ NN RB RB
+John lived in a small town	Gutenberg worked with a movable type	NNP VBD IN DT JJ NN
+He could clear away the dusty cobwebs	She should write down the significant points	PRP MD VB RP DT JJ NNS
+They should provide a solution for the problem	He will find the book in the library	PRP MD VB DT NN IN DT NN
+The warm blanket and the cold air conflicted momentarily	A clean room and a messy corner existed simultaneously	DT JJ NN CC DT NN NN VBD RB
+Amidst the joyful crowd a cheer erupted loudly	During the tough challenge the team persevered bravely	IN DT JJ NN DT NN VBD RB
+The simple task at the desk ended abruptly	A heavy door on the vault closed securely	DT JJ NN IN DT NN VBD RB
+The broken toy on the floor lay sadly	A final decision in the meeting was announced	DT JJ NN IN DT NN VBD RB
+He might truly understand the concept	They must promptly answer the question	PRP MD RB VB DT NN
+All citizens must pay a tax	The employees should attend the meeting	DT NNS MD VB DT NN
+It can instantly change the atmosphere	She will politely refuse the request	PRP MD RB VB DT NN
+Our city wants a cleaner environment	This phone has a brighter screen	DT NN VBZ DT JJR NN
+Bach played on a magnificent organ	Ford dreamed of an affordable automobile	NNP VBD IN DT JJ NN
+The student wrote a longer essay	Our team found a faster route	DT NN VBD DT JJR NN
+A light shone from the window	That car stopped near the building	DT NN VBD IN DT NN
+This rule should be applied consistently	The process will be monitored closely	DT NN MD VB VBN RB
+The difficult question in the test remained unanswered	A loud noise from the street stopped abruptly	DT JJ NN IN DT NN VBD RB
+A silver salmon swam up the river	The main character died in the story	DT JJ NN VBD IN DT NN
+She accepted the grand prize and beamed	He climbed a tall tree and looked	PRP VBD DT JJ NN CC VBD
+She is never late for the meeting	You are really skilled at the craft	PRP VBZ RB JJ IN DT NN
+A shadow in the corner moved stealthily	A story about a hero ended tragically	DT NN IN DT NN VBD RB
+It can build up the necessary strength	She should move on the new chapter	PRP MD VB RP DT JJ NN
+It can broadly categorize the items	She will warmly welcome the visitors	PRP MD RB VB DT NNS
+He will throw away the trash quickly	We can get through the task eventually	PRP MD VB RP DT NN RB
+A ghostly figure appeared at the window	The lead actor bowed to the audience	DT JJ NN VBD IN DT NN
+He can legally refuse this unreasonable demand	They might wisely choose a different strategy	PRP MD RB VB DT JJ NN
+Hitchcock directed a suspenseful thriller in Hollywood	Lincoln delivered a powerful address at Gettysburg	NNP VBD DT JJ NN IN NNP
+The guests should respect the rule	All citizens must pay a tax	DT NNS MD VB DT NN
+They might wisely choose a different strategy	We should definitely try that new restaurant	PRP MD RB VB DT JJ NN
+Emily studied at a famous university	Toyota focused on a continuous improvement	NNP VBD IN DT JJ NN
+She heard a noise from the basement	You drew a map on a napkin	PRP VBD DT NN IN DT NN
+He was clearly visible against the sky	They were carefully chosen from the group	PRP VBD RB VBN IN DT NN
+These policies create a real impact	Many chefs use a secret ingredient	DT NNS VBP DT JJ NN
+The athlete achieved a higher score	His condition showed a slower improvement	DT NN VBD DT JJR NN
+She was secretly observed from the nearby building	You were wisely advised against the risky venture	PRP VBD RB VBN IN DT JJ NN
+A method which they prefer works for the task	The book that we read tells about the history	DT NN WDT PRP VBP VBZ IN DT NN
+The long river and the short stream merged suddenly	A brave knight and a wise wizard journeyed far	DT JJ NN CC DT JJ NN VBD RB
+That car stopped near the building	The cat slept in the basket	DT NN VBD IN DT NN
+She may request a song from the wedding DJ	They could stage a protest for a social cause	PRP MD VB DT NN IN DT JJ NN
+She would rarely miss a family gathering	He can physically lift that heavy box	PRP MD RB VB DT JJ NN
+The child pointed at the picture	The artist painted with a brush	DT NN VBD IN DT NN
+It was broadly accepted as a new standard	He was actively engaged in the stimulating discussion	PRP VBD RB VBN IN DT JJ NN
+He forbade his child to go there	She invited her neighbor to come over	PRP VBD PRP$ NN TO VB RB
+The complex puzzle seemed surprisingly easy	A swift river flowed extremely rapid	DT JJ NN VBD RB JJ
+A famous singer on the stage sang beautifully	The fresh water in the stream flowed freely	DT JJ NN IN DT NN VBD RB
+I ate the last cookie and fled	He planted a tiny seed and watered	PRP VBD DT JJ NN CC VBD
+The quick runner on the track finished surprisingly fast	The new system in the office worked exceptionally well	DT JJ NN IN DT NN VBD RB RB
+A tiny insect moved incredibly fast	A young artist painted quite skillfully	DT JJ NN VBD RB RB
+They might eventually find the hidden treasure	We should always follow the safety guideline	PRP MD RB VB DT JJ NN
+I needed my assistant to work late	He advised his client to act cautiously	PRP VBD PRP$ NN TO VB RB
+He has strongly advised the group	We have broadly supported the policy	PRP VBP RB VBN DT NN
+They fear the dark and we fear the unknown	You write a poem while I write a novel	PRP VBP DT NN CC PRP VBP DT NN
+He was easily confused with the other	You were temporarily housed in the shelter	PRP VBD RB VBN IN DT NN
+The deep water looked mysteriously dark	The tall tree stood perfectly still	DT JJ NN VBD RB JJ
+NASA landed a robotic rover on Mars	Robert saw a great movie in London	NNP VBD DT JJ NN IN NNP
+The small child smiled very happily	The wide road stretched incredibly far	DT JJ NN VBD RB RB
+She will kindly offer a hand	They must thoroughly examine the evidence	PRP MD RB VB DT NN
+A fast car moved extremely quickly	A heavy rain fell surprisingly hard	DT JJ NN VBD RB RB
+This lens gives a sharper image	Our military requires a tougher training	DT NN VBZ DT JJR NN
+I might receive an award for my achievement	We should study the map before our journey	PRP MD VB DT NN IN PRP$ NN
+They might accidentally break the expensive vase	I will voluntarily assume this extra responsibility	PRP MD RB VB DT JJ NN
+A swift river flowed extremely rapid	The busy street appeared amazingly vibrant	DT JJ NN VBD RB JJ
+The gray wolf returned to it	A stray dog went to them	DT JJ NN VBD TO PRP
+Many stories begin with a simple sentence	Many artists live in this vibrant city	DT NNS VBP IN DT JJ NN
+The damp air felt unpleasantly heavy	The cold drink tasted wonderfully sweet	DT JJ NN VBD RB JJ
+The economy experienced a swifter recovery	His argument required a clearer explanation	DT NN VBD DT JJR NN
+We are occasionally hesitant regarding the decision	It is quite effective for the purpose	PRP VBZ RB JJ IN DT NN
+A tired worker in the chair rested absolutely still	The quiet room in the building felt remarkably peaceful	DT JJ NN IN DT NN VBD RB JJ
+They must diligently complete the work	He might quickly find the key	PRP MD RB VB DT NN
+You must write down the notes clearly	They should carry out the orders strictly	PRP MD VB RP DT NNS RB
+We should pick up the packages later	She could pass out the flyers quickly	PRP MD VB RP DT NNS RB
+He might vaguely remember the event	We should formally request the information	PRP MD RB VB DT NN
+Against the strong current the swimmer pushed	Beyond the golden gate a garden bloomed	IN DT JJ NN DT NN VBD
+The food cooked on the stove	A memory flashed into the head	DT NN VBD IN DT NN
+You might get over the difficult challenge	We will wear out the durable material	PRP MD VB RP DT JJ NN
+It has unexpectedly caused a delay	You have carefully planned the event	PRP VBP RB VBN DT NN
+A sample of the product convinced the customer	An employee with no experience got the job	DT NN IN DT NN VBD DT NN
+The person who you saw works in the building	A species which they study lives in the ocean	DT NN WDT PRP VBP VBZ IN DT NN
+A small child walked to her	The official summons went to them	DT JJ NN VBD TO PRP
+A keen eye on the target observed sharply focused	The green grass in the field appeared beautifully lush	DT JJ NN IN DT NN VBD RB JJ
+I saw an old friend downtown yesterday	They launched a new product just recently	PRP VBD DT JJ NN RB RB
+The calm sea near the shore seemed incredibly vast	The sharp knife in the kitchen cut precisely clean	DT JJ NN IN DT NN VBD RB JJ
+They must calm down the agitated crowd	We will live through the tough period	PRP MD VB RP DT JJ NN
+A large rock crashed into the valley	That powerful speech resonated with the crowd	DT JJ NN VBD IN DT NN
+Above the quiet village a star twinkled	Inside the old house the air felt	IN DT JJ NN DT NN VBD
+She will eagerly await the news	You could simply answer the query	PRP MD RB VB DT NN
+Upon the smooth surface the water rippled gently	Within the quiet room a clock ticked slowly	IN DT JJ NN DT NN VBD RB
+Despite the loud noise the child slept soundly	Through the dense fog a light appeared faintly	IN DT JJ NN DT NN VBD RB
+A decision must be made now	The signal might be received intermittently	DT NN MD VB VBN RB
+She hung a painting on the wall	You discovered an error in the report	PRP VBD DT NN IN DT NN
+I remember a name and she remembers a face	I drink some water and he drinks some juice	PRP VBP DT NN CC PRP VBZ DT NN
+The last chance and an opportunity passed swiftly	A brave knight and a soldier fought fiercely	DT JJ NN CC DT NN VBD RB
+All citizens deserve a fair trial	Many viewers prefer a happy ending	DT NNS VBP DT JJ NN
+The old painting in the museum hung quietly	A quick glance at the clock passed swiftly	DT JJ NN IN DT NN VBD RB
+The inventor created the machine and the device functioned	A dog chased a squirrel and the animal ran	DT NN VBD DT NN CC DT NN VBD
+You would enjoy a vacation on a tropical island	He will construct a timeline for the historical event	PRP MD VB DT NN IN DT JJ NN
+A meeting could be arranged privately	The animal might be seen rarely	DT NN MD VB VBN RB
+A clear voice spoke remarkably calm	A sharp wit seemed surprisingly quick	DT JJ NN VBD RB JJ
+She will choose an outfit for the party	He may propose a toast at the dinner	PRP MD VB DT NN IN DT NN
+Churchill stood against a formidable foe	Shakespeare wrote with a sharpened quill	NNP VBD IN DT JJ NN
+They might also want a small snack	I will undoubtedly remember this wonderful day	PRP MD RB VB DT JJ NN
+It is almost perfect within the design	They are consistently reliable for the task	PRP VBZ RB JJ IN DT NN
+We can look over the report carefully	It might get ahead the schedule smoothly	PRP MD VB RP DT NN RB
+A part of the machine made a strange sound	A crack in the foundation compromised the whole structure	DT NN IN DT NN VBD DT JJ NN
+The red car and the blue truck crashed loudly	A busy street and a quiet path converged quickly	DT JJ NN CC DT JJ NN VBD RB
+The voice on the phone spoke calmly	A problem with the engine started again	DT NN IN DT NN VBD RB
+She will accurately report the findings	He might easily forget the details	PRP MD RB VB DT NNS
+A red car sped down the highway	That antique clock ticked on the mantelpiece	DT JJ NN VBD IN DT NN
+Driving on the highway needs a skill	Singing in a choir builds a community	VBG IN DT NN VBZ DT NN
+A famous singer sang beautifully soft	A gentle breeze blew pleasantly cool	DT JJ NN VBD RB JJ
+The diligent student studied for the exam	A distant star twinkled in the darkness	DT JJ NN VBD IN DT NN
+He could tell a joke to his friend	I should find a cure for my ailment	PRP MD VB DT NN IN PRP$ NN
+He has just finished the report	They have systematically analyzed the data	PRP VBP RB VBN DT NN
+The green grass appeared beautifully lush	The sharp knife cut precisely clean	DT JJ NN VBD RB JJ
+The curtain moved with the breeze	A problem arose during the meeting	DT NN VBD IN DT NN
+A famous singer on the stage sang beautifully soft	A tired worker in the chair rested absolutely still	DT JJ NN IN DT NN VBD RB JJ
+He was honorably mentioned in the speech	You were quickly informed about the event	PRP VBD RB VBN IN DT NN
+We may offer a reward for the lost dog	You would enjoy a vacation on a tropical island	PRP MD VB DT NN IN DT JJ NN
+The sharp knife in the kitchen cut precisely clean	A bold move in the game felt unusually risky	DT JJ NN IN DT NN VBD RB JJ
+I want a car and you want a bike	We offer a discount but they offer a rebate	PRP VBP DT NN CC PRP VBP DT NN
+A strong wind blew fiercely wild	The complex puzzle seemed surprisingly easy	DT JJ NN VBD RB JJ
+A swift river through the valley flowed extremely rapid	The light touch on the skin felt surprisingly gentle	DT JJ NN IN DT NN VBD RB JJ
+They must thoroughly examine the evidence	He might regularly review the progress	PRP MD RB VB DT NN
+You were wisely advised against the risky venture	She was kindly remembered throughout the entire village	PRP VBD RB VBN IN DT JJ NN
+You could quietly contemplate the idea	He might secretly plot the escape	PRP MD RB VB DT NN
+They are clearly excited about the prospect	She is surprisingly patient with the process	PRP VBZ RB JJ IN DT NN
+A species which they study lives in the ocean	The skill that we possess helps in the work	DT NN WDT PRP VBP VBZ IN DT NN
+We can turn off the light easily	You must tear up the document carefully	PRP MD VB RP DT NN RB
+I have a strong feeling about this matter	She reads a long book on the couch	PRP VBP DT JJ NN IN DT NN
+He might reluctantly accept the offer	They must seriously consider the proposal	PRP MD RB VB DT NN
+They find a penny and we find a dollar	You see a problem while I see a solution	PRP VBP DT NN CC PRP VBP DT NN
+We will take out the smelly trash	They should look into the complex problem	PRP MD VB RP DT JJ NN
+I found an old coin and rejoiced	He ignored the final warning and failed	PRP VBD DT JJ NN CC VBD
+They launched a new product just recently	I felt a sharp pain right here	PRP VBD DT JJ NN RB RB
+A loud noise from the machine sounded exceedingly harsh	A powerful engine in the vehicle ran incredibly smooth	DT JJ NN IN DT NN VBD RB JJ
+Above the misty valley a hawk soared	Against the strong current the swimmer pushed	IN DT JJ NN DT NN VBD
+We finished the long race and collapsed	He lost his favorite pen and searched	PRP VBD DT JJ NN CC VBD
+The artifact might be discovered unexpectedly	This method should be used sparingly	DT NN MD VB VBN RB
+The cold drink in the glass tasted wonderfully sweet	A strong wind from the ocean blew fiercely wild	DT JJ NN IN DT NN VBD RB JJ
+A swift current in the river flowed powerfully strong	The calm sea near the shore seemed incredibly vast	DT JJ NN IN DT NN VBD RB JJ
+Those clouds promise a heavy rain	Few politicians tell the whole truth	DT NNS VBP DT JJ NN
+She chose a different path long ago	They discovered a secret passage deep underground	PRP VBD DT JJ NN RB RB
+Many viewers prefer a happy ending	All students need a quiet place	DT NNS VBP DT JJ NN
+It was reliably delivered to the customer service	We were diligently searched for the missing piece	PRP VBD RB VBN IN DT JJ NN
+The hot sun in the sky shone intensely bright	A swift river through the valley flowed extremely rapid	DT JJ NN IN DT NN VBD RB JJ
+They ask a question and we ask a favor	You fix a machine while I fix a problem	PRP VBP DT NN CC PRP VBP DT NN
+A tired worker rested absolutely still	The light touch felt surprisingly gentle	DT JJ NN VBD RB JJ
+She will warmly welcome the visitors	They could clearly define the terms	PRP MD RB VB DT NNS
+They were simply explained to the audience	It was rapidly completed in a week	PRP VBD RB VBN IN DT NN
+We can discuss the issue after the meeting	I must give a presentation at the conference	PRP MD VB DT NN IN DT NN
+I play the guitar and she plays the violin	They follow a rule and we follow a guideline	PRP VBP DT NN CC PRP VBP DT NN
+You could simply state the fact	He might abruptly stop the music	PRP MD RB VB DT NN
+It might break down the barrier gradually	We can live through the experience bravely	PRP MD VB RP DT NN RB
+Beyond the initial shock the understanding grew slowly	Through the narrow gap a glimpse appeared briefly	IN DT JJ NN DT NN VBD RB
+You could quietly observe the scene	It can rapidly spread the message	PRP MD RB VB DT NN
+He permitted the visitor to enter briefly	They authorized a firm to build locally	PRP VBD DT NN TO VB RB
+A whisper echoed in the corridor	The paper lay on the desk	DT NN VBD IN DT NN
+The item that they need is in the store	A method which they prefer works for the task	DT NN WDT PRP VBP VBZ IN DT NN
+She should back up the crucial data	You might slow down the rapid progress	PRP MD VB RP DT JJ NN
+He can barely see the distant shoreline	We should immediately report any suspicious activity	PRP MD RB VB DT JJ NN
+It was perfectly placed on the table	You were recently promoted to the position	PRP VBD RB VBN IN DT NN
+They must put away the fragile dishes	She should try on the comfortable shoes	PRP MD VB RP DT JJ NNS
+The parcel arrived at the address	A dream appeared in the sleep	DT NN VBD IN DT NN
+We were openly challenged during the debate	She was bravely fought against the injustice	PRP VBD RB VBN IN DT NN
+He gave a convincing argument and convinced	I opened the heavy door and entered	PRP VBD DT JJ NN CC VBD
+He chased a squirrel across the lawn	You left the book on the table	PRP VBD DT NN IN DT NN
+You broke a record at the competition	He put the letter inside the envelope	PRP VBD DT NN IN DT NN
+The flowers bloom in the warm spring	These computers work with a new system	DT NNS VBP IN DT JJ NN
+A gentle breeze through the window blew pleasantly cool	The pure gold in the box shone brilliantly yellow	DT JJ NN IN DT NN VBD RB JJ
+It has precisely fit the space	We have always supported the idea	PRP VBP RB VBN DT NN
+The music played inside the hall	A cup sat on the counter	DT NN VBD IN DT NN
+A terrifying monster appeared before them	An urgent message came for him	DT JJ NN VBD IN PRP
+He was openly welcomed into the new community	You were bravely fought against the unfair system	PRP VBD RB VBN IN DT JJ NN
+A timid mouse scurried under the sofa	The lost puppy whimpered outside the door	DT JJ NN VBD IN DT NN
+Protesting against an injustice shows a strong character	Reading before a sleep is a good habit	VBG IN DT NN VBZ DT JJ NN
+She would really enjoy a quiet afternoon	We should gently handle the fragile object	PRP MD RB VB DT JJ NN
+He would build a castle on the beach	You could leave the key under the doormat	PRP MD VB DT NN IN DT NN
+Maria vacationed on a tropical island	Mozart performed for a royal court	NNP VBD IN DT JJ NN
+This problem should be addressed immediately	The artifact might be discovered unexpectedly	DT NN MD VB VBN RB
+A smooth surface and a texture felt oddly	The bright sun and the moon appeared daily	DT JJ NN CC DT NN VBD RB
+It can reliably provide the service	She will kindly offer a hand	PRP MD RB VB DT NN
+The green grass in the field appeared beautifully lush	A soft whisper in the ear felt remarkably quiet	DT JJ NN IN DT NN VBD RB JJ
+A deep silence in the night fell suddenly	The quick runner on the track finished fast	DT JJ NN IN DT NN VBD RB
+That strange noise came from the attic	A green parrot talked to the pirate	DT JJ NN VBD IN DT NN
+They might secretly plan a surprise party	We should probably visit a different museum	PRP MD RB VB DT JJ NN
+The brown horse galloped to him	A brilliant idea came to her	DT JJ NN VBD TO PRP
+He could take down the old curtain	It can fall apart the fragile structure	PRP MD VB RP DT JJ NN
+He lost a valuable watch somewhere around	I got a weird feeling just then	PRP VBD DT JJ NN RB RB
+You choose a path while I choose a destination	They love the summer and we love the winter	PRP VBP DT NN CC PRP VBP DT NN
+We will come along the entire journey	They must calm down the agitated crowd	PRP MD VB RP DT JJ NN
+The big dog ran to them	A beautiful melody drifted to us	DT JJ NN VBD TO PRP
+You fix a machine while I fix a problem	They find a penny and we find a dollar	PRP VBP DT NN CC PRP VBP DT NN
+We are usually safe near the home	It is quite cold inside the room	PRP VBZ RB JJ IN DT NN
+The teacher used a gentler approach	Our plan needs a firmer commitment	DT NN VBD DT JJR NN
+We saw the final scene and cried	I found an old coin and rejoiced	PRP VBD DT JJ NN CC VBD
+We borrowed some money from the bank	I packed a suitcase for the trip	PRP VBD DT NN IN DT NN
+They authorized a firm to build locally	She counseled the student to study diligently	PRP VBD DT NN TO VB RB
+Many artists live in this vibrant city	The gears turn with a smooth motion	DT NNS VBP IN DT JJ NN
+The myth might be debunked scientifically	This medicine should be taken orally	DT NN MD VB VBN RB
+A fluffy cloud drifted across the sky	The quiet librarian worked at the desk	DT JJ NN VBD IN DT NN
+A cool breeze blew from the sea	The loyal dog waited by the gate	DT JJ NN VBD IN DT NN
+A gentle touch and a harsh grip felt distinctly	The heavy load and the light burden weighed differently	DT JJ NN CC DT NN NN VBD RB
+It can rapidly spread the message	You could calmly accept the situation	PRP MD RB VB DT NN
+A thought lingered in the mind	The fire spread through the forest	DT NN VBD IN DT NN
+We should fairly distribute the tasks	It can seamlessly integrate the components	PRP MD RB VB DT NNS
+The task assigned to the group was difficult	A meal cooked by a chef tasted divine	DT NN VBN IN DT NN VBD JJ
+Inside the hidden chamber a relic gleamed	Beneath the warm blanket the child slept	IN DT JJ NN DT NN VBD
+She was emotionally touched by the poignant melody	You were repeatedly warned about the potential danger	PRP VBD RB VBN IN DT JJ NN
+She was quietly observed from a distance	We were deeply disappointed with the result	PRP VBD RB VBN IN DT NN
+You feel a strange presence within the room	I have a strong feeling about this matter	PRP VBP DT JJ NN IN DT NN
+These computers work with a new system	The engines run on a special fuel	DT NNS VBP IN DT JJ NN
+A problem with the engine started again	The company behind the product grew exponentially	DT NN IN DT NN VBD RB
+The prisoner will be released shortly	This material should be tested thoroughly	DT NN MD VB VBN RB
+We should immediately report any suspicious activity	He can easily solve any complex problem	PRP MD RB VB DT JJ NN
+The game might be won narrowly	A decision must be made now	DT NN MD VB VBN RB
+The light touch felt surprisingly gentle	The hot sun shone intensely bright	DT JJ NN VBD RB JJ
+A fresh smell from the kitchen spread widely	The quiet child in the bed slept peacefully	DT JJ NN IN DT NN VBD RB
+The statement will be retracted publicly	This job should be done carefully	DT NN MD VB VBN RB
+A star in the sky fell gracefully	A hero from a legend appeared magically	DT NN IN DT NN VBD RB
+They must rigorously test the product	It can precisely measure the distance	PRP MD RB VB DT NN
+The cool breeze felt delightfully refreshing	A warm blanket felt incredibly soft	DT JJ NN VBD RB JJ
+It can effectively convey the message	They must rigorously test the product	PRP MD RB VB DT NN
+Those dogs could chase the squirrel	The workers should wear a helmet	DT NNS MD VB DT NN
+The speech will be remembered fondly	This rule should be applied consistently	DT NN MD VB VBN RB
+It can smoothly handle the pressure	He might vaguely remember the event	PRP MD RB VB DT NN
+Amazon started as an online bookstore	Maria vacationed on a tropical island	NNP VBD IN DT JJ NN
+A large shadow crept toward me	The sleek limousine drove past them	DT JJ NN VBD IN PRP
+The quiet child in the bed slept peacefully	A urgent call from the phone rang loudly	DT JJ NN IN DT NN VBD RB
+This recipe produced a sweeter cake	The chef made a spicier soup	DT NN VBD DT JJR NN
+You might send for the missing package	She should look out the beautiful window	PRP MD VB RP DT JJ NN
+You were quickly informed about the event	It was reliably delivered to the customer	PRP VBD RB VBN IN DT NN
+He solved the difficult puzzle and sighed	She designed a unique costume and won	PRP VBD DT JJ NN CC VBD
+A young artist painted quite skillfully	The small child smiled very happily	DT JJ NN VBD RB RB
+Our military requires a tougher training	This coat provides a warmer feeling	DT NN VBZ DT JJR NN
+A strange feeling came over me	The strange man stared at you	DT JJ NN VBD IN PRP
+This simple solution worked for the problem	A silver salmon swam up the river	DT JJ NN VBD IN DT NN
+The rain fell on the ground	A ship sailed across the ocean	DT NN VBD IN DT NN
+A problem that they face occurs in the system	The person who you saw works in the building	DT NN WDT PRP VBP VBZ IN DT NN
+We should fully understand the potential risk	She would hardly recognize this old town	PRP MD RB VB DT JJ NN
+She will patiently teach the lesson	It can powerfully influence the outcome	PRP MD RB VB DT NN
+He could pass by the famous landmark	You might come across a useful tool	PRP MD VB RP DT JJ NN
+The work will be finished shortly	A story could be written beautifully	DT NN MD VB VBN RB
+A heavy box slid toward him	The huge wave crashed toward us	DT JJ NN VBD IN PRP
+The sleek limousine drove past them	A terrifying monster appeared before them	DT JJ NN VBD IN PRP
+She will send out the invitations soon	They should hand in the forms promptly	PRP MD VB RP DT NNS RB
+It might wear out the machine quickly	We can look over the report carefully	PRP MD VB RP DT NN RB
+Gutenberg worked with a movable type	Freud delved into the human psyche	NNP VBD IN DT JJ NN
+The wide road stretched incredibly far	The old clock ticked slowly quietly	DT JJ NN VBD RB RB
+You could calmly explain the situation	It can smoothly handle the pressure	PRP MD RB VB DT NN
+The weary traveler stopped at an inn	This new law passed through the parliament	DT JJ NN VBD IN DT NN
+A bold move in the game felt unusually risky	The old book on the shelf lay completely still	DT JJ NN IN DT NN VBD RB JJ
+They have successfully completed the project	It has unexpectedly caused a delay	PRP VBP RB VBN DT NN
+The software needs a simpler interface	This recipe produced a sweeter cake	DT NN VBD DT JJR NN
+Napoleon fought with a grand army	Ferrari aimed for an unmatched performance	NNP VBD IN DT JJ NN
+You smell the flower while I smell the smoke	We lead a group but they lead a country	PRP VBP DT NN CC PRP VBP DT NN
+The green parrot squawked at them	A tiny mouse scurried past me	DT JJ NN VBD IN PRP
+A new idea and an old tradition struggled slightly	The soft fabric and the rough texture felt differently	DT JJ NN CC DT NN NN VBD RB
+They might possibly win the final match	She would really enjoy a quiet afternoon	PRP MD RB VB DT JJ NN
+They were carefully chosen from the group	He was patiently educated by the teacher	PRP VBD RB VBN IN DT NN
+We were truly amazed at the sight	It was perfectly placed on the table	PRP VBD RB VBN IN DT NN
+A clear voice from the speaker echoed loudly	The empty theatre after the show remained quiet	DT JJ NN IN DT NN VBD RB
+She poured some water into the glass	I caught a fish in the lake	PRP VBD DT NN IN DT NN
+A sweet aroma from the bakery drifted widely	The old house in the village stood silently	DT JJ NN IN DT NN VBD RB
+She could pass out the flyers quickly	You must count down the seconds precisely	PRP MD VB RP DT NNS RB
+The rough surface on the wall felt surprisingly smooth	A loud noise from the machine sounded exceedingly harsh	DT JJ NN IN DT NN VBD RB JJ
+You were accurately measured with the tool	He was kindly remembered throughout the town	PRP VBD RB VBN IN DT NN
+The gears turn with a smooth motion	Those buildings stand on a solid foundation	DT NNS VBP IN DT JJ NN
+A loud noise sounded exceedingly harsh	A swift current flowed powerfully strong	DT JJ NN VBD RB JJ
+The happy song sounded quite joyful	The deep water looked mysteriously dark	DT JJ NN VBD RB JJ
+The tall tree near the house swayed gently	A loud alarm from the building sounded shrilly	DT JJ NN IN DT NN VBD RB
+We are completely prepared for the journey	It is very good in the sunshine	PRP VBZ RB JJ IN DT NN
+A speeding car raced toward us	The dark shape moved towards her	DT JJ NN VBD IN PRP
+The secret agent crept along the corridor	A clever fox hid behind a bush	DT JJ NN VBD IN DT NN
+The bright color and the dark shade contrasted sharply	A brave act and a fearful retreat differed starkly	DT JJ NN CC DT NN NN VBD RB
+The bright sun and the dark moon appeared daily	A peaceful resolution and a violent conflict ended differently	DT JJ NN CC DT JJ NN VBD RB
+An evil sorcerer lived in a tower	A ghostly figure appeared at the window	DT JJ NN VBD IN DT NN
+Hitchcock delighted in a psychological twist	Microsoft competed with a rival company	NNP VBD IN DT JJ NN
+Under the watchful eye the work progressed steadily	Behind the thick curtain a shadow moved slowly	IN DT JJ NN DT NN VBD RB
+A sound which they hear comes from the room	The knowledge that we seek lies in the research	DT NN WDT PRP VBP VBZ IN DT NN
+Lincoln argued for a united nation	Amazon started as an online bookstore	NNP VBD IN DT JJ NN
+I might write a letter to my uncle	He can catch a ball with his glove	PRP MD VB DT NN IN PRP$ NN
+The main character died in the story	A sudden storm brewed over the ocean	DT JJ NN VBD IN DT NN
+The hot sun shone intensely bright	The old house felt remarkably cold	DT JJ NN VBD RB JJ
+He will find the book in the library	You could design a website for the business	PRP MD VB DT NN IN DT NN
+It can efficiently process the data	We should calmly discuss the issue	PRP MD RB VB DT NN
+Isabella painted a beautiful portrait in Spain	Caesar crossed a small river near Rome	NNP VBD DT JJ NN IN NNP
+You must back up the files regularly	She will send out the invitations soon	PRP MD VB RP DT NNS RB
+You could happily sing a song	It can powerfully affect the outcome	PRP MD RB VB DT NN
+The sharks could sense the movement	These cats might eat the food	DT NNS MD VB DT NN
+They saw a ship on the horizon	I placed my cup beside the plate	PRP VBD DT NN IN DT NN
+All members receive a monthly newsletter	Those clouds promise a heavy rain	DT NNS VBP DT JJ NN
+You are really skilled at the craft	She is never satisfied with the outcome	PRP VBZ RB JJ IN DT NN
+King spoke to a hopeful crowd	Michael played for a big team	NNP VBD IN DT JJ NN
+The writer wrote the story and the editor approved	A child found a toy and the parent smiled	DT NN VBD DT NN CC DT NN VBD
+NASA planned for a manned mission	Napoleon fought with a grand army	NNP VBD IN DT JJ NN
+I held my breath during the movie	She hung a painting on the wall	PRP VBD DT NN IN DT NN
+He put the letter inside the envelope	I held my breath during the movie	PRP VBD DT NN IN DT NN
+I will undoubtedly remember this wonderful day	We should fully understand the potential risk	PRP MD RB VB DT JJ NN
+We should wisely choose a leader	It can instantly change the atmosphere	PRP MD RB VB DT NN
+She would usually eat a light breakfast	I will certainly attend the important meeting	PRP MD RB VB DT JJ NN
+A guard at the gate stood watchfully	The dog by the window barked loudly	DT NN IN DT NN VBD RB
+A clear path and a blocked route appeared suddenly	The calm person and the anxious individual reacted differently	DT JJ NN CC DT NN NN VBD RB
+A sudden thought occurred to me	The final decision fell to her	DT JJ NN VBD TO PRP
+She sang a beautiful song and bowed	We reached the high summit and gazed	PRP VBD DT JJ NN CC VBD
+It can successfully overcome the obstacles	She will eagerly anticipate the results	PRP MD RB VB DT NNS
+She should move on the new chapter	He could pass by the famous landmark	PRP MD VB RP DT JJ NN
+He might abruptly stop the music	They must diligently finish the work	PRP MD RB VB DT NN
+She parked the scooter behind the truck	He received a package from the courier	PRP VBD DT NN IN DT NN
+We will wear out the durable material	It can build up the necessary strength	PRP MD VB RP DT JJ NN
+The dark shape moved towards her	A special delivery arrived for you	DT JJ NN VBD IN PRP
+They must hold onto the precious memory	She should pass on the important message	PRP MD VB RP DT JJ NN
+I will certainly attend the important meeting	He can now see a clear path	PRP MD RB VB DT JJ NN
+She commissioned an expert to investigate thoroughly	He told the child to go outside	PRP VBD DT NN TO VB RB
+Those trees provide a welcome shade	All citizens deserve a fair trial	DT NNS VBP DT JJ NN
+Picasso painted in a messy studio	Tesla experimented with a high-voltage current	NNP VBD IN DT JJ NN
+His ideas challenge every conventional thought	Those trees provide a welcome shade	DT NNS VBP DT JJ NN
+The deep water in the lake looked mysteriously dark	The cool breeze on the skin felt delightfully refreshing	DT JJ NN IN DT NN VBD RB JJ
+A memory flashed into the head	The student learned from the lesson	DT NN VBD IN DT NN
+It can effectively reduce the burden	She will willingly offer the support	PRP MD RB VB DT NN
+Cheating on a partner destroys a relationship	Working from the office has an advantage	VBG IN DT NN VBZ DT NN
+A guard at the gate stopped every vehicle	The painting on the wall impressed the critic	DT NN IN DT NN VBD DT NN
+The plan changed after the review	A thought formed in the mind	DT NN VBD IN DT NN
+She will figure out the answer eventually	It might fall over the obstacle clumsily	PRP MD VB RP DT NN RB
+A true story and a fictional tale informed differently	The old custom and the new trend clashed visibly	DT JJ NN CC DT NN NN VBD RB
+A meal cooked by a chef tasted divine	The mystery solved by the detective was complex	DT NN VBN IN DT NN VBD JJ
+A story about a hero ended tragically	The food in the oven cooked evenly	DT NN IN DT NN VBD RB
+She will lead the team to a victory	You might find some money on the street	PRP MD VB DT NN IN DT NN
+A hot beverage and a cold drink cooled differently	The quick fox and the slow turtle raced surprisingly	DT JJ NN CC DT JJ NN VBD RB
+She would sometimes take a different route	They might simply forget the scheduled appointment	PRP MD RB VB DT JJ NN
+They must create an opportunity for the young intern	We should leave a message for the next shift	PRP MD VB DT NN IN DT JJ NN
+I placed my cup beside the plate	They hid the treasure beneath the sand	PRP VBD DT NN IN DT NN
+Sharing with another person shows a kind heart	Succeeding in a business requires a solid plan	VBG IN DT NN VBZ DT JJ NN
+They should hand in the forms promptly	You must back up the files regularly	PRP MD VB RP DT NNS RB
+It might fall over the obstacle clumsily	You could settle down the crowd calmly	PRP MD VB RP DT NN RB
+He can easily solve any complex problem	She would outwardly show no real emotion	PRP MD RB VB DT JJ NN
+A special delivery arrived for you	The green parrot squawked at them	DT JJ NN VBD IN PRP
+We must find a replacement for the part	They should fix the leak in the roof	PRP MD VB DT NN IN DT NN
+She should hand over the confidential papers	You might give away the unwanted clothes	PRP MD VB RP DT JJ NNS
+She should write down the significant points	It can sort through the countless items	PRP MD VB RP DT JJ NNS
+You could settle down the crowd calmly	It might turn on the light easily	PRP MD VB RP DT NN RB
+A heavy rain on the roof fell suddenly hard	The quick runner on the track finished surprisingly fast	DT JJ NN IN DT NN VBD RB RB
+The crowd saw the star and cheered	A king issued a decree and commanded	DT NN VBD DT NN CC VBD
+It can run across the open field	We will shut off the main power	PRP MD VB RP DT JJ NN
+We were genuinely surprised at the unexpected twist	He was openly welcomed into the new community	PRP VBD RB VBN IN DT JJ NN
+After the big storm the sky cleared	Within the digital realm a message spread	IN DT JJ NN DT NN VBD
+She will cautiously approach the animal	We should humbly acknowledge the mistake	PRP MD RB VB DT NN
+The sharp knife cut precisely clean	A sweet aroma smelled deliciously pleasant	DT JJ NN VBD RB JJ
+She should pass on the important message	You might get over the difficult challenge	PRP MD VB RP DT JJ NN
+A sweet aroma and a sour taste lingered noticeably	The quick movement and the slow response occurred rapidly	DT JJ NN CC DT NN NN VBD RB
+She is certainly honest with the truth	You are undoubtedly intelligent for the challenge	PRP VBZ RB JJ IN DT NN
+We have consistently achieved the goal	He has bravely fought the battle	PRP VBP RB VBN DT NN
+The green grass in the field grew rapidly	A famous singer on the stage sang beautifully	DT JJ NN IN DT NN VBD RB
+It was visually striking from the unique angle	You were confidently presented before the entire board	PRP VBD RB VBN IN DT JJ NN
+Working from the office has an advantage	Driving on the highway needs a skill	VBG IN DT NN VBZ DT NN
+A record set by an athlete was incredible	The artifact discovered in the tomb was ancient	DT NN VBN IN DT NN VBD JJ
+I will personally guarantee a positive outcome	He can almost touch the low ceiling	PRP MD RB VB DT JJ NN
+They sell a product and we sell a service	You feel the heat while I feel the warmth	PRP VBP DT NN CC PRP VBP DT NN
+We should always follow the safety guideline	They might also want a small snack	PRP MD RB VB DT JJ NN
+The secret of the treasure remained hidden	A smell from the kitchen drifted tantalizingly	DT NN IN DT NN VBD RB
+The quiet librarian worked at the desk	The professional gamer competed in a tournament	DT JJ NN VBD IN DT NN
+I reminded my colleague to file immediately	She allowed her daughter to play freely	PRP VBD PRP$ NN TO VB RB
+She should look out the beautiful window	They must hold onto the precious memory	PRP MD VB RP DT JJ NN
+A fresh bread tasted delightfully fresh	A bold move felt unusually risky	DT JJ NN VBD RB JJ
+She trained her dog to sit still	He forbade his child to go there	PRP VBD PRP$ NN TO VB RB
+A student in the class answered correctly	The key to the door opened easily	DT NN IN DT NN VBD RB
+We should study the map before our journey	She would hide a diary under her bed	PRP MD VB DT NN IN PRP$ NN
+She developed a new theory sometime recently	They committed a foolish crime back then	PRP VBD DT JJ NN RB RB
+The brave knight fought against a dragon	An old ship rested on the seabed	DT JJ NN VBD IN DT NN
+We have finally reached the destination	He has courageously led the team	PRP VBP RB VBN DT NN
+The old clock ticked slowly quietly	A tiny insect moved incredibly fast	DT JJ NN VBD RB RB
+He planted a tiny seed and watered	We saw the final scene and cried	PRP VBD DT JJ NN CC VBD
+She should try on the comfortable shoes	They must clean up the dirty dishes	PRP MD VB RP DT JJ NNS
+She could break into the conversation abruptly	We can talk over the plan openly	PRP MD VB RP DT NN RB
+He could think over the complex proposal	You might call off the big event	PRP MD VB RP DT JJ NN
+It can look after the delicate plant	She must clean up the messy room	PRP MD VB RP DT JJ NN
+It was precisely aligned with the goal	We were calmly reassured after the news	PRP VBD RB VBN IN DT NN
+We can get through the task eventually	It might die out the tradition slowly	PRP MD VB RP DT NN RB
+We watched a funny movie and laughed	He solved the difficult puzzle and sighed	PRP VBD DT JJ NN CC VBD
+Behind the thick curtain a shadow moved	Since the early morning the sun had	IN DT JJ NN DT NN VBD
+She must clean up the messy room	You might give back the borrowed item	PRP MD VB RP DT JJ NN
+Freud delved into the human psyche	Roosevelt spoke with a confident voice	NNP VBD IN DT JJ NN
+A compromise could be reached amicably	This task should be approached cautiously	DT NN MD VB VBN RB
+Investing in the market carries a risk	Cooking for a family shows a love	VBG IN DT NN VBZ DT NN
+The cat on the roof hissed angrily	A rumor about the celebrity spread virally	DT NN IN DT NN VBD RB
+The new system in the office worked exceptionally well	The fast car on the road moved extremely quickly	DT JJ NN IN DT NN VBD RB RB
+They started a successful business way back	She chose a different path long ago	PRP VBD DT JJ NN RB RB
+He would build up the strength gradually	We can turn off the light easily	PRP MD VB RP DT NN RB
+He might quickly find the key	We should gracefully accept the outcome	PRP MD RB VB DT NN
+She will politely decline the invitation	You could quietly contemplate the idea	PRP MD RB VB DT NN
+You could leave the key under the doormat	He must wear a suit to the wedding	PRP MD VB DT NN IN DT NN
+We can talk over the plan openly	She could send for the expert immediately	PRP MD VB RP DT NN RB
+This medicine should be taken orally	The speech will be remembered fondly	DT NN MD VB VBN RB
+Mandela emerged from a long imprisonment	Caesar marched into a foreign land	NNP VBD IN DT JJ NN
+A fresh bread on the counter tasted deliciously fresh	A clear voice from the speaker spoke remarkably calm	DT JJ NN IN DT NN VBD RB JJ
+The mystery solved by the detective was complex	A rumor started by a rival proved false	DT NN VBN IN DT NN VBD JJ
+We should carefully consider every possible option	They might possibly win the final match	PRP MD RB VB DT JJ NN
+You have wisely chosen the path	It has perfectly matched the description	PRP VBP RB VBN DT NN
+You might come across a useful tool	They must turn off the loud music	PRP MD VB RP DT JJ NN
+We were diligently searched for the missing item	He was calmly interviewed by the local journalist	PRP VBD RB VBN IN DT JJ NN
+They were visually inspected through the lens	She was deeply affected by the news	PRP VBD RB VBN IN DT NN
+Within the digital realm a message spread	Past the old bridge the path narrowed	IN DT JJ NN DT NN VBD
+You might find some money on the street	They can solve the puzzle in the newspaper	PRP MD VB DT NN IN DT NN
+She chose a risky path and succeeded	I remembered an important detail and returned	PRP VBD DT JJ NN CC VBD
+The signal might be received intermittently	This problem should be addressed immediately	DT NN MD VB VBN RB
+An issue with the software caused a major problem	A part of the machine made a strange sound	DT NN IN DT NN VBD DT JJ NN
+It was efficiently managed by the experienced team	We were diligently searched for the missing item	PRP VBD RB VBN IN DT JJ NN
+They must turn off the loud music	She should back up the crucial data	PRP MD VB RP DT JJ NN
+We must establish a motive for the strange crime	We will demand an explanation for this total disaster	PRP MD VB DT NN IN DT JJ NN
+We should gently handle the fragile object	She would rarely miss a family gathering	PRP MD RB VB DT JJ NN
+A brave soldier fought truly heroically	The quick runner finished incredibly fast	DT JJ NN VBD RB RB
+A bird built a nest and laid	The computer processed the data and displayed	DT NN VBD DT NN CC VBD
+Painting on a canvas requires a steady hand	Protesting against an injustice shows a strong character	VBG IN DT NN VBZ DT JJ NN
+We can call back the person politely	She will figure out the answer eventually	PRP MD VB RP DT NN RB
+We should humbly acknowledge the mistake	He might safely cross the street	PRP MD RB VB DT NN
+I cook the dinner and she cooks the breakfast	I use a hammer and he uses a drill	PRP VBP DT NN CC PRP VBZ DT NN
+They could stage a protest for a social cause	She must submit a report for the quarterly review	PRP MD VB DT NN IN DT JJ NN
+He would take off the coat immediately	You must clean up the mess thoroughly	PRP MD VB RP DT NN RB
+It might turn on the light easily	He would take off the coat immediately	PRP MD VB RP DT NN RB
+You were diligently trained for the demanding competition	It was visually striking from the unique angle	PRP VBD RB VBN IN DT JJ NN
+They must draw up a detailed plan	He could throw away the broken toy	PRP MD VB RP DT JJ NN
+You should strictly follow the guidelines	It can quickly transfer the files	PRP MD RB VB DT NNS
+It can rapidly spread the information	They must strictly follow the protocol	PRP MD RB VB DT NN
+A detail in the report changed the entire story	A piece of the puzzle was a different color	DT NN IN DT NN VBD DT JJ NN
+They committed a foolish crime back then	She painted a stunning portrait long ago	PRP VBD DT JJ NN RB RB
+She paid a stranger to wait nearby	They trusted the contractor to build solidly	PRP VBD DT NN TO VB RB
+A crack in the pavement appeared overnight	The house on the hill stood silently	DT NN IN DT NN VBD RB
+The wide road across the country stretched incredibly far	A young artist at the studio painted quite skillfully	DT JJ NN IN DT NN VBD RB RB
+His apology had a sincerer tone	The market saw a steeper decline	DT NN VBD DT JJR NN
+He has humbly accepted the award	We have vividly recalled the memory	PRP VBP RB VBN DT NN
+They must constantly monitor the progress	It can effectively reduce the burden	PRP MD RB VB DT NN
+A path led to the cottage	The rain fell on the ground	DT NN VBD IN DT NN
+You left the book on the table	They designed a building for the client	PRP VBD DT NN IN DT NN
+You might call off the big event	We will set aside the important document	PRP MD VB RP DT JJ NN
+A golden eagle soared above the canyon	The secret agent crept along the corridor	DT JJ NN VBD IN DT NN
+We were eagerly awaited for the positive outcome	It was rapidly transformed into a beautiful garden	PRP VBD RB VBN IN DT JJ NN
+The cool breeze on the skin felt delightfully refreshing	A keen eye on the target observed sharply focused	DT JJ NN IN DT NN VBD RB JJ
+The angry customer complained to the manager	A golden eagle soared above the canyon	DT JJ NN VBD IN DT NN
+A deep sigh felt profoundly sad	A clear voice spoke remarkably calm	DT JJ NN VBD RB JJ
+Our team found a faster route	The factory implemented a safer procedure	DT NN VBD DT JJR NN
+The fast car on the road moved extremely quickly	The brave soldier in the battle fought truly heroically	DT JJ NN IN DT NN VBD RB RB
+Roosevelt spoke with a confident voice	Churchill stood against a formidable foe	NNP VBD IN DT JJ NN
+She will fairly judge the competition	You could brightly illuminate the room	PRP MD RB VB DT NN
+The paper lay on the desk	This child played with a toy	DT NN VBD IN DT NN
+We have vividly recalled the memory	She has never seen that movie	PRP VBP RB VBN DT NN
+You write a poem while I write a novel	They have a dog and we have a cat	PRP VBP DT NN CC PRP VBP DT NN
+She is certainly capable of the feat	They are clearly excited about the prospect	PRP VBZ RB JJ IN DT NN
+He might occasionally visit the place	We should wisely choose a leader	PRP MD RB VB DT NN
+The pure gold shone brilliantly yellow	A keen eye observed sharply focused	DT JJ NN VBD RB JJ
+Einstein thought about a unified theory	King spoke to a hopeful crowd	NNP VBD IN DT JJ NN
+The building might be demolished soon	A solution could be found eventually	DT NN MD VB VBN RB
+The computer in the office crashed this morning	A monster from a legend terrorized the village	DT NN IN DT NN VBD DT NN
+A swift current flowed powerfully strong	The rough surface felt surprisingly smooth	DT JJ NN VBD RB JJ
+A wise elder in the village spoke profoundly true	The happy song from the radio sounded quite joyful	DT JJ NN IN DT NN VBD RB JJ
+A runner finished in the race	The parcel arrived at the address	DT NN VBD IN DT NN
+The engines run on a special fuel	The waves crash against the rocky shore	DT NNS VBP IN DT JJ NN
+The old book on the shelf lay completely still	The deep water in the lake looked mysteriously dark	DT JJ NN IN DT NN VBD RB JJ
+A powerful engine in the car ran smoothly	The fragile vase on the shelf broke easily	DT JJ NN IN DT NN VBD RB
+They must diligently finish the work	You should gently close the door	PRP MD RB VB DT NN
+A keen eye observed sharply focused	The calm sea seemed incredibly vast	DT JJ NN VBD RB JJ
+A rumor started by a rival proved false	The task assigned to the group was difficult	DT NN VBN IN DT NN VBD JJ
+He can book a room for our vacation	I will visit the museum after my lunch	PRP MD VB DT NN IN PRP$ NN
+They must bravely face the challenge	He might quickly pack the luggage	PRP MD RB VB DT NN
+We should openly confront the problem	You could happily sing a song	PRP MD RB VB DT NN
+An old ship rested on the seabed	A large rock crashed into the valley	DT JJ NN VBD IN DT NN
+The whole responsibility defaulted to you	A former colleague spoke to them	DT JJ NN VBD TO PRP
+The new system worked exceptionally well	A brave soldier fought truly heroically	DT JJ NN VBD RB RB
+A dog chased a squirrel and the animal ran	The traveler visited the country and the culture impressed	DT NN VBD DT NN CC DT NN VBD
+They study the history and we study the future	You read a book while I watch a film	PRP VBP DT NN CC PRP VBP DT NN
+They should take on the responsibility willingly	She could break into the conversation abruptly	PRP MD VB RP DT NN RB
+I sing a song and he sings a melody	I prefer the coffee and she prefers the tea	PRP VBP DT NN CC PRP VBZ DT NN
+They have often discussed the problem	It has rapidly spread the news	PRP VBP RB VBN DT NN
+A brave act and a fearful retreat differed starkly	The long river and the short stream met unexpectedly	DT JJ NN CC DT NN NN VBD RB
+The high mountain in the distance stood majestically grand	A warm blanket on the bed felt incredibly soft	DT JJ NN IN DT NN VBD RB JJ
+The old house felt remarkably cold	The high mountain stood majestically grand	DT JJ NN VBD RB JJ
+Victoria presided over a changing world	Samsung competed in a global marketplace	NNP VBD IN DT JJ NN
+They must clean up the dirty dishes	He could clear away the dusty cobwebs	PRP MD VB RP DT JJ NNS
+Napoleon fought a decisive battle near Waterloo	Joan heard a divine voice in Orleans	NNP VBD DT JJ NN IN NNP
+Samsung competed in a global marketplace	Einstein thought about a unified theory	NNP VBD IN DT JJ NN
+Cleopatra ruled a powerful kingdom in Egypt	Maria bought an expensive dress in Paris	NNP VBD DT JJ NN IN NNP
+A lawyer made an objection and argued	The chef tasted the soup and nodded	DT NN VBD DT NN CC VBD
+We must entirely trust the system	She will patiently teach the lesson	PRP MD RB VB DT NN
+The blue sky looked wonderfully clear	The damp air felt unpleasantly heavy	DT JJ NN VBD RB JJ
+I experienced a sudden change sometime ago	I forgot an important date just now	PRP VBD DT JJ NN RB RB
+He can quickly assemble the complicated device	They might accidentally break the expensive vase	PRP MD RB VB DT JJ NN
+They must precisely measure the dimensions	It can successfully overcome the obstacles	PRP MD RB VB DT NNS
+Few politicians tell the whole truth	These policies create a real impact	DT NNS VBP DT JJ NN
+You must tear up the document carefully	They should hold on the rope tightly	PRP MD VB RP DT NN RB
+A dream appeared in the sleep	The plan changed after the review	DT NN VBD IN DT NN
+A young artist at the studio painted quite skillfully	The old clock on the wall ticked slowly quietly	DT JJ NN IN DT NN VBD RB RB
+Traveling to a country broadens a perspective	Running in the park is a routine	VBG IN DT NN VBZ DT NN
+I bake a cake and he bakes a pie	I cook the dinner and she cooks the breakfast	PRP VBP DT NN CC PRP VBZ DT NN
+You should take an aspirin for your headache	I might write a letter to my uncle	PRP MD VB DT NN IN PRP$ NN
+We bought a gift for the child	He drove his car to the city	PRP VBD DT NN IN DT NN
+They must immediately address the issue	It can constantly monitor the system	PRP MD RB VB DT NN
+The package will be delivered tomorrow	A fire could be started deliberately	DT NN MD VB VBN RB
+They must put down the boxes gently	She could hand over the papers formally	PRP MD VB RP DT NNS RB
+He will speak up the truth bravely	It might move on the project swiftly	PRP MD VB RP DT NN RB
+We finished a difficult project just yesterday	I experienced a sudden change sometime ago	PRP VBD DT JJ NN RB RB
+The damp air in the cellar felt unpleasantly heavy	A deep sigh from the person felt profoundly sad	DT JJ NN IN DT NN VBD RB JJ
+A small dog and a large cat played together	The bright sun and the dark moon appeared daily	DT JJ NN CC DT JJ NN VBD RB
+A bird on a wire chirped merrily	The train at the station departed punctually	DT NN IN DT NN VBD RB
+The happy song from the radio sounded quite joyful	A fresh bread on the counter tasted deliciously fresh	DT JJ NN IN DT NN VBD RB JJ
+You must count down the seconds precisely	She could fill in the blanks accurately	PRP MD VB RP DT NNS RB
+She is always happy at the school	We are occasionally hesitant regarding the decision	PRP VBZ RB JJ IN DT NN
+The cold drink tasted wonderfully sweet	A powerful engine ran incredibly smooth	DT JJ NN VBD RB JJ
+She received a mysterious package earlier today	We ate a delicious meal out there	PRP VBD DT JJ NN RB RB
+A kind woman waved to me	The last cookie went to her	DT JJ NN VBD TO PRP
+The brave soldier in the battle fought truly heroically	A heavy rain on the roof fell suddenly hard	DT JJ NN IN DT NN VBD RB RB
+We will set aside the important document	They must draw up a detailed plan	PRP MD VB RP DT JJ NN
+He might easily forget the details	We must carefully observe the rules	PRP MD RB VB DT NNS
+The white rabbit scurried past her	A cold shiver went down him	DT JJ NN VBD IN PRP
+A gentle breeze blew pleasantly cool	A wise elder spoke profoundly true	DT JJ NN VBD RB JJ
+This method should be used sparingly	The truth might be revealed accidentally	DT NN MD VB VBN RB
+A large dog barked quite loudly	The new system worked exceptionally well	DT JJ NN VBD RB RB
+A thought formed in the mind	The child pointed at the picture	DT NN VBD IN DT NN
+A clear message and a vague hint confused the recipient	The soft sound and the loud noise affected the quiet	DT JJ NN CC DT JJ NN VBD DT NN
+Many people may dislike the change	All drivers must have a license	DT NNS MD VB DT NN
+They should bring along the supplies readily	You must write down the notes clearly	PRP MD VB RP DT NNS RB
+A message in a bottle reached a distant shore	An issue with the software caused a major problem	DT NN IN DT NN VBD DT JJ NN
+They should fix the leak in the roof	I must finish this work by the deadline	PRP MD VB DT NN IN DT NN
+A decision by the council passed unanimously	A bird on a wire chirped merrily	DT NN IN DT NN VBD RB
+This task should be approached cautiously	The building might be demolished soon	DT NN MD VB VBN RB
+We should strongly oppose any unfair decision	She would usually eat a light breakfast	PRP MD RB VB DT JJ NN
+You could brightly illuminate the room	He might slowly approach the animal	PRP MD RB VB DT NN
+You were repeatedly warned about the potential danger	It was patiently explained to the young student	PRP VBD RB VBN IN DT JJ NN
+Programming on a computer demands a logical mind	Camping in the wilderness presents a unique challenge	VBG IN DT NN VBZ DT JJ NN
+A sound came from the room	The device powered off the grid	DT NN VBD IN DT NN
+The tall tree stood perfectly still	A soft whisper felt remarkably quiet	DT JJ NN VBD RB JJ
+It can sort through the countless items	We will carry out the strict instructions	PRP MD VB RP DT JJ NNS
+The birds sing in the tall tree	The colors blend into a beautiful pattern	DT NNS VBP IN DT JJ NN
+Our plan needs a firmer commitment	The company adopted a leaner structure	DT NN VBD DT JJR NN
+She is surprisingly calm under the pressure	We are usually optimistic about the future	PRP VBZ RB JJ IN DT NN
+She was politely declined by the organizing committee	It was securely fastened with a strong rope	PRP VBD RB VBN IN DT JJ NN
+His argument required a clearer explanation	The painting used a bolder color	DT NN VBD DT JJR NN
+The athlete crossed the line and collapsed	A bird built a nest and laid	DT NN VBD DT NN CC VBD
+A sweet aroma smelled deliciously pleasant	The happy song sounded quite joyful	DT JJ NN VBD RB JJ
+We will carry out the strict instructions	She should push through the difficult times	PRP MD VB RP DT JJ NNS
+It can constantly monitor the system	He might accidentally break the vase	PRP MD RB VB DT NN
+A former colleague spoke to them	The grand prize went to her	DT JJ NN VBD TO PRP
+They must speak up the valuable opinion	You might send for the missing package	PRP MD VB RP DT JJ NN
+She answered a question from the audience	I wrote a story about a dragon	PRP VBD DT NN IN DT NN
+The team scored against the opponent	A path led to the cottage	DT NN VBD IN DT NN
+He made a terrible mistake once before	She developed a new theory sometime recently	PRP VBD DT JJ NN RB RB
+We will live through the tough period	It can break down the sturdy barrier	PRP MD VB RP DT JJ NN
+We sang a song around the campfire	She parked the scooter behind the truck	PRP VBD DT NN IN DT NN
+We should carefully document the process	You could quietly observe the scene	PRP MD RB VB DT NN
+You could calmly accept the situation	He might rarely miss a deadline	PRP MD RB VB DT NN
+This information should be handled confidentially	The work will be finished shortly	DT NN MD VB VBN RB
+The food in the oven cooked evenly	A guest at the hotel complained bitterly	DT NN IN DT NN VBD RB
+That powerful speech resonated with the crowd	A fluffy cloud drifted across the sky	DT JJ NN VBD IN DT NN
+It can fall apart the fragile structure	We will take out the smelly trash	PRP MD VB RP DT JJ NN
+He showed the apprentice to measure precisely	I designated a person to watch closely	PRP VBD DT NN TO VB RB
+You could simply answer the query	They must diligently complete the work	PRP MD RB VB DT NN
+You were emotionally moved by the story	He was easily confused with the other	PRP VBD RB VBN IN DT NN
+She will politely interrupt the conversation	You could slowly absorb the knowledge	PRP MD RB VB DT NN
+He was courageously fought against the formidable opponent	It was broadly accepted as a new standard	PRP VBD RB VBN IN DT JJ NN
+I recommended a book to read next	They begged the king to rule justly	PRP VBD DT NN TO VB RB
+We are completely engrossed in the story	It is purely theoretical at this stage	PRP VBZ RB JJ IN DT NN
+A guest at the hotel complained bitterly	The noise from the street continued unabatedly	DT NN IN DT NN VBD RB
+A deep sigh from the person felt profoundly sad	The high mountain in the distance stood majestically grand	DT JJ NN IN DT NN VBD RB JJ
+A happy child and a sad adult walked slowly	The long river and the short stream merged suddenly	DT JJ NN CC DT JJ NN VBD RB
+She would hardly recognize this old town	They might reluctantly accept the final offer	PRP MD RB VB DT JJ NN
+She will politely refuse the request	It can reliably provide the service	PRP MD RB VB DT NN
+A powerful engine ran incredibly smooth	The bright light shone intensely clear	DT JJ NN VBD RB JJ
+We suggest a change but they suggest a revolution	You choose a path while I choose a destination	PRP VBP DT NN CC PRP VBP DT NN
+He might eagerly accept the offer	She will fairly judge the competition	PRP MD RB VB DT NN
+He might quickly pack the luggage	It can easily solve the puzzle	PRP MD RB VB DT NN
+We are usually optimistic about the future	He is evidently unwell during the day	PRP VBZ RB JJ IN DT NN
+Ford dreamed of an affordable automobile	Emily studied at a famous university	NNP VBD IN DT JJ NN
+He could throw away the broken toy	It can grow into a strong tree	PRP MD VB RP DT JJ NN
+I wrote a story about a dragon	They moved a chair into the corner	PRP VBD DT NN IN DT NN
+She could come across the solution unexpectedly	We can bring forth the evidence clearly	PRP MD VB RP DT NN RB
+He can confidently lead the entire team	I will personally guarantee a positive outcome	PRP MD RB VB DT JJ NN
+She will eagerly anticipate the results	You could easily remember the details	PRP MD RB VB DT NNS
+Mozart performed for a royal court	Beethoven composed in a quiet room	NNP VBD IN DT JJ NN
+The pure gold in the box shone brilliantly yellow	A sharp wit in the conversation seemed surprisingly quick	DT JJ NN IN DT NN VBD RB JJ
+The lead actor bowed to the audience	The weary traveler stopped at an inn	DT JJ NN VBD IN DT NN
+It can precisely measure the distance	We should openly confront the problem	PRP MD RB VB DT NN
+Tesla experimented with a high-voltage current	Sarah worked at a local shop	NNP VBD IN DT JJ NN
+They could build a shelter for the animal	We should clean the house before the party	PRP MD VB DT NN IN DT NN
+You see a problem while I see a solution	We run a marathon but they run a sprint	PRP VBP DT NN CC PRP VBP DT NN
+She was deeply affected by the news	They were secretly watched from the window	PRP VBD RB VBN IN DT NN
+We have broadly supported the policy	She has often visited the garden	PRP VBP RB VBN DT NN
+He can almost touch the low ceiling	She would sometimes take a different route	PRP MD RB VB DT JJ NN
+He might rarely miss a deadline	We should carefully document the process	PRP MD RB VB DT NN
+Around the huge table the group gathered	Above the quiet village a star twinkled	IN DT JJ NN DT NN VBD
+We discovered a secret passage and explored	I answered the tough question and passed	PRP VBD DT JJ NN CC VBD
+She could hand over the papers formally	They should bring along the supplies readily	PRP MD VB RP DT NNS RB
+I must find an excuse for my tardiness	He should buy a gift for his friend	PRP MD VB DT NN IN PRP$ NN
+The giant squid surfaced near the boat	A bright light shone through the window	DT JJ NN VBD IN DT NN
+An urgent message came for him	The fuzzy caterpillar crawled on me	DT JJ NN VBD IN PRP
+This technology allows a deeper analysis	Our city wants a cleaner environment	DT NN VBZ DT JJR NN
+The child who you teach plays in the garden	A book which we like sits on the shelf	DT NN WDT PRP VBP VBZ IN DT NN
+The heavy load and the light burden weighed differently	A new idea and an old tradition struggled slightly	DT JJ NN CC DT NN NN VBD RB
+These cats might eat the food	The wolves could hunt the deer	DT NNS MD VB DT NN
+A tall stranger walked into the room	That strange noise came from the attic	DT JJ NN VBD IN DT NN
+It can effectively present the data	He might suddenly change the direction	PRP MD RB VB DT NN
+The crops should be harvested before the rain	All resources must be managed by a supervisor	DT NNS MD VB VBN IN DT NN
+She will kindly assist the newcomers	We should fairly distribute the tasks	PRP MD RB VB DT NNS
+Those buildings stand on a solid foundation	Some children play near a large pond	DT NNS VBP IN DT JJ NN
+He was partially damaged by the impact	She was quietly observed from a distance	PRP VBD RB VBN IN DT NN
+We create some art but they create some chaos	You tell a story while I tell a lie	PRP VBP DT NN CC PRP VBP DT NN
+A cold shiver went down him	A horrible smell drifted from it	DT JJ NN VBD IN PRP
+The company behind the product grew exponentially	A guard at the gate stood watchfully	DT NN IN DT NN VBD RB
+You could wisely invest the capital	We must entirely trust the system	PRP MD RB VB DT NN
+Caesar crossed a small river near Rome	NASA landed a robotic rover on Mars	NNP VBD DT JJ NN IN NNP
+Since the last visit the landscape changed	Above the misty valley a hawk soared	IN DT JJ NN DT NN VBD
+They must promptly answer the question	She will politely interrupt the conversation	PRP MD RB VB DT NN
+A heavy rain fell surprisingly hard	A large dog barked quite loudly	DT JJ NN VBD RB RB
+He lost his favorite pen and searched	She packed a small bag and departed	PRP VBD DT JJ NN CC VBD
+He would read a poem at the ceremony	She will choose an outfit for the party	PRP MD VB DT NN IN DT NN
+Columbus found a new world for Europe	Napoleon fought a decisive battle near Waterloo	NNP VBD DT JJ NN IN NNP
+The fuzzy caterpillar crawled on me	A speeding car raced toward us	DT JJ NN VBD IN PRP
+We ate the cake after the dinner	I took a photo of the sunset	PRP VBD DT NN IN DT NN
+They have instantly recognized the voice	He has strongly advised the group	PRP VBP RB VBN DT NN
+It might get ahead the schedule smoothly	They should call off the event entirely	PRP MD VB RP DT NN RB
+A wooden bridge stood over the stream	The royal procession moved toward the palace	DT JJ NN VBD IN DT NN
+You might give back the borrowed item	He could turn on the old radio	PRP MD VB RP DT JJ NN
+He gave a powerful speech back then	I caught a big fish out there	PRP VBD DT JJ NN RB RB
+We have always supported the idea	It has widely accepted the change	PRP VBP RB VBN DT NN
+The huge wave crashed toward us	A strange feeling came over me	DT JJ NN VBD IN PRP
+I will voluntarily assume this extra responsibility	He can quickly assemble the complicated device	PRP MD RB VB DT JJ NN
+David arrived on a late train	Hemingway fished from a small boat	NNP VBD IN DT JJ NN
+A bold move felt unusually risky	A famous singer sang beautifully soft	DT JJ NN VBD RB JJ
+Within the quiet room a clock ticked slowly	Beneath the warm blanket the child slept peacefully	IN DT JJ NN DT NN VBD RB
+She was kindly remembered throughout the entire village	You were emotionally moved by the heartfelt story	PRP VBD RB VBN IN DT JJ NN
+We are an active participant in the event	He is a powerful speaker before the crowd	PRP VBZ DT JJ NN IN DT NN
+He has courageously led the team	You have deeply regretted the decision	PRP VBP RB VBN DT NN
+She was calmly handled during the chaotic moment	They were truly surprised by the sudden announcement	PRP VBD RB VBN IN DT JJ NN
+I caught a big fish out there	We finished a difficult project just yesterday	PRP VBD DT JJ NN RB RB
+We can live through the experience bravely	She could come across the solution unexpectedly	PRP MD VB RP DT NN RB
+It is quite cold inside the room	You are fiercely loyal to the cause	PRP VBZ RB JJ IN DT NN
+You could neatly arrange the items	She will kindly assist the newcomers	PRP MD RB VB DT NNS
+You might call in an expert opinion	It can run across the open field	PRP MD VB RP DT JJ NN
+I answered the tough question and passed	She wore a stunning outfit and dazzled	PRP VBD DT JJ NN CC VBD
+A rumor about the celebrity spread virally	The light from the lighthouse shone brightly	DT NN IN DT NN VBD RB
+We should diligently research the topic	He might secretly hide the treasure	PRP MD RB VB DT NN
+This job should be done carefully	The package will be delivered tomorrow	DT NN MD VB VBN RB
+Sarah worked at a local shop	NASA planned for a manned mission	NNP VBD IN DT JJ NN
+The bright light shone intensely clear	A deep sigh felt profoundly sad	DT JJ NN VBD RB JJ
+The quick runner on the track finished fast	A fresh smell from the kitchen spread widely	DT JJ NN IN DT NN VBD RB
+He can skillfully navigate the treacherous water	They might just miss the morning train	PRP MD RB VB DT JJ NN
+A smile crossed on the face	The scent wafted from the kitchen	DT NN VBD IN DT NN
+Within the dusty attic a memory lingered	Across the wide river the bridge stretched	IN DT JJ NN DT NN VBD
+Ferrari aimed for an unmatched performance	John lived in a small town	NNP VBD IN DT JJ NN
+The reviewers should evaluate the product	All pilots must pass the test	DT NNS MD VB DT NN
+All users must accept the term	The reviewers should evaluate the product	DT NNS MD VB DT NN
+Jobs insisted on a minimalist design	Victoria presided over a changing world	NNP VBD IN DT JJ NN
+Through the narrow gap a glimpse appeared briefly	Before the crucial moment the tension increased dramatically	IN DT JJ NN DT NN VBD RB
+You were confidently presented before the entire board	He was unfortunately impacted by the severe weather	PRP VBD RB VBN IN DT JJ NN
+You feel the heat while I feel the warmth	They fear the dark and we fear the unknown	PRP VBP DT NN CC PRP VBP DT NN
+You are undoubtedly intelligent for the challenge	It is almost perfect within the design	PRP VBZ RB JJ IN DT NN
+You have carefully planned the event	He has humbly accepted the award	PRP VBP RB VBN DT NN
+The rough surface felt surprisingly smooth	A tired worker rested absolutely still	DT JJ NN VBD RB JJ
+It is purely theoretical at this stage	They are truly strong during the game	PRP VBZ RB JJ IN DT NN
+Edison had a brilliant idea in America	Columbus found a new world for Europe	NNP VBD DT JJ NN IN NNP
+They hired a professional to work efficiently	She commissioned an expert to investigate thoroughly	PRP VBD DT NN TO VB RB
+They deserve to know the honest truth	You choose to live a simple life	PRP VBP TO VB DT JJ NN
+They might reluctantly accept the final offer	He can confidently lead the entire team	PRP MD RB VB DT JJ NN
+We were diligently searched for the missing piece	She was calmly handled during the chaotic moment	PRP VBD RB VBN IN DT JJ NN
+An ancient curse fell upon the village	That tragic event occurred on a Tuesday	DT JJ NN VBD IN DT NN
+I got a weird feeling just then	I saw an old friend downtown yesterday	PRP VBD DT JJ NN RB RB
+The bright future and the dark past influenced deeply	A kind person and a harsh critic reacted differently	DT JJ NN CC DT NN NN VBD RB
+The busy street appeared amazingly vibrant	The quiet room felt remarkably peaceful	DT JJ NN VBD RB JJ
+It was securely fastened to the wall	You were accurately measured with the tool	PRP VBD RB VBN IN DT NN
+I believed the suspect to be elsewhere	They hired a professional to work efficiently	PRP VBD DT NN TO VB RB
+They should hold on the rope tightly	It might break down the barrier gradually	PRP MD VB RP DT NN RB
+The soft whisper in the ear comforted gently	A heavy rain on the roof fell steadily	DT JJ NN IN DT NN VBD RB
+The small cat slept on the mat	A wooden bridge stood over the stream	DT JJ NN VBD IN DT NN
+He might boldly challenge the idea	She will carefully pack the luggage	PRP MD RB VB DT NN
+A soft whisper in the ear felt remarkably quiet	The complex puzzle on the table seemed surprisingly easy	DT JJ NN IN DT NN VBD RB JJ
+She could send for the expert immediately	He will stand by the decision firmly	PRP MD VB RP DT NN RB
+This child played with a toy	A smile crossed on the face	DT NN VBD IN DT NN
+They might quietly leave the noisy party	She would never attempt a dangerous stunt	PRP MD RB VB DT JJ NN
+A man in a suit walked briskly	The information on the screen updated automatically	DT NN IN DT NN VBD RB
+The scent wafted from the kitchen	A runner finished in the race	DT NN VBD IN DT NN
+It was patiently explained to the young student	We were deeply impressed with the excellent performance	PRP VBD RB VBN IN DT JJ NN
+I expect to face a tough challenge	They deserve to know the honest truth	PRP VBP TO VB DT JJ NN
+He was widely known throughout the region	We were truly amazed at the sight	PRP VBD RB VBN IN DT NN
+He might suddenly change the direction	It can effectively convey the message	PRP MD RB VB DT NN
+You might slow down the rapid progress	He could think over the complex proposal	PRP MD VB RP DT JJ NN
+They must strictly follow the protocol	You could wisely invest the capital	PRP MD RB VB DT NN
+She would never attempt a dangerous stunt	We should strongly oppose any unfair decision	PRP MD RB VB DT JJ NN
+A soft whisper felt remarkably quiet	A loud noise sounded exceedingly harsh	DT JJ NN VBD RB JJ
+That tragic event occurred on a Tuesday	The giant squid surfaced near the boat	DT JJ NN VBD IN DT NN
+A clever fox hid behind a bush	An evil sorcerer lived in a tower	DT JJ NN VBD IN DT NN
+They love the summer and we love the winter	You smell the flower while I smell the smoke	PRP VBP DT NN CC PRP VBP DT NN
+This structure should be built solidly	The treasure might be found eventually	DT NN MD VB VBN RB
+She has never seen that movie	You have wisely chosen the path	PRP VBP RB VBN DT NN
+The dog by the window barked loudly	A child at the party laughed hysterically	DT NN IN DT NN VBD RB
+It can easily solve the puzzle	She will cautiously approach the animal	PRP MD RB VB DT NN
+She designed a unique costume and won	I locked the main gate and checked	PRP VBD DT JJ NN CC VBD
+She will carefully pack the luggage	You could clearly articulate the message	PRP MD RB VB DT NN
