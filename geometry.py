@@ -25,8 +25,8 @@ def L2_distance(x, y):
     u = (x-y)
     return jnp.sqrt(jnp.sum(u*u))
 
-def pairwise_distances(distance, xs, ys):
-  return jax.vmap(lambda x: jax.vmap(lambda y: distance(x, y))(xs))(ys).T
+def pairwise_similarities(similarity_fn, xs, ys):
+  return jax.vmap(lambda x: jax.vmap(lambda y: similarity_fn(x, y))(xs))(ys).T
 
 def compute_ranks(x_dist,y_dist,method):
     x_rank = rankdata(x_dist, method=method)
@@ -36,22 +36,22 @@ def compute_ranks(x_dist,y_dist,method):
 def mapped_compute_ranks(method):
     return jax.vmap(partial(compute_ranks,method=method))
 
-def build_get_ranks(key, sample_size, distance_fn,method):
+def build_get_ranks(key, sample_size, similarity_fn,method):
     """
 
     Args:
        key: the JAX random key.
        X: sets from which we compute the information imbalance.
        Y: sets to which we compute the information imbalance.
-       distance_fn: function to compute the distance in spaces X and Y.
+       similarity_fn: function to compute the similarity in spaces X and Y.
        method: "max" for correlation coefficient, "min" for II and neighborhood overlap. 
     """
     indices_rows,indices_columns = separate_samples(key,sample_size)
     if method == 'max':
         def _get_ranks(X, Y):
             assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
-            d_X = pairwise_distances(distance_fn, X[indices_rows], X[indices_columns])
-            d_Y = pairwise_distances(distance_fn, Y[indices_rows], Y[indices_columns])
+            d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
+            d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
             R = mapped_compute_ranks(method)(d_X,d_Y)
             L = mapped_compute_ranks(method)(-d_X,-d_Y)
             return R,L
@@ -59,8 +59,8 @@ def build_get_ranks(key, sample_size, distance_fn,method):
     if method == 'min':
         def _get_ranks(X, Y):
             assert X.shape[0] == Y.shape[0], "Sample size must be equal across X and Y."
-            d_X = pairwise_distances(distance_fn, X[indices_rows], X[indices_columns])
-            d_Y = pairwise_distances(distance_fn, Y[indices_rows], Y[indices_columns])
+            d_X = pairwise_similarities(similarity_fn, X[indices_rows], X[indices_columns])
+            d_Y = pairwise_similarities(similarity_fn, Y[indices_rows], Y[indices_columns])
             R = mapped_compute_ranks(method)(d_X,d_Y)
             return R
     
@@ -185,6 +185,9 @@ def build_mutual_k_NN_alignment(k=10):
     return jax.jit(mutual_k_NN_alignment)
 
 ### Correlation coefficient 
+""" 
+only works for ranks.shape[0] = ranks.shape[1]...
+"""
 
 ### without ties:
 def relative_ranks(ranks):
@@ -219,7 +222,7 @@ def get_xis_ties(r,l):
     xis = 1-r.shape[0]*jnp.abs(jnp.diff(r,axis=1)).sum(axis=1) / (l*(l.shape[0]-l)).sum(axis=1) / 2
     return xis
 
-def build_corr_coeff(average=True):
+def build_corr_coeff_ties(average=True):
 
     def __corr_coef(R,L):
         assert R[0].shape == R[1].shape
@@ -232,6 +235,24 @@ def build_corr_coeff(average=True):
     if average:
         def _corr_coeff(R,L):
             xis_XY, xis_YX = __corr_coef(R,L)
+            return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
+    else:
+            _corr_coeff = __corr_coef
+    return jax.jit(_corr_coeff)
+
+def build_corr_coeff(average=True):
+
+    def __corr_coef(R):
+        assert R[0].shape == R[1].shape
+
+        (relative_ranks_X,relative_ranks_Y) = relative_ranks(R)
+        xis_XY = get_xis(relative_ranks_Y)
+        xis_YX = get_xis(relative_ranks_X)
+        return xis_XY, xis_YX
+
+    if average:
+        def _corr_coeff(R):
+            xis_XY, xis_YX = __corr_coef(R)
             return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
     else:
             _corr_coeff = __corr_coef

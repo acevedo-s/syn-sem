@@ -4,11 +4,12 @@ sys.path.append('../../')
 
 if __name__ == "__main__":
     dbg = int(sys.argv[1])
-    if dbg == 1:
+    if dbg == 0:
         os.environ["JAX_PLATFORMS"] = "cpu"
 
 import jax
 jax.config.update("jax_enable_x64", True)
+import numpy as np
 
 from datetime import datetime
 now = datetime.now()
@@ -23,63 +24,15 @@ from utils import (bf16_torch_to_jax,
                 depths,
                 emb_dims,
                 reduce_list_half_preserve_extremes,
+                collect_data,
+                reshuffle_batch_axis
                 )
-from collections import defaultdict
-import numpy as np
-import pickle
-from tqdm import tqdm
-import torch
+
 from geometry import *
 from datapaths import *
 import argparse
 from time import time
 
-
-def reshuffle_batch_axis(act, key):
-    """
-    Reshuffles the activations along the batch axis.
-
-    Args:
-        act (jnp.ndarray): Activation matrix of shape (batch_size, ...).
-        key (jax.random.PRNGKey): A PRNG key for randomness.
-
-    Returns:
-        jnp.ndarray: Shuffled activations.
-    """
-    batch_size = act.shape[0]
-    perm = jax.random.permutation(key, batch_size)
-    return act[perm]
-
-
-def collect_data(input_path, 
-                 filter_layer=None, 
-                 min_token_length=5, 
-                 n_files=10,
-                 ):
-    
-    files = list_folder(input_path, desc="chunk_")[:n_files]
-    all_hidden_states = defaultdict(list)
-
-    for file in tqdm(files, desc="Collect File"):
-        data = pickle.load(open(input_path + "/" + file.name, 'rb'))
-
-        for _, sentence in enumerate(data):
-            hidden_states = sentence['meta_info']['hidden_states'][0]
-            assert hidden_states.shape[1] >= min_token_length
-            hidden_states = hidden_states[:, -min_token_length:]
-
-            for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
-                if filter_layer is not None:
-                    if layer_idx!=filter_layer: continue
-
-                layer_tensor = layer_tensor.squeeze(0)
-                all_hidden_states[f"layer_{layer_idx}"].append(layer_tensor)
-
-    for layer, tensors in all_hidden_states.items():
-        all_hidden_states[layer] = torch.stack(tensors)
-        # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
-
-    return all_hidden_states
 
 def main_ranks(
          layers_A,
@@ -178,7 +131,7 @@ def main_ranks(
                             R = get_ranks(act_A,act_B)
                         np.save(os.path.join(ranks_folder, "x_ranks.npy"), R[0])
                         np.save(os.path.join(ranks_folder, "y_ranks.npy"), R[1])
-    print(f'this took {(time()-start_time)/60.} m')
+    print(f'ranks took {(time()-start_time)/60.} m')
     return
 
 
@@ -234,7 +187,8 @@ def main_compute_II(
                                                 )
                         
                         x_ranks = np.load(os.path.join(ranks_folder, "x_ranks.npy"))
-                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))                        
+                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))   
+
                         for jack_seed_id,jack_seed in enumerate(jack_seeds):
                             jack_key = jax.random.key(jack_seed)
                             jack_indices = jax.random.choice(key=jack_key,
@@ -265,13 +219,14 @@ def main_compute_coeff(layers_A,
                 diagonal_constraint,
                 method,
                 batch_shuffle,
-                ratio_jackknife=0.5,
-                jack_seeds=5,
+                ratio_jackknife=.8,
+                jack_seeds=1,
                 ):
     
     print(f'computing corr coeff')
     start_time = time()
 
+    jack_seeds = np.arange(jack_seeds,dtype=int)
     corr_coeff = build_corr_coeff()
 
     for Nbits_id,Nbits in enumerate(Nbits_list):
@@ -302,25 +257,26 @@ def main_compute_coeff(layers_A,
                                                 avg_tokens=avg_tokens,
                                                 batch_shuffle=batch_shuffle,
                                                 )                            
-                        x_ranks = np.load(os.path.join(ranks_folder, "x_ranks.npy"))
-                        y_ranks = np.load(os.path.join(ranks_folder, "y_ranks.npy"))  
-                        x_l = np.load(os.path.join(ranks_folder, "x_l.npy"))
-                        y_l = np.load(os.path.join(ranks_folder, "y_l.npy"))  
+                        x_ranks = jnp.array(np.load(os.path.join(ranks_folder, "x_ranks.npy")))
+                        y_ranks = jnp.array(np.load(os.path.join(ranks_folder, "y_ranks.npy")))
+                        x_l = jnp.array(np.load(os.path.join(ranks_folder, "x_l.npy")))
+                        y_l = jnp.array(np.load(os.path.join(ranks_folder, "y_l.npy")))
 
                         for jack_seed_id,jack_seed in enumerate(jack_seeds):
-                            jack_key = jax.random.key(jack_seed)
+                            jack_key = jax.random.PRNGKey(jack_seed)
                             jack_indices = jax.random.choice(key=jack_key,
                                                              a=x_ranks.shape[0],
                                                              shape=(int(ratio_jackknife*x_ranks.shape[0]),),
-                                                             replace=False)                      
-                            x_ranks_jack = x_ranks[jack_indices]
-                            y_ranks_jack = y_ranks[jack_indices]
-                            x_l_jack = x_l[jack_indices]
-                            y_l_jack = y_l[jack_indices]
+                                                             replace=False)
+
+                            x_ranks_jack = jnp.take(x_ranks, jack_indices, axis=0)
+                            y_ranks_jack = jnp.take(y_ranks, jack_indices, axis=0)
+                            x_l_jack = jnp.take(x_l, jack_indices, axis=0)
+                            y_l_jack = jnp.take(y_l, jack_indices, axis=0)
 
                             (xi[jack_seed_id,:,A_counter,B_counter],
-                            std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((x_ranks_jack,y_ranks_jack),
-                                                                                  (x_l_jack,y_l_jack))
+                            std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((x_ranks_jack,y_ranks_jack))#,(x_l_jack,y_l_jack))
+                            print(corr_coeff((x_ranks_jack,y_ranks_jack)))#,(x_l_jack,y_l_jack)))
 
                 jack_std = xi.std(axis=0)
                 xi = xi.mean(axis=0)
@@ -346,7 +302,7 @@ if __name__ == "__main__":
     batch_shuffle = 0
     batch_size = 100
     min_token_length = args.min_token_length  # the mask excludes final points and quotes
-    method = "min"
+    method = "max"
 
     layers_A = list(range(1,depths[args.modelA] + 1))
     layers_B = list(range(1,depths[args.modelB] + 1))
@@ -365,7 +321,7 @@ if __name__ == "__main__":
     if args.dbg == 0:
         n_tokens_list = np.array([min_token_length])
         n_files = 20
-        Nbits_list = [0,1]
+        Nbits_list = [0]
         avg_flags = [0]
         diagonal_constraint = 1
         match_var_list = ["matching"]

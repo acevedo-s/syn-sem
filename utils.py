@@ -2,8 +2,12 @@ import re,os
 from pathlib import Path
 import torch
 import jax.numpy as jnp
-
+from collections import defaultdict
+import pickle
+from tqdm import tqdm
+import torch
 from einops import rearrange
+import jax
 
 depths = {"deepseek":61,
           "llama":32}
@@ -128,4 +132,50 @@ def reduce_list_half_preserve_extremes(lst):
     
     new_lst.append(lst[-1])
     return new_lst
+
+def reshuffle_batch_axis(act, key):
+    """
+    Reshuffles the activations along the batch axis.
+
+    Args:
+        act (jnp.ndarray): Activation matrix of shape (batch_size, ...).
+        key (jax.random.PRNGKey): A PRNG key for randomness.
+
+    Returns:
+        jnp.ndarray: Shuffled activations.
+    """
+    batch_size = act.shape[0]
+    perm = jax.random.permutation(key, batch_size)
+    return act[perm]
+
+
+def collect_data(input_path, 
+                 filter_layer=None, 
+                 min_token_length=5, 
+                 n_files=10,
+                 ):
+    
+    files = list_folder(input_path, desc="chunk_")[:n_files]
+    all_hidden_states = defaultdict(list)
+
+    for file in tqdm(files, desc="Collect File"):
+        data = pickle.load(open(input_path + "/" + file.name, 'rb'))
+
+        for _, sentence in enumerate(data):
+            hidden_states = sentence['meta_info']['hidden_states'][0]
+            assert hidden_states.shape[1] >= min_token_length
+            hidden_states = hidden_states[:, -min_token_length:]
+
+            for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
+                if filter_layer is not None:
+                    if layer_idx!=filter_layer: continue
+
+                layer_tensor = layer_tensor.squeeze(0)
+                all_hidden_states[f"layer_{layer_idx}"].append(layer_tensor)
+
+    for layer, tensors in all_hidden_states.items():
+        all_hidden_states[layer] = torch.stack(tensors)
+        # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
+
+    return all_hidden_states
 

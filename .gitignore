@@ -1,3 +1,4 @@
 datasets/activations
 results
-/home/acevedo/syn-sem/extract_activations/log_output
+extract_activations/log_output
+log_output
