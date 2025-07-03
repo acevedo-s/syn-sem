@@ -2,16 +2,16 @@ input_paths = {}
 
 ###  models
 input_paths["deepseek"] = {"matching": {},
-                           "missmatching":{},
+                           "mismatching":{},
                         }
 input_paths["llama"] = {"matching": {},
-                        "missmatching":{},
+                        "mismatching":{},
                         }
 
 for model in ['llama','deepseek']:
-    for match_var in [ "matching", "missmatching" ]:
+    for match_var in [ "matching", "mismatching" ]:
         for index in range(2):
-            input_paths[model][match_var][f"{index}"] = f"/home/acevedo/syn-sem/datasets/activations/{model}/{match_var}/{index}/"
+            input_paths[model][match_var][f"{index}"] = f"/home/acevedo/syn-sem/datasets/activations/second/{model}/{match_var}/{index}/"
 
 # ### source languages
 # input_paths["deepseek"]["english"] = {"spanish": {"source":{},"target":{}}, 

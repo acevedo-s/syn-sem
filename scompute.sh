@@ -10,4 +10,5 @@
 
 ARGS=("$@") # list of commandline inputs
 echo "${ARGS[@]}"
+# PYTHONWARNINGS="error" python3 -u compute.py "${ARGS[@]}"
 python3 -u compute.py "${ARGS[@]}"

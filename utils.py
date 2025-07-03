@@ -8,6 +8,8 @@ from tqdm import tqdm
 import torch
 from einops import rearrange
 import jax
+import numpy as np
+from time import time
 
 depths = {"deepseek":61,
           "llama":32}
@@ -156,13 +158,13 @@ def collect_data(input_path,
                  min_token_length=5, 
                  n_files=10,
                  ):
-    
+    start_time = time()
     files = list_folder(input_path, desc="chunk_")[:n_files]
     all_hidden_states = defaultdict(list)
 
     for file in tqdm(files, desc="Collect File"):
-        data = pickle.load(open(input_path + "/" + file.name, 'rb'))
-
+        with open(os.path.join(input_path, file.name), 'rb') as f:
+            data = pickle.load(f)
         for _, sentence in enumerate(data):
             hidden_states = sentence['meta_info']['hidden_states'][0]
             assert hidden_states.shape[1] >= min_token_length
@@ -178,6 +180,63 @@ def collect_data(input_path,
     for layer, tensors in all_hidden_states.items():
         all_hidden_states[layer] = torch.stack(tensors)
         # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
+    print(f'importing took {(time()-start_time)/60.} m')
 
     return all_hidden_states
 
+# def substract_group_averages(input_path,data,random_centers):
+
+#   assert len(data.shape) == 2
+
+#   if random_centers:
+#     key_center = jax.random.PRNGKey(422)
+#     avg_norm = jnp.linalg.norm(data,axis=1).mean()
+
+#   all_groups_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))[:data.shape[0]]
+#   unique_groups_indices,counts = jnp.unique(all_groups_ids,return_counts=True)
+
+#   centers = jnp.zeros(shape=(len(unique_groups_indices), 
+#                              data.shape[1]), 
+#                       dtype=data.dtype)
+
+#   for group_index,group_id in enumerate(unique_groups_indices):
+#     mask_indices = jnp.where(all_groups_ids==group_id)[0]
+#     if random_centers == False:
+#       centers = centers.at[group_index].set(jnp.sum(data[mask_indices],axis=0) / counts[group_index])
+#     else:
+#       key_center, subkey = jax.random.split(key_center)
+#       vec = jax.random.normal(subkey, shape=(data.shape[1],))
+#       vec *= avg_norm / jnp.linalg.norm(vec)
+#       centers = centers.at[group_index].set(vec)
+#     data = data.at[mask_indices].add(-centers[group_index])
+  
+#   return data, centers
+
+def substract_group_averages(input_path,data,random_centers):
+
+  assert len(data.shape) == 2
+
+  if random_centers:
+    key_center = jax.random.PRNGKey(422)
+
+  all_groups_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))[:data.shape[0]]
+  unique_groups_indices,counts = jnp.unique(all_groups_ids,return_counts=True)
+
+  centers = jnp.zeros(shape=(len(unique_groups_indices), 
+                             data.shape[1]), 
+                             dtype=data.dtype)
+
+  for group_index,group_id in enumerate(unique_groups_indices):
+    if random_centers == False:
+      indices = jnp.where(all_groups_ids==group_id)[0]
+      centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / counts[group_index])
+    else:
+      key_center, subkey = jax.random.split(key_center)
+      N_average = data.shape[0] // len(unique_groups_indices)
+      indices = jax.random.choice(subkey, data.shape[0], 
+                                      shape=(N_average,), 
+                                      replace=False)
+      centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / N_average)
+    data = data.at[indices].add(-centers[group_index])
+  
+  return data, centers
