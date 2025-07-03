@@ -93,7 +93,7 @@ def main(model_path,
 # Spawn starts a fresh program every time, if there is no __main__, it will run into infinite loop to keep spawning processes from sgl.Engine
 if __name__ == "__main__":
     
-    model = 'llama'
+    model = 'deepseek'
     dataset_var = 'second'
     match_var = 'matching'
     tp_size, nnodes = get_slurm_config()

@@ -26,7 +26,7 @@ from utils import (bf16_torch_to_jax,
                 reduce_list_half_preserve_extremes,
                 collect_data,
                 reshuffle_batch_axis,
-                substract_group_averages,
+                subtract_group_averages,
                 )
 
 from geometry import *
@@ -117,10 +117,10 @@ def main_similarities(
                             act_A = flatten_tokens_features(act_A)
                             act_B = flatten_tokens_features(act_B)
 
-                            if random_centers == 0 or random_centers == 1:
-
-                                act_A, centers_A = substract_group_averages(group_ids_path,act_A,random_centers)
-                                act_B, centers_B = substract_group_averages(group_ids_path,act_B,random_centers)
+                            if random_centers != -1:
+                                
+                                act_A, centers_A = subtract_group_averages(group_ids_path,act_A,random_centers)
+                                act_B, centers_B = subtract_group_averages(group_ids_path,act_B,random_centers)
 
                             sim_folder = makefolder(base=output_folder0+f'similarities/',
                                                     create_folder=True,
@@ -341,15 +341,15 @@ if __name__ == "__main__":
         n_tokens_list = np.array([min_token_length])
         n_files = 20
         diagonal_constraint = 1
-        match_var_list = ["matching"]
+        match_var_list = ["mismatching"]
         random_centers_list = [-1,0,1]
 
     elif args.dbg == 1:
         n_files = 1
         n_tokens_list = np.array([min_token_length])
         diagonal_constraint = 1
-        match_var_list = ["matching"]
-        random_centers_list = [-1,0,1]
+        match_var_list = ["mismatching"]
+        random_centers_list = [-1,]
 
 
     print(f'{Nbits_list=}')
@@ -378,9 +378,10 @@ if __name__ == "__main__":
                                 min_token_length=args.min_token_length,
                                 )
         
-
-        group_ids_path = "/home/acevedo/syn-sem/datasets/txt/second/matching/"
-        assert match_var == 'matching' 
+        if match_var == 'matching':
+            group_ids_path = "/home/acevedo/syn-sem/datasets/txt/second/matching/"
+        else:
+            group_ids_path = "/home/acevedo/syn-sem/datasets/txt/second/mismatching/"
 
         if args.compute_ranks_flag:
             main_similarities(

@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --time=24:00:00
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:1
-#SBATCH --mem=1500G
+#SBATCH --gres=gpu:8
+#SBATCH --mem=1000G
 #SBATCH --output=./log_output/%x.o%j              # Standard output
 #SBATCH --error=./log_output/%x.o%j               # Standard error
 #SBATCH --qos=mira

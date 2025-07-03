@@ -212,7 +212,8 @@ def collect_data(input_path,
   
 #   return data, centers
 
-def substract_group_averages(input_path,data,random_centers):
+def subtract_group_averages(input_path,data,random_centers):
+  print(f'subtracting group averages, random_centers={random_centers}')
 
   assert len(data.shape) == 2
 
