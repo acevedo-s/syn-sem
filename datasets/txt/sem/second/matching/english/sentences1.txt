@@ -1279,7 +1279,7 @@ A wedding date must be set by them
 The small cat slept on the mat
 The government's new law appears unfair
 Its surface displayed a visible scratch
-He was courageously fought against the formidable opponent
+He courageously fought against the formidable opponent
 He may propose a toast at the dinner
 The data can be presented effectively by it
 A sudden gale rose above the sea
@@ -1554,7 +1554,7 @@ We may adopt a kitten for our lonely cat
 The bridges will be inspected by an engineer
 During the talk she remains a calm observer
 The old book on the shelf lay completely still
-We were diligently searched for the missing piece
+We diligently searched for the missing piece
 It might break down the barrier gradually
 They feel an utterly unique sensation
 He will speak up the truth bravely
