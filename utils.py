@@ -192,15 +192,15 @@ def collect_data(input_path,
 #     key_center = jax.random.PRNGKey(422)
 #     avg_norm = jnp.linalg.norm(data,axis=1).mean()
 
-#   all_groups_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))[:data.shape[0]]
-#   unique_groups_indices,counts = jnp.unique(all_groups_ids,return_counts=True)
+#   all_group_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))[:data.shape[0]]
+#   unique_groups_indices,counts = jnp.unique(all_group_ids,return_counts=True)
 
 #   centers = jnp.zeros(shape=(len(unique_groups_indices), 
 #                              data.shape[1]), 
 #                       dtype=data.dtype)
 
 #   for group_index,group_id in enumerate(unique_groups_indices):
-#     mask_indices = jnp.where(all_groups_ids==group_id)[0]
+#     mask_indices = jnp.where(all_group_ids==group_id)[0]
 #     if random_centers == False:
 #       centers = centers.at[group_index].set(jnp.sum(data[mask_indices],axis=0) / counts[group_index])
 #     else:
@@ -212,24 +212,29 @@ def collect_data(input_path,
   
 #   return data, centers
 
-def subtract_group_averages(input_path,data,random_centers):
+def compute_and_subtract_group_averages(input_path,data,random_centers,output_folder,space_index):
   print(f'subtracting group averages, random_centers={random_centers}')
 
   assert len(data.shape) == 2
+  assert space_index == 'A' or space_index == 'B'
 
   if random_centers:
     key_center = jax.random.PRNGKey(422)
 
-  all_groups_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))[:data.shape[0]]
-  unique_groups_indices,counts = jnp.unique(all_groups_ids,return_counts=True)
+  all_group_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))
+  # assert len(all_group_ids) == data.shape[0]
+  unique_groups_indices,counts = jnp.unique(all_group_ids,return_counts=True)
 
   centers = jnp.zeros(shape=(len(unique_groups_indices), 
                              data.shape[1]), 
                              dtype=data.dtype)
 
+
   for group_index,group_id in enumerate(unique_groups_indices):
+    assert group_index == group_id
+
     if random_centers == False:
-      indices = jnp.where(all_groups_ids==group_id)[0]
+      indices = jnp.where(all_group_ids==group_id)[0]
       centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / counts[group_index])
     else:
       key_center, subkey = jax.random.split(key_center)
@@ -239,5 +244,45 @@ def subtract_group_averages(input_path,data,random_centers):
                                       replace=False)
       centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / N_average)
     data = data.at[indices].add(-centers[group_index])
-  
-  return data, centers
+
+  np.save(os.path.join(output_folder,f"centers_{space_index}"),centers)
+  return data
+
+def load_and_subtract_group_averages(act_A,
+                                     act_B,
+                                     sim_folder,
+                                     group_ids_path,
+                                     random_centers,
+                                     ):
+  original_labels = np.loadtxt("/home/acevedo/syn-sem/datasets/txt/sem/second/matching/original_labels.txt").astype(int)
+  group_ids = jnp.array(np.loadtxt(group_ids_path + 'group_ids.txt').astype(int))
+  unique_groups_indices = jnp.unique(group_ids)
+
+  if random_centers == 0:
+    # I have to pick the <syntax> centers
+    centers_folder = sim_folder.replace("txt_var_sem", "txt_var_syn")
+    centers_folder = centers_folder.replace("n_files_16", "n_files_21")
+    centers = jnp.mean(jnp.stack([jnp.array(np.load(centers_folder+f'centers_A.npy')),
+                                jnp.array(np.load(centers_folder+f'centers_B.npy'))]),
+                      axis=0)
+    
+  if random_centers == 1:
+    key_center = jax.random.PRNGKey(422)
+    # centers = reshuffle_batch_axis(centers,subkey)
+    centers = jnp.zeros(shape=(len(unique_groups_indices), 
+                              act_A.shape[1]), 
+                              dtype=act_A.dtype)
+    for group_index,group_id in enumerate(unique_groups_indices):
+      assert group_index == group_id
+      key_center, subkey = jax.random.split(key_center)
+      N_average = 2*act_A.shape[0] // len(unique_groups_indices)
+      random_indices = jax.random.choice(subkey, 2*act_A.shape[0], 
+                                      shape=(N_average,), 
+                                      replace=False)
+      centers = centers.at[group_index].set(jnp.sum(jnp.concatenate([act_A,act_B],axis=0)[random_indices],axis=0) / N_average)
+
+  indices_A = jnp.where(original_labels == 0)[0]
+  indices_B = jnp.where(original_labels == 1)[0]
+  act_A = act_A.at[indices_A].set(act_A[indices_A]-centers[group_ids[indices_A]])
+  act_B = act_B.at[indices_B].set(act_B[indices_B]-centers[group_ids[indices_B]])
+  return act_A,act_B 

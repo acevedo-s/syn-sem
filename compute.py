@@ -26,7 +26,8 @@ from utils import (bf16_torch_to_jax,
                 reduce_list_half_preserve_extremes,
                 collect_data,
                 reshuffle_batch_axis,
-                subtract_group_averages,
+                compute_and_subtract_group_averages,
+                load_and_subtract_group_averages,
                 )
 
 from geometry import *
@@ -51,6 +52,7 @@ def main_similarities(
         batch_shuffle,
         similarity_fn,
         random_centers_list,
+        txt_var,
         ):
     start_time = time()
     
@@ -117,11 +119,6 @@ def main_similarities(
                             act_A = flatten_tokens_features(act_A)
                             act_B = flatten_tokens_features(act_B)
 
-                            if random_centers != -1:
-                                
-                                act_A, centers_A = subtract_group_averages(group_ids_path,act_A,random_centers)
-                                act_B, centers_B = subtract_group_averages(group_ids_path,act_B,random_centers)
-
                             sim_folder = makefolder(base=output_folder0+f'similarities/',
                                                     create_folder=True,
                                                     random_centers=random_centers,
@@ -132,6 +129,19 @@ def main_similarities(
                                                     layer_A=layer_A,
                                                     layer_B=layer_B,
                                                     )
+                            
+                            if random_centers != -1:
+                                if txt_var == 'syn':
+                                    act_A = compute_and_subtract_group_averages(group_ids_path,act_A,random_centers,sim_folder,'A')
+                                    act_B = compute_and_subtract_group_averages(group_ids_path,act_B,random_centers,sim_folder,'B')
+                                elif txt_var == 'sem':
+                                    act_A,act_B = load_and_subtract_group_averages(act_A,
+                                                                            act_B,
+                                                                            sim_folder,
+                                                                            group_ids_path,
+                                                                            random_centers,
+                                                                            )
+
                             sim_A,sim_B = get_similarities(act_A,act_B)
                             np.save(os.path.join(sim_folder, "sim_A.npy"), sim_A)
                             np.save(os.path.join(sim_folder, "sim_B.npy"), sim_B)
@@ -316,11 +326,12 @@ if __name__ == "__main__":
     parser.add_argument("compute_ranks_flag",type=int)
     parser.add_argument("compute_observables_flag",type=int)
     parser.add_argument("method",type=str, choices=['max','min'], help="max or min")
+    parser.add_argument("txt_var",type=str, choices=['syn','sem'], help="syntax or semantics")
     args = parser.parse_args()
 
     batch_shuffle = 0
     batch_size = 100
-    min_token_length = args.min_token_length  # the mask excludes final points and quotes
+    min_token_length = args.min_token_length  
 
     layers_A = list(range(1,depths[args.modelA] + 1))
     layers_B = list(range(1,depths[args.modelB] + 1))
@@ -339,17 +350,17 @@ if __name__ == "__main__":
 
     if args.dbg == 0:
         n_tokens_list = np.array([min_token_length])
-        n_files = 20
+        n_files = 16
         diagonal_constraint = 1
-        match_var_list = ["mismatching"]
-        random_centers_list = [-1,0,1]
+        match_var_list = ["matching"]
+        random_centers_list = [1]
 
     elif args.dbg == 1:
         n_files = 1
         n_tokens_list = np.array([min_token_length])
         diagonal_constraint = 1
-        match_var_list = ["mismatching"]
-        random_centers_list = [-1,]
+        match_var_list = ["matching"]
+        random_centers_list = [-1,0]
 
 
     print(f'{Nbits_list=}')
@@ -363,14 +374,15 @@ if __name__ == "__main__":
     assert 1 not in Nbits_list
 
     for match_var in match_var_list:
-        input_path_A = input_paths[args.modelA][match_var]['0']
-        input_path_B = input_paths[args.modelB][match_var]['1']
+        input_path_A = input_paths[args.modelA][match_var]['0'][args.txt_var]
+        input_path_B = input_paths[args.modelB][match_var]['1'][args.txt_var]
 
         print("Input path A = ", input_path_A, flush=True)
         print("Input path B = ", input_path_B, flush=True)
         
         output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
+                                txt_var=args.txt_var,
                                 modelA=args.modelA,
                                 modelB=args.modelB,
                                 match_var=match_var,
@@ -378,10 +390,7 @@ if __name__ == "__main__":
                                 min_token_length=args.min_token_length,
                                 )
         
-        if match_var == 'matching':
-            group_ids_path = "/home/acevedo/syn-sem/datasets/txt/second/matching/"
-        else:
-            group_ids_path = "/home/acevedo/syn-sem/datasets/txt/second/mismatching/"
+        group_ids_path = f"/home/acevedo/syn-sem/datasets/txt/{args.txt_var}/second/{match_var}/"
 
         if args.compute_ranks_flag:
             main_similarities(
@@ -400,6 +409,7 @@ if __name__ == "__main__":
                 batch_shuffle=batch_shuffle,
                 similarity_fn=similarity_fn,
                 random_centers_list=random_centers_list,
+                txt_var=args.txt_var,
             )
         if args.compute_observables_flag:
             if args.method == 'max':

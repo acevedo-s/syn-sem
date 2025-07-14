@@ -94,18 +94,20 @@ def main(model_path,
 if __name__ == "__main__":
     
     model = 'deepseek'
-    dataset_var = 'second'
-    match_var = 'matching'
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
-    n_lines = 2000
+    n_lines = 1600
     batch_size = 100
 
+    txt_var = 'sem'
+    dataset_var = 'second'
+    match_var = 'matching'
+    
     IO_paths_list = [
         {
-            "file_path": f"/home/acevedo/syn-sem/datasets/txt/{dataset_var}/{match_var}/sentences{i}.txt",
-            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{dataset_var}/{model}/{match_var}/{i}/"
+            "file_path": f"/home/acevedo/syn-sem/datasets/txt/{txt_var}/{dataset_var}/{match_var}/sentences{i}.txt",
+            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{txt_var}/{dataset_var}/{model}/{match_var}/{i}/"
         }
         for i in [0, 1]
     ]
