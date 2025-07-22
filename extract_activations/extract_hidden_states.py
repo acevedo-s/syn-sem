@@ -84,7 +84,7 @@ def main(model_path,
     }
 
     for IO_paths_id,IO_paths in enumerate(IO_paths_list):
-        print(f'processing file {IO_paths_id}')
+        print(f'processing {IO_paths}')
         process_file(llm,sampling_params,batch_size,n_lines,IO_paths)
 
     llm.shutdown()
@@ -93,23 +93,24 @@ def main(model_path,
 # Spawn starts a fresh program every time, if there is no __main__, it will run into infinite loop to keep spawning processes from sgl.Engine
 if __name__ == "__main__":
     
-    model = 'deepseek'
+    model = 'qwen2'
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
-    n_lines = 1600
+    n_lines = 100
     batch_size = 100
 
     txt_var = 'sem'
     dataset_var = 'second'
     match_var = 'matching'
+    language = 'english'
     
     IO_paths_list = [
         {
-            "file_path": f"/home/acevedo/syn-sem/datasets/txt/{txt_var}/{dataset_var}/{match_var}/sentences{i}.txt",
-            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{txt_var}/{dataset_var}/{model}/{match_var}/{i}/"
+            "file_path": f"/home/acevedo/syn-sem/datasets/txt/{txt_var}/{dataset_var}/{match_var}/{language}/sentences{i}.txt",
+            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{txt_var}/{dataset_var}/{model}/{match_var}/{language}/{i}/"
         }
-        for i in [0, 1]
+        for i in [0,1]
     ]
 
     main(model_path=model_path,

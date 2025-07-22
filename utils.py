@@ -248,7 +248,7 @@ def compute_and_subtract_group_averages(input_path,data,random_centers,output_fo
   np.save(os.path.join(output_folder,f"centers_{space_index}"),centers)
   return data
 
-def load_and_subtract_group_averages(act_A,
+def load_and_subtract_syn_group_averages(act_A,
                                      act_B,
                                      sim_folder,
                                      group_ids_path,
@@ -286,3 +286,10 @@ def load_and_subtract_group_averages(act_A,
   act_A = act_A.at[indices_A].set(act_A[indices_A]-centers[group_ids[indices_A]])
   act_B = act_B.at[indices_B].set(act_B[indices_B]-centers[group_ids[indices_B]])
   return act_A,act_B 
+
+def load_and_subtract_sem_group_averages(sim_folder,act,layer):
+  print(f'subtracting semantic center')
+  centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
+  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{layer}.npy'),dtype=jnp.double)
+  act -= semantic_centers
+  return act
