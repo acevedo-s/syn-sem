@@ -4,19 +4,19 @@ from collections import defaultdict
 
 input_paths = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
 
-languages = ['english','italian','spanish','german']
-models = ['llama', 'deepseek']
-match_types = ['matching', 'mismatching']
-txt_vars = ['syn', 'sem']
-indices = range(2)
+_languages = ['english','italian','spanish','german']
+_models = ['llama', 'deepseek','qwen']
+_match_types = ['matching', 'mismatching']
+_txt_vars = ['syn', 'sem']
+_indices = range(2)
 
-for language in languages:
-    for model in models:
-        for match in match_types:
-            for idx in indices:
+for language in _languages:
+    for model in _models:
+        for match in _match_types:
+            for idx in _indices:
                 input_paths[language][model][match][str(idx)] = {
                     txt_var: f"/home/acevedo/syn-sem/datasets/activations/{txt_var}/second/{model}/{match}/{language}/{idx}/"
-                    for txt_var in txt_vars
+                    for txt_var in _txt_vars
                 }
 
 # Optional: convert back to plain dict

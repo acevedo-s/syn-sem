@@ -1,4 +1,4 @@
-import re,os
+import re,os,sys
 from pathlib import Path
 import torch
 import jax.numpy as jnp
@@ -10,13 +10,51 @@ from einops import rearrange
 import jax
 import numpy as np
 from time import time
+from modelpaths import *
+from transformers import AutoConfig
 
-depths = {"deepseek":61,
-          "llama":32}
-emb_dims = {"deepseek":7168,
-          "llama":4096}
-batch_sizes = {'deepseek':10,
-               'llama':100}
+from transformers import AutoConfig
+
+def get_num_hidden_layers(model_dir: str) -> int:
+    """
+    Load model config from the given directory and return the number of hidden layers.
+    """
+    config = AutoConfig.from_pretrained(model_dir)
+    return config.num_hidden_layers
+
+def get_hidden_size(model_dir: str) -> int:
+    """
+    Load model config from the given directory and return the embedding (hidden) size.
+    """
+    config = AutoConfig.from_pretrained(model_dir)
+    return config.hidden_size
+
+def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_paths: dict) -> None:
+    """
+    Add the number of hidden layers and embedding size for a model to the given dictionaries.
+
+    Args:
+        depths (dict): Dictionary to update with model depth.
+        emb_dims (dict): Dictionary to update with embedding size.
+        model_name (str): Key to use in the dictionaries (e.g., 'qwen').
+        model_paths (dict): Dictionary mapping model names to local paths.
+    """
+    config = AutoConfig.from_pretrained(model_paths[model_name])
+    depths[model_name] = config.num_hidden_layers
+    emb_dims[model_name] = config.hidden_size
+
+
+depths = {"deepseek": 61}
+emb_dims = {"deepseek": 7168}
+models = ['qwen', 'llama']
+
+for model in models:
+  add_model_metadata(depths, emb_dims, model, model_paths)
+
+# batch_sizes = {'deepseek':100,
+#                'llama':100,
+#                'qwen':100}
+
 
 def extract_index(file):
     match = re.search(r'chunk_(\d+)\.pkl', file.name)
@@ -153,36 +191,81 @@ def reshuffle_batch_axis(act, key):
     return act[perm]
 
 
+# def collect_data(input_path, 
+#                  filter_layer=None, 
+#                  min_token_length=5, 
+#                  n_files=10,
+#                  ):
+#     start_time = time()
+#     files = list_folder(input_path, desc="chunk_")[:n_files]
+#     all_hidden_states = defaultdict(list)
+
+#     for file in tqdm(files, desc="Collect File"):
+#         with open(os.path.join(input_path, file.name), 'rb') as f:
+#             data = pickle.load(f)
+#         for _, sentence in enumerate(data):
+#             hidden_states = sentence['meta_info']['hidden_states'][0]
+#             assert hidden_states.shape[1] >= min_token_length
+#             hidden_states = hidden_states[:, -min_token_length:]
+
+#             for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
+#                 if filter_layer is not None:
+#                     if layer_idx!=filter_layer: continue
+
+#                 layer_tensor = layer_tensor.squeeze(0)
+#                 all_hidden_states[f"layer_{layer_idx}"].append(layer_tensor)
+
+#     for layer, tensors in all_hidden_states.items():
+#         all_hidden_states[layer] = torch.stack(tensors)
+#         # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
+#     print(f'importing took {(time()-start_time)/60.} m')
+
+#     return all_hidden_states
+
 def collect_data(input_path, 
-                 filter_layer=None, 
-                 min_token_length=5, 
-                 n_files=10,
-                 ):
+                min_token_length=5, 
+                n_files=10):
+    """
+    Collects hidden states from chunked .pkl files in the new SGLang format.
+
+    Args:
+        input_path (str): Folder with chunk_*.pkl files.
+        min_token_length (int): Only include hidden states if they have this many tokens.
+        n_files (int): Max number of files to process.
+
+    Returns:
+        dict: { "layer_X": torch.Tensor [n_samples, dim, min_token_length] }
+    """
     start_time = time()
-    files = list_folder(input_path, desc="chunk_")[:n_files]
     all_hidden_states = defaultdict(list)
 
-    for file in tqdm(files, desc="Collect File"):
-        with open(os.path.join(input_path, file.name), 'rb') as f:
+    files = sorted([f for f in os.listdir(input_path) if f.startswith("chunk_")])[:n_files]
+
+    for file in tqdm(files, desc="Collecting Files"):
+        with open(os.path.join(input_path, file), 'rb') as f:
             data = pickle.load(f)
-        for _, sentence in enumerate(data):
-            hidden_states = sentence['meta_info']['hidden_states'][0]
-            assert hidden_states.shape[1] >= min_token_length
-            hidden_states = hidden_states[:, -min_token_length:]
 
-            for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
-                if filter_layer is not None:
-                    if layer_idx!=filter_layer: continue
+        hidden_states_batch = data['hidden_states']  # list of [num_prompts][num_layers]
+        print(f'{len(hidden_states_batch)=}')
+        for prompt_hidden_states in hidden_states_batch:
+            print(f'{len(prompt_hidden_states)=}')
+            for layer_idx, layer_tensor in enumerate(prompt_hidden_states):
+                # Ensure it's a tensor
+                layer_tensor = torch.tensor(layer_tensor)
+                print(f'{layer_tensor.shape=}')
 
-                layer_tensor = layer_tensor.squeeze(0)
-                all_hidden_states[f"layer_{layer_idx}"].append(layer_tensor)
+                # assert layer_tensor.shape[1] >= min_token_length
+
+                selected = layer_tensor[-min_token_length:].T  # shape: [dim, min_token_length]
+                all_hidden_states[f"layer_{layer_idx}"].append(selected)
 
     for layer, tensors in all_hidden_states.items():
-        all_hidden_states[layer] = torch.stack(tensors)
-        # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
-    print(f'importing took {(time()-start_time)/60.} m')
+        all_hidden_states[layer] = torch.stack(tensors)  # shape: [N, dim, min_token_length]
 
+    print(f"Importing took {(time() - start_time) / 60:.2f} min")
     return all_hidden_states
+
+
 
 # def substract_group_averages(input_path,data,random_centers):
 

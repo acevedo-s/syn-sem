@@ -1,14 +1,20 @@
-import os,sys
+import os, sys
 sys.path.append('../')
 from modelpaths import *
 
-import torch,gc
+import torch, gc
 import sglang as sgl
 import pickle
 from tqdm import tqdm
 from datasets import load_dataset
 import time
 import socket
+
+def find_free_port() -> int:
+    """Ask the OS for a free ephemeral port and return it."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('', 0))
+        return s.getsockname()[1]
 
 def get_slurm_config():
     """Automatically determine tp_size and nnodes from SLURM."""
@@ -17,7 +23,6 @@ def get_slurm_config():
         gpus_per_node = int(os.environ.get("SLURM_GPUS_ON_NODE", "1"))
 
         tp_size = nnodes * gpus_per_node  # Total number of GPUs
-
         return tp_size, nnodes
 
     except Exception as e:
@@ -36,8 +41,7 @@ def process_file(llm,
                  sampling_params,
                  batch_size,
                  n_lines,
-                 IO_paths,
-                 ):
+                 IO_paths):
     with open(IO_paths["file_path"], "r") as f:
         prompts = [line.strip() for line in f]
 
@@ -46,11 +50,25 @@ def process_file(llm,
 
     os.makedirs(IO_paths["output_folder_path"], exist_ok=True)
 
-    for i, p in enumerate(batch_generator(prompts, batch_size)):
+    for i, batch in enumerate(batch_generator(prompts, batch_size)):
         start = time.time()
-        outputs = llm.generate(p, sampling_params=sampling_params)
+        # request hidden states on each generate call
+        outputs = llm.generate(
+            batch,
+            sampling_params=sampling_params,
+            return_hidden_states=True,
+        )
+        # extract per-layer hidden states for each prompt in batch
+        hidden_states = [out["meta_info"]["hidden_states"] for out in outputs]
+
+        # save both outputs and hidden states
+        save_dict = {
+            'outputs': outputs,
+            'hidden_states': hidden_states,
+        }
         with open(f"{IO_paths['output_folder_path']}/chunk_{i}.pkl", "wb") as f:
-            pickle.dump(outputs, f)
+            pickle.dump(save_dict, f)
+
         t_step = time.time() - start
         print(f"iter {i} | t_step = {t_step:.2f}", flush=True)
     return
@@ -60,22 +78,24 @@ def main(model_path,
          batch_size,
          n_lines=None,
          tp_size=1,
-         nnodes=1,
-         ):
+         nnodes=1):
 
     NODE_RANK = int(os.environ.get("SLURM_NODEID", 0))
-    dist_init_addr = f"{get_master_address()}:8000"
+    port = find_free_port()
+    dist_init_addr = f"{get_master_address()}:{port}"
+    print(f"Using free port {port} for rendezvous")
 
+    # initialize engine (hidden states requested per-generate)
     llm = sgl.Engine(
         model_path=model_path,
         tp_size=tp_size,
-        return_hidden_states=True,
         nnodes=nnodes,
         dist_init_addr=dist_init_addr,
         node_rank=NODE_RANK,
         grammar_backend="xgrammar",
         disable_radix_cache=True,
-    ) 
+        enable_return_hidden_states=True,
+    )
 
     sampling_params = {
         "temperature": 0.8,
@@ -83,17 +103,20 @@ def main(model_path,
         "max_new_tokens": 2,
     }
 
-    for IO_paths_id,IO_paths in enumerate(IO_paths_list):
+    for IO_paths in IO_paths_list:
         print(f'processing {IO_paths}')
-        process_file(llm,sampling_params,batch_size,n_lines,IO_paths)
+        process_file(
+            llm,
+            sampling_params,
+            batch_size,
+            n_lines,
+            IO_paths,
+        )
 
     llm.shutdown()
 
-# The __main__ condition is necessary here because we use "spawn" to create subprocesses
-# Spawn starts a fresh program every time, if there is no __main__, it will run into infinite loop to keep spawning processes from sgl.Engine
 if __name__ == "__main__":
-    
-    model = 'deepseek'
+    model = 'llama'
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
@@ -104,19 +127,20 @@ if __name__ == "__main__":
     dataset_var = 'second'
     match_var = 'matching'
     language = 'english'
-    
+
     IO_paths_list = [
         {
             "file_path": f"/home/acevedo/syn-sem/datasets/txt/{data_var}/{dataset_var}/{match_var}/{language}/sentences{i}.txt",
             "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{data_var}/{dataset_var}/{model}/{match_var}/{language}/{i}/"
         }
-        for i in [0,1]
+        for i in [0, 1]
     ]
 
-    main(model_path=model_path,
+    main(
+        model_path=model_path,
         IO_paths_list=IO_paths_list,
         batch_size=batch_size,
         n_lines=n_lines,
         tp_size=tp_size,
         nnodes=nnodes,
-        )
+    )
