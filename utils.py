@@ -287,9 +287,19 @@ def load_and_subtract_syn_group_averages(act_A,
   act_B = act_B.at[indices_B].set(act_B[indices_B]-centers[group_ids[indices_B]])
   return act_A,act_B 
 
-def load_and_subtract_sem_group_averages(sim_folder,act,layer):
+def load_and_subtract_sem_group_averages(sim_folder,act,layer,data_var,center_flag):
   print(f'subtracting semantic center')
   centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
+  centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
   semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{layer}.npy'),dtype=jnp.double)
-  act -= semantic_centers
+
+  if data_var == 'syn':
+    semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'
+    indices = jnp.array(np.loadtxt(semantic_labels_file,dtype=int,unpack=True)[0])
+  elif data_var == 'sem':
+    indices = jnp.arange(act.shape[0])
+  if center_flag == -1:
+    key_centers = jax.random.PRNGKey(999)
+    indices = jax.random.permutation(key_centers,indices)
+  act -= semantic_centers[indices]
   return act

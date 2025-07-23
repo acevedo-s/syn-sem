@@ -43,7 +43,7 @@ def main(
         output_folder0,
         avg_flags,
         Nbits_list,
-        txt_var,
+        data_var,
         ):
     start_time = time()
     centers = 'sem'
@@ -53,7 +53,7 @@ def main(
     
     languages = ['italian','german']
     for language_id,language in enumerate(languages):
-        all_activations.append(collect_data(input_paths[language][model]['matching']['1'][txt_var],
+        all_activations.append(collect_data(input_paths[language][model]['matching']['1'][data_var],
                                             min_token_length=min_token_length, 
                                             n_files=n_files,
                                             )
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    txt_var = 'sem'
+    data_var = 'sem'
     batch_size = 100
     min_token_length = args.min_token_length  
 
@@ -115,7 +115,7 @@ if __name__ == "__main__":
         layers = reduce_list_half_preserve_extremes(layers)
 
     Nbits_list = [0]
-    avg_flags = [1]
+    avg_flags = [0]
     diagonal_constraint = None
     n_files = None
     n_tokens_list = None
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
                                 language='english',
-                                txt_var=txt_var,
+                                data_var=data_var,
                                 modelA=args.model,
                                 modelB=args.model,
                                 match_var=match_var,
@@ -157,7 +157,7 @@ if __name__ == "__main__":
         output_folder0,
         avg_flags,
         Nbits_list,
-        txt_var,
+        data_var,
         )
 
 

@@ -54,7 +54,7 @@ def main_similarities(
         batch_shuffle,
         similarity_fn,
         centers_list,
-        txt_var,
+        data_var,
         center_A_flag,
         center_B_flag,
         zero_activations,
@@ -138,20 +138,22 @@ def main_similarities(
                                                     )
                             
                             if centers != 0:
-                                if txt_var == 'syn':
-                                    act_A = compute_and_subtract_group_averages(group_ids_path,act_A,centers,sim_folder,'A')
-                                    act_B = compute_and_subtract_group_averages(group_ids_path,act_B,centers,sim_folder,'B')
-                                elif txt_var == 'sem':
+                                if centers == 'syn':
+                                    if center_A_flag:
+                                        act_A = compute_and_subtract_group_averages(group_ids_path,act_A,centers,sim_folder,'A')
+                                    if center_B_flag:
+                                        act_B = compute_and_subtract_group_averages(group_ids_path,act_B,centers,sim_folder,'B')
+                                elif centers == 'sem':
                                     # act_A,act_B = load_and_subtract_syn_group_averages(act_A,
                                     #                                         act_B,
                                     #                                         sim_folder,
                                     #                                         group_ids_path,
                                     #                                         centers,
                                     #                                         )
-                                    if center_A_flag:
-                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,layer_A)
-                                    if center_B_flag:
-                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,layer_B)
+                                    if center_A_flag != 0:
+                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,layer_A,data_var,center_flag=center_A_flag)
+                                    if center_B_flag != 0:
+                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,layer_B,data_var,center_flag=center_B_flag)
 
                             sim_A,sim_B = get_similarities(act_A,act_B)
                             sim_folder = makefolder(base=sim_folder,
@@ -350,7 +352,7 @@ if __name__ == "__main__":
     parser.add_argument("compute_ranks_flag",type=int)
     parser.add_argument("compute_observables_flag",type=int)
     parser.add_argument("method",type=str, choices=['max','min'], help="max or min")
-    parser.add_argument("txt_var",type=str, choices=['syn','sem'], help="syntax or semantics")
+    parser.add_argument("data_var",type=str, choices=['syn','sem'], help="syntax or semantics")
     parser.add_argument("language",type=str)
     parser.add_argument("center_A_flag",type=int)
     parser.add_argument("center_B_flag",type=int)
@@ -369,7 +371,7 @@ if __name__ == "__main__":
         layers_B = reduce_list_half_preserve_extremes(layers_B)
 
     Nbits_list = [0]
-    avg_flags = [1]
+    avg_flags = [0]
     diagonal_constraint = None
     n_files = None
     n_tokens_list = None
@@ -388,7 +390,7 @@ if __name__ == "__main__":
         n_tokens_list = np.array([min_token_length])
         diagonal_constraint = 1
         match_var_list = ["matching"]
-        centers_list = ['sem']
+        centers_list = [0]
 
 
     print(f'{Nbits_list=}')
@@ -402,8 +404,8 @@ if __name__ == "__main__":
     assert 1 not in Nbits_list
 
     for match_var in match_var_list:
-        input_path_A = input_paths['english'][args.modelA][match_var]['0'][args.txt_var]
-        input_path_B = input_paths[args.language][args.modelB][match_var]['1'][args.txt_var]
+        input_path_A = input_paths['english'][args.modelA][match_var]['0'][args.data_var]
+        input_path_B = input_paths[args.language][args.modelB][match_var]['1'][args.data_var]
 
         print("Input path A = ", input_path_A, flush=True)
         print("Input path B = ", input_path_B, flush=True)
@@ -411,7 +413,7 @@ if __name__ == "__main__":
         output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
                                 language=args.language,
-                                txt_var=args.txt_var,
+                                data_var=args.data_var,
                                 modelA=args.modelA,
                                 modelB=args.modelB,
                                 match_var=match_var,
@@ -419,7 +421,7 @@ if __name__ == "__main__":
                                 min_token_length=args.min_token_length,
                                 )
         
-        group_ids_path = f"/home/acevedo/syn-sem/datasets/txt/{args.txt_var}/second/{match_var}/english/"
+        group_ids_path = None#f"/home/acevedo/syn-sem/datasets/txt/{args.data_var}/second/{match_var}/english/"
 
         if args.compute_ranks_flag:
             main_similarities(
@@ -437,8 +439,8 @@ if __name__ == "__main__":
                 diagonal_constraint=diagonal_constraint,
                 batch_shuffle=batch_shuffle,
                 similarity_fn=similarity_fn,
+                data_var=args.data_var,
                 centers_list=centers_list,
-                txt_var=args.txt_var,
                 center_A_flag=args.center_A_flag,
                 center_B_flag=args.center_B_flag,
                 zero_activations=args.zero_activations,
