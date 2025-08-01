@@ -13,8 +13,6 @@ from time import time
 from modelpaths import *
 from transformers import AutoConfig
 
-from transformers import AutoConfig
-
 def get_num_hidden_layers(model_dir: str) -> int:
     """
     Load model config from the given directory and return the number of hidden layers.
@@ -71,7 +69,6 @@ def list_folder(path, desc="chunk_"):
     return files
 
 def bf16_torch_to_jax(tensor):
-    import jax.numpy as jnp
     intermediate_tensor = tensor.view(torch.uint16)
     tensor = jnp.array(intermediate_tensor).view('bfloat16')
     return tensor
@@ -190,82 +187,39 @@ def reshuffle_batch_axis(act, key):
     perm = jax.random.permutation(key, batch_size)
     return act[perm]
 
-
-# def collect_data(input_path, 
-#                  filter_layer=None, 
-#                  min_token_length=5, 
-#                  n_files=10,
-#                  ):
-#     start_time = time()
-#     files = list_folder(input_path, desc="chunk_")[:n_files]
-#     all_hidden_states = defaultdict(list)
-
-#     for file in tqdm(files, desc="Collect File"):
-#         with open(os.path.join(input_path, file.name), 'rb') as f:
-#             data = pickle.load(f)
-#         for _, sentence in enumerate(data):
-#             hidden_states = sentence['meta_info']['hidden_states'][0]
-#             assert hidden_states.shape[1] >= min_token_length
-#             hidden_states = hidden_states[:, -min_token_length:]
-
-#             for layer_idx, layer_tensor in enumerate(hidden_states.split(1, dim=0)):
-#                 if filter_layer is not None:
-#                     if layer_idx!=filter_layer: continue
-
-#                 layer_tensor = layer_tensor.squeeze(0)
-#                 all_hidden_states[f"layer_{layer_idx}"].append(layer_tensor)
-
-#     for layer, tensors in all_hidden_states.items():
-#         all_hidden_states[layer] = torch.stack(tensors)
-#         # print("Layer=", layer, "activations shape= ", all_hidden_states[layer].shape, flush=True)
-#     print(f'importing took {(time()-start_time)/60.} m')
-
-#     return all_hidden_states
-
 def collect_data(input_path, 
-                min_token_length=5, 
-                n_files=10):
-    """
-    Collects hidden states from chunked .pkl files in the new SGLang format.
-
-    Args:
-        input_path (str): Folder with chunk_*.pkl files.
-        min_token_length (int): Only include hidden states if they have this many tokens.
-        n_files (int): Max number of files to process.
-
-    Returns:
-        dict: { "layer_X": torch.Tensor [n_samples, dim, min_token_length] }
-    """
+                 min_token_length, 
+                 n_files,
+                 model_name,
+                 ):
+    ### activations dtype
+    config = AutoConfig.from_pretrained(model_paths[model_name])
+    model_dtype = config.torch_dtype
+    print(f'{model_name} dtype: {model_dtype}')
     start_time = time()
+    files = list_folder(input_path, desc="chunk_")[:n_files]
     all_hidden_states = defaultdict(list)
 
-    files = sorted([f for f in os.listdir(input_path) if f.startswith("chunk_")])[:n_files]
+    for file in tqdm(files, desc="Collect File"):
+        with open(os.path.join(input_path, file.name), 'rb') as f:
+            outputs = pickle.load(f)['outputs']  # list of batch_size "outputs"
+        for output_id,output in enumerate(outputs):
+            hidden = output['meta_info']['all_hidden_states'][0]  # shape (L, sentence_length, E)
+            hidden = torch.as_tensor(hidden,dtype=model_dtype)
+            assert hidden.shape[1] >= min_token_length, f"{file.name=},{output_id=},{hidden.shape=}"
+            hidden = hidden[:, -min_token_length:, :]  
 
-    for file in tqdm(files, desc="Collecting Files"):
-        with open(os.path.join(input_path, file), 'rb') as f:
-            data = pickle.load(f)
+            for i in range(hidden.shape[0]):  # Loop over layers directly
+                all_hidden_states[f"layer_{i}"].append(hidden[i])
 
-        hidden_states_batch = data['hidden_states']  # list of [num_prompts][num_layers]
-        print(f'{len(hidden_states_batch)=}')
-        for prompt_hidden_states in hidden_states_batch:
-            print(f'{len(prompt_hidden_states)=}')
-            for layer_idx, layer_tensor in enumerate(prompt_hidden_states):
-                # Ensure it's a tensor
-                layer_tensor = torch.tensor(layer_tensor)
-                print(f'{layer_tensor.shape=}')
+    # Stack once after collection
+    for layer in all_hidden_states:
+        all_hidden_states[layer] = torch.stack(all_hidden_states[layer])
+    
+    print(f'{all_hidden_states["layer_0"].shape=}')
+    print(f'importing took {(time()-start_time)/60.} m')
 
-                # assert layer_tensor.shape[1] >= min_token_length
-
-                selected = layer_tensor[-min_token_length:].T  # shape: [dim, min_token_length]
-                all_hidden_states[f"layer_{layer_idx}"].append(selected)
-
-    for layer, tensors in all_hidden_states.items():
-        all_hidden_states[layer] = torch.stack(tensors)  # shape: [N, dim, min_token_length]
-
-    print(f"Importing took {(time() - start_time) / 60:.2f} min")
     return all_hidden_states
-
-
 
 # def substract_group_averages(input_path,data,random_centers):
 
@@ -370,11 +324,11 @@ def load_and_subtract_syn_group_averages(act_A,
   act_B = act_B.at[indices_B].set(act_B[indices_B]-centers[group_ids[indices_B]])
   return act_A,act_B 
 
-def load_and_subtract_sem_group_averages(sim_folder,act,layer,data_var,center_flag):
+def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages):
   print(f'subtracting semantic center')
   centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
-  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{layer}.npy'),dtype=jnp.double)
+  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}.npy'),dtype=jnp.double)
 
   if data_var == 'syn':
     semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'
@@ -386,3 +340,13 @@ def load_and_subtract_sem_group_averages(sim_folder,act,layer,data_var,center_fl
     indices = jax.random.permutation(key_centers,indices)
   act -= semantic_centers[indices]
   return act
+
+
+def set_number_of_languages_list(center_A_flag,center_B_flag,centers):
+    if center_A_flag != 0 or center_B_flag != 0:
+        if centers == 'sem':
+            number_of_languages_list = list(range(1,4+1))
+    else:
+        number_of_languages_list = [None]
+
+    return number_of_languages_list

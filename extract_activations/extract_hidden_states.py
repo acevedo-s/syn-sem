@@ -59,18 +59,14 @@ def process_file(llm,
             return_hidden_states=True,
         )
         # extract per-layer hidden states for each prompt in batch
-        hidden_states = [out["meta_info"]["hidden_states"] for out in outputs]
-
-        # save both outputs and hidden states
         save_dict = {
             'outputs': outputs,
-            'hidden_states': hidden_states,
         }
         with open(f"{IO_paths['output_folder_path']}/chunk_{i}.pkl", "wb") as f:
-            pickle.dump(save_dict, f)
+            pickle.dump(save_dict, f) 
 
         t_step = time.time() - start
-        print(f"iter {i} | t_step = {t_step:.2f}", flush=True)
+        print(f"iter {i} | t_step = {t_step:.2f} s", flush=True)
     return
 
 def main(model_path,
@@ -100,7 +96,7 @@ def main(model_path,
     sampling_params = {
         "temperature": 0.8,
         "top_p": 0.95,
-        "max_new_tokens": 2,
+        "max_new_tokens": 1,
     }
 
     for IO_paths in IO_paths_list:
@@ -116,17 +112,17 @@ def main(model_path,
     llm.shutdown()
 
 if __name__ == "__main__":
-    model = 'llama'
+    model = sys.argv[1]
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
     n_lines = 1600
     batch_size = 100
 
-    data_var = 'syn'
+    data_var = 'sem'
     dataset_var = 'second'
     match_var = 'matching'
-    language = 'english'
+    language = sys.argv[2]
 
     IO_paths_list = [
         {
@@ -135,6 +131,9 @@ if __name__ == "__main__":
         }
         for i in [0, 1]
     ]
+    # avoiding computing the activations of english more than once
+    if language != 'english' and data_var == 'sem':
+        IO_paths_list = IO_paths_list[1:]
 
     main(
         model_path=model_path,

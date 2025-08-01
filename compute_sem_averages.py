@@ -8,7 +8,7 @@ sys.path.append('../../')
 import jax
 jax.config.update("jax_enable_x64", True)
 import numpy as np
-
+from collections import deque
 from datetime import datetime
 now = datetime.now()
 print(now.strftime("%Y-%m-%d %H:%M:%S"))
@@ -29,8 +29,6 @@ from geometry import *
 from datapaths import *
 import argparse
 from time import time
-import torch
-
 
 def main(
         layers,
@@ -51,11 +49,11 @@ def main(
 
     all_activations = []
     
-    languages = ['italian','german']
     for language_id,language in enumerate(languages):
         all_activations.append(collect_data(input_paths[language][model]['matching']['1'][data_var],
                                             min_token_length=min_token_length, 
                                             n_files=n_files,
+                                            model_name=model,
                                             )
         )
 
@@ -91,7 +89,7 @@ def main(
                                             layer_A=layer,
                                             layer_B=layer,
                                             )
-                    np.save(os.path.join(centers_folder,f"semantic_centers_{layer}"),semantic_center)
+                    np.save(os.path.join(centers_folder,f"semantic_centers_{len(languages)}"),semantic_center)
 
 
     return
@@ -102,6 +100,7 @@ if __name__ == "__main__":
     parser.add_argument("dbg",type=int)
     parser.add_argument("model",type=str)
     parser.add_argument("min_token_length",type=int)
+    parser.add_argument("number_of_languages",type=int,default=4)
 
     args = parser.parse_args()
 
@@ -116,20 +115,21 @@ if __name__ == "__main__":
 
     Nbits_list = [0]
     avg_flags = [0]
-    diagonal_constraint = None
+    diagonal_constraint = 1
     n_files = None
     n_tokens_list = None
     match_var = 'matching'
-
+    languages = [ 'chinese', 'german', 'italian', 'spanish', ]
+    # languages = deque(languages) # to rotate
+    languages = languages[:args.number_of_languages]
+    print(f'{languages=}')
     if args.dbg == 0:
         n_tokens_list = np.array([min_token_length])
         n_files = 16
-        diagonal_constraint = 1
 
     elif args.dbg == 1:
         n_files = 1
         n_tokens_list = np.array([min_token_length])
-        diagonal_constraint = 1
 
 
     print(f'{Nbits_list=}')
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
-                                language='english',
+                                language='english', # I save the centers in the english folder
                                 data_var=data_var,
                                 modelA=args.model,
                                 modelB=args.model,

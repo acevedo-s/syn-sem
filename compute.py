@@ -4,8 +4,8 @@ sys.path.append('../../')
 
 if __name__ == "__main__":
     dbg = int(sys.argv[1])
-    if dbg == 1:
-        os.environ["JAX_PLATFORMS"] = "cpu"
+    # if dbg == 1:
+    #     os.environ["JAX_PLATFORMS"] = "cpu"
 
 import jax
 jax.config.update("jax_enable_x64", True)
@@ -29,6 +29,7 @@ from utils import (bf16_torch_to_jax,
                 compute_and_subtract_group_averages,
                 load_and_subtract_syn_group_averages,
                 load_and_subtract_sem_group_averages,
+                set_number_of_languages_list,
                 )
 
 from geometry import *
@@ -39,6 +40,8 @@ from torch import zeros_like
 
 
 def main_similarities(
+        modelA,
+        modelB,
         layers_A,
         layers_B,
         input_path_A, 
@@ -64,10 +67,12 @@ def main_similarities(
     all_activations_A = collect_data(input_path_A,
                                      min_token_length=min_token_length, 
                                      n_files=n_files,
+                                     model_name=modelA,
                                      )
     all_activations_B = collect_data(input_path_B,
                                      min_token_length=min_token_length, 
                                      n_files=n_files,
+                                     model_name=modelB,
                                      )
 
     total_sample_size = all_activations_B["layer_0"].shape[0]
@@ -89,7 +94,7 @@ def main_similarities(
             
             for avg_tokens in avg_flags:
                 print(f'{avg_tokens=}')
-
+                 
                 for A_counter,layer_A in enumerate(layers_A):
                     activations_A = all_activations_A[f"layer_{layer_A}"]
                     if zero_activations: activations_A = zeros_like(activations_A)
@@ -102,67 +107,70 @@ def main_similarities(
                             continue
 
                         for centers in centers_list:
-                            act_A = bf16_torch_to_jax(activations_A[:,-n_tokens:,:])
-                            act_B = bf16_torch_to_jax(activations_B[:,-n_tokens:,:])
+                            number_of_languages_list = set_number_of_languages_list(center_A_flag,center_B_flag,centers)
+                            for number_of_languages in number_of_languages_list:
+                                act_A = bf16_torch_to_jax(activations_A[:,-n_tokens:,:])
+                                act_B = bf16_torch_to_jax(activations_B[:,-n_tokens:,:])
 
-                            if batch_shuffle:
-                                print(f'batch_shuffling!!! A')
-                                act_A = reshuffle_batch_axis(act_A, jax.random.key(111))
+                                if batch_shuffle:
+                                    print(f'batch_shuffling!!! A')
+                                    act_A = reshuffle_batch_axis(act_A, jax.random.key(111))
 
-                            if Nbits == 1:
-                                if avg_tokens == 1:
-                                    act_A = act_A.mean(axis=1,keepdims=True)
-                                    act_B = act_B.mean(axis=1,keepdims=True)
-                                act_A = binarize(act_A)
-                                act_B = binarize(act_B)
+                                if Nbits == 1:
+                                    if avg_tokens == 1:
+                                        act_A = act_A.mean(axis=1,keepdims=True)
+                                        act_B = act_B.mean(axis=1,keepdims=True)
+                                    act_A = binarize(act_A)
+                                    act_B = binarize(act_B)
 
-                            elif Nbits == 0:
-                                act_A = clip(act_A).astype(jnp.double) # promote them to double to break massive degeneracies due to small precision
-                                act_B = clip(act_B).astype(jnp.double)
-                                if avg_tokens == 1:
-                                    act_A = act_A.mean(axis=1,keepdims=True)
-                                    act_B = act_B.mean(axis=1,keepdims=True)
+                                elif Nbits == 0:
+                                    act_A = clip(act_A).astype(jnp.double) # promote them to double to break massive degeneracies due to small precision
+                                    act_B = clip(act_B).astype(jnp.double)
+                                    if avg_tokens == 1:
+                                        act_A = act_A.mean(axis=1,keepdims=True)
+                                        act_B = act_B.mean(axis=1,keepdims=True)
 
-                            act_A = flatten_tokens_features(act_A)
-                            act_B = flatten_tokens_features(act_B)
+                                act_A = flatten_tokens_features(act_A)
+                                act_B = flatten_tokens_features(act_B)
 
-                            sim_folder = makefolder(base=output_folder0+f'similarities/',
-                                                    create_folder=True,
-                                                    centers=centers,
-                                                    Nbits=Nbits,
-                                                    n_tokens=n_tokens,
-                                                    avg_tokens=avg_tokens,
-                                                    batch_shuffle=batch_shuffle,
-                                                    layer_A=layer_A,
-                                                    layer_B=layer_B,
-                                                    )
-                            
-                            if centers != 0:
-                                if centers == 'syn':
-                                    if center_A_flag:
-                                        act_A = compute_and_subtract_group_averages(group_ids_path,act_A,centers,sim_folder,'A')
-                                    if center_B_flag:
-                                        act_B = compute_and_subtract_group_averages(group_ids_path,act_B,centers,sim_folder,'B')
-                                elif centers == 'sem':
-                                    # act_A,act_B = load_and_subtract_syn_group_averages(act_A,
-                                    #                                         act_B,
-                                    #                                         sim_folder,
-                                    #                                         group_ids_path,
-                                    #                                         centers,
-                                    #                                         )
-                                    if center_A_flag != 0:
-                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,layer_A,data_var,center_flag=center_A_flag)
-                                    if center_B_flag != 0:
-                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,layer_B,data_var,center_flag=center_B_flag)
+                                sim_folder = makefolder(base=output_folder0+f'similarities/',
+                                                        create_folder=True,
+                                                        centers=centers,
+                                                        Nbits=Nbits,
+                                                        n_tokens=n_tokens,
+                                                        avg_tokens=avg_tokens,
+                                                        batch_shuffle=batch_shuffle,
+                                                        layer_A=layer_A,
+                                                        layer_B=layer_B,
+                                                        )
+                                
+                                if centers != 0:
+                                    if centers == 'syn':
+                                        if center_A_flag:
+                                            act_A = compute_and_subtract_group_averages(group_ids_path,act_A,centers,sim_folder,'A')
+                                        if center_B_flag:
+                                            act_B = compute_and_subtract_group_averages(group_ids_path,act_B,centers,sim_folder,'B')
+                                    elif centers == 'sem':
+                                        # act_A,act_B = load_and_subtract_syn_group_averages(act_A,
+                                        #                                         act_B,
+                                        #                                         sim_folder,
+                                        #                                         group_ids_path,
+                                        #                                         centers,
+                                        #                                         )
+                                        if center_A_flag != 0:
+                                            act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages)
+                                        if center_B_flag != 0:
+                                            act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages)
 
-                            sim_A,sim_B = get_similarities(act_A,act_B)
-                            sim_folder = makefolder(base=sim_folder,
-                                                    create_folder=True,
-                                                    zero_activations=zero_activations,
-                                                    center_A_flag=center_A_flag,
-                                                    center_B_flag=center_B_flag,)
-                            np.save(os.path.join(sim_folder, "sim_A.npy"), sim_A)
-                            np.save(os.path.join(sim_folder, "sim_B.npy"), sim_B)
+                                sim_A,sim_B = get_similarities(act_A,act_B)
+                                sim_folder = makefolder(base=sim_folder,
+                                                        create_folder=True,
+                                                        zero_activations=zero_activations,
+                                                        center_A_flag=center_A_flag,
+                                                        center_B_flag=center_B_flag,
+                                                        number_of_languages=number_of_languages,)
+                                np.save(os.path.join(sim_folder, "sim_A.npy"), sim_A)
+                                np.save(os.path.join(sim_folder, "sim_B.npy"), sim_B)
     print(f'similarities took {(time()-start_time)/60.} m')
     return
 
@@ -193,67 +201,71 @@ def main_compute_II(
     II_fn = build_information_imbalance(k=1)
 
     for centers in centers_list:
-        for Nbits_id,Nbits in enumerate(Nbits_list):
-            print(f'{Nbits=}')
-            for avg_id,avg_tokens in enumerate(avg_flags):
-                for n_tokens_id,n_tokens in enumerate(n_tokens_list):
-                    print(f'{n_tokens=}')
-                    inf_imb = np.zeros(shape=(len(jack_seeds),
-                                            2,
-                                            len(layers_A),
-                                            len(layers_B))
-                                    )
-                    inf_imb_std = np.zeros(shape=(inf_imb.shape))
+        number_of_languages_list = set_number_of_languages_list(center_A_flag, center_B_flag, centers)
+        for number_of_languages in number_of_languages_list:
+            for Nbits_id,Nbits in enumerate(Nbits_list):
+                print(f'{Nbits=}')
+                for avg_id,avg_tokens in enumerate(avg_flags):
+                    for n_tokens_id,n_tokens in enumerate(n_tokens_list):
+                        print(f'{n_tokens=}')
+                        inf_imb = np.zeros(shape=(len(jack_seeds),
+                                                2,
+                                                len(layers_A),
+                                                len(layers_B))
+                                        )
+                        inf_imb_std = np.zeros(shape=(inf_imb.shape))
 
-                    output_folder = makefolder(base=output_folder0,
-                                            create_folder=True,
-                                            centers=centers,
-                                            Nbits=Nbits,
-                                            n_tokens=n_tokens,
-                                            avg_tokens=avg_tokens,
-                                            batch_shuffle=batch_shuffle,
-                                            zero_activations=zero_activations,
-                                            center_A_flag=center_A_flag,
-                                            center_B_flag=center_B_flag,
-                                            )
-                    for A_counter,layer_A in enumerate(layers_A):
-                        for B_counter,layer_B in enumerate(layers_B):
-                            if diagonal_constraint == 1 and layer_B != layer_A:
-                                continue
-                            sim_folder = makefolder(base=output_folder0+f'similarities/',
-                                                    create_folder=False,
-                                                    centers=centers,
-                                                    Nbits=Nbits,
-                                                    n_tokens=n_tokens,
-                                                    avg_tokens=avg_tokens,
-                                                    batch_shuffle=batch_shuffle,
-                                                    layer_A=layer_A,
-                                                    layer_B=layer_B,
-                                                    zero_activations=zero_activations,
-                                                    center_A_flag=center_A_flag,
-                                                    center_B_flag=center_B_flag,
-                                                    )
-                            sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
-                            sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
+                        output_folder = makefolder(base=output_folder0,
+                                                create_folder=True,
+                                                centers=centers,
+                                                Nbits=Nbits,
+                                                n_tokens=n_tokens,
+                                                avg_tokens=avg_tokens,
+                                                batch_shuffle=batch_shuffle,
+                                                zero_activations=zero_activations,
+                                                center_A_flag=center_A_flag,
+                                                center_B_flag=center_B_flag,
+                                                number_of_languages=number_of_languages,
+                                                )
+                        for A_counter,layer_A in enumerate(layers_A):
+                            for B_counter,layer_B in enumerate(layers_B):
+                                if diagonal_constraint == 1 and layer_B != layer_A:
+                                    continue
+                                sim_folder = makefolder(base=output_folder0+f'similarities/',
+                                                        create_folder=False,
+                                                        centers=centers,
+                                                        Nbits=Nbits,
+                                                        n_tokens=n_tokens,
+                                                        avg_tokens=avg_tokens,
+                                                        batch_shuffle=batch_shuffle,
+                                                        layer_A=layer_A,
+                                                        layer_B=layer_B,
+                                                        zero_activations=zero_activations,
+                                                        center_A_flag=center_A_flag,
+                                                        center_B_flag=center_B_flag,
+                                                        number_of_languages=number_of_languages,
+                                                        )
+                                sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
+                                sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
 
-                            for jack_seed_id,jack_seed in enumerate(jack_seeds):
-                                jack_key = jax.random.key(jack_seed)
-                                jack_indices = jax.random.choice(key=jack_key,
-                                                                a=sim_A.shape[0],
-                                                                shape=(int(ratio_jackknife*sim_A.shape[0]),),
-                                                                replace=False)
-                                
-                                R_jack = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
-                                                                    sim_B[jack_indices, :][:, jack_indices])
+                                for jack_seed_id,jack_seed in enumerate(jack_seeds):
+                                    jack_key = jax.random.key(jack_seed)
+                                    jack_indices = jax.random.choice(key=jack_key,
+                                                                    a=sim_A.shape[0],
+                                                                    shape=(int(ratio_jackknife*sim_A.shape[0]),),
+                                                                    replace=False)
+                                    
+                                    R_jack = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
+                                                                        sim_B[jack_indices, :][:, jack_indices])
 
-                                _inf_imb,_inf_imb_std = II_fn(R_jack[0],R_jack[1])
-                                (inf_imb[jack_seed_id,:,A_counter,B_counter],
-                                inf_imb_std[jack_seed_id,:,A_counter,B_counter]) = _inf_imb,_inf_imb_std
-                                
-                    jack_std = inf_imb.std(axis=0)
-                    inf_imb = inf_imb.mean(axis=0)
-                    np.save(output_folder+"II.npy",inf_imb)
-                    np.save(output_folder+"II_jack_std.npy",jack_std)
+                                    _inf_imb,_inf_imb_std = II_fn(R_jack[0],R_jack[1])
+                                    (inf_imb[jack_seed_id,:,A_counter,B_counter],
+                                    inf_imb_std[jack_seed_id,:,A_counter,B_counter]) = _inf_imb,_inf_imb_std
+                                    
+                        jack_std = inf_imb.std(axis=0)
+                        inf_imb = inf_imb.mean(axis=0)
+                        np.save(output_folder+"II.npy",inf_imb)
+                        np.save(output_folder+"II_jack_std.npy",jack_std)
 
                     
     print(f'II took {(time()-start_time)/60.} m')
@@ -347,7 +359,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ranks")
     parser.add_argument("dbg",type=int)
     parser.add_argument("min_token_length",type=int)
-    parser.add_argument("modelA",type=str) # llama or deepseek
+    parser.add_argument("modelA",type=str) # llama, deepseek or qwen
     parser.add_argument("modelB",type=str)
     parser.add_argument("compute_ranks_flag",type=int)
     parser.add_argument("compute_observables_flag",type=int)
@@ -375,8 +387,8 @@ if __name__ == "__main__":
     diagonal_constraint = None
     n_files = None
     n_tokens_list = None
-    match_var_list = None
-    centers_list = None
+    match_var_list = None # in ['matching','mismatching']
+    centers_list = None # in ['syn','sem',0]
 
     if args.dbg == 0:
         n_tokens_list = np.array([min_token_length])
@@ -390,7 +402,7 @@ if __name__ == "__main__":
         n_tokens_list = np.array([min_token_length])
         diagonal_constraint = 1
         match_var_list = ["matching"]
-        centers_list = [0]
+        centers_list = ['sem']
 
 
     print(f'{Nbits_list=}')
@@ -425,6 +437,8 @@ if __name__ == "__main__":
 
         if args.compute_ranks_flag:
             main_similarities(
+                modelA=args.modelA,
+                modelB=args.modelB,
                 layers_A=layers_A,
                 layers_B=layers_B,
                 input_path_A=input_path_A,
