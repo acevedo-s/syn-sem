@@ -26,7 +26,7 @@ from utils import (bf16_torch_to_jax,
                 reduce_list_half_preserve_extremes,
                 collect_data,
                 reshuffle_batch_axis,
-                compute_and_subtract_group_averages,
+                compute_and_subtract_syn_group_averages,
                 load_and_subtract_syn_group_averages,
                 load_and_subtract_sem_group_averages,
                 set_number_of_languages_list,
@@ -46,7 +46,6 @@ def main_similarities(
         layers_B,
         input_path_A, 
         input_path_B,
-        group_ids_path,
         min_token_length, 
         n_files,
         n_tokens_list,
@@ -147,9 +146,9 @@ def main_similarities(
                                 if centers != 0:
                                     if centers == 'syn':
                                         if center_A_flag:
-                                            act_A = compute_and_subtract_group_averages(group_ids_path,act_A,centers,sim_folder,'A')
+                                            act_A = compute_and_subtract_syn_group_averages(sim_folder,act_A,center_A_flag)
                                         if center_B_flag:
-                                            act_B = compute_and_subtract_group_averages(group_ids_path,act_B,centers,sim_folder,'B')
+                                            act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag)
                                     elif centers == 'sem':
                                         # act_A,act_B = load_and_subtract_syn_group_averages(act_A,
                                         #                                         act_B,
@@ -383,7 +382,7 @@ if __name__ == "__main__":
         layers_B = reduce_list_half_preserve_extremes(layers_B)
 
     Nbits_list = [0]
-    avg_flags = [0]
+    avg_flags = [0,1]
     diagonal_constraint = None
     n_files = None
     n_tokens_list = None
@@ -395,7 +394,7 @@ if __name__ == "__main__":
         n_files = 16
         diagonal_constraint = 1
         match_var_list = ["matching"]
-        centers_list = ['sem']
+        centers_list = ['syn']
 
     elif args.dbg == 1:
         n_files = 1
@@ -433,7 +432,6 @@ if __name__ == "__main__":
                                 min_token_length=args.min_token_length,
                                 )
         
-        group_ids_path = None#f"/home/acevedo/syn-sem/datasets/txt/{args.data_var}/second/{match_var}/english/"
 
         if args.compute_ranks_flag:
             main_similarities(
@@ -443,7 +441,6 @@ if __name__ == "__main__":
                 layers_B=layers_B,
                 input_path_A=input_path_A,
                 input_path_B=input_path_B,
-                group_ids_path=group_ids_path,
                 min_token_length=min_token_length,
                 n_files=n_files,
                 n_tokens_list=n_tokens_list,

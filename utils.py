@@ -42,9 +42,9 @@ def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_path
     emb_dims[model_name] = config.hidden_size
 
 
-depths = {"deepseek": 61}
-emb_dims = {"deepseek": 7168}
-models = ['qwen', 'llama']
+depths = {}
+emb_dims = {}
+models = ['qwen7b', 'llama8b', 'deepseek',]
 
 for model in models:
   add_model_metadata(depths, emb_dims, model, model_paths)
@@ -249,41 +249,48 @@ def collect_data(input_path,
   
 #   return data, centers
 
-def compute_and_subtract_group_averages(input_path,data,random_centers,output_folder,space_index):
-  print(f'subtracting group averages, random_centers={random_centers}')
+def compute_and_subtract_syn_group_averages(sim_folder,
+                                            act,
+                                            center_flag,
+                                            ):
+  print(f'subtracting syntactic group averages')
 
-  assert len(data.shape) == 2
-  assert space_index == 'A' or space_index == 'B'
+  assert len(act.shape) == 2
+  # assert space_index == 'A' or space_index == 'B'
 
-  if random_centers:
+  if center_flag == -1:
     key_center = jax.random.PRNGKey(422)
 
-  all_group_ids = jnp.array(np.loadtxt(input_path + 'group_ids.txt').astype(int))
-  # assert len(all_group_ids) == data.shape[0]
-  unique_groups_indices,counts = jnp.unique(all_group_ids,return_counts=True)
+  syn_group_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/group_ids.txt"
+  all_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(int))
+  assert len(all_group_ids) == act.shape[0]
+  unique_groups_indices, counts = jnp.unique(all_group_ids,return_counts=True)
 
   centers = jnp.zeros(shape=(len(unique_groups_indices), 
-                             data.shape[1]), 
-                             dtype=data.dtype)
-
+                             act.shape[1]), 
+                             dtype=act.dtype)
 
   for group_index,group_id in enumerate(unique_groups_indices):
     assert group_index == group_id
 
-    if random_centers == False:
-      indices = jnp.where(all_group_ids==group_id)[0]
-      centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / counts[group_index])
-    else:
-      key_center, subkey = jax.random.split(key_center)
-      N_average = data.shape[0] // len(unique_groups_indices)
-      indices = jax.random.choice(subkey, data.shape[0], 
-                                      shape=(N_average,), 
-                                      replace=False)
-      centers = centers.at[group_index].set(jnp.sum(data[indices],axis=0) / N_average)
-    data = data.at[indices].add(-centers[group_index])
+    indices = jnp.where(all_group_ids==group_id)[0]
 
-  np.save(os.path.join(output_folder,f"centers_{space_index}"),centers)
-  return data
+    if center_flag == 1:
+      centers = centers.at[group_index].set(jnp.sum(act[indices],axis=0) / counts[group_index])
+    elif center_flag == -1:
+      key_center, subkey_center = jax.random.split(key_center)
+      random_group_id = jax.random.randint(subkey_center, 
+                                           shape=(), 
+                                           minval=0, 
+                                           maxval=len(unique_groups_indices),
+                                           )
+      misaligned_indices = jnp.where(all_group_ids==random_group_id)[0]
+      centers = centers.at[group_index].set(jnp.sum(act[misaligned_indices],axis=0) / counts[random_group_id])
+
+    act = act.at[indices].add(-centers[group_index])
+
+  # np.save(os.path.join(output_folder,f"centers_{space_index}"),centers)
+  return act
 
 def load_and_subtract_syn_group_averages(act_A,
                                      act_B,
@@ -343,10 +350,11 @@ def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,num
 
 
 def set_number_of_languages_list(center_A_flag,center_B_flag,centers):
+    
+    number_of_languages_list = [None]
+    
     if center_A_flag != 0 or center_B_flag != 0:
         if centers == 'sem':
             number_of_languages_list = list(range(1,4+1))
-    else:
-        number_of_languages_list = [None]
 
     return number_of_languages_list

@@ -112,17 +112,17 @@ def main(model_path,
     llm.shutdown()
 
 if __name__ == "__main__":
-    model = sys.argv[1]
+    model = sys.argv[1] # 
+    language = sys.argv[2] # 
+    data_var = sys.argv[3] # syn or sen 
+    match_var = 'matching'
+
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
     n_lines = 1600
     batch_size = 100
-
-    data_var = 'sem'
     dataset_var = 'second'
-    match_var = 'matching'
-    language = sys.argv[2]
 
     IO_paths_list = [
         {
