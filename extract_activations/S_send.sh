@@ -1,8 +1,13 @@
 #!/bin/bash
 #SBATCH --time=4:00:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=8 # 8 for deepseek
-#SBATCH --gres=gpu:8 # 8 for deepseek
+# SBATCH --nodes=2
+# SBATCH --ntasks-per-node=8 # 8 for deepseek
+# SBATCH --gres=gpu:8 # 8 for deepseek
+
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gres=gpu:1
+
 #SBATCH --mem=1000G
 #SBATCH --output=./log_output/%x.o%j              # Standard output
 #SBATCH --error=./log_output/%x.o%j               # Standard error
@@ -16,6 +21,7 @@ module load cuda11.8/toolkit/11.8.0
 export CUDA_HOME=/cm/shared/apps/cuda11.8/toolkit/11.8.0
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+export SGLANG_PORT_FILE="/tmp/sglang_port_${SLURM_JOB_ID}.txt"
 
 echo $CUDA_HOME
 echo $LD_LIBRARY_PATH

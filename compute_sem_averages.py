@@ -91,7 +91,6 @@ def main(
                                             )
                     np.save(os.path.join(centers_folder,f"semantic_centers_{len(languages)}"),semantic_center)
 
-
     return
 
 if __name__ == "__main__":
@@ -114,12 +113,12 @@ if __name__ == "__main__":
         layers = reduce_list_half_preserve_extremes(layers)
 
     Nbits_list = [0]
-    avg_flags = [0]
+    avg_flags = [0,1]
     diagonal_constraint = 1
     n_files = None
     n_tokens_list = None
     match_var = 'matching'
-    languages = [ 'chinese', 'german', 'italian', 'spanish', ]
+    languages = ['german', 'italian', 'spanish', 'chinese',]
     # languages = deque(languages) # to rotate
     languages = languages[:args.number_of_languages]
     print(f'{languages=}')

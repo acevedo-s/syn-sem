@@ -100,7 +100,6 @@ def main_similarities(
 
                     for B_counter,layer_B in enumerate(layers_B):
                         activations_B = all_activations_B[f"layer_{layer_B}"]
-                        # if zero_activations: activations_B = zeros_like(activations_B)
 
                         if diagonal_constraint == 1 and layer_B != layer_A:
                             continue
@@ -145,17 +144,15 @@ def main_similarities(
                                 
                                 if centers != 0:
                                     if centers == 'syn':
-                                        if center_A_flag:
-                                            act_A = compute_and_subtract_syn_group_averages(sim_folder,act_A,center_A_flag)
-                                        if center_B_flag:
-                                            act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag)
+                                        if data_var == 'syn':
+                                            if center_A_flag:
+                                                act_A = compute_and_subtract_syn_group_averages(sim_folder,act_A,center_A_flag,'A')
+                                            if center_B_flag:
+                                                act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag,'B')
+                                        elif data_var == 'sem':
+                                            if center_A_flag and center_B_flag:
+                                                act_A,act_B = load_and_subtract_syn_group_averages(act_A,act_B,sim_folder,center_flag=center_A_flag)
                                     elif centers == 'sem':
-                                        # act_A,act_B = load_and_subtract_syn_group_averages(act_A,
-                                        #                                         act_B,
-                                        #                                         sim_folder,
-                                        #                                         group_ids_path,
-                                        #                                         centers,
-                                        #                                         )
                                         if center_A_flag != 0:
                                             act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages)
                                         if center_B_flag != 0:

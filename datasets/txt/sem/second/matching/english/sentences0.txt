@@ -116,7 +116,6 @@ The kind lady gave me a wave
 He spent the night driving endless miles
 Upon the stage and the screen we act professionally
 We are completely exhausted after the work
-He permitted the visitor to enter briefly
 The community members held it in great esteem
 A smell from the kitchen drifted tantalizingly
 They can start the project after the meeting
@@ -1279,7 +1278,6 @@ They must set a date for the wedding
 The mat served as the small cat's bed
 The law passed by the government seems unfair
 There was a scratch on its surface
-He fought bravely against the formidable foe
 A toast may be proposed by him at the dinner
 It can effectively present the data
 A sudden storm brewed over the ocean
@@ -1598,3 +1596,5 @@ Under the clear sky the stars twinkled brightly
 She bought a new dress and smiled
 A massive boulder tumbled down toward the ravine
 My tool works extremely well for me
+The access mechanism functioned flawlessly last night
+He misplaced a precious watch nearby

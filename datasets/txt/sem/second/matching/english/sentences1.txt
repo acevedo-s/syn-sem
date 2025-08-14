@@ -116,7 +116,6 @@ A kind woman waved to me
 He drove a long distance overnight
 We perform with skill on stage and screen
 The job left us utterly drained
-The guest received quick permission to enter
 It was highly regarded in the community
 The kitchen's smell drifted out tantalizingly
 The project kickoff follows today's briefing
@@ -1279,7 +1278,6 @@ A wedding date must be set by them
 The small cat slept on the mat
 The government's new law appears unfair
 Its surface displayed a visible scratch
-He courageously fought against the formidable opponent
 He may propose a toast at the dinner
 The data can be presented effectively by it
 A sudden gale rose above the sea
@@ -1554,7 +1552,7 @@ We may adopt a kitten for our lonely cat
 The bridges will be inspected by an engineer
 During the talk she remains a calm observer
 The old book on the shelf lay completely still
-We diligently searched for the missing piece
+We were diligently searched for the missing piece
 It might break down the barrier gradually
 They feel an utterly unique sensation
 He will speak up the truth bravely
@@ -1598,3 +1596,5 @@ Bright stars twinkled beneath the clear sky
 After buying a new dress, she smiled happily
 A large rock crashed into the valley
 I own a tool that is quite effective
+The system for the entry worked perfectly
+He lost a valuable watch somewhere around
