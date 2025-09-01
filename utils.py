@@ -254,7 +254,6 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             center_flag,
                                             space_index,
                                             ):
-  print(f'subtracting syntactic group averages')
 
   output_folder = sim_folder
 
@@ -293,7 +292,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
     act = act.at[indices].add(-centers[group_index])
 
   np.save(os.path.join(output_folder,f"syn_centers_{space_index}"),centers)
-  print(f'saved centers to {os.path.join(output_folder,f"syn_centers_{space_index}.npy")}')
+  print(f'centers saved at {os.path.join(output_folder,f"syn_centers_{space_index}.npy")}')
   return act
 
 def load_and_subtract_syn_group_averages(act_A,
@@ -301,27 +300,39 @@ def load_and_subtract_syn_group_averages(act_A,
                                         sim_folder,
                                         center_flag,
                                         ):
-  original_labels = np.loadtxt("/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/original_labels.txt").astype(int)
+  print(f'loading and subtracting syn group averages')
+  original_labels = jnp.array(np.loadtxt("/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/original_labels.txt").astype(int))
   group_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/group_ids.txt"
   all_group_ids = jnp.array(np.loadtxt(group_ids_path).astype(int))
+  assert len(all_group_ids) == act_A.shape[0] == act_B.shape[0]
   unique_groups_indices = jnp.unique(all_group_ids)
 
-  # I have to pick the <syntax> centers
+  if center_flag == -1:
+    key = jax.random.PRNGKey(999)  # Change seed for different permutations
+    shuffled_groups = jax.random.permutation(key, unique_groups_indices)
+    mapping = dict(zip(unique_groups_indices.tolist(), shuffled_groups.tolist()))
+    all_group_ids = jnp.array([mapping[g] for g in all_group_ids.tolist()])
+    # all_group_ids = jax.random.permutation(key, all_group_ids)
+
   centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
+  centers_folder = centers_folder.replace("n_files_16", "n_files_21")
+
   centers = jnp.mean(jnp.stack([jnp.array(np.load(centers_folder+f'syn_centers_A.npy')),
-                              jnp.array(np.load(centers_folder+f'syn_centers_B.npy'))]),
-                    axis=0)
-  if center_flag == 1:
-    indices_A = jnp.where(original_labels == 0)[0]
-    indices_B = jnp.where(original_labels == 1)[0]
-    act_A = act_A.at[indices_A].set(act_A[indices_A]-centers[all_group_ids[indices_A]])
-    act_B = act_B.at[indices_B].set(act_B[indices_B]-centers[all_group_ids[indices_B]])
-  # if center_flag == -1:
-  #   pass
+                                jnp.array(np.load(centers_folder+f'syn_centers_B.npy'))]),
+                    axis=0)#.astype(act_A.dtype)
+  # centers = jnp.array(np.load(centers_folder+f'syn_centers_A.npy')).astype(act_A.dtype)
+
+  print(f'{all_group_ids.min()=}')
+  print(f'{all_group_ids.max()=}')
+  
+  indices_A = jnp.where(original_labels == 0)[0]
+  indices_B = jnp.where(original_labels == 1)[0]
+  act_A = act_A.at[indices_A].add(-centers[all_group_ids[indices_A]])
+  act_B = act_B.at[indices_B].add(-centers[all_group_ids[indices_B]])
+
   return act_A,act_B 
 
 def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages):
-  print(f'subtracting semantic center')
   centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
   semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}.npy'),dtype=jnp.double)

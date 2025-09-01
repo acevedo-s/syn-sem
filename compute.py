@@ -79,7 +79,7 @@ def main_similarities(
     #dbg:
     print(f'{total_sample_size=}', flush=True)
     
-    key_distances = jax.random.key(42)
+    key_distances = jax.random.PRNGKey(42)
     key_distances, subkey_distances = jax.random.split(key_distances) 
     
     for n_tokens_id, n_tokens in enumerate(n_tokens_list):
@@ -112,7 +112,7 @@ def main_similarities(
 
                                 if batch_shuffle:
                                     print(f'batch_shuffling!!! A')
-                                    act_A = reshuffle_batch_axis(act_A, jax.random.key(111))
+                                    act_A = reshuffle_batch_axis(act_A, jax.random.PRNGKey(111))
 
                                 if Nbits == 1:
                                     if avg_tokens == 1:
@@ -142,21 +142,20 @@ def main_similarities(
                                                         layer_B=layer_B,
                                                         )
                                 
-                                if centers != 0:
-                                    if centers == 'syn':
-                                        if data_var == 'syn':
-                                            if center_A_flag:
-                                                act_A = compute_and_subtract_syn_group_averages(sim_folder,act_A,center_A_flag,'A')
-                                            if center_B_flag:
-                                                act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag,'B')
-                                        elif data_var == 'sem':
-                                            if center_A_flag and center_B_flag:
-                                                act_A,act_B = load_and_subtract_syn_group_averages(act_A,act_B,sim_folder,center_flag=center_A_flag)
-                                    elif centers == 'sem':
-                                        if center_A_flag != 0:
-                                            act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages)
-                                        if center_B_flag != 0:
-                                            act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages)
+                                if centers == 'syn':
+                                    if data_var == 'syn':
+                                        if center_A_flag:
+                                            act_A = compute_and_subtract_syn_group_averages(sim_folder,act_A,center_A_flag,'A')
+                                        if center_B_flag:
+                                            act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag,'B')
+                                    elif data_var == 'sem':
+                                        if center_A_flag != 0 and center_B_flag == center_A_flag:
+                                            act_A,act_B = load_and_subtract_syn_group_averages(act_A,act_B,sim_folder,center_flag=center_A_flag)
+                                elif centers == 'sem':
+                                    if center_A_flag != 0:
+                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages)
+                                    if center_B_flag != 0:
+                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages)
 
                                 sim_A,sim_B = get_similarities(act_A,act_B)
                                 sim_folder = makefolder(base=sim_folder,
@@ -245,7 +244,7 @@ def main_compute_II(
                                 sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
 
                                 for jack_seed_id,jack_seed in enumerate(jack_seeds):
-                                    jack_key = jax.random.key(jack_seed)
+                                    jack_key = jax.random.PRNGKey(jack_seed)
                                     jack_indices = jax.random.choice(key=jack_key,
                                                                     a=sim_A.shape[0],
                                                                     shape=(int(ratio_jackknife*sim_A.shape[0]),),
@@ -257,6 +256,10 @@ def main_compute_II(
                                     _inf_imb,_inf_imb_std = II_fn(R_jack[0],R_jack[1])
                                     (inf_imb[jack_seed_id,:,A_counter,B_counter],
                                     inf_imb_std[jack_seed_id,:,A_counter,B_counter]) = _inf_imb,_inf_imb_std
+                                
+                                os.remove(os.path.join(sim_folder, "sim_A.npy"))
+                                os.remove(os.path.join(sim_folder, "sim_B.npy"))
+
                                     
                         jack_std = inf_imb.std(axis=0)
                         inf_imb = inf_imb.mean(axis=0)
@@ -388,7 +391,10 @@ if __name__ == "__main__":
 
     if args.dbg == 0:
         n_tokens_list = np.array([min_token_length])
-        n_files = 16
+        if args.data_var == 'sem':
+            n_files = 16
+        elif args.data_var == 'syn':
+            n_files = 21
         diagonal_constraint = 1
         match_var_list = ["matching"]
         centers_list = ['syn']

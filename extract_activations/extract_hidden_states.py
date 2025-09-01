@@ -126,12 +126,12 @@ if __name__ == "__main__":
     model = sys.argv[1] # 
     language = sys.argv[2] # 
     data_var = sys.argv[3] # syn or sem
-    match_var = 'matching'
+    match_var = 'mismatching'
 
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     model_path = model_paths[model]
-    n_lines = 1600
+    n_lines = 2100
     batch_size = 100
     dataset_var = 'second'
 

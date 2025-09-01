@@ -8,6 +8,11 @@
 #SBATCH --error=./log_output/%x.o%j               # Standard error
 #SBATCH --qos=mira
 
+export TF_CPP_MIN_LOG_LEVEL=0      # show INFO, WARNING, and ERROR (default hides INFO=2)
+export JAX_DEBUG_NANS=True         # show warnings if NaNs/Infs are encountered
+# export JAX_LOG_COMPILES=1          # log compilation events
+
+
 ARGS=("$@") # list of commandline inputs
 echo "${ARGS[@]}"
 # PYTHONWARNINGS="error" python3 -u compute.py "${ARGS[@]}"
