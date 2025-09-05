@@ -13,6 +13,12 @@ from time import time
 from modelpaths import *
 from transformers import AutoConfig
 
+precision_map = {
+                    16: jnp.bfloat16,   # or jnp.float16 if you really want IEEE half
+                    32: jnp.float32,
+                    64: jnp.float64,
+                }
+
 def get_num_hidden_layers(model_dir: str) -> int:
     """
     Load model config from the given directory and return the number of hidden layers.
@@ -68,9 +74,10 @@ def list_folder(path, desc="chunk_"):
 
     return files
 
-def bf16_torch_to_jax(tensor):
-    intermediate_tensor = tensor.view(torch.uint16)
-    tensor = jnp.array(intermediate_tensor).view('bfloat16')
+def torch_to_jax(tensor,precision):
+    assert tensor.dtype == torch.bfloat16
+    intermediate_tensor = tensor.view(torch.uint16).numpy()
+    tensor = jnp.array(intermediate_tensor).astype(precision_map[precision])
     return tensor
 
 def flatten_tokens_features(tensor):
@@ -108,14 +115,14 @@ def clip(act,
 
 def makefolder(base='./',
                create_folder=False,
-               precision=5,
+               float_precision=5,
                **kwargs,
                ):
   folder = base
   for key, value in kwargs.items():
     if value != None:
       if isinstance(value,float) == True:
-        folder += key + f'_{value:.{precision}f}/'
+        folder += key + f'_{value:.{float_precision}f}/'
       else:
         folder += key + f'_{value}/'
   if create_folder:
@@ -253,12 +260,15 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             act,
                                             center_flag,
                                             space_index,
+                                            removal_method,
                                             ):
+  ### TODO: optimize with jax.jit
 
   output_folder = sim_folder
 
   assert len(act.shape) == 2
   assert space_index == 'A' or space_index == 'B'
+  assert removal_method in ['subtraction','projection']
 
   if center_flag == -1:
     key_center = jax.random.PRNGKey(422)
@@ -289,16 +299,28 @@ def compute_and_subtract_syn_group_averages(sim_folder,
       misaligned_indices = jnp.where(all_group_ids==random_group_id)[0]
       centers = centers.at[group_index].set(jnp.sum(act[misaligned_indices],axis=0) / counts[random_group_id])
 
-    act = act.at[indices].add(-centers[group_index])
+    act = remove_group_average(act, indices, centers[group_index], removal_method)
 
   np.save(os.path.join(output_folder,f"syn_centers_{space_index}"),centers)
   print(f'centers saved at {os.path.join(output_folder,f"syn_centers_{space_index}.npy")}')
   return act
 
+def remove_group_average(act, indices, center, removal_method):
+    
+    if removal_method == 'subtraction':
+      act = act.at[indices].add(-center)
+    elif removal_method == 'projection':
+      proj_coeffs = (act[indices] @ center) / (center @ center) #(len(indices),)
+      projections = jnp.outer(proj_coeffs,center) #(len(indices),E)
+      act = act.at[indices].add(-projections)
+
+    return act
+
 def load_and_subtract_syn_group_averages(act_A,
                                         act_B,
                                         sim_folder,
                                         center_flag,
+                                        removal_method,
                                         ):
   print(f'loading and subtracting syn group averages')
   original_labels = jnp.array(np.loadtxt("/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/original_labels.txt").astype(int))
@@ -308,7 +330,7 @@ def load_and_subtract_syn_group_averages(act_A,
   unique_groups_indices = jnp.unique(all_group_ids)
 
   if center_flag == -1:
-    key = jax.random.PRNGKey(999)  # Change seed for different permutations
+    key = jax.random.PRNGKey(9999)  # Change seed for different permutations
     shuffled_groups = jax.random.permutation(key, unique_groups_indices)
     mapping = dict(zip(unique_groups_indices.tolist(), shuffled_groups.tolist()))
     all_group_ids = jnp.array([mapping[g] for g in all_group_ids.tolist()])
@@ -319,23 +341,43 @@ def load_and_subtract_syn_group_averages(act_A,
 
   centers = jnp.mean(jnp.stack([jnp.array(np.load(centers_folder+f'syn_centers_A.npy')),
                                 jnp.array(np.load(centers_folder+f'syn_centers_B.npy'))]),
-                    axis=0)#.astype(act_A.dtype)
-  # centers = jnp.array(np.load(centers_folder+f'syn_centers_A.npy')).astype(act_A.dtype)
+                    axis=0).astype(act_A.dtype) #(num_groups,E)
 
-  print(f'{all_group_ids.min()=}')
-  print(f'{all_group_ids.max()=}')
-  
   indices_A = jnp.where(original_labels == 0)[0]
   indices_B = jnp.where(original_labels == 1)[0]
-  act_A = act_A.at[indices_A].add(-centers[all_group_ids[indices_A]])
-  act_B = act_B.at[indices_B].add(-centers[all_group_ids[indices_B]])
+
+  act_A = remove_group_averages(act_A, 
+                                indices_A, 
+                                centers, 
+                                all_group_ids, 
+                                removal_method)
+  act_B = remove_group_averages(act_B, 
+                                indices_B, 
+                                centers, 
+                                all_group_ids, 
+                                removal_method)
+
 
   return act_A,act_B 
 
-def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages):
+def remove_group_averages(act, indices, all_group_centers, all_group_ids, removal_method):
+    
+    centers = all_group_centers[all_group_ids[indices]] # (len(indices),E)
+    print(f'{centers.shape=},{indices.shape=},{act.shape=}')
+    
+    if removal_method == 'subtraction':
+      act = act.at[indices].add(-centers)
+    elif removal_method == 'projection':
+      proj_coeffs = (jnp.einsum("ij,ij->i", act[indices], centers)) / jnp.einsum("ij,ij->i", centers, centers) #(len(indices),)
+      projections = proj_coeffs[:, None] * centers  # (len(indices), E)
+      act = act.at[indices].add(-projections)
+
+    return act
+
+def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages,precision):
   centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
-  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}.npy'),dtype=jnp.double)
+  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}.npy'),dtype=precision_map[precision])
 
   if data_var == 'syn':
     semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'

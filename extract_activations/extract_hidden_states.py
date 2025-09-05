@@ -126,7 +126,7 @@ if __name__ == "__main__":
     model = sys.argv[1] # 
     language = sys.argv[2] # 
     data_var = sys.argv[3] # syn or sem
-    match_var = 'mismatching'
+    match_var = 'matching'
 
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')

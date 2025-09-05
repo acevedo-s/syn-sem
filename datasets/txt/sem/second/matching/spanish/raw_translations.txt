@@ -2211,7 +2211,6 @@ It has rapidly spread the news	Ha difundido rápidamente la noticia
 There was a spill under the table	Hubo un derrame debajo de la mesa
 It can look after the delicate plant	Puede cuidar la delicada planta
 The mysterious package belonged to him	El misterioso paquete le pertenecía
-She bravely fought against the injustice	Luchó valientemente contra la injusticia
 The tasks will be completed by our team	Las tareas serán completadas por nuestro equipo
 The birds sing in the tall tree	Los pájaros cantan en el árbol alto
 The task was easily managed with its system	La tarea se gestionó fácilmente con su sistema
@@ -2267,7 +2266,7 @@ She would usually eat a light breakfast	Normalmente tomaría un desayuno ligero
 There was a hole through the ceiling	Había un agujero en el techo
 The program enabled the device to run smoothly	El programa permitió que el dispositivo funcionara sin problemas
 You could happily sing a song	Podrías cantar una canción felizmente
-You were bravely fought against the unfair system	Luchaste valientemente contra el sistema injusto
+You bravely fought against the unfair system	Luchaste valientemente contra el sistema injusto
 A sweet aroma from the flowers smelled delightfully pleasant	Un aroma dulce de las flores olía deliciosamente agradable
 They might reluctantly accept the final offer	Podrían aceptar a regañadientes la oferta final
 She was entirely consumed by the pressing urgency	Estaba completamente consumida por la urgencia apremiante

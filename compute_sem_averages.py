@@ -13,7 +13,9 @@ from datetime import datetime
 now = datetime.now()
 print(now.strftime("%Y-%m-%d %H:%M:%S"))
 
-from utils import (bf16_torch_to_jax, 
+from utils import (
+                precision_map,
+                torch_to_jax, 
                 flatten_tokens_features, 
                 list_folder, 
                 binarize, 
@@ -42,6 +44,7 @@ def main(
         avg_flags,
         Nbits_list,
         data_var,
+        precision,
         ):
     start_time = time()
     centers = 'sem'
@@ -68,12 +71,12 @@ def main(
                     T=1 if avg_tokens else min_token_length 
                     semantic_center = jnp.zeros(shape=(len(input_paths),
                                                    n_files*batch_size,
-                                                   T*emb_dims[model]),dtype=jnp.double)
+                                                   T*emb_dims[model]),dtype=precision_map[precision])
                     for language_id in range(len(all_activations)):
                         print(f'processing {languages[language_id]}')
                         activations = all_activations[language_id][f"layer_{layer}"]
-                        act = bf16_torch_to_jax(activations[:,-n_tokens:,:])
-                        act = clip(act).astype(jnp.double) # promote them to double to break massive degeneracies due to small precision
+                        act = torch_to_jax(activations[:,-n_tokens:,:],precision)
+                        act = clip(act)
                         if avg_tokens == 1:
                             act = act.mean(axis=1,keepdims=True)
                         semantic_center = semantic_center.at[language_id].set(flatten_tokens_features(act))
@@ -103,6 +106,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    precision = 32
     data_var = 'sem'
     batch_size = 100
     min_token_length = args.min_token_length  
@@ -113,13 +117,12 @@ if __name__ == "__main__":
         layers = reduce_list_half_preserve_extremes(layers)
 
     Nbits_list = [0]
-    avg_flags = [0,1]
+    avg_flags = [0]
     diagonal_constraint = 1
     n_files = None
     n_tokens_list = None
     match_var = 'matching'
     languages = ['german', 'italian', 'spanish', 'chinese',]
-    # languages = deque(languages) # to rotate
     languages = languages[:args.number_of_languages]
     print(f'{languages=}')
     if args.dbg == 0:
@@ -137,6 +140,7 @@ if __name__ == "__main__":
 
     output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
+                                precision=precision,
                                 language='english', # I save the centers in the english folder
                                 data_var=data_var,
                                 modelA=args.model,
@@ -157,6 +161,7 @@ if __name__ == "__main__":
         avg_flags,
         Nbits_list,
         data_var,
+        precision,
         )
 
 

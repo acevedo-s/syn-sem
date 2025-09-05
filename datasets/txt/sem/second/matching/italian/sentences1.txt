@@ -1279,7 +1279,6 @@ Devono fissare una data per il matrimonio
 Il piccolo gatto dormiva sul tappetino
 La legge approvata dal governo sembra ingiusta
 C'era un graffio sulla sua superficie
-Ha combattuto coraggiosamente contro il formidabile avversario
 Potrebbe proporre un brindisi a cena
 Può presentare i dati in modo efficace
 Una tempesta improvvisa si è scatenata sull'oceano
@@ -1554,7 +1553,6 @@ Potremmo adottare un gattino per il nostro gatto solo
 I ponti saranno ispezionati da un ingegnere
 È un'ascoltatrice paziente durante la discussione
 Il vecchio libro sullo scaffale giaceva completamente immobile
-Abbiamo cercato diligentemente il pezzo mancante
 Potrebbe abbattere gradualmente la barriera
 Provano una sensazione assolutamente unica
 Dirà la verità coraggiosamente
@@ -1598,3 +1596,5 @@ Sotto il cielo sereno le stelle scintillavano luminose
 Ha comprato un vestito nuovo e ha sorriso
 Una grande roccia si è schiantata nella valle
 Possiedo uno strumento abbastanza efficace
+Il sistema di ingresso ha funzionato perfettamente
+Ha perso un orologio prezioso da qualche parte

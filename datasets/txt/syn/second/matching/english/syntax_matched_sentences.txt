@@ -122,8 +122,8 @@ We discussed a sensitive topic privately	He read an interesting article online	P
 Amazon started an online bookstore in Seattle	Lincoln delivered a powerful address at Gettysburg	NNP VBD DT JJ NN IN NNP	NNP VBD DT JJ NN IN NNP	0.0
 NASA landed a robotic rover on Mars	Amazon started an online bookstore in Seattle	NNP VBD DT JJ NN IN NNP	NNP VBD DT JJ NN IN NNP	0.0
 Many people may dislike the change	All drivers must have a license	DT NNS MD VB DT NN	DT NNS MD VB DT NN	0.0
-We were diligently searched for the missing item	It was securely fastened with a strong rope	PRP VBD RB VBN IN DT JJ NN	PRP VBD RB VBN IN DT JJ NN	0.0
-It was rapidly transformed into a beautiful garden	We were diligently searched for the missing item	PRP VBD RB VBN IN DT JJ NN	PRP VBD RB VBN IN DT JJ NN	0.0
+We diligently searched for the missing item	It was securely fastened with a strong rope	PRP VBD RB VBN IN DT JJ NN	PRP VBD RB VBN IN DT JJ NN	0.0
+It was rapidly transformed into a beautiful garden	We diligently searched for the missing item	PRP VBD RB VBN IN DT JJ NN	PRP VBD RB VBN IN DT JJ NN	0.0
 He read an interesting article online	I met a famous person once	PRP VBD DT JJ NN RB	PRP VBD DT JJ NN RB	0.0
 A clear voice spoke remarkably calm	The tall tree stood perfectly still	DT JJ NN VBD RB JJ	DT JJ NN VBD RB JJ	0.0
 You write a poem while I write a novel	They study the history and we study the future	PRP VBP DT NN CC PRP VBP DT NN	PRP VBP DT NN CC PRP VBP DT NN	0.0

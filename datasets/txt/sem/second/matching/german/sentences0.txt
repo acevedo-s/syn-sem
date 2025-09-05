@@ -1279,7 +1279,6 @@ They must set a date for the wedding
 The small cat slept on the mat
 The law passed by the government seems unfair
 There was a scratch on its surface
-He courageously fought against the formidable opponent
 He may propose a toast at the dinner
 It can effectively present the data
 A sudden storm brewed over the ocean
@@ -1554,7 +1553,6 @@ We may adopt a kitten for our lonely cat
 The bridges will be inspected by an engineer
 She is a patient listener during the discussion
 The old book on the shelf lay completely still
-We diligently searched for the missing piece
 It might break down the barrier gradually
 They experience a feeling which is utterly unique
 He will speak up the truth bravely
@@ -1598,3 +1596,5 @@ Under the clear sky the stars twinkled brightly
 She bought a new dress and smiled
 A large rock crashed into the valley
 I own a tool that is quite effective
+The system for the entry worked perfectly
+He lost a valuable watch somewhere around

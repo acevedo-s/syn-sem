@@ -1279,7 +1279,6 @@ Deben fijar una fecha para la boda
 El gato pequeño durmió en la alfombra
 La ley aprobada por el gobierno parece injusta
 Había un rasguño en su superficie
-Luchó valientemente contra el formidable oponente
 Puede proponer un brindis en la cena
 Puede presentar eficazmente los datos
 Una tormenta repentina se formó sobre el océano
@@ -1554,7 +1553,6 @@ Podríamos adoptar un gatito para nuestro gato solitario
 Los puentes serán inspeccionados por un ingeniero
 Ella es una oyente paciente durante la discusión
 El libro viejo en la estantería yacía completamente quieto
-Buscamos diligentemente la pieza que faltaba
 Podría derribar la barrera gradualmente
 Experimentan una sensación que es completamente única
 Él dirá la verdad con valentía
@@ -1598,3 +1596,5 @@ Bajo el cielo despejado las estrellas brillaban intensamente
 Ella compró un vestido nuevo y sonrió
 Una gran roca se estrelló en el valle
 Tengo una herramienta que es bastante efectiva
+El sistema de entrada funcionó perfectamente
+Perdió un reloj valioso por aquí

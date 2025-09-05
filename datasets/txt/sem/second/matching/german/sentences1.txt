@@ -1279,7 +1279,6 @@ Sie müssen ein Datum für die Hochzeit festlegen
 Die kleine Katze schlief auf der Matte
 Das von der Regierung verabschiedete Gesetz erscheint unfair
 Auf seiner Oberfläche war ein Kratzer
-Er kämpfte mutig gegen den mächtigen Gegner
 Er könnte beim Abendessen einen Toast aussprechen
 Es kann die Daten effektiv präsentieren
 Ein plötzlicher Sturm braute sich über dem Ozean zusammen
@@ -1554,7 +1553,6 @@ Wir könnten ein Kätzchen für unsere einsame Katze aufnehmen
 Die Brücken werden von einem Ingenieur inspiziert
 Sie ist eine geduldige Zuhörerin während der Diskussion
 Das alte Buch im Regal lag völlig still
-Wir haben sorgfältig nach dem fehlenden Teil gesucht
 Es könnte die Barriere nach und nach durchbrechen
 Sie erleben ein Gefühl, das völlig einzigartig ist
 Er wird die Wahrheit mutig aussprechen
@@ -1598,3 +1596,5 @@ Unter dem klaren Himmel funkelten die Sterne hell
 Sie kaufte ein neues Kleid und lächelte
 Ein großer Fels krachte ins Tal
 Ich besitze ein Werkzeug, das ziemlich effektiv ist
+Das Zugangssystem funktionierte einwandfrei
+Er verlor irgendwo eine wertvolle Uhr

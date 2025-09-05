@@ -1279,7 +1279,6 @@ They must set a date for the wedding	Sie müssen ein Datum für die Hochzeit fes
 The small cat slept on the mat	Die kleine Katze schlief auf der Matte
 The law passed by the government seems unfair	Das von der Regierung verabschiedete Gesetz erscheint unfair
 There was a scratch on its surface	Auf seiner Oberfläche war ein Kratzer
-He courageously fought against the formidable opponent	Er kämpfte mutig gegen den mächtigen Gegner
 He may propose a toast at the dinner	Er könnte beim Abendessen einen Toast aussprechen
 It can effectively present the data	Es kann die Daten effektiv präsentieren
 A sudden storm brewed over the ocean	Ein plötzlicher Sturm braute sich über dem Ozean zusammen
@@ -1554,7 +1553,6 @@ We may adopt a kitten for our lonely cat	Wir könnten ein Kätzchen für unsere 
 The bridges will be inspected by an engineer	Die Brücken werden von einem Ingenieur inspiziert
 She is a patient listener during the discussion	Sie ist eine geduldige Zuhörerin während der Diskussion
 The old book on the shelf lay completely still	Das alte Buch im Regal lag völlig still
-We diligently searched for the missing piece	Wir haben sorgfältig nach dem fehlenden Teil gesucht
 It might break down the barrier gradually	Es könnte die Barriere nach und nach durchbrechen
 They experience a feeling which is utterly unique	Sie erleben ein Gefühl, das völlig einzigartig ist
 He will speak up the truth bravely	Er wird die Wahrheit mutig aussprechen
@@ -1598,3 +1596,5 @@ Under the clear sky the stars twinkled brightly	Unter dem klaren Himmel funkelte
 She bought a new dress and smiled	Sie kaufte ein neues Kleid und lächelte
 A large rock crashed into the valley	Ein großer Fels krachte ins Tal
 I own a tool that is quite effective	Ich besitze ein Werkzeug, das ziemlich effektiv ist
+The system for the entry worked perfectly	Das Zugangssystem funktionierte einwandfrei
+He lost a valuable watch somewhere around	Er verlor irgendwo eine wertvolle Uhr
