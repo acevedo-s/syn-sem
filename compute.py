@@ -4,8 +4,8 @@ sys.path.append('../../')
 
 if __name__ == "__main__":
     dbg = int(sys.argv[1])
-    # if dbg == 1:
-    #     os.environ["JAX_PLATFORMS"] = "cpu"
+    if dbg == 1:
+        os.environ["JAX_PLATFORMS"] = "cpu"
 
 import jax
 jax.config.update("jax_enable_x64", True)
@@ -38,23 +38,39 @@ from compute_functions import (
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="ranks")
-    parser.add_argument("dbg",type=int)
-    parser.add_argument("min_token_length",type=int)
-    parser.add_argument("modelA",type=str) # llama, deepseek or qwen
+    parser.add_argument("dbg", type=int)
+    parser.add_argument("min_token_length", type=int)
+    parser.add_argument("modelA", type=str) # llama, deepseek or qwen
     # parser.add_argument("compute_ranks_flag",type=int)
     # parser.add_argument("compute_observables_flag",type=int)
-    parser.add_argument("method",type=str, choices=['max','min'], help="max = corr coeff, min = II")
-    parser.add_argument("data_var",type=str, choices=['syn','sem'], help="syntax or semantics")
-    parser.add_argument("language",type=str)
-    parser.add_argument("center_A_flag",type=int)
-    parser.add_argument("center_B_flag",type=int)
-    parser.add_argument("zero_activations",type=int)
-    parser.add_argument("removal_method",type=str,choices=['projection', 'subtraction', 'none'])
-    parser.add_argument("precision",type=int,choices=[16,32,64])
+    parser.add_argument("method", type=str, choices=['max','min'], help="max = corr coeff, min = II")
+    parser.add_argument("data_var", type=str, choices=['syn','sem'], help="syntax or semantics")
+    parser.add_argument("language", type=str)
+    parser.add_argument("center_A_flag", type=int)
+    parser.add_argument("center_B_flag", type=int)
+    parser.add_argument("zero_activations", type=int)
+    parser.add_argument("removal_method", type=str,choices=['projection', 'subtraction', 'none'])
+    parser.add_argument("random_center_type", type=str,choices=['permuted', 'shuffled', 'random', 'none'])
+    # parser.add_argument("precision",type=int,choices=[16,32,64])
     args = parser.parse_args()
 
-    modelB = args.modelA
+    removal_method = args.removal_method
+    if removal_method == 'none':
+        removal_method = None
+        assert args.center_A_flag == 0 or args.center_B_flag == 0
 
+    random_center_type = args.random_center_type
+    if random_center_type == 'none':
+        random_center_type = None
+        assert args.center_A_flag == 0 or args.center_A_flag == 1
+        assert args.center_B_flag == 0 or args.center_B_flag == 1
+    
+    if args.center_A_flag == 0 and args.center_B_flag == 0:
+        random_center_type = None
+        removal_method = None
+
+    modelB = args.modelA
+    precision = 32
     batch_shuffle = 0
     min_token_length = args.min_token_length  
 
@@ -67,29 +83,24 @@ if __name__ == "__main__":
 
     Nbits_list = [0]
     avg_flags = [0]
-    diagonal_constraint = None
+    diagonal_constraint = 1
     n_files = None
     n_tokens_list = []
     match_var_list = [] # in ['matching','mismatching']
     centers_list = [] # in ['syn','sem',0]
     similarity_fn = None
 
-    if args.dbg == 0:
-        n_tokens_list = np.array([min_token_length])
-        if args.data_var == 'sem':
-            n_files = 16
-        elif args.data_var == 'syn':
-            n_files = 21
-        diagonal_constraint = 1
-        match_var_list = ["matching"]
-        centers_list = ['syn']
 
-    elif args.dbg == 1:
-        n_files = 1
-        n_tokens_list = np.array([min_token_length])
-        diagonal_constraint = 1
-        match_var_list = ["matching"]
-        centers_list = ['sem']
+    if args.data_var == 'sem':
+        n_files = 16
+    elif args.data_var == 'syn':
+        n_files = 21
+    n_tokens_list = np.array([min_token_length])
+    match_var_list = ["matching"]
+    centers_list = ['syn']
+
+    # if args.dbg == 1:
+    #     n_files = 2
 
 
     print(f'{Nbits_list=}')
@@ -111,7 +122,7 @@ if __name__ == "__main__":
         
         output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
-                                precision=args.precision,
+                                precision=precision,
                                 language=args.language,
                                 data_var=args.data_var,
                                 modelA=args.modelA,
@@ -120,14 +131,8 @@ if __name__ == "__main__":
                                 n_files=n_files,
                                 min_token_length=args.min_token_length,
                                 )
-        
-        removal_method = args.removal_method
-        if removal_method == 'none':
-            removal_method = None
-            assert args.center_A_flag == 0 or args.center_B_flag == 0
-
+    
         ### Computation:
-
         similarities(
             modelA=args.modelA,
             modelB=modelB,
@@ -150,7 +155,8 @@ if __name__ == "__main__":
             center_B_flag=args.center_B_flag,
             zero_activations=args.zero_activations,
             removal_method=removal_method,
-            precision=args.precision,
+            precision=precision,
+            random_center_type=random_center_type,
         )
 
         if args.method == 'max':
@@ -181,7 +187,8 @@ if __name__ == "__main__":
                         center_B_flag=args.center_B_flag,
                         zero_activations=args.zero_activations,
                         removal_method=removal_method,
-                        precision=args.precision,
+                        precision=precision,
+                        random_center_type=random_center_type
             )
     
 

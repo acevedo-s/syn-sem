@@ -56,6 +56,7 @@ def similarities(
         zero_activations,
         removal_method,
         precision,
+        random_center_type,
         ):
     start_time = time()
     
@@ -147,12 +148,12 @@ def similarities(
                                             act_B = compute_and_subtract_syn_group_averages(sim_folder,act_B,center_B_flag,'B',removal_method)
                                     elif data_var == 'sem':
                                         if center_A_flag != 0 and center_B_flag == center_A_flag:
-                                            act_A,act_B = load_and_subtract_syn_group_averages(act_A,act_B,sim_folder,center_A_flag,removal_method)
+                                            act_A,act_B = load_and_subtract_syn_group_averages(act_A,act_B,sim_folder,center_A_flag,removal_method,random_center_type)
                                 elif centers == 'sem':
                                     if center_A_flag != 0:
-                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages)
+                                        act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages,removal_method)
                                     if center_B_flag != 0:
-                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages)
+                                        act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages,removal_method)
 
                                 sim_A,sim_B = get_similarities(act_A,act_B)
                                 sim_folder = makefolder(base=sim_folder,
@@ -162,6 +163,7 @@ def similarities(
                                                         center_B_flag=center_B_flag,
                                                         number_of_languages=number_of_languages,
                                                         removal_method=removal_method,
+                                                        random_center_type=random_center_type,
                                                         )
                                 np.save(os.path.join(sim_folder, "sim_A.npy"), sim_A)
                                 np.save(os.path.join(sim_folder, "sim_B.npy"), sim_B)
@@ -185,6 +187,7 @@ def compute_II(
                 zero_activations,
                 removal_method,
                 precision,
+                random_center_type,
                 ratio_jackknife=0.5,
                 jack_seeds=1,
                 ):
@@ -213,7 +216,6 @@ def compute_II(
 
                         II_folder = makefolder(base=output_folder0,
                                                 create_folder=True,
-                                                precision=precision,
                                                 centers=centers,
                                                 Nbits=Nbits,
                                                 n_tokens=n_tokens,
@@ -224,6 +226,7 @@ def compute_II(
                                                 center_B_flag=center_B_flag,
                                                 number_of_languages=number_of_languages,
                                                 removal_method=removal_method,
+                                                random_center_type=random_center_type,
                                                 )
                         for A_counter,layer_A in enumerate(layers_A):
                             for B_counter,layer_B in enumerate(layers_B):
@@ -243,6 +246,7 @@ def compute_II(
                                                         center_B_flag=center_B_flag,
                                                         number_of_languages=number_of_languages,
                                                         removal_method=removal_method,
+                                                        random_center_type=random_center_type,
                                                         )
                                 ### carefull with precisions here too...
                                 sim_A = jnp.array(np.load(os.path.join(sim_folder, "sim_A.npy"))).astype(precision_map[precision])
