@@ -1,47 +1,19 @@
 import os, sys
 sys.path.append('../')
-from modelpaths import *
+from modelpaths import model_paths
+from utils_extract import *
 
-import torch, gc
-import sglang as sgl
-import pickle
-from tqdm import tqdm
-from datasets import load_dataset
-import time
-import socket
-
-def find_free_port() -> int:
-    """Ask the OS for a free ephemeral port and return it."""
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(('', 0))
-        return s.getsockname()[1]
-
-def get_slurm_config():
-    """Automatically determine tp_size and nnodes from SLURM."""
-    try:
-        nnodes = int(os.environ.get("SLURM_JOB_NUM_NODES", "1"))
-        gpus_per_node = int(os.environ.get("SLURM_GPUS_ON_NODE", "1"))
-
-        tp_size = nnodes * gpus_per_node  # Total number of GPUs
-        return tp_size, nnodes
-
-    except Exception as e:
-        print(f"Failed to detect SLURM config. Defaulting to 1x1. Error: {e}")
-        return 1, 1
-
-def get_master_address():
-    hostnames = os.popen("scontrol show hostname $SLURM_JOB_NODELIST").read().split()
-    return socket.gethostbyname(hostnames[0])
-
-def batch_generator(lst, batch_size):
-    for i in range(0, len(lst), batch_size):
-        yield lst[i:i + batch_size]
-
-def process_file(llm,
-                 sampling_params,
-                 batch_size,
-                 n_lines,
-                 IO_paths):
+def process_file(
+                model_name,
+                llm,
+                sampling_params,
+                batch_size,
+                n_lines,
+                IO_paths):
+    
+    config = AutoConfig.from_pretrained(model_paths[model_name])
+    model_dtype = config.torch_dtype
+    
     with open(IO_paths["file_path"], "r") as f:
         prompts = [line.strip() for line in f]
 
@@ -58,6 +30,14 @@ def process_file(llm,
             sampling_params=sampling_params,
             return_hidden_states=True,
         )
+
+        # Clip hidden states per sentence
+        for output in outputs:
+            hidden = output['meta_info']['all_hidden_states'][0]  # (L, T, E)
+            hidden_clipped = clip_hidden_torch(torch.as_tensor(hidden,dtype=model_dtype))
+            # Convert to uint16 for storage
+            output['meta_info']['all_hidden_states'][0] = hidden_clipped
+
         # extract per-layer hidden states for each prompt in batch
         save_dict = {
             'outputs': outputs,
@@ -69,7 +49,7 @@ def process_file(llm,
         print(f"iter {i} | t_step = {t_step:.2f} s", flush=True)
     return
 
-def main(model_path,
+def main(model_name,
          IO_paths_list,
          batch_size,
          n_lines=None,
@@ -93,6 +73,8 @@ def main(model_path,
     print(f"Using free port {port} for rendezvous")
 
     # initialize engine (hidden states requested per-generate)
+    model_path = model_paths[model_name]
+
     llm = sgl.Engine(
         model_path=model_path,
         tp_size=tp_size,
@@ -113,6 +95,7 @@ def main(model_path,
     for IO_paths in IO_paths_list:
         print(f'processing {IO_paths}')
         process_file(
+            model_name,
             llm,
             sampling_params,
             batch_size,
@@ -122,15 +105,16 @@ def main(model_path,
 
     llm.shutdown()
 
+
+
 if __name__ == "__main__":
-    model = sys.argv[1] # 
+    model_name = sys.argv[1] # 
     language = sys.argv[2] # 
     data_var = sys.argv[3] # syn or sem
     match_var = 'matching'
 
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
-    model_path = model_paths[model]
     n_lines = 2100
     batch_size = 100
     dataset_var = 'second'
@@ -138,7 +122,7 @@ if __name__ == "__main__":
     IO_paths_list = [
         {
             "file_path": f"/home/acevedo/syn-sem/datasets/txt/{data_var}/{dataset_var}/{match_var}/{language}/sentences{i}.txt",
-            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{data_var}/{dataset_var}/{model}/{match_var}/{language}/{i}/"
+            "output_folder_path": f"/home/acevedo/syn-sem/datasets/activations/{data_var}/{dataset_var}/{model_name}/{match_var}/{language}/{i}/"
         }
         for i in [0, 1]
     ]
@@ -147,7 +131,7 @@ if __name__ == "__main__":
         IO_paths_list = IO_paths_list[1:]
 
     main(
-        model_path=model_path,
+        model_name=model_name,
         IO_paths_list=IO_paths_list,
         batch_size=batch_size,
         n_lines=n_lines,

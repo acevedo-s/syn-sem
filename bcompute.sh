@@ -1,42 +1,48 @@
 #!/bin/bash
 
-# Fixed arguments
 dbg=0
-min_token_length=6
+min_token_length=3
 modelA="qwen7b"
 method="min"
 data_var="sem"
-language="english"
+languages=("english" "spanish" "chinese" "arabic" "german" "italian" "turkish")
 zero_activations=0
-random_center_types=("permuted")
+random_center_types=("none")
+center_A_flags=(0)
+removal_methods=("none")
+global_centerings=(0)
+avg_tokens=0
 
-flags=(1 -1)
-removal_methods=("projection") 
-
-# Decide GPU allocation
 if [ "$dbg" -eq 0 ]; then
     gpu_flag="--gres=gpu:1"
 else
     gpu_flag="--gres=gpu:0"
 fi
 
-for flag in "${flags[@]}"; do
-  for removal_method in "${removal_methods[@]}"; do
-    for random_center_type in "${random_center_types[@]}"; do
-      echo "Submitting with center_A_flag=$flag, center_B_flag=$flag, removal_method=$removal_method, random_center_type=$random_center_type (dbg=$dbg)"
-      sbatch $gpu_flag scompute.sh \
-        $dbg \
-        $min_token_length \
-        $modelA \
-        $method \
-        $data_var \
-        $language \
-        $flag \
-        $flag \
-        $zero_activations \
-        $removal_method \
-        $random_center_type
-      sleep .5
+for language in "${languages[@]}"; do
+  for global_centering in "${global_centerings[@]}"; do
+    for center_A_flag in "${center_A_flags[@]}"; do
+      center_B_flag=$center_A_flag
+      for removal_method in "${removal_methods[@]}"; do
+        for random_center_type in "${random_center_types[@]}"; do
+          echo "$language, center_A_flag=$center_A_flag, center_B_flag=$center_B_flag, $removal_method, random_center_type=$random_center_type (dbg=$dbg)"
+          sbatch $gpu_flag scompute.sh \
+            $dbg \
+            $min_token_length \
+            $modelA \
+            $method \
+            $data_var \
+            $language \
+            $center_A_flag \
+            $center_B_flag \
+            $zero_activations \
+            $removal_method \
+            $random_center_type \
+            $global_centering \
+            $avg_tokens
+          sleep .5
+        done
+      done
     done
   done
 done

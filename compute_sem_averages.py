@@ -140,6 +140,8 @@ if __name__ == "__main__":
 
     output_folder0 = makefolder(base=f'./results/',
                                 create_folder=True,
+                                spaces='AB',
+                                similarity_fn=normalized_L2_distance.__name__,
                                 precision=precision,
                                 language='english', # I save the centers in the english folder
                                 data_var=data_var,
