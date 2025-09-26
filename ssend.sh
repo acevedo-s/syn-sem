@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=48:00:00
+#SBATCH --time=1:00:00
 #SBATCH --ntasks-per-node=1
 # SBATCH --gres=gpu:1
 #SBATCH --mem=600G
@@ -16,4 +16,4 @@ export JAX_DEBUG_NANS=True         # show warnings if NaNs/Infs are encountered
 ARGS=("$@") # list of commandline inputs
 echo "${ARGS[@]}"
 # PYTHONWARNINGS="error" python3 -u compute.py "${ARGS[@]}"
-python3 -u compute.py "${ARGS[@]}"
+python3 -u send.py "${ARGS[@]}"

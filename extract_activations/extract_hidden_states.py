@@ -52,24 +52,18 @@ def process_file(
 def main(model_name,
          IO_paths_list,
          batch_size,
-         n_lines=None,
-         tp_size=1,
-         nnodes=1):
+         n_lines,
+         tp_size,
+         nnodes):
 
     NODE_RANK = int(os.environ.get("SLURM_NODEID", 0))
-    # port = find_free_port()
-    if NODE_RANK == 0:
+    
+    if nnodes == 1:
         port = find_free_port()
-        with open("/tmp/sglang_port.txt", "w") as f:
-            f.write(str(port))
     else:
-        while not os.path.exists("/tmp/sglang_port.txt"):
-            time.sleep(0.1)
-        with open("/tmp/sglang_port.txt", "r") as f:
-            port = int(f.read())
+        port = int(os.environ["MASTER_PORT"])
+    dist_init_addr = f"{get_master_address()}:{port}"
 
-    dist_init_addr = f"{get_master_address()}:{port}"
-    dist_init_addr = f"{get_master_address()}:{port}"
     print(f"Using free port {port} for rendezvous")
 
     # initialize engine (hidden states requested per-generate)
@@ -111,7 +105,7 @@ if __name__ == "__main__":
     model_name = sys.argv[1] # 
     language = sys.argv[2] # 
     data_var = sys.argv[3] # syn or sem
-    match_var = 'matching'
+    match_var = sys.argv[4] # 'matching' or 'mismatching'
 
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')

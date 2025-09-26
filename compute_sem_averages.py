@@ -68,7 +68,7 @@ def main(
                 print(f'{layer=}')
                 for avg_tokens in avg_flags:
                     print(f'{avg_tokens=}')
-                    T=1 if avg_tokens else min_token_length 
+                    T=1 if avg_tokens else n_tokens 
                     semantic_center = jnp.zeros(shape=(len(input_paths),
                                                    n_files*batch_size,
                                                    T*emb_dims[model]),dtype=precision_map[precision])
@@ -76,7 +76,6 @@ def main(
                         print(f'processing {languages[language_id]}')
                         activations = all_activations[language_id][f"layer_{layer}"]
                         act = torch_to_jax(activations[:,-n_tokens:,:],precision)
-                        act = clip(act)
                         if avg_tokens == 1:
                             act = act.mean(axis=1,keepdims=True)
                         semantic_center = semantic_center.at[language_id].set(flatten_tokens_features(act))

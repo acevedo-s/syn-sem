@@ -14,7 +14,7 @@ from modelpaths import *
 from transformers import AutoConfig
 
 precision_map = {
-                    16: jnp.bfloat16,   # or jnp.float16 if you really want IEEE half
+                    16: jnp.bfloat16,
                     32: jnp.float32,
                     64: jnp.float64,
                 }
@@ -23,6 +23,20 @@ removal_method_map = {
                       'subtraction':0,
                       'projection':1,
                       }
+
+len_group_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/mismatching/english/group_ids.txt"
+syn_group_ids_path = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/group_ids.txt' 
+syn_group_id_paths_for_sem_data = {'A' : "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/all_group_ids_A.txt",
+                                   'B' : "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/all_group_ids_B.txt",
+                                  }
+syn_common_indices_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_common_indices_B.txt"
+common_group_ids_B_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/common_group_ids_B.txt"
+sem_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/sem_ids.txt"
+syn_syn_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_syn_indices.txt"
+
+def get_centers_folder_A(sim_folder):
+  centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
+  return centers_folder
 
 def get_num_hidden_layers(model_dir: str) -> int:
     """
@@ -290,6 +304,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             center_flag,
                                             space_index,
                                             removal_method:str,
+                                            syn_group_ids_path,
                                             seed = 1234,
                                             ):
   centers_folder = sim_folder
@@ -300,16 +315,19 @@ def compute_and_subtract_syn_group_averages(sim_folder,
 
   try: 
     centers = jnp.array(np.load(os.path.join(centers_folder, f'syn_centers_{space_index}.npy'))).astype(act.dtype) #(num_groups,E)
-    all_indices = jnp.array(np.loadtxt(centers_folder + f'syn_all_indices.txt',dtype=int),dtype=jnp.int32)
-    all_counts = jnp.array(np.loadtxt(centers_folder + f'syn_all_counts.txt',dtype=int),dtype=jnp.int32)
+    all_indices = jnp.array(np.loadtxt(centers_folder + f'syn_all_indices_{space_index}.txt',dtype=int),dtype=jnp.int32)
+    all_counts = jnp.array(np.loadtxt(centers_folder + f'syn_all_counts_{space_index}.txt',dtype=int),dtype=jnp.int32)
     print(f'centers imported from {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
   except:
-    centers, all_indices, all_counts = _compute_and_export_syn_centers(act, centers_folder, space_index)
+    (
+    centers, # (n_groups,n_features)
+    all_indices, # (n_groups, n_samples)
+    all_counts, # (n_groups, 1)
+     ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
 
   if center_flag == -1:
     key_center = jax.random.PRNGKey(seed)
     centers = jax.random.permutation(key_center,centers)
-    #key_center, subkey_center = jax.random.split(key_center)
   
   #TODO: optimize with jax.jit
   for group_index in range(centers.shape[0]):
@@ -322,12 +340,11 @@ def compute_and_subtract_syn_group_averages(sim_folder,
 def _compute_syn_center(act, group_index, all_group_ids):
     mask = (all_group_ids == group_index)          # (n_samples,)
     center = jnp.mean(act, where=mask[:,None], axis=0)  # broadcasting mask to (n_samples, E)
-    indices = jnp.nonzero(mask, size=act.shape[0])[0]  
-    counts = jnp.sum(mask)
+    indices = jnp.nonzero(mask, size=act.shape[0])[0]  # where the matches are 
+    counts = jnp.sum(mask) # how many they are
     return center, indices, counts
 
-def _compute_and_export_syn_centers(act, centers_folder, space_index):
-  syn_group_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/group_ids.txt"
+def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index):
   all_group_ids = jnp.array(np.loadtxt(syn_group_ids_path),dtype=jnp.int32)
   unique_groups_indices = jnp.unique(all_group_ids)
 
@@ -336,10 +353,10 @@ def _compute_and_export_syn_centers(act, centers_folder, space_index):
   
   centers, all_indices, all_counts = jax.vmap(_compute_syn_center,in_axes=(None,0,None))(act,unique_groups_indices,all_group_ids)  
 
-  np.save(os.path.join(centers_folder,f"syn_centers_{space_index}"),centers)
-  np.savetxt(os.path.join(centers_folder,f"syn_all_indices.txt"), all_indices, fmt='%d')
-  np.savetxt(os.path.join(centers_folder,f"syn_all_counts.txt"), all_counts, fmt='%d')
-  print(f'centers saved at {os.path.join(centers_folder,f"syn_centers_{space_index}.npy")}')
+  np.save(os.path.join(centers_folder, f"syn_centers_{space_index}"), centers)
+  np.savetxt(os.path.join(centers_folder, f"syn_all_indices_{space_index}.txt"), all_indices, fmt='%d')
+  np.savetxt(os.path.join(centers_folder, f"syn_all_counts_{space_index}.txt"), all_counts, fmt='%d')
+  print(f'centers saved at {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
 
   return centers, all_indices, all_counts
 
@@ -352,8 +369,14 @@ def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int)
     removal_method: 0 = subtraction, 1 = projection
     """
 
-    def _subtraction(act, dynamic_indices, center):
-        return act.at[dynamic_indices].add(-center)
+    # def _subtraction(act, dynamic_indices, center):
+    #     return act.at[dynamic_indices].add(-center)
+    
+    def _subtraction(act, dynamic_indices, center): # leave-one-out averages
+        k = dynamic_indices.shape[0]
+        return act.at[dynamic_indices].set(
+            act[dynamic_indices] - (k * center - act[dynamic_indices]) / (k - 1)
+        )
 
     def _projection(act, dynamic_indices, center):
         proj_coeffs = (act[dynamic_indices] @ center) / (center @ center)
@@ -368,62 +391,57 @@ def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int)
         center,
     )
 
-def load_syn_group_averages(act_A,
-                            sim_folder,
-                            center_A_flag,
+def load_syn_group_averages(act,
+                            group_ids_path,
+                            centers_folder,
+                            center_flag,
                             random_center_type,
                             global_center,
+                            space_index,
                             ):
-  # original_labels = jnp.array(np.loadtxt("/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/original_labels.txt").astype(int))
-  group_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/group_ids.txt"
   all_group_ids = jnp.array(np.loadtxt(group_ids_path).astype(int)) # (n_samples,)
-  assert len(all_group_ids) == act_A.shape[0]
+  assert len(all_group_ids) == act.shape[0]
 
-  if center_A_flag == -1:
-    key = jax.random.PRNGKey(9999)  # Change seed for different permutations
-    if random_center_type == 'permuted':
-      unique_groups_indices = jnp.unique(all_group_ids)
-      shuffled_groups = jax.random.permutation(key, unique_groups_indices)
-      mapping = dict(zip(unique_groups_indices.tolist(), shuffled_groups.tolist()))
-      all_group_ids = jnp.array([mapping[g] for g in all_group_ids.tolist()])
-    elif random_center_type == 'shuffled':
+  if center_flag == -1:
+    key = jax.random.PRNGKey(9999)  
+    if random_center_type == 'shuffled':
       all_group_ids = jax.random.permutation(key, all_group_ids)
 
-  centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
-  centers_folder = centers_folder.replace("n_files_16", "n_files_21")
-  centers_folder = centers_folder.replace("spaces_AA", "spaces_AB")
   if global_center != None:
     centers_folder = centers_folder.replace("global_centering_1","global_centering_0")
 
-  centers = jnp.mean(jnp.stack([jnp.array(np.load(centers_folder+f'syn_centers_A.npy')),
-                                jnp.array(np.load(centers_folder+f'syn_centers_B.npy'))]),
-                    axis=0).astype(act_A.dtype) #(num_groups,E)
+  centers = jnp.array(np.load(centers_folder+f'syn_centers_{space_index}.npy')).astype(act.dtype) #(num_groups,E)
   
-  if global_center != None:
-    centers = centers - jnp.broadcast_to(global_center,centers.shape)
+  # if global_center != None: # If you center the syntax centers, then the global_center cancels trivially with the one from the activations...
+  #   centers = centers - jnp.broadcast_to(global_center,centers.shape)
 
   return centers, all_group_ids
 
-def load_and_subtract_syn_group_averages(act_A,
-                                        sim_folder,
-                                        center_A_flag,
-                                        removal_method, # 'subtraction' or 'projection'
+def load_and_subtract_syn_group_averages(act,
+                                        group_ids_path,
+                                        centers_folder,
+                                        center_flag,
+                                        removal_method:str, # 'subtraction' or 'projection'
                                         random_center_type,
                                         global_center,
+                                        space_index,
                                         ):
+  
   print(f'loading and subtracting syn group averages')
-  centers, all_group_ids = load_syn_group_averages(act_A,
-                            sim_folder,
-                            center_A_flag,
-                            random_center_type,
-                            global_center,
-                            )
-  act_A = remove_syn_group_averages(act_A, 
-                                    centers, 
-                                    all_group_ids, 
-                                    removal_method)
+  centers, all_group_ids = load_syn_group_averages(act,
+                                                  group_ids_path,
+                                                  centers_folder,
+                                                  center_flag,
+                                                  random_center_type,
+                                                  global_center,
+                                                  space_index,
+                                                  )
+  act = remove_syn_group_averages(act, 
+                                  centers, 
+                                  all_group_ids, 
+                                  removal_method)
 
-  return act_A
+  return act
 
 def remove_syn_group_averages(act, centers, all_group_ids, removal_method):
     
@@ -471,12 +489,12 @@ def remove_sem_group_projections(act,indices,semantic_centers):
   return act
 
 
-def set_number_of_languages_list(center_A_flag,center_B_flag,centers):
+def set_number_of_languages_list(center_A_flag,center_B_flag,centers_var):
     
     number_of_languages_list = [None]
     
     if center_A_flag != 0 or center_B_flag != 0:
-        if centers == 'sem':
+        if centers_var == 'sem':
             number_of_languages_list = list(range(4,4+1))
 
     return number_of_languages_list

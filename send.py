@@ -43,6 +43,7 @@ if __name__ == "__main__":
     parser.add_argument("modelA", type=str) # llama, deepseek or qwen
     parser.add_argument("method", type=str, choices=['max','min'], help="max = corr coeff, min = II")
     parser.add_argument("data_var", type=str, choices=['syn','sem'], help="syntax or semantics")
+    parser.add_argument("centers_var", type=str, choices=['syn','sem'])
     parser.add_argument("language", type=str)
     parser.add_argument("center_A_flag", type=int)
     parser.add_argument("center_B_flag", type=int)
@@ -59,7 +60,6 @@ if __name__ == "__main__":
     n_files = 1
     n_tokens_list = []
     match_var_list = [] # in ['matching','mismatching']
-    centers_list = [] # in ['syn','sem',0]
     similarity_fn = lambda x: x
     input_path_B = ' '
     modelB = args.modelA
@@ -70,6 +70,7 @@ if __name__ == "__main__":
         min_token_length = -1
         n_tokens_list = [-1]
     else:
+        min_token_length = args.min_token_length
         n_tokens_list = np.array([args.min_token_length])
 
     removal_method = args.removal_method
@@ -100,12 +101,8 @@ if __name__ == "__main__":
         layers_B = reduce_list_half_preserve_extremes(layers_B)
 
 
-    if args.data_var == 'sem':
-        n_files = 16
-    elif args.data_var == 'syn':
-        n_files = 21
-    match_var_list = ["matching"]
-    centers_list = ['syn']
+    n_files = 21
+    match_var_list = ["mismatching"]
 
     print(f'{Nbits_list=}')
     print(f'{diagonal_constraint=}')
@@ -136,7 +133,7 @@ if __name__ == "__main__":
                                 modelB=modelB,
                                 match_var=match_var,
                                 n_files=n_files,
-                                min_token_length=args.min_token_length,
+                                min_token_length=min_token_length,
                                 )
     
         ### Computation:
@@ -147,7 +144,7 @@ if __name__ == "__main__":
             layers_B=layers_B,
             input_path_A=input_path_A,
             input_path_B=input_path_B,
-            min_token_length=args.min_token_length,
+            min_token_length=min_token_length,
             n_files=n_files,
             n_tokens_list=n_tokens_list,
             output_folder0=output_folder0,
@@ -157,7 +154,7 @@ if __name__ == "__main__":
             batch_shuffle=batch_shuffle,
             similarity_fn=similarity_fn,
             data_var=args.data_var,
-            centers_list=centers_list,
+            centers_var=args.centers_var,
             center_A_flag=args.center_A_flag,
             center_B_flag=args.center_B_flag,
             zero_activations=args.zero_activations,
@@ -178,7 +175,7 @@ if __name__ == "__main__":
             #                 diagonal_constraint,
             #                 args.method,
             #                 batch_shuffle,
-            #                 centers_list,
+            #                 centers_var,
             #                 )
         elif args.method == 'min':
             compute_II(
@@ -191,7 +188,7 @@ if __name__ == "__main__":
                         diagonal_constraint,
                         args.method,
                         batch_shuffle,
-                        centers_list,
+                        args.centers_var,
                         center_A_flag=args.center_A_flag,
                         center_B_flag=args.center_B_flag,
                         zero_activations=args.zero_activations,
