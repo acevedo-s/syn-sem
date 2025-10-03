@@ -49,7 +49,6 @@ if __name__ == "__main__":
     parser.add_argument("center_B_flag", type=int)
     parser.add_argument("zero_activations", type=int)
     parser.add_argument("removal_method", type=str, choices=['projection', 'subtraction', 'none'])
-    parser.add_argument("random_center_type", type=str, choices=['permuted', 'shuffled', 'random', 'none'])
     parser.add_argument("global_centering", type=int, choices=[0,1])
     parser.add_argument("avg_tokens", type=int, choices=[0,1])
     args = parser.parse_args()
@@ -57,7 +56,6 @@ if __name__ == "__main__":
     spaces = 'AB'
     Nbits_list = [0]
     diagonal_constraint = 1
-    n_files = 1
     n_tokens_list = []
     match_var_list = [] # in ['matching','mismatching']
     similarity_fn = lambda x: x
@@ -77,20 +75,9 @@ if __name__ == "__main__":
     if removal_method == 'none':
         removal_method = None
         assert args.center_A_flag == 0 and args.center_B_flag == 0
-
-    random_center_type = args.random_center_type
-    if random_center_type == 'none':
-        random_center_type = None
-        assert args.center_A_flag == 0 or args.center_A_flag == 1
-        assert args.center_B_flag == 0 or args.center_B_flag == 1
     
     if args.center_A_flag == 0 and args.center_B_flag == 0:
-        random_center_type = None
         removal_method = None
-    
-    if args.center_A_flag == 1 and args.center_B_flag == 1:
-        random_center_type = None
-
 
 
     layers_A = list(range(1,depths[args.modelA] + 1))
@@ -102,7 +89,7 @@ if __name__ == "__main__":
 
 
     n_files = 21
-    match_var_list = ["mismatching"]
+    match_var_list = ["matching"]
 
     print(f'{Nbits_list=}')
     print(f'{diagonal_constraint=}')
@@ -160,7 +147,6 @@ if __name__ == "__main__":
             zero_activations=args.zero_activations,
             removal_method=removal_method,
             precision=precision,
-            random_center_type=random_center_type,
             spaces=spaces,
             global_centering=args.global_centering
         )
@@ -194,7 +180,6 @@ if __name__ == "__main__":
                         zero_activations=args.zero_activations,
                         removal_method=removal_method,
                         precision=precision,
-                        random_center_type=random_center_type
             )
     
 

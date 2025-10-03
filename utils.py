@@ -13,6 +13,9 @@ from time import time
 from modelpaths import *
 from transformers import AutoConfig
 
+
+my_languages = ['spanish','chinese', 'german', 'arabic', 'italian', 'turkish']
+
 precision_map = {
                     16: jnp.bfloat16,
                     32: jnp.float32,
@@ -93,11 +96,22 @@ def list_folder(path, desc="chunk_"):
 
     return files
 
-def torch_to_jax(tensor,precision):
+# def torch_to_jax(tensor,precision):
+#     assert tensor.dtype == torch.bfloat16
+#     intermediate_tensor = tensor.view(torch.uint16).numpy()
+#     tensor = jnp.array(intermediate_tensor).astype(precision_map[precision])
+#     return tensor
+
+def torch_to_jax(tensor: torch.Tensor, precision:int):
+    """Convert torch.bfloat16 tensor to JAX bfloat16/float32 safely."""
     assert tensor.dtype == torch.bfloat16
-    intermediate_tensor = tensor.view(torch.uint16).numpy()
-    tensor = jnp.array(intermediate_tensor).astype(precision_map[precision])
-    return tensor
+    # Raw bits as uint16
+    np_uint16 = tensor.view(torch.uint16).cpu().numpy()
+    jax_uint16 = jnp.array(np_uint16, dtype=jnp.uint16)
+    # Reinterpret bits -> bfloat16
+    jax_bf16 = jax.lax.bitcast_convert_type(jax_uint16, jnp.bfloat16)
+    # Cast if requested
+    return jax_bf16.astype(precision_map[precision])
 
 def flatten_tokens_features(tensor):
     tensor = rearrange(tensor, 'batch tokens embed -> batch (tokens embed)')
@@ -228,7 +242,7 @@ def collect_data(input_path,
               assert hidden.shape[1] >= min_token_length, f"{file.name=},{output_id=},{hidden.shape=}"
               hidden = hidden[:, -min_token_length:, :]  
             elif avg_tokens == 1:
-              hidden = torch.mean(hidden,dim=1)
+              hidden = torch.mean(hidden[:,2:,:].to(torch.float32),dim=1).to(model_dtype) # I remove the first 2 tokens which are not semantic
 
             for i in range(hidden.shape[0]):  # Loop over layers directly
                 all_hidden_states[f"layer_{i}"].append(hidden[i])
@@ -313,17 +327,17 @@ def compute_and_subtract_syn_group_averages(sim_folder,
   assert space_index == 'A' or space_index == 'B'
   assert removal_method in ['subtraction','projection']
 
-  try: 
-    centers = jnp.array(np.load(os.path.join(centers_folder, f'syn_centers_{space_index}.npy'))).astype(act.dtype) #(num_groups,E)
-    all_indices = jnp.array(np.loadtxt(centers_folder + f'syn_all_indices_{space_index}.txt',dtype=int),dtype=jnp.int32)
-    all_counts = jnp.array(np.loadtxt(centers_folder + f'syn_all_counts_{space_index}.txt',dtype=int),dtype=jnp.int32)
-    print(f'centers imported from {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
-  except:
-    (
-    centers, # (n_groups,n_features)
-    all_indices, # (n_groups, n_samples)
-    all_counts, # (n_groups, 1)
-     ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
+  # try: 
+  #   centers = jnp.array(np.load(os.path.join(centers_folder, f'syn_centers_{space_index}.npy'))).astype(act.dtype) #(num_groups,E)
+  #   all_indices = jnp.array(np.loadtxt(centers_folder + f'syn_all_indices_{space_index}.txt',dtype=int),dtype=jnp.int32)
+  #   all_counts = jnp.array(np.loadtxt(centers_folder + f'syn_all_counts_{space_index}.txt',dtype=int),dtype=jnp.int32)
+  #   print(f'centers imported from {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
+  # except:
+  (
+  centers, # (n_groups,n_features)
+  all_indices, # (n_groups, n_samples)
+  all_counts, # (n_groups, 1)
+    ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
 
   if center_flag == -1:
     key_center = jax.random.PRNGKey(seed)
@@ -333,7 +347,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
   for group_index in range(centers.shape[0]):
     dynamic_indices = all_indices[group_index][:all_counts[group_index]]
     center = centers[group_index]
-    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method])
+    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method],center_flag)
   return act
 
 @jax.jit
@@ -360,28 +374,101 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
 
   return centers, all_indices, all_counts
 
+# @jax.jit
+# def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int):
+#     """
+#     act: (n_samples, T*E)
+#     dynamic_indices: (n_samples_at_given_group,)
+#     center: (T*E,)
+#     removal_method: 0 = subtraction, 1 = projection
+#     """
+
+#     def _subtraction(act, dynamic_indices, center): # leave-one-out averages
+#         k = dynamic_indices.shape[0]
+#         return act.at[dynamic_indices].set(
+#             act[dynamic_indices] - (k * center - act[dynamic_indices]) / (k - 1)
+#         )
+
+#     def _projection(act, dynamic_indices, center):
+#         # dynamic_indices: indices of the group
+#         # center: mean over this group (shape: (T*E,))
+#         k = dynamic_indices.shape[0]
+
+#         # Extract the group's activations
+#         group_acts = act[dynamic_indices]  # shape (k, T*E)
+
+#         # Compute leave-one-out centers for each sample
+#         loo_centers = (k * center - group_acts) / (k - 1)  # shape (k, T*E)
+
+#         # Project each sample onto its leave-one-out center
+#         proj_coeffs = jnp.sum(group_acts * loo_centers, axis=1) / jnp.sum(loo_centers * loo_centers, axis=1)
+#         projections = proj_coeffs[:, None] * loo_centers
+#         # jax.debug.print("proj_coeffs = {x}", x=proj_coeffs)
+#         # Subtract the projections
+#         return act.at[dynamic_indices].set(group_acts - projections)
+
+
+#     return jax.lax.switch(
+#         removal_method,
+#         [_subtraction, _projection],
+#         act,
+#         dynamic_indices,
+#         center,
+#     )
+
+
+import jax
+import jax.numpy as jnp
+
 @jax.jit
-def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int):
+def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int, center_flag: int):
     """
     act: (n_samples, T*E)
     dynamic_indices: (n_samples_at_given_group,)
     center: (T*E,)
     removal_method: 0 = subtraction, 1 = projection
+    center_flag: +1 = use leave-one-out centers, -1 = use given center
     """
 
-    # def _subtraction(act, dynamic_indices, center):
-    #     return act.at[dynamic_indices].add(-center)
-    
-    def _subtraction(act, dynamic_indices, center): # leave-one-out averages
+    def _subtraction(act, dynamic_indices, center):
         k = dynamic_indices.shape[0]
-        return act.at[dynamic_indices].set(
-            act[dynamic_indices] - (k * center - act[dynamic_indices]) / (k - 1)
-        )
+        group_acts = act[dynamic_indices]
+
+        # Leave-one-out version
+        loo_sub = group_acts - (k * center - group_acts) / (k - 1)
+
+        # regular center version
+        regular_sub = group_acts - center
+
+        def use_loo(_):
+            return loo_sub
+
+        def use_center(_):
+            return regular_sub
+
+        updated = jax.lax.cond(center_flag == 1, use_loo, use_center, operand=None)
+        return act.at[dynamic_indices].set(updated)
 
     def _projection(act, dynamic_indices, center):
-        proj_coeffs = (act[dynamic_indices] @ center) / (center @ center)
-        projections = jnp.outer(proj_coeffs, center)
-        return act.at[dynamic_indices].add(-projections)
+        k = dynamic_indices.shape[0]
+        group_acts = act[dynamic_indices]  # shape (k, T*E)
+
+        # Compute leave-one-out centers
+        loo_centers = (k * center - group_acts) / (k - 1)
+
+        def use_loo(_):
+            return loo_centers
+
+        def use_center(_):
+            return jnp.broadcast_to(center, loo_centers.shape)
+
+        centers = jax.lax.cond(center_flag == 1, use_loo, use_center, operand=None)
+
+        # Projection
+        proj_coeffs = jnp.sum(group_acts * centers, axis=1) / jnp.sum(centers * centers, axis=1)
+        projections = proj_coeffs[:, None] * centers
+
+        return act.at[dynamic_indices].set(group_acts - projections)
 
     return jax.lax.switch(
         removal_method,
@@ -391,11 +478,12 @@ def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int)
         center,
     )
 
+
+
 def load_syn_group_averages(act,
                             group_ids_path,
                             centers_folder,
                             center_flag,
-                            random_center_type,
                             global_center,
                             space_index,
                             ):
@@ -404,16 +492,15 @@ def load_syn_group_averages(act,
 
   if center_flag == -1:
     key = jax.random.PRNGKey(9999)  
-    if random_center_type == 'shuffled':
-      all_group_ids = jax.random.permutation(key, all_group_ids)
+    all_group_ids = jax.random.permutation(key, all_group_ids)
 
   if global_center != None:
     centers_folder = centers_folder.replace("global_centering_1","global_centering_0")
 
   centers = jnp.array(np.load(centers_folder+f'syn_centers_{space_index}.npy')).astype(act.dtype) #(num_groups,E)
-  
-  # if global_center != None: # If you center the syntax centers, then the global_center cancels trivially with the one from the activations...
-  #   centers = centers - jnp.broadcast_to(global_center,centers.shape)
+
+  if global_center != None: 
+    centers = centers - jnp.broadcast_to(global_center,centers.shape)
 
   return centers, all_group_ids
 
@@ -422,7 +509,6 @@ def load_and_subtract_syn_group_averages(act,
                                         centers_folder,
                                         center_flag,
                                         removal_method:str, # 'subtraction' or 'projection'
-                                        random_center_type,
                                         global_center,
                                         space_index,
                                         ):
@@ -432,37 +518,43 @@ def load_and_subtract_syn_group_averages(act,
                                                   group_ids_path,
                                                   centers_folder,
                                                   center_flag,
-                                                  random_center_type,
                                                   global_center,
                                                   space_index,
                                                   )
   act = remove_syn_group_averages(act, 
                                   centers, 
                                   all_group_ids, 
-                                  removal_method)
+                                  removal_method,
+                                  center_flag)
 
   return act
 
-def remove_syn_group_averages(act, centers, all_group_ids, removal_method):
+def remove_syn_group_averages(act, centers, all_group_ids, removal_method,center_flag):
     
   for group_index in range(centers.shape[0]):
     dynamic_indices = jnp.where(all_group_ids==group_index)[0]
     center = centers[group_index]
-    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method])
+    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method],center_flag)
   return act
 
-def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages,removal_method):
-  centers_folder = re.sub(r'language_[^/]+', 'language_english', sim_folder)
+def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages,language_list_permutation,removal_method):
+  centers_folder = sim_folder
+  # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
-  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}.npy'),dtype=act.dtype) #(num_sentences,E)
+  centers_folder = re.sub(r'similarity_fn_[^/]+', 'similarity_fn_none', centers_folder)
+  centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
+
+  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy'),dtype=act.dtype) #(num_sentences,E)
+  assert (act.shape == semantic_centers.shape)
 
   if data_var == 'syn':
     print('TODO::::')
     sys.exit() # TODO: check
-    semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'
-    indices = jnp.array(np.loadtxt(semantic_labels_file,dtype=int,unpack=True)[0])
+    # semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'
+    # indices = jnp.array(np.loadtxt(semantic_labels_file,dtype=int,unpack=True)[0])
   elif data_var == 'sem':
     indices = jnp.arange(act.shape[0],dtype=jnp.int32)
+    
   if center_flag == -1:
     key_centers = jax.random.PRNGKey(999)
     indices = jax.random.permutation(key_centers,indices)
@@ -489,15 +581,25 @@ def remove_sem_group_projections(act,indices,semantic_centers):
   return act
 
 
-def set_number_of_languages_list(center_A_flag,center_B_flag,centers_var):
+def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
     
     number_of_languages_list = [None]
-    
+
     if center_A_flag != 0 or center_B_flag != 0:
-        if centers_var == 'sem':
-            number_of_languages_list = list(range(4,4+1))
+      if centers_var == 'sem':
+        number_of_languages_list = list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
+
+def set_language_list_permutations(center_A_flag, center_B_flag, centers_var):
+  
+  language_list_permutations = [None]
+
+  if center_A_flag != 0 or center_B_flag != 0:
+    if centers_var == 'sem':
+       language_list_permutations = list(range(0,len(my_languages)))
+
+  return language_list_permutations
 
 def set_global_center(act, global_centering:int):
     

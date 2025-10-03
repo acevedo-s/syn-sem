@@ -6,8 +6,12 @@ Failing on a test is a learning experience	Bei einer Prüfung durchzufallen ist 
 The plant that we grow thrives in the sunlight	Die Pflanze, die wir anbauen, gedeiht im Sonnenlicht
 The community gathered to support their cause	Die Gemeinschaft versammelte sich, um ihre Sache zu unterstützen
 An email about the project came unexpectedly	Eine E-Mail über das Projekt kam unerwartet
+He is fighting a difficult battle bravely	Er kämpft tapfer einen schwierigen Kampf
+Sony invested in a new gaming console	Sony investierte in eine neue Spielkonsole
+The president hoped to deliver their promise	Der Präsident hoffte, sein Versprechen einzulösen
 The process was smoothly executed with their cooperation	Der Prozess wurde mit ihrer Zusammenarbeit reibungslos durchgeführt
 The report was diligently prepared for our review	Der Bericht wurde sorgfältig für unsere Überprüfung vorbereitet
+She texted her but she was busy	Sie schrieb ihr eine SMS, aber sie war beschäftigt
 They have systematically analyzed the data	Sie haben die Daten systematisch analysiert
 We should clean the house before the party	Wir sollten das Haus vor der Party putzen
 The problem on the last page has been solved cleverly	Das Problem auf der letzten Seite wurde geschickt gelöst
@@ -16,12 +20,18 @@ The message seems perfectly clear for the recipients	Die Nachricht scheint für 
 The simple task at the desk ended abruptly	Die einfache Aufgabe am Schreibtisch endete abrupt
 The key to the door opened easily	Der Schlüssel zur Tür öffnete sich leicht
 He can legally refuse this unreasonable demand	Er kann diese unzumutbare Forderung legal ablehnen
+The gardener tended the plants diligently to promote growth	Der Gärtner pflegte die Pflanzen sorgfältig, um das Wachstum zu fördern
 You might come across a useful tool	Sie könnten auf ein nützliches Werkzeug stoßen
 We were deeply disappointed with the result	Wir waren von dem Ergebnis zutiefst enttäuscht
+He is tasting the soup cautiously	Er kostet die Suppe vorsichtig
+Few countries may join the treaty	Wenige Länder könnten dem Vertrag beitreten
+The community gathered to support the cause	Die Gemeinschaft versammelte sich, um die Sache zu unterstützen
 He can almost touch the low ceiling	Er kann die niedrige Decke fast berühren
 The team scored against the opponent	Die Mannschaft erzielte ein Tor gegen den Gegner
 You have deeply regretted the decision	Sie haben die Entscheidung zutiefst bereut
 I should find a cure for my ailment	Ich sollte ein Heilmittel für meine Krankheit finden
+A gift given by a friend is always special	Ein Geschenk von einem Freund ist immer etwas Besonderes
+The program continued to run the course	Das Programm lief weiter
 The new intern reported to me	Der neue Praktikant meldete sich bei mir
 A mistake made by the surgeon proved fatal	Ein Fehler des Chirurgen erwies sich als tödlich
 She paints a vibrant landscape on the canvas	Sie malt eine lebendige Landschaft auf die Leinwand
@@ -29,6 +39,8 @@ They must diligently complete the work	Sie müssen die Arbeit sorgfältig erledi
 The painting used a bolder color	Das Gemälde verwendete eine kräftigere Farbe
 They must consistently apply the method	Sie müssen die Methode konsequent anwenden
 The strong wind and the light rain fell together	Der starke Wind und der leichte Regen fielen zusammen
+The customer chose to buy the item	Der Kunde entschied sich, den Artikel zu kaufen
+The stars shine so bright in the sky	Die Sterne leuchten so hell am Himmel
 She plans to adopt a little puppy	Sie plant, einen kleinen Welpen zu adoptieren
 The technician repaired the circuit expertly to restore functionality	Der Techniker reparierte den Stromkreis fachmännisch, um die Funktionalität wiederherzustellen
 We saw the final scene and cried	Wir sahen die letzte Szene und weinten
@@ -45,24 +57,32 @@ We must establish a motive for the strange crime	Wir müssen ein Motiv für das 
 The white rabbit scurried past her	Das weiße Kaninchen huschte an ihr vorbei
 The comedian told a joke and laughed	Der Komiker erzählte einen Witz und lachte
 They carry a burden that is extremely heavy	Sie tragen eine Last, die extrem schwer ist
+Several politicians may oppose the bill	Mehrere Politiker könnten sich dem Gesetzentwurf widersetzen
 You want to hear a funny story	Du willst eine lustige Geschichte hören
 We are a constant presence throughout the year	Wir sind das ganze Jahr über ständig präsent
 The society worked to improve its conditions	Die Gesellschaft arbeitete daran, ihre Bedingungen zu verbessern
 The lions could stalk their prey	Die Löwen konnten ihre Beute anpirschen
 He is a famous writer throughout the world	Er ist ein berühmter Schriftsteller auf der ganzen Welt
+I need a book from the library	Ich brauche ein Buch aus der Bibliothek
+The light filled the room and the shadows disappeared quickly	Das Licht erfüllte den Raum und die Schatten verschwanden schnell
+The thought that you expressed stuck in the mind	Der Gedanke, den Sie geäußert haben, ist im Gedächtnis geblieben
+She has patiently waited her turn	Sie hat geduldig auf ihre Runde gewartet
 She would sometimes take a different route	Sie nahm manchmal eine andere Route
 A heavy door on the vault closed securely	Eine schwere Tür am Tresor schloss sicher
 The result was consistently achieved through our efforts	Das Ergebnis wurde durch unsere Bemühungen konsequent erreicht
 He hopes to get a permanent job	Er hofft, eine feste Anstellung zu bekommen
 He could take down the old curtain	Er konnte den alten Vorhang abnehmen
 They might also want a small snack	Sie möchten vielleicht auch einen kleinen Snack
+Sony created a portable music player in Tokyo	Sony schuf in Tokio einen tragbaren Musikplayer
 You are a helpful guide along the path	Du bist ein hilfreicher Führer auf dem Weg
 She found a key under the mat	Sie fand einen Schlüssel unter der Matte
+There is a bowl on the counter	Auf der Theke steht eine Schüssel
 It was precisely aligned with the goal	Es war genau auf das Ziel ausgerichtet
 It has recently become a trend	Es ist in letzter Zeit zu einem Trend geworden
 The gardener started to water their plants	Der Gärtner begann, seine Pflanzen zu gießen
 The situation needs a stricter control	Die Situation erfordert eine strengere Kontrolle
 The guard ordered the prisoner to speak clearly	Der Wärter befahl dem Gefangenen, deutlich zu sprechen
+The recipe called for a finer powder	Das Rezept verlangte ein feineres Pulver
 They study the history and we study the future	Sie studieren die Geschichte und wir studieren die Zukunft
 The item was neatly arranged inside their cupboard	Der Gegenstand war ordentlich in ihrem Schrank angeordnet
 A volcano erupted near the town and destroyed	Ein Vulkan brach in der Nähe der Stadt aus und zerstörte
@@ -72,7 +92,10 @@ A device which they use breaks in the hand	Ein Gerät, das sie benutzen, zerbric
 They should hand in the forms promptly	Sie sollten die Formulare umgehend abgeben
 He showed a real talent for the music	Er zeigte ein echtes Talent für die Musik
 We can get a pizza for the movie	Wir können uns eine Pizza für den Film holen
+The concept that we discussed appears in the textbook	Das von uns besprochene Konzept erscheint im Lehrbuch
 The complex puzzle seemed surprisingly easy to solve	Das komplexe Rätsel schien überraschend einfach zu lösen
+There was a problem in their plans	Es gab ein Problem in ihren Plänen
+He built a strong reputation for his unwavering honesty	Er baute sich einen starken Ruf für seine unerschütterliche Ehrlichkeit auf
 She asked her friend to wait patiently	Sie bat ihre Freundin, geduldig zu warten
 She will kindly offer a hand	Sie wird freundlicherweise eine Hand reichen
 The gears turn with a smooth motion	Die Zahnräder drehen sich mit einer sanften Bewegung
@@ -84,6 +107,7 @@ The brave soldier in the battle fought truly heroically	Der tapfere Soldat in de
 The architect designed a taller building	Der Architekt entwarf ein höheres Gebäude
 All pilots must pass the test	Alle Piloten müssen die Prüfung bestehen
 Einstein thought about a unified theory	Einstein dachte über eine einheitliche Theorie nach
+We require a written confirmation from your department	Wir benötigen eine schriftliche Bestätigung von Ihrer Abteilung
 I must give a presentation at the conference	Ich muss auf der Konferenz eine Präsentation halten
 She designed a unique costume and won	Sie entwarf ein einzigartiges Kostüm und gewann
 She was politely declined by the organizing committee	Sie wurde vom Organisationskomitee höflich abgelehnt
@@ -92,6 +116,7 @@ Few politicians tell the whole truth	Wenige Politiker sagen die ganze Wahrheit
 The detective found a vital clue and proceeded	Der Detektiv fand einen entscheidenden Hinweis und fuhr fort
 About the good and the bad we speak openly	Über das Gute und das Schlechte sprechen wir offen
 The programmers should debug the code	Die Programmierer sollten den Code debuggen
+The value that we seek lies in its purpose	Der Wert, den wir suchen, liegt in seinem Zweck
 The long river and the short stream merged suddenly	Der lange Fluss und der kurze Bach vereinigten sich plötzlich
 This recipe produced a sweeter cake	Dieses Rezept ergab einen süßeren Kuchen
 They must constantly monitor the progress	Sie müssen den Fortschritt ständig überwachen
@@ -100,8 +125,10 @@ The final decision fell to her	Die endgültige Entscheidung fiel ihr zu
 There was a scent in their garden	Es lag ein Duft in ihrem Garten
 He might slowly approach the animal	Er könnte sich dem Tier langsam nähern
 It is purely coincidental in the situation	Es ist rein zufällig in der Situation
+To write a novel is a great achievement	Einen Roman zu schreiben ist eine große Leistung
 A compromise could be reached amicably	Ein Kompromiss konnte einvernehmlich erzielt werden
 He will find the book in the library	Er wird das Buch in der Bibliothek finden
+A feeling in the tender heart has been growing stronger	Ein Gefühl im zarten Herzen ist stärker geworden
 They should bring along the supplies readily	Sie sollten die Vorräte bereitwillig mitbringen
 Gutenberg worked with a movable type	Gutenberg arbeitete mit beweglichen Lettern
 The decisions will be made by the board	Die Entscheidungen werden vom Vorstand getroffen
@@ -110,17 +137,24 @@ The angry bee flew at me	Die wütende Biene flog auf mich zu
 The gifts should be wrapped before the party	Die Geschenke sollten vor der Party eingepackt werden
 All participants must wear the badge	Alle Teilnehmer müssen das Abzeichen tragen
 We prefer a path which is mostly smooth	Wir bevorzugen einen Weg, der größtenteils glatt ist
+The visitor felt quite welcome to stay for a while	Der Besucher fühlte sich ziemlich willkommen, eine Weile zu bleiben
 Succeeding in a business requires a solid plan	Erfolg im Geschäft erfordert einen soliden Plan
 I will happily join your special celebration	Ich werde gerne an Ihrer besonderen Feier teilnehmen
 A kind woman waved to me	Eine freundliche Frau winkte mir zu
 He drove a long distance overnight	Er fuhr eine lange Strecke über Nacht
+We run a marathon but they run a sprint	Wir laufen einen Marathon, aber sie laufen einen Sprint
 Upon the stage and the screen we act professionally	Auf der Bühne und auf der Leinwand agieren wir professionell
+She could paint a picture for the art show	Sie könnte ein Bild für die Kunstausstellung malen
 We are completely exhausted after the work	Wir sind nach der Arbeit völlig erschöpft
 He permitted the visitor to enter briefly	Er erlaubte dem Besucher, kurz einzutreten
+The cook began to prepare the meal	Der Koch begann, das Essen zuzubereiten
+He feels a certain nostalgia for his college days	Er empfindet eine gewisse Nostalgie für seine Studienzeit
 It was highly regarded in the community	Es wurde in der Gemeinde hoch angesehen
 A smell from the kitchen drifted tantalizingly	Ein Geruch aus der Küche wehte verlockend
 They can start the project after the meeting	Sie können das Projekt nach dem Treffen beginnen
+The busy schedule and the relaxed pace influenced productivity	Der volle Terminkalender und das entspannte Tempo beeinflussten die Produktivität
 The deep water in the lake looked mysteriously dark	Das tiefe Wasser im See sah mysteriös dunkel aus
+There was a map under the rug	Unter dem Teppich lag eine Karte
 This law should be enforced strictly	Dieses Gesetz sollte strikt durchgesetzt werden
 They hope to build a new house	Sie hoffen, ein neues Haus zu bauen
 All homeowners must maintain their property	Alle Hausbesitzer müssen ihr Eigentum instand halten
@@ -134,13 +168,19 @@ You might find some money on the street	Sie könnten etwas Geld auf der Straße 
 A rumor started by a rival proved false	Ein Gerücht, das von einem Rivalen gestartet wurde, erwies sich als falsch
 Maria vacationed on a tropical island	Maria machte Urlaub auf einer tropischen Insel
 Shakespeare wrote with a sharpened quill	Shakespeare schrieb mit einer geschärften Feder
+A goal which they pursue seems within their grasp	Ein Ziel, das sie verfolgen, scheint in ihrer Reichweite zu sein
+He is fixing the fence quickly	Er repariert den Zaun schnell
 The engineer built the bridge and the structure held	Der Ingenieur baute die Brücke und die Struktur hielt
 The patients can be treated by a specialist	Die Patienten können von einem Spezialisten behandelt werden
+His jokes cause a huge commotion	Seine Witze verursachen einen riesigen Aufruhr
 She would rarely miss a family gathering	Sie verpasste selten ein Familientreffen
 The members must approve the budget	Die Mitglieder müssen das Budget genehmigen
 Isabella painted a beautiful portrait in Spain	Isabella malte in Spanien ein wunderschönes Porträt
+A wise owl and a cunning fox observed the forest	Eine weise Eule und ein listiger Fuchs beobachteten den Wald
 A monster emerged from the cave and snarled	Ein Monster tauchte aus der Höhle auf und knurrte
 The king of the realm ruled wisely	Der König des Reiches regierte weise
+She may design a logo for the company	Sie könnte ein Logo für das Unternehmen entwerfen
+I was dreaming about a vacation vividly	Ich träumte lebhaft von einem Urlaub
 They must speak up the valuable opinion	Sie müssen die wertvolle Meinung aussprechen
 He might reluctantly accept the offer	Er könnte das Angebot widerwillig annehmen
 A useful tool and a broken device performed differently	Ein nützliches Werkzeug und ein kaputtes Gerät funktionierten unterschiedlich
@@ -151,21 +191,26 @@ They should call off the event entirely	Sie sollten die Veranstaltung ganz absag
 She will politely interrupt the conversation	Sie wird das Gespräch höflich unterbrechen
 The vehicle turned to follow its route	Das Fahrzeug bog ab, um seiner Route zu folgen
 A hero from a legend appeared magically	Ein Held aus einer Legende erschien magisch
+There is a map in the glovebox	Im Handschuhfach befindet sich eine Karte
 All drivers must have a license	Alle Fahrer müssen einen Führerschein haben
 You witness a powerful phenomenon in the nature	Sie erleben ein mächtiges Phänomen in der Natur
 She developed a new theory sometime recently	Sie hat vor kurzem eine neue Theorie entwickelt
 Michael played for a big team	Michael spielte für eine große Mannschaft
 You have gracefully handled the challenge	Sie haben die Herausforderung mit Anmut gemeistert
 The rising tide and a wave crashed powerfully	Die steigende Flut und eine Welle schlugen kräftig ein
+They were discussing the plan quietly	Sie besprachen den Plan leise
 A peaceful walk and a hurried run consumed different energies	Ein friedlicher Spaziergang und ein eiliger Lauf verbrauchten unterschiedliche Energien
 It was rapidly completed in a week	Es wurde innerhalb einer Woche schnell fertiggestellt
+The quick wit and the slow thought produced different responses	Der schnelle Witz und der langsame Gedanke führten zu unterschiedlichen Reaktionen
 The system detected an error and rebooted	Das System erkannte einen Fehler und startete neu
+They are truly resilient despite the setbacks	Sie sind trotz der Rückschläge wirklich widerstandsfähig
 The damage was fully repaired within its structure	Der Schaden wurde vollständig innerhalb seiner Struktur repariert
 They took a long walk along the beach	Sie machten einen langen Spaziergang am Strand entlang
 The rain cooled the air and the ground absorbed	Der Regen kühlte die Luft ab und der Boden absorbierte
 I want a car and you want a bike	Ich will ein Auto und du willst ein Fahrrad
 I might receive an award for my achievement	Ich könnte eine Auszeichnung für meine Leistung erhalten
 The rough surface felt surprisingly smooth	Die raue Oberfläche fühlte sich überraschend glatt an
+Honda invested in a new robotic arm	Honda investierte in einen neuen Roboterarm
 Hitchcock directed a suspenseful thriller in Hollywood	Hitchcock inszenierte in Hollywood einen spannenden Thriller
 A treaty could be signed peacefully	Ein Vertrag konnte friedlich unterzeichnet werden
 Across the vast desert the caravan journeyed slowly	Durch die weite Wüste zog die Karawane langsam
@@ -179,20 +224,26 @@ You might get over the difficult challenge	Sie könnten die schwierige Herausfor
 An old ship rested on the seabed	Ein altes Schiff ruhte auf dem Meeresboden
 A part of the machine made a strange sound	Ein Teil der Maschine machte ein seltsames Geräusch
 The proposal is critically important for the debate	Der Vorschlag ist für die Debatte von entscheidender Bedeutung
+You have emotionally connected with the story	Sie haben sich emotional mit der Geschichte verbunden
 Lincoln argued for a united nation	Lincoln plädierte für eine vereinte Nation
 Within the digital realm a message spread	Innerhalb des digitalen Bereichs verbreitete sich eine Nachricht
+A climber reached the peak and the view appeared stunning	Ein Kletterer erreichte den Gipfel und die Aussicht war atemberaubend
 The artist painted with a brush	Der Künstler malte mit einem Pinsel
 They propose a change that is always challenging	Sie schlagen eine Veränderung vor, die immer eine Herausforderung darstellt
 He was unfortunately impacted by the severe weather	Er wurde leider vom Unwetter beeinträchtigt
 The red car and a truck stopped suddenly	Das rote Auto und ein Lastwagen hielten plötzlich an
+He explores a hidden path through the woods	Er erkundet einen verborgenen Pfad durch den Wald
 The package will be delivered tomorrow	Das Paket wird morgen zugestellt
 You must write down the notes clearly	Sie müssen die Notizen deutlich aufschreiben
+A clear sky and a cloudy day affected the mood	Ein klarer Himmel und ein bewölkter Tag beeinflussten die Stimmung
 They must build a bridge over the river	Sie müssen eine Brücke über den Fluss bauen
+They are building a new deck together	Sie bauen zusammen eine neue Terrasse
 The decision is absolutely crucial for the future	Die Entscheidung ist für die Zukunft absolut entscheidend
 A guard at the gate stopped every vehicle	Ein Wärter am Tor hielt jedes Fahrzeug an
 They could build a shelter for the animal	Sie konnten einen Unterschlupf für das Tier bauen
 The cat caught a mouse and the bird flew away	Die Katze fing eine Maus und der Vogel flog weg
 The crops should be harvested before the rain	Die Ernte sollte vor dem Regen eingebracht werden
+The woman with red hair vanished mysteriously	Die Frau mit den roten Haaren verschwand auf mysteriöse Weise
 A bright light shone through the window	Ein helles Licht schien durch das Fenster
 She received a mysterious package earlier today	Sie erhielt heute früh ein mysteriöses Paket
 The student decided to study their lesson	Der Schüler beschloss, seine Lektion zu lernen
@@ -200,15 +251,20 @@ She will politely decline the invitation	Sie wird die Einladung höflich ablehne
 They are a consistent effort toward the goal	Sie sind eine konsequente Anstrengung auf das Ziel hin
 The blacksmith forged the sword and the blade shined	Der Schmied schmiedete das Schwert und die Klinge glänzte
 He advised his client to act cautiously	Er riet seinem Kunden, vorsichtig zu handeln
+An eagle soared high above the mountain	Ein Adler schwebte hoch über dem Berg
 Upon the surface and the depth we explore deeply	Auf der Oberfläche und in der Tiefe erforschen wir tief
 I felt a sudden chill and shivered	Ich spürte einen plötzlichen Schauer und zitterte
 There was a chill in her voice	Es lag eine Kälte in ihrer Stimme
+The musician wished to play their song	Der Musiker wollte sein Lied spielen
 I chose my friend to stand beside	Ich wählte meinen Freund, um daneben zu stehen
 I answered the tough question and passed	Ich beantwortete die schwierige Frage und bestand
 A large shadow crept toward me	Ein großer Schatten schlich auf mich zu
+The man sat on the bench with a book	Der Mann saß mit einem Buch auf der Bank
 The clear sky looked truly beautiful to behold	Der klare Himmel sah wirklich wunderschön aus
 It was broadly accepted as a new standard	Es wurde allgemein als neuer Standard akzeptiert
+There was a crack across the wall	Es gab einen Riss in der Wand
 He brings a fresh perspective to the discussion	Er bringt eine neue Perspektive in die Diskussion
+A castle guarded by a dragon is purely fictional	Ein von einem Drachen bewachtes Schloss ist rein fiktiv
 He was honorably mentioned in the main speech	Er wurde in der Hauptrede ehrenvoll erwähnt
 The guest tasted the spicy soup and coughed	Der Gast kostete die scharfe Suppe und hustete
 The writer wrote the story and the editor approved	Der Schriftsteller schrieb die Geschichte und der Redakteur genehmigte sie
@@ -219,14 +275,17 @@ The gate near the main entrance has been opened wide	Das Tor in der Nähe des Ha
 The machine stopped to perform its function	Die Maschine hielt an, um ihre Funktion auszuführen
 We were instantly captivated by the stunning visuals	Wir waren sofort von den atemberaubenden Bildern fasziniert
 The signal might be received intermittently	Das Signal könnte intermittierend empfangen werden
+There was a cup in the sink	Im Spülbecken stand eine Tasse
 They observe a phenomenon which is scientifically intriguing	Sie beobachten ein Phänomen, das wissenschaftlich faszinierend ist
 Mozart played a complex sonata in Salzburg	Mozart spielte in Salzburg eine komplexe Sonate
+She could arrange a meeting for the rival factions	Sie könnte ein Treffen für die rivalisierenden Fraktionen arrangieren
 The security monitored the area constantly to maintain order	Die Sicherheit überwachte das Gebiet ständig, um die Ordnung aufrechtzuerhalten
 We are usually optimistic about the future	Wir sind in der Regel optimistisch in Bezug auf die Zukunft
 We develop a skill which is impressively useful	Wir entwickeln eine Fähigkeit, die beeindruckend nützlich ist
 They choose to follow a safer path	Sie entscheiden sich für einen sichereren Weg
 I will faithfully execute my official duty	Ich werde meine Amtspflichten treu erfüllen
 The hot sun in the sky shone intensely bright	Die heiße Sonne am Himmel schien intensiv hell
+A shepherd led the sheep and the flock followed obediently	Ein Hirte führte die Schafe und die Herde folgte gehorsam
 There was a stain on his shirt	Auf seinem Hemd war ein Fleck
 The bright light shone intensely clear	Das helle Licht schien intensiv klar
 A large dog barked quite loudly	Ein großer Hund bellte ziemlich laut
@@ -237,13 +296,21 @@ The path looks incredibly steep beyond the hill	Der Weg sieht hinter dem Hügel 
 The machine broke down the street	Die Maschine ist auf der Straße kaputt gegangen
 They can solve the puzzle in the newspaper	Sie können das Rätsel in der Zeitung lösen
 David arrived on a late train	David kam mit einem späten Zug an
+The band played a loud concert downtown	Die Band spielte ein lautes Konzert in der Innenstadt
 We may find a solution to the problem	Wir könnten eine Lösung für das Problem finden
 He told a silly joke and chuckled	Er erzählte einen albernen Witz und kicherte
+The laws can be changed by Parliament	Die Gesetze können vom Parlament geändert werden
 The clients must sign the contract	Die Kunden müssen den Vertrag unterschreiben
+A student raised his hand and asked	Ein Schüler hob die Hand und fragte
 The council debated the proposal extensively to reach a consensus	Der Rat debattierte den Vorschlag ausgiebig, um einen Konsens zu erzielen
 The dark shape moved towards her	Die dunkle Gestalt bewegte sich auf sie zu
+The bird flew to reach the nest	Der Vogel flog, um das Nest zu erreichen
+The tool that you use simplifies the process	Das Werkzeug, das Sie verwenden, vereinfacht den Prozess
+The patient took the medicine and recovered	Der Patient nahm die Medizin und erholte sich
 A message on the clear screen has been displayed correctly	Eine Nachricht auf dem klaren Bildschirm wurde korrekt angezeigt
 She could send for the expert immediately	Sie könnte sofort nach dem Experten schicken
+A meal cooked by my mother tasted divine	Ein von meiner Mutter gekochtes Essen schmeckte göttlich
+My cats sleep on any soft surface	Meine Katzen schlafen auf jeder weichen Oberfläche
 He made a terrible mistake once before	Er hat schon einmal einen schrecklichen Fehler gemacht
 Before the dawn and the dusk they work tirelessly	Vor der Morgendämmerung und der Abenddämmerung arbeiten sie unermüdlich
 Within the heart and the soul they feel deeply	Im Herzen und in der Seele fühlen sie tief
@@ -262,17 +329,22 @@ They must hold onto the precious memory	Sie müssen an der kostbaren Erinnerung 
 We should diligently research the topic	Wir sollten das Thema sorgfältig recherchieren
 A famous singer sang beautifully soft	Ein berühmter Sänger sang wunderschön sanft
 I must finish this work by the deadline	Ich muss diese Arbeit bis zum Abgabetermin beenden
+There was a scratch across the surface	Auf der Oberfläche war ein Kratzer
 All protocols must be followed by the staff	Alle Protokolle müssen vom Personal befolgt werden
 She enjoys a quiet evening by the fire	Sie genießt einen ruhigen Abend am Kamin
+With the mind and the body we endure challenges	Mit dem Geist und dem Körper ertragen wir Herausforderungen
+The student wrote a paper and the teacher read	Der Schüler schrieb eine Arbeit und der Lehrer las sie
 The sound of the ocean echoed softly	Das Geräusch des Ozeans hallte leise nach
 He chased a squirrel across the lawn	Er jagte ein Eichhörnchen über den Rasen
 The door to the old building has been opened wide	Die Tür zum alten Gebäude wurde weit geöffnet
+The evidence that you found points to the truth	Die von Ihnen gefundenen Beweise deuten auf die Wahrheit hin
 His car can be fixed easily	Sein Auto kann leicht repariert werden
 The reviewers should evaluate the product	Die Rezensenten sollten das Produkt bewerten
 A clean room and a messy corner existed simultaneously	Ein sauberes Zimmer und eine unordentliche Ecke existierten gleichzeitig
 We must find a replacement for the part	Wir müssen einen Ersatz für das Teil finden
 He must give a reason for his absence	Er muss einen Grund für seine Abwesenheit angeben
 He will construct a timeline for the historical event	Er wird eine Zeitleiste für das historische Ereignis erstellen
+These machines require a constant power supply	Diese Maschinen benötigen eine konstante Stromversorgung
 It was reliably delivered to the customer service	Es wurde zuverlässig an den Kundendienst geliefert
 They should provide a solution for the problem	Sie sollten eine Lösung für das Problem bereitstellen
 The final decision felt utterly necessary to make	Die endgültige Entscheidung fühlte sich absolut notwendig an
@@ -281,22 +353,28 @@ It can sort through the countless items	Es kann die unzähligen Gegenstände sor
 The good news and a report spread rapidly	Die gute Nachricht und ein Bericht verbreiteten sich schnell
 The red car and the blue truck crashed loudly	Das rote Auto und der blaue Lastwagen krachten laut
 The green grass in the field grew rapidly	Das grüne Gras auf dem Feld wuchs schnell
+She took a file from the cabinet	Sie nahm eine Akte aus dem Schrank
 He might suddenly change the direction	Er könnte plötzlich die Richtung ändern
 The bright lamp felt pleasantly warm to hold	Die helle Lampe fühlte sich angenehm warm an
 It can precisely measure the distance	Es kann die Entfernung genau messen
 It is a good sign for the future	Es ist ein gutes Zeichen für die Zukunft
 A loud noise sounded exceedingly harsh	Ein lautes Geräusch klang überaus rau
 The bright color and the dark shade contrasted sharply	Die helle Farbe und der dunkle Farbton kontrastierten scharf
+The blue sky above the mountains looked wonderfully clear	Der blaue Himmel über den Bergen sah wunderbar klar aus
 He lost his favorite pen and searched	Er verlor seinen Lieblingsstift und suchte
 In the city and the town we walk regularly	In der Stadt und in der Kleinstadt gehen wir regelmäßig spazieren
 The magician performed an amazing trick and vanished	Der Zauberer führte einen erstaunlichen Trick vor und verschwand
 She should look out the beautiful window	Sie sollte aus dem schönen Fenster schauen
 They love the summer and we love the winter	Sie lieben den Sommer und wir lieben den Winter
+There is a tree near the fence	In der Nähe des Zauns steht ein Baum
 He gave a powerful speech back then	Er hielt damals eine kraftvolle Rede
 You feel a strange presence within the room	Sie spüren eine seltsame Präsenz im Raum
 The law compelled the citizen to act accordingly	Das Gesetz zwang den Bürger, entsprechend zu handeln
+It is a complex problem for the experts	Es ist ein komplexes Problem für die Experten
 They are clearly confused by the situation	Sie sind von der Situation eindeutig verwirrt
 A rich flavor and a spice combined perfectly	Ein reicher Geschmack und ein Gewürz verbanden sich perfekt
+The picture of his family brought a tear	Das Bild seiner Familie brachte eine Träne
+The happy dog chased its tail in the yard	Der glückliche Hund jagte seinen Schwanz im Garten
 She will warmly welcome the visitors	Sie wird die Besucher herzlich willkommen heißen
 The diligent student studied for the exam	Der fleißige Schüler lernte für die Prüfung
 A thought lingered in the mind	Ein Gedanke blieb im Gedächtnis
@@ -308,7 +386,9 @@ He hit the winning shot and yelled	Er traf den Siegesschuss und schrie
 The old clock on the wall ticked slowly	Die alte Uhr an der Wand tickte langsam
 The task appears highly difficult without the tools	Die Aufgabe erscheint ohne die Werkzeuge sehr schwierig
 A sound which they hear comes from the room	Ein Geräusch, das sie hören, kommt aus dem Raum
+Our team plays in a large stadium	Unsere Mannschaft spielt in einem großen Stadion
 He was calmly interviewed by the local journalist	Er wurde von dem lokalen Journalisten ruhig interviewt
+The lions hunt in the wide open savannah	Die Löwen jagen in der weiten offenen Savanne
 The chef made a spicier soup	Der Koch machte eine schärfere Suppe
 You fix a device that is nearly perfect	Sie reparieren ein Gerät, das fast perfekt ist
 She is certainly capable of the task	Sie ist der Aufgabe sicherlich gewachsen
@@ -317,12 +397,15 @@ He can quickly assemble the complicated device	Er kann das komplizierte Gerät s
 This task should be approached cautiously	Diese Aufgabe sollte vorsichtig angegangen werden
 A cold drink and a snack refreshed instantly	Ein kaltes Getränk und ein Snack erfrischten sofort
 I may write a song for the competition	Ich könnte ein Lied für den Wettbewerb schreiben
+The cat is sleeping on the couch peacefully	Die Katze schläft friedlich auf der Couch
 I ate the last cookie and fled	Ich aß den letzten Keks und floh
 This material should be tested thoroughly	Dieses Material sollte gründlich getestet werden
 She must get a passport for the travel	Sie muss einen Reisepass für die Reise besorgen
+The species fought to preserve the habitat	Die Art kämpfte um den Erhalt des Lebensraums
 A cobbler repaired the shoe and the footwear fitted	Ein Schuster reparierte den Schuh und das Schuhwerk passte
 She will eagerly await the news	Sie wird die Nachrichten sehnsüchtig erwarten
 I might write a letter to my uncle	Ich könnte einen Brief an meinen Onkel schreiben
+The team hoped to win the game	Die Mannschaft hoffte, das Spiel zu gewinnen
 The detective found a clue and investigated	Der Detektiv fand einen Hinweis und ermittelte
 The cool breeze on the skin felt delightfully refreshing	Die kühle Brise auf der Haut fühlte sich herrlich erfrischend an
 She keeps a pet which is always playful	Sie hält ein Haustier, das immer verspielt ist
@@ -333,6 +416,7 @@ The voice on the phone spoke calmly	Die Stimme am Telefon sprach ruhig
 I could record a video for my online channel	Ich könnte ein Video für meinen Online-Kanal aufnehmen
 He forbade his child to go there	Er verbot seinem Kind, dorthin zu gehen
 The fresh bread smelled wonderfully appetizing to taste	Das frische Brot roch wunderbar appetitlich zum Probieren
+The analyst interpreted the data insightfully to provide recommendations	Der Analyst interpretierte die Daten aufschlussreich, um Empfehlungen abzugeben
 He could clear away the dusty cobwebs	Er konnte die staubigen Spinnweben wegräumen
 All questions must be answered by the witness	Alle Fragen müssen vom Zeugen beantwortet werden
 The fast pace and a rhythm increased steadily	Das schnelle Tempo und ein Rhythmus nahmen stetig zu
@@ -357,16 +441,22 @@ The water in the deep well has been flowing steadily	Das Wasser im tiefen Brunne
 The strategy was cleverly devised by its creators	Die Strategie wurde von ihren Schöpfern geschickt ausgearbeitet
 I play the guitar and she plays the violin	Ich spiele Gitarre und sie spielt Geige
 The audience gathered to express its approval	Das Publikum versammelte sich, um seine Zustimmung auszudrücken
+The player tried to score the point	Der Spieler versuchte, den Punkt zu erzielen
 She bought an expensive car last week	Sie hat letzte Woche ein teures Auto gekauft
 We have frequently encountered the issue	Wir sind häufig auf das Problem gestoßen
 The scent wafted from the kitchen	Der Duft wehte aus der Küche
 A scientist conducted the experiment and the results appeared	Ein Wissenschaftler führte das Experiment durch und die Ergebnisse erschienen
 The lion roared at the prey and attacked	Der Löwe brüllte die Beute an und griff an
+The invitations should be mailed by Wednesday	Die Einladungen sollten bis Mittwoch verschickt werden
+The volunteer helped to achieve the mission	Der Freiwillige half, die Mission zu erreichen
 A strange feeling came over me	Ein seltsames Gefühl überkam mich
+She is a joyful spirit among the friends	Sie ist ein fröhlicher Geist unter den Freunden
 We should publicly acknowledge his great contribution	Wir sollten seinen großen Beitrag öffentlich anerkennen
 John lived in a small town	John lebte in einer kleinen Stadt
 You appreciate a gesture that is genuinely kind	Sie schätzen eine Geste, die wirklich freundlich ist
+I took an apple and ate the fruit	Ich nahm einen Apfel und aß die Frucht
 The structure appears impressively solid after the build	Die Struktur erscheint nach dem Bau beeindruckend solide
+A look of pure joy radiated outwardly	Ein Blick purer Freude strahlte nach außen
 It is very good in the sunshine	Es ist sehr gut im Sonnenschein
 Toward the rising sun the travelers walked steadily	Zur aufgehenden Sonne gingen die Reisenden stetig
 I smelled some smoke from the kitchen	Ich roch etwas Rauch aus der Küche
@@ -378,22 +468,29 @@ A fast car on the road moved quickly	Ein schnelles Auto auf der Straße bewegte 
 He would build up the strength gradually	Er würde die Kraft allmählich aufbauen
 The guards will protect the palace	Die Wachen werden den Palast schützen
 I may ask a question during the lecture	Ich könnte während der Vorlesung eine Frage stellen
+IKEA designed a flat-pack furniture system in Sweden	IKEA entwarf in Schweden ein Flat-Pack-Möbelsystem
 The quick movement seemed impossibly fast to follow	Die schnelle Bewegung schien unmöglich schnell zu folgen
 They can organize a fundraiser for the charity	Sie können eine Spendenaktion für die Wohltätigkeitsorganisation organisieren
+An agent from the company called my phone	Ein Agent der Firma rief mein Telefon an
 Reading before a sleep is a good habit	Lesen vor dem Schlafen ist eine gute Gewohnheit
+Through the light and the shadow they perceive things	Durch Licht und Schatten nehmen sie die Dinge wahr
 She must clean up the messy room	Sie muss das unordentliche Zimmer aufräumen
 The tall tower in the distance stood majestically	Der hohe Turm in der Ferne stand majestätisch
 The chef tasted the soup and nodded	Der Koch kostete die Suppe und nickte
 The journey began from the station	Die Reise begann am Bahnhof
 You are a careful planner before the event	Sie sind ein sorgfältiger Planer vor der Veranstaltung
 The child who you teach plays in the garden	Das Kind, das Sie unterrichten, spielt im Garten
+All tickets must be purchased by tomorrow	Alle Tickets müssen bis morgen gekauft werden
+The government decided to implement the policy	Die Regierung beschloss, die Politik umzusetzen
 A story from the long past has been told often	Eine Geschichte aus der langen Vergangenheit wurde oft erzählt
 The writer hoped to publish their story	Der Schriftsteller hoffte, seine Geschichte zu veröffentlichen
 They committed a foolish crime back then	Sie begingen damals ein törichtes Verbrechen
 Inside the old house the air felt	Im Inneren des alten Hauses fühlte sich die Luft an
+The book on the old shelf has been forgotten	Das Buch im alten Regal wurde vergessen
 A new idea and an old tradition struggled slightly	Eine neue Idee und eine alte Tradition kämpften leicht
 The long river and the short stream met unexpectedly	Der lange Fluss und der kurze Bach trafen sich unerwartet
 The chef garnished the plate artfully to improve presentation	Der Koch garnierte den Teller kunstvoll, um die Präsentation zu verbessern
+They hold a deep respect for their elders	Sie haben einen tiefen Respekt vor ihren Älteren
 The busy day and the quiet night passed quickly	Der geschäftige Tag und die ruhige Nacht vergingen schnell
 He passed a difficult exam last semester	Er hat letztes Semester eine schwierige Prüfung bestanden
 A musician played the song and the audience listened	Ein Musiker spielte das Lied und das Publikum hörte zu
@@ -407,9 +504,12 @@ The pilot navigated the aircraft precisely to reach destination	Der Pilot navigi
 He sells a product that is always reliable	Er verkauft ein Produkt, das immer zuverlässig ist
 The paper lay on the desk	Das Papier lag auf dem Schreibtisch
 The wide river and a bridge stretched impressively	Der breite Fluss und eine Brücke erstreckten sich beeindruckend
+She cherishes a precious memory from her youth	Sie hegt eine kostbare Erinnerung aus ihrer Jugend
 It can instantly change the atmosphere	Es kann die Atmosphäre sofort verändern
+The trees should be planted by the volunteers	Die Bäume sollten von den Freiwilligen gepflanzt werden
 The cook prepared the meal and the diner ate	Der Koch bereitete das Essen zu und der Gast aß
 A child found a toy and the parent smiled widely	Ein Kind fand ein Spielzeug und der Elternteil lächelte breit
+Beneath the heavy snow the ground froze solid	Unter dem schweren Schnee fror der Boden fest
 They are a new addition to the collection	Sie sind eine neue Ergänzung der Sammlung
 The fragile vase on the shelf broke easily	Die zerbrechliche Vase im Regal zerbrach leicht
 The project will be managed professionally	Das Projekt wird professionell verwaltet
@@ -429,6 +529,7 @@ The light filled the room and the shadows disappeared	Das Licht erfüllte den Ra
 A cool breeze blew from the sea	Eine kühle Brise wehte vom Meer
 We have consistently achieved the goal	Wir haben das Ziel konsequent erreicht
 The company founded by a visionary grew massive	Das von einem Visionär gegründete Unternehmen wurde riesig
+A solution which they found worked perfectly	Eine Lösung, die sie fanden, funktionierte perfekt
 They are truly strong during the game	Sie sind während des Spiels wirklich stark
 You have truly surprised the audience	Sie haben das Publikum wirklich überrascht
 You discovered an error in the report	Sie haben einen Fehler im Bericht entdeckt
@@ -449,8 +550,11 @@ They saw a ship on the horizon	Sie sahen ein Schiff am Horizont
 We were deeply impressed with the excellent performance	Wir waren von der hervorragenden Leistung tief beeindruckt
 The busy market in the square bustled constantly	Der geschäftige Markt auf dem Platz war ständig belebt
 The tall mountain seemed immensely imposing to climb	Der hohe Berg schien immens imposant zu besteigen
+We have diligently worked on the problem	Wir haben fleißig an dem Problem gearbeitet
 The silent film and a play ended dramatically	Der Stummfilm und ein Theaterstück endeten dramatisch
+This restaurant has a special dish on the menu	Dieses Restaurant hat ein besonderes Gericht auf der Speisekarte
 The silence feels eerily profound within the chamber	Die Stille fühlt sich in der Kammer unheimlich tief an
+Some companies offer a generous pension plan	Einige Unternehmen bieten einen großzügigen Pensionsplan an
 It is a rare opportunity for the growth	Es ist eine seltene Gelegenheit für das Wachstum
 Caesar crossed a small river near Rome	Cäsar überquerte einen kleinen Fluss in der Nähe von Rom
 The evidence found by the detective seemed conclusive	Die vom Detektiv gefundenen Beweise schienen schlüssig
@@ -458,10 +562,13 @@ The room feels unusually warm during the winter	Der Raum fühlt sich im Winter u
 The soft whisper in the ear comforted gently	Das leise Flüstern im Ohr tröstete sanft
 A speech given by the president felt inspiring	Eine Rede des Präsidenten fühlte sich inspirierend an
 This method should be used sparingly	Diese Methode sollte sparsam angewendet werden
+My father fixed the fence and painted	Mein Vater hat den Zaun repariert und gestrichen
 He might quickly pack the luggage	Er könnte schnell das Gepäck packen
 The chefs will prepare the banquet	Die Köche werden das Bankett vorbereiten
+He accepted a challenge from his rival	Er nahm eine Herausforderung von seinem Rivalen an
 The guests should respect the rule	Die Gäste sollten die Regel respektieren
 The village rallied to protect its traditions	Das Dorf sammelte sich, um seine Traditionen zu schützen
+You are fiercely protective of your family	Sie sind Ihrer Familie gegenüber äußerst beschützerisch
 He taught his son to behave properly	Er lehrte seinen Sohn, sich richtig zu benehmen
 They expected the delivery to arrive soon	Sie erwarteten, dass die Lieferung bald eintreffen würde
 A clean plate and a cup sat neatly	Ein sauberer Teller und eine Tasse saßen ordentlich
@@ -475,17 +582,22 @@ They could clearly define the terms	Sie konnten die Bedingungen klar definieren
 The giant squid surfaced near the boat	Der Riesenkalmar tauchte in der Nähe des Bootes auf
 The award was honorably presented to their nominee	Der Preis wurde ehrenvoll an ihren Kandidaten verliehen
 A detective solved the puzzle and the culprit confessed	Ein Detektiv löste das Rätsel und der Täter gestand
+The computer is running a simulation continuously	Der Computer führt kontinuierlich eine Simulation aus
 It was strongly recommended by the experts	Es wurde von den Experten dringend empfohlen
 The story was vividly recalled from our childhood	Die Geschichte wurde lebhaft aus unserer Kindheit erinnert
+They were celebrating their victory joyfully	Sie feierten ihren Sieg freudig
 An old friend talked to us	Ein alter Freund sprach mit uns
 A wooden bridge stood over the stream	Eine Holzbrücke stand über dem Bach
 The animals should be fed by a zookeeper	Die Tiere sollten von einem Tierpfleger gefüttert werden
+The company planned to expand the market	Das Unternehmen plante, den Markt zu erweitern
 He can catch a ball with his glove	Er kann einen Ball mit seinem Handschuh fangen
 You smell the flower while I smell the smoke	Du riechst die Blume, während ich den Rauch rieche
 We should fully understand the potential risk	Wir sollten das potenzielle Risiko vollständig verstehen
 We choose to support a local charity	Wir entscheiden uns, eine lokale Wohltätigkeitsorganisation zu unterstützen
+The artist wanted to paint a picture	Der Künstler wollte ein Bild malen
 The sleek limousine drove past them	Die elegante Limousine fuhr an ihnen vorbei
 The leader gave the order firmly to establish control	Der Anführer gab den Befehl fest, um die Kontrolle zu erlangen
+The message in the bottle floated ashore	Die Flaschenpost trieb an Land
 A customer tried the sample and purchased	Ein Kunde probierte die Probe und kaufte
 They launched a new product just recently	Sie haben erst kürzlich ein neues Produkt auf den Markt gebracht
 She creates a stunning design for the product	Sie entwirft ein atemberaubendes Design für das Produkt
@@ -493,12 +605,16 @@ A quiet room and a street emptied rapidly	Ein ruhiges Zimmer und eine Straße le
 She makes a decision that is truly brave	Sie trifft eine Entscheidung, die wirklich mutig ist
 He drove his car to the city	Er fuhr mit seinem Auto in die Stadt
 Fishing at a lake is a peaceful pastime	Angeln an einem See ist ein friedlicher Zeitvertreib
+He is explaining the concept clearly	Er erklärt das Konzept klar
 A fresh smell from the kitchen spread widely	Ein frischer Geruch aus der Küche verbreitete sich weit
 The explorer discovered the land and the expedition succeeded	Der Entdecker entdeckte das Land und die Expedition gelang
 We saw a beautiful sunset over the ocean	Wir sahen einen wunderschönen Sonnenuntergang über dem Meer
+The cake baked by my mother tasted wonderful	Der von meiner Mutter gebackene Kuchen schmeckte wunderbar
 They must precisely measure the dimensions	Sie müssen die Abmessungen genau messen
+The athlete trained to improve the skills	Der Athlet trainierte, um die Fähigkeiten zu verbessern
 Over the hills and the valleys we trek steadily	Über die Hügel und die Täler wandern wir stetig
 A swift river flowed extremely rapid	Ein schneller Fluss floss extrem schnell
+The seller offered to reduce the price	Der Verkäufer bot an, den Preis zu senken
 The device powered off the grid	Das Gerät wurde vom Netz getrennt
 This model offers a wider selection	Dieses Modell bietet eine größere Auswahl
 You make a choice while I make a commitment	Du triffst eine Wahl, während ich eine Verpflichtung eingehe
@@ -508,11 +624,14 @@ A dog under the big tree has been barking loudly	Ein Hund unter dem großen Baum
 A poem recited by the student was beautiful	Ein vom Schüler vorgetragenes Gedicht war wunderschön
 The old building looked truly derelict to enter	Das alte Gebäude sah wirklich baufällig aus, um es zu betreten
 The crowd saw the star and cheered	Die Menge sah den Star und jubelte
+A difficult question was posed to us	Uns wurde eine schwierige Frage gestellt
 The plan was effectively implemented by its members	Der Plan wurde von seinen Mitgliedern effektiv umgesetzt
+The committee moved to finalize the recommendations	Der Ausschuss beschloss, die Empfehlungen fertigzustellen
 The quiet room felt remarkably peaceful	Der ruhige Raum fühlte sich bemerkenswert friedlich an
 The problem was simply solved by our efforts	Das Problem wurde durch unsere Bemühungen einfach gelöst
 She was deeply affected by the news	Sie war von der Nachricht tief betroffen
 Behind the velvet curtain a performance began	Hinter dem Samtvorhang begann eine Vorstellung
+He has actively participated in the event	Er hat sich aktiv an der Veranstaltung beteiligt
 She will eagerly anticipate the results	Sie wird die Ergebnisse sehnsüchtig erwarten
 The surface is extremely rough under the hand	Die Oberfläche ist unter der Hand extrem rau
 A new book and a magazine sold quickly	Ein neues Buch und eine Zeitschrift verkauften sich schnell
@@ -520,17 +639,32 @@ He showed the apprentice to measure precisely	Er zeigte dem Lehrling, wie man ge
 A storm gathered on the horizon and raged	Ein Sturm zog am Horizont auf und wütete
 She wants to buy an expensive car	Sie möchte ein teures Auto kaufen
 He is merely present at the event	Er ist bei der Veranstaltung nur anwesend
+The cat loved to play the game	Die Katze liebte es, das Spiel zu spielen
 The big dog ran to me	Der große Hund rannte zu mir
 The company hired a younger manager	Das Unternehmen stellte einen jüngeren Manager ein
 The system prompted the user to login again	Das System forderte den Benutzer auf, sich erneut anzumelden
+The teacher explained the lesson patiently to help the students	Der Lehrer erklärte die Lektion geduldig, um den Schülern zu helfen
 We can bring forth the evidence clearly	Wir können die Beweise deutlich vorlegen
 The project for the next month has been started early	Das Projekt für den nächsten Monat wurde frühzeitig gestartet
+The hero faced the villain and fought	Der Held stellte sich dem Bösewicht und kämpfte
 Churchill gave a defiant speech in London	Churchill hielt in London eine trotzige Rede
 The atmosphere was pleasantly calm during our visit	Die Atmosphäre war während unseres Besuchs angenehm ruhig
+The boy opened the box and smiled	Der Junge öffnete die Schachtel und lächelte
 The issue was seriously considered by their management	Das Problem wurde von ihrer Geschäftsleitung ernsthaft geprüft
 The food must be eaten slowly	Das Essen muss langsam gegessen werden
+They were constantly reminded of their noble purpose	Sie wurden ständig an ihren edlen Zweck erinnert
+He is reading a book silently	Er liest leise ein Buch
+The dog loved to chase the ball	Der Hund liebte es, den Ball zu jagen
 The rising sun and a shadow lengthened slowly	Die aufgehende Sonne und ein Schatten wurden langsam länger
+We have kindly offered our help	Wir haben freundlicherweise unsere Hilfe angeboten
 He might quickly find the key	Er könnte schnell den Schlüssel finden
+A rough surface and a smooth texture felt very dissimilar	Eine raue Oberfläche und eine glatte Textur fühlten sich sehr unähnlich an
+My neighbor borrowed some sugar and thanked	Mein Nachbar lieh sich etwas Zucker aus und bedankte sich
+The student struggled to finish the assignment	Der Schüler kämpfte darum, die Aufgabe zu beenden
+They are exploring a new city enthusiastically	Sie erkunden begeistert eine neue Stadt
+The brave rescue in the mountains proceeded cautiously	Die tapfere Rettung in den Bergen ging vorsichtig voran
+I am trying a new recipe hopefully	Ich probiere hoffentlich ein neues Rezept aus
+He starts a promising venture with his colleagues	Er startet ein vielversprechendes Unternehmen mit seinen Kollegen
 A busy street and a quiet path converged quickly	Eine belebte Straße und ein ruhiger Weg trafen schnell zusammen
 We were openly challenged during the debate	Wir wurden während der Debatte offen herausgefordert
 Against the strong wind the trees bent sharply	Gegen den starken Wind bogen sich die Bäume scharf
@@ -539,21 +673,31 @@ It presents a challenge which is immensely rewarding	Es stellt eine Herausforder
 They built a huge sandcastle this morning	Sie haben heute Morgen eine riesige Sandburg gebaut
 They found a treasure that is truly valuable	Sie fanden einen Schatz, der wirklich wertvoll ist
 He solved the difficult puzzle and sighed	Er löste das schwierige Rätsel und seufzte
+There is a plant on the porch	Auf der Veranda steht eine Pflanze
+Beyond the dark forest they found a path	Hinter dem dunklen Wald fanden sie einen Weg
 The author revised the manuscript carefully to enhance clarity	Der Autor überarbeitete das Manuskript sorgfältig, um die Klarheit zu verbessern
 You could clearly articulate the message	Sie könnten die Botschaft klar formulieren
 You are a keen observer of the nature	Sie sind ein scharfer Beobachter der Natur
 She is a wise elder in the community	Sie ist eine weise Älteste in der Gemeinde
 A wise elder spoke profoundly true	Ein weiser Ältester sprach zutiefst wahr
+A computer infected by a virus runs slowly	Ein von einem Virus infizierter Computer läuft langsam
+He has a natural talent for artistic expression	Er hat ein natürliches Talent für künstlerischen Ausdruck
 The architect designed to build their structure	Der Architekt entwarf, um ihre Struktur zu bauen
+There was a leak from the pipe	Es gab ein Leck in der Leitung
 There is a mark on her face	Auf ihrem Gesicht ist ein Mal
 We should wisely choose a leader	Wir sollten klugerweise einen Anführer wählen
 The green grass in the field appeared beautifully lush	Das grüne Gras auf dem Feld erschien wunderschön üppig
 The team found a solution quickly to solve the problem	Das Team fand schnell eine Lösung, um das Problem zu lösen
 It can broadly categorize the items	Es kann die Artikel grob kategorisieren
+There was a secret in our hearts	Es gab ein Geheimnis in unseren Herzen
 He will cook a feast for the celebration	Er wird ein Fest für die Feier kochen
+The room cleaned by my brother looked spotless	Das von meinem Bruder geputzte Zimmer sah makellos aus
 The gift inside the box rattled gently	Das Geschenk in der Schachtel klapperte leise
+A gardener pruned the bushes and the flowers bloomed brightly	Ein Gärtner schnitt die Büsche und die Blumen blühten hell
+A writer finished his book and rested	Ein Schriftsteller beendete sein Buch und ruhte sich aus
 The big dog ran to them	Der große Hund rannte zu ihnen
 The chef prepared a fancy dish and waited	Der Koch bereitete ein schickes Gericht zu und wartete
+I was cleaning my room thoroughly	Ich putzte mein Zimmer gründlich
 Without the clear instructions the work failed	Ohne die klaren Anweisungen scheiterte die Arbeit
 The complex puzzle on the table worked slowly	Das komplexe Rätsel auf dem Tisch funktionierte langsam
 The vessel in the calm sea has been sailing smoothly	Das Schiff im ruhigen Meer segelte reibungslos
@@ -568,11 +712,16 @@ Below the surface and the depth we search patiently	Unter der Oberfläche und in
 A man walked along the path	Ein Mann ging den Weg entlang
 The director filmed the scene artistically to evoke emotion	Der Regisseur filmte die Szene kunstvoll, um Emotionen hervorzurufen
 The wall painted by a child looked cheerful	Die von einem Kind bemalte Wand sah fröhlich aus
+There was a figure among the shadows	Unter den Schatten war eine Gestalt
 The angry customer complained to the manager	Der wütende Kunde beschwerte sich beim Manager
+My project deserved a fairer evaluation	Mein Projekt verdiente eine fairere Bewertung
+All rooms must be cleaned by noon	Alle Zimmer müssen bis Mittag gereinigt sein
 She is a busy worker during the day	Sie ist tagsüber eine fleißige Arbeiterin
 From the start and the end we learn profoundly	Vom Anfang und vom Ende lernen wir tiefgreifend
 The jury heard the case and deliberated	Die Jury hörte den Fall und beriet
+A strategy which they adopted improved the situation	Eine von ihnen übernommene Strategie verbesserte die Situation
 The captain of the team accepted the trophy	Der Kapitän der Mannschaft nahm die Trophäe entgegen
+A good book and a bad movie offered contrasting experiences	Ein gutes Buch und ein schlechter Film boten gegensätzliche Erfahrungen
 All shipments must be insured by the company	Alle Sendungen müssen von der Firma versichert werden
 They hid the treasure beneath the sand	Sie versteckten den Schatz unter dem Sand
 We have finally reached the destination	Wir haben endlich das Ziel erreicht
@@ -583,27 +732,38 @@ It can effectively reduce the burden	Es kann die Belastung effektiv reduzieren
 They have a great idea for the project	Sie haben eine tolle Idee für das Projekt
 I wear a hat and she wears a scarf	Ich trage einen Hut und sie trägt einen Schal
 There is a reason for their absence	Es gibt einen Grund für ihre Abwesenheit
+The committee voted to approve the proposal	Der Ausschuss stimmte für die Genehmigung des Vorschlags
 The difficult task proved quite challenging to complete	Die schwierige Aufgabe erwies sich als ziemlich anspruchsvoll zu erledigen
 Programming on a computer demands a logical mind	Programmieren am Computer erfordert einen logischen Verstand
 A bird on the high branch has been singing sweetly	Ein Vogel auf dem hohen Ast hat süß gesungen
 It was securely fastened with a strong rope	Es wurde mit einem starken Seil sicher befestigt
 The judge gave a harsher sentence	Der Richter verhängte eine härtere Strafe
 She should hand over the confidential papers	Sie sollte die vertraulichen Papiere übergeben
+A gardener was intending to prune the roses	Ein Gärtner beabsichtigte, die Rosen zu schneiden
+The task for the whole team has been delegated fairly	Die Aufgabe für das gesamte Team wurde fair delegiert
+They are a bright example for the others	Sie sind ein leuchtendes Beispiel für die anderen
 A problem with the engine started again	Ein Problem mit dem Motor trat wieder auf
 His ideas challenge every conventional thought	Seine Ideen stellen jeden konventionellen Gedanken in Frage
 She wore a beautiful dress last night	Sie trug letzte Nacht ein wunderschönes Kleid
 He was actively engaged in the stimulating discussion	Er war aktiv an der anregenden Diskussion beteiligt
+An expert in his field gave a lecture	Ein Experte auf seinem Gebiet hielt einen Vortrag
 It can powerfully affect the outcome	Es kann das Ergebnis stark beeinflussen
 He must wear a suit to the wedding	Er muss einen Anzug zur Hochzeit tragen
 It was securely fastened to the wall	Es war sicher an der Wand befestigt
+A young artist sketched in her notebook	Eine junge Künstlerin skizzierte in ihrem Notizbuch
+An artist mixed the colors and painted	Ein Künstler mischte die Farben und malte
 All resources must be managed by a supervisor	Alle Ressourcen müssen von einem Vorgesetzten verwaltet werden
 Toyota established a successful production method in Japan	Toyota etablierte in Japan eine erfolgreiche Produktionsmethode
 We should fairly distribute the tasks	Wir sollten die Aufgaben fair verteilen
 She will accurately report the findings	Sie wird die Ergebnisse genau berichten
+A drop of rain started a huge flood	Ein Regentropfen löste eine riesige Flut aus
+My friend lives in a big city	Mein Freund lebt in einer großen Stadt
+A warm gesture and a cold reception impacted the mood	Eine warme Geste und ein kalter Empfang beeinflussten die Stimmung
 She can sing a melody from the opera	Sie kann eine Melodie aus der Oper singen
 We should carefully document the process	Wir sollten den Prozess sorgfältig dokumentieren
 A simple task and a complex project required distinct approaches	Eine einfache Aufgabe und ein komplexes Projekt erforderten unterschiedliche Ansätze
 There was a challenge in their path	Auf ihrem Weg gab es eine Herausforderung
+They were remarkably consistent in their excellent performance	Sie waren in ihrer hervorragenden Leistung bemerkenswert konstant
 The factory implemented a safer procedure	Die Fabrik führte ein sichereres Verfahren ein
 Complaining about the weather changes a single thing	Sich über das Wetter zu beschweren, ändert nichts
 He finds a solution that is really simple	Er findet eine Lösung, die wirklich einfach ist
@@ -616,8 +776,14 @@ The artist painted a picture skillfully to capture the scene	Der Künstler malte
 The child looks extremely happy with the toy	Das Kind sieht mit dem Spielzeug überglücklich aus
 I held my breath during the movie	Ich hielt während des Films den Atem an
 Towards the goal and the dream they move steadily	Auf das Ziel und den Traum zu bewegen sie sich stetig
+A car manufactured by that company runs smoothly	Ein von dieser Firma hergestelltes Auto läuft reibungslos
 The happy song sounded quite joyful	Das fröhliche Lied klang ziemlich fröhlich
 They should carry out the orders strictly	Sie sollten die Befehle strikt ausführen
+They were singing a song loudly	Sie sangen laut ein Lied
+The nation united to defend the borders	Die Nation vereinte sich, um die Grenzen zu verteidigen
+She may bring a friend to the gathering	Sie kann eine Freundin zum Treffen mitbringen
+There is a pattern in its movements	Es gibt ein Muster in seinen Bewegungen
+I am enjoying this peaceful moment immensely	Ich genieße diesen friedlichen Moment ungemein
 He has courageously led the team	Er hat das Team mutig geführt
 I packed a suitcase for the trip	Ich habe einen Koffer für die Reise gepackt
 The food tastes truly delicious in the restaurant	Das Essen im Restaurant schmeckt wirklich köstlich
@@ -625,11 +791,14 @@ He lost a wallet at the station	Er hat am Bahnhof eine Brieftasche verloren
 A path could be chosen wisely	Ein Weg könnte weise gewählt werden
 A promise broken by a politician feels normal	Ein von einem Politiker gebrochenes Versprechen fühlt sich normal an
 The area was strictly controlled within their limits	Das Gebiet wurde innerhalb ihrer Grenzen streng kontrolliert
+You are undoubtedly talented in your field	Sie sind zweifellos auf Ihrem Gebiet talentiert
 It emits a sound which is pleasantly soft	Es gibt einen angenehm weichen Ton ab
 It might die out the tradition slowly	Es könnte die Tradition langsam aussterben lassen
+Some insects have a very short lifespan	Einige Insekten haben eine sehr kurze Lebensdauer
 There was a thought in your head	Da war ein Gedanke in deinem Kopf
 A species which they study lives in the ocean	Eine Art, die sie untersuchen, lebt im Ozean
 The glass on the wooden table has been broken accidentally	Das Glas auf dem Holztisch ist versehentlich zerbrochen
+The object that you touched felt very smooth	Das Objekt, das Sie berührt haben, fühlte sich sehr glatt an
 There is a limit to our patience	Unsere Geduld hat eine Grenze
 The error was finally corrected in their code	Der Fehler wurde schließlich in ihrem Code korrigiert
 A word from the wise elder has been remembered long	Ein Wort des weisen Ältesten ist lange in Erinnerung geblieben
@@ -640,14 +809,21 @@ You are fiercely loyal to the cause	Sie sind der Sache treu ergeben
 They might just miss the morning train	Sie könnten den Morgenzug einfach verpassen
 The sharp knife cut precisely clean	Das scharfe Messer schnitt präzise sauber
 He can easily solve any complex problem	Er kann jedes komplexe Problem leicht lösen
+There was a light above the door	Über der Tür war ein Licht
 A ship at the dock unloaded slowly	Ein Schiff am Kai lud langsam aus
 She invited her neighbor to come over	Sie lud ihre Nachbarin ein, vorbeizukommen
+The place that they discovered remains a secret	Der Ort, den sie entdeckt haben, bleibt ein Geheimnis
 The complex machine in the factory operated smoothly	Die komplexe Maschine in der Fabrik funktionierte reibungslos
 It creates a warm feeling inside the chest	Es erzeugt ein warmes Gefühl in der Brust
 We hope to see a peaceful resolution	Wir hoffen auf eine friedliche Lösung
+It is almost impossible without the tools	Ohne die Werkzeuge ist es fast unmöglich
+There was a mark inside the box	In der Schachtel war eine Markierung
 The species fought to preserve its habitat	Die Art kämpfte um den Erhalt ihres Lebensraums
+A reason which they understood became quite clear	Ein Grund, den sie verstanden, wurde ganz klar
+He is building a model carefully	Er baut sorgfältig ein Modell
 Newton believed in a mechanical universe	Newton glaubte an ein mechanisches Universum
 This structure should be built solidly	Diese Struktur sollte solide gebaut werden
+The worker decided to fix the machine	Der Arbeiter beschloss, die Maschine zu reparieren
 I could suggest a name for the new baby	Ich könnte einen Namen für das neue Baby vorschlagen
 She will kindly assist the newcomers	Sie wird den Neuankömmlingen freundlicherweise helfen
 They share a thought that is extremely complex	Sie teilen einen Gedanken, der äußerst komplex ist
@@ -664,25 +840,33 @@ A sweet candy and a treat tasted wonderfully	Eine süße Süßigkeit und eine Le
 The traveler yearned to see their home	Der Reisende sehnte sich danach, sein Zuhause zu sehen
 Beneath the crumbling wall the treasure lay	Unter der bröckelnden Mauer lag der Schatz
 He is often busy with the work	Er ist oft mit der Arbeit beschäftigt
+He found a new purpose in his life	Er fand einen neuen Sinn in seinem Leben
 The huge wave crashed toward us	Die riesige Welle krachte auf uns zu
 It was effectively used for the purpose	Es wurde effektiv für den Zweck verwendet
+The dog was chewing a bone noisily	Der Hund kaute geräuschvoll an einem Knochen
 The company launched a product and failed	Das Unternehmen brachte ein Produkt auf den Markt und scheiterte
 It was visually striking from the unique angle	Aus dem einzigartigen Blickwinkel war es visuell beeindruckend
 A gentle touch and a harsh grip felt distinctly	Eine sanfte Berührung und ein harter Griff fühlten sich deutlich an
 The speech will be remembered fondly	Die Rede wird in guter Erinnerung bleiben
+The teacher aimed to explain the concept	Der Lehrer zielte darauf ab, das Konzept zu erklären
 The horse in the lead won the race	Das Pferd in Führung gewann das Rennen
+There was a ripple in the water	Es gab eine Welle im Wasser
 A musician played the song and the audience listened intently	Ein Musiker spielte das Lied und das Publikum hörte aufmerksam zu
 From the small village the news spread	Aus dem kleinen Dorf verbreitete sich die Nachricht
 Your question can be answered directly	Ihre Frage kann direkt beantwortet werden
 The game might be won narrowly	Das Spiel könnte knapp gewonnen werden
 They might discover a cave in the mountain	Sie könnten eine Höhle im Berg entdecken
+He was waiting for the bus impatiently	Er wartete ungeduldig auf den Bus
 The local team won against the champion	Die lokale Mannschaft gewann gegen den Meister
 A bird built a nest and laid	Ein Vogel baute ein Nest und legte
+The baby is crawling across the floor rapidly	Das Baby krabbelt schnell über den Boden
 A clear voice from the speaker spoke remarkably calm	Eine klare Stimme aus dem Lautsprecher sprach bemerkenswert ruhig
+The wildlife struggled to maintain the balance	Die Tierwelt kämpfte darum, das Gleichgewicht zu halten
 They must immediately address the issue	Sie müssen das Problem sofort angehen
 The black cat came to him	Die schwarze Katze kam zu ihm
 She could pass out the flyers quickly	Sie konnte die Flyer schnell verteilen
 He may compose a poem for his loved one	Er könnte ein Gedicht für seine Liebste verfassen
+His friend heard the news and celebrated	Sein Freund hörte die Nachricht und feierte
 I will voluntarily assume this extra responsibility	Ich werde freiwillig diese zusätzliche Verantwortung übernehmen
 There was a light in its core	In seinem Kern war ein Licht
 The blue sky looked wonderfully clear	Der blaue Himmel sah wunderbar klar aus
@@ -692,16 +876,23 @@ She will choose an outfit for the party	Sie wird ein Outfit für die Party ausw�
 She will generously contribute to the cause	Sie wird großzügig zur Sache beitragen
 We could build a website for the small business	Wir könnten eine Website für das kleine Unternehmen erstellen
 We finished the long race and collapsed	Wir beendeten das lange Rennen und brachen zusammen
+You have patiently waited for the answer	Sie haben geduldig auf die Antwort gewartet
 We notice a subtle change in the behavior	Wir bemerken eine subtile Verhaltensänderung
+A shadow by the old wall has been growing longer	Ein Schatten an der alten Mauer ist länger geworden
 A clever fox hid behind a bush	Ein kluger Fuchs versteckte sich hinter einem Busch
 The worker hurried to finish their task	Der Arbeiter beeilte sich, seine Aufgabe zu beenden
 The skill that we possess helps in the work	Die Fähigkeit, die wir besitzen, hilft bei der Arbeit
 A bright light from the lamp shone intensely clear	Ein helles Licht von der Lampe schien intensiv klar
 A chapter in the book described a fantastic world	Ein Kapitel im Buch beschrieb eine fantastische Welt
+The appointments can be scheduled through our website	Die Termine können über unsere Website vereinbart werden
 The programmer debugged the software methodically to ensure stability	Der Programmierer debuggte die Software methodisch, um die Stabilität zu gewährleisten
+Waiting for a bus teaches a person patience	Warten auf einen Bus lehrt eine Person Geduld
+The student failed to answer the question	Der Schüler konnte die Frage nicht beantworten
+It emits a pleasant fragrance from the flowers	Es verströmt einen angenehmen Duft von den Blumen
 They might quietly leave the noisy party	Sie könnten die laute Party leise verlassen
 The device was successfully tested in our laboratory	Das Gerät wurde erfolgreich in unserem Labor getestet
 It shows a scene which is quite peaceful	Es zeigt eine Szene, die ziemlich friedlich ist
+There was a whisper in your ear	Es war ein Flüstern in deinem Ohr
 The car hit a pole and the driver stopped quickly	Das Auto prallte gegen einen Mast und der Fahrer hielt schnell an
 She is surprisingly calm under the pressure	Sie ist unter Druck überraschend ruhig
 The item that they need is in the store	Der Artikel, den sie brauchen, ist im Laden
@@ -716,16 +907,25 @@ The reaction seems surprisingly mild after the test	Die Reaktion scheint nach de
 The small bird in the tree sang sweetly	Der kleine Vogel im Baum sang süß
 He ignored the final warning and failed	Er ignorierte die letzte Warnung und scheiterte
 A swift current in the river flowed powerfully strong	Ein schneller Strom im Fluss floss kraftvoll stark
+The scientist observed the reaction and the results appeared quickly	Der Wissenschaftler beobachtete die Reaktion und die Ergebnisse erschienen schnell
+There is a vase near the window	In der Nähe des Fensters steht eine Vase
+A story which they shared captivated the audience	Eine Geschichte, die sie teilten, fesselte das Publikum
 Across the wide river the bridge stretched	Über den breiten Fluss spannte sich die Brücke
 The bird caught a wriggly worm and flew	Der Vogel fing einen zappelnden Wurm und flog
 I will undoubtedly remember this wonderful day	Ich werde diesen wundervollen Tag zweifellos in Erinnerung behalten
 A chef cooked the meal and the diners enjoyed	Ein Koch kochte das Essen und die Gäste genossen es
 They should develop a strategy for the upcoming game	Sie sollten eine Strategie für das bevorstehende Spiel entwickeln
+Monday and Tuesday passed in a blur	Montag und Dienstag vergingen wie im Flug
 Robert saw a great movie in London	Robert sah einen tollen Film in London
+The organization decided to launch the campaign	Die Organisation beschloss, die Kampagne zu starten
+There was a piece on the board	Auf dem Brett war ein Stück
+I am painting a picture slowly	Ich male langsam ein Bild
+The songs can be downloaded from Spotify	Die Songs können von Spotify heruntergeladen werden
 She heard a noise from the basement	Sie hörte ein Geräusch aus dem Keller
 Eating at a restaurant is a welcome treat	Essen in einem Restaurant ist eine willkommene Freude
 I must find an excuse for my tardiness	Ich muss eine Ausrede für meine Verspätung finden
 Despite the heavy rain the flowers bloomed	Trotz des starken Regens blühten die Blumen
+He will choose a movie at the rental store	Er wird einen Film in der Videothek auswählen
 The employees should attend the meeting	Die Mitarbeiter sollten an der Besprechung teilnehmen
 Joan heard a divine voice in Orleans	Johanna hörte eine göttliche Stimme in Orleans
 The experiment yielded a rarer result	Das Experiment ergab ein selteneres Ergebnis
@@ -741,6 +941,7 @@ The color seems truly vibrant on the canvas	Die Farbe wirkt auf der Leinwand wir
 We expect to witness a historic event	Wir erwarten ein historisches Ereignis
 You could quietly observe the scene	Sie könnten die Szene leise beobachten
 He would take off the coat immediately	Er würde den Mantel sofort ausziehen
+The student wrote a paper and the teacher read it	Der Schüler schrieb eine Arbeit und der Lehrer las sie
 You feel the heat while I feel the warmth	Du fühlst die Hitze, während ich die Wärme fühle
 The visitor wished to explore their surroundings	Der Besucher wollte seine Umgebung erkunden
 They receive a generous donation for the charity	Sie erhalten eine großzügige Spende für die Wohltätigkeitsorganisation
@@ -752,16 +953,21 @@ It is quite cold inside the room	Es ist ziemlich kalt im Zimmer
 A fluffy cloud drifted across the sky	Eine flauschige Wolke zog über den Himmel
 We heard a strange noise and froze	Wir hörten ein seltsames Geräusch und erstarrten
 He might accidentally break the vase	Er könnte versehentlich die Vase zerbrechen
+To see the world is a wonderful dream	Die Welt zu sehen ist ein wunderbarer Traum
 The bright sun and the moon appeared daily	Die helle Sonne und der Mond erschienen täglich
 We are usually safe near the home	Wir sind normalerweise in der Nähe des Hauses sicher
+The president hoped to deliver the promise	Der Präsident hoffte, das Versprechen einzulösen
 She commissioned an expert to investigate thoroughly	Sie beauftragte einen Experten, gründlich zu untersuchen
 They discuss a topic which is academically stimulating	Sie diskutieren ein Thema, das akademisch anregend ist
+They have clearly understood the instructions	Sie haben die Anweisungen klar verstanden
 He should say a prayer for his sick relative	Er sollte ein Gebet für seinen kranken Verwandten sprechen
 Their secret can be kept forever	Ihr Geheimnis kann für immer bewahrt werden
 I intend to start a small business	Ich beabsichtige, ein kleines Unternehmen zu gründen
 You could simply answer the query	Sie könnten die Anfrage einfach beantworten
 She tells a joke that is always funny	Sie erzählt einen Witz, der immer lustig ist
 Jobs insisted on a minimalist design	Jobs bestand auf einem minimalistischen Design
+There is a path beyond the bushes	Hinter den Büschen ist ein Weg
+She has a healthy respect for a balanced diet	Sie hat einen gesunden Respekt vor einer ausgewogenen Ernährung
 They have successfully completed the project	Sie haben das Projekt erfolgreich abgeschlossen
 The news from the remote region has been reported quickly	Die Nachrichten aus der abgelegenen Region wurden schnell gemeldet
 The old tradition and a custom changed gradually	Die alte Tradition und ein Brauch änderten sich allmählich
@@ -769,10 +975,12 @@ She could break into the conversation abruptly	Sie konnte abrupt ins Gespräch p
 He was clearly visible against the sky	Er war deutlich gegen den Himmel sichtbar
 The taste feels incredibly sweet on the tongue	Der Geschmack fühlt sich unglaublich süß auf der Zunge an
 The computer in the office crashed this morning	Der Computer im Büro ist heute Morgen abgestürzt
+There was a smell around the corner	Es roch um die Ecke
 She requested the audience to listen silently	Sie bat das Publikum, leise zuzuhören
 I prefer the coffee and she prefers the tea	Ich bevorzuge Kaffee und sie bevorzugt Tee
 He might safely cross the street	Er könnte sicher die Straße überqueren
 Within the quiet room a clock ticked	Im ruhigen Zimmer tickte eine Uhr
+The system failed to complete the operation	Das System konnte den Vorgang nicht abschließen
 A strong opinion and a weak argument influenced the debate	Eine starke Meinung und ein schwaches Argument beeinflussten die Debatte
 This new law passed through the parliament	Dieses neue Gesetz wurde vom Parlament verabschiedet
 It has a feature which is extremely useful	Es hat eine Funktion, die äußerst nützlich ist
@@ -781,17 +989,21 @@ He gave a convincing performance as the main character	Er gab eine überzeugende
 These computers work with a new system	Diese Computer arbeiten mit einem neuen System
 She would outwardly show no real emotion	Sie würde äußerlich keine wirkliche Emotion zeigen
 The cat found a cozy spot and napped	Die Katze fand einen gemütlichen Platz und machte ein Nickerchen
+A product which they launched sold well	Ein von ihnen eingeführtes Produkt verkaufte sich gut
 You make a wise choice about the matter	Sie treffen eine weise Entscheidung in der Angelegenheit
 The person who you saw works in the building	Die Person, die Sie gesehen haben, arbeitet im Gebäude
 A guest at the hotel complained bitterly	Ein Gast im Hotel beschwerte sich bitterlich
 The athlete trained to improve their skills	Der Athlet trainierte, um seine Fähigkeiten zu verbessern
 He is evidently unwell during the day	Er ist tagsüber offensichtlich unwohl
+You are a kind soul among the people	Sie sind eine freundliche Seele unter den Menschen
 The empty theatre after the show remained quiet	Das leere Theater nach der Vorstellung blieb ruhig
 It can effectively convey the message	Es kann die Botschaft effektiv vermitteln
 He taught a lesson to the class	Er erteilte der Klasse eine Lektion
+The army won with a cleverer strategy	Die Armee gewann mit einer klügeren Strategie
 A young artist painted quite skillfully	Ein junger Künstler malte ziemlich geschickt
 We were mutually agreed upon the proposed terms	Wir waren uns über die vorgeschlagenen Bedingungen einig
 Playing in the snow is a childhood delight	Spielen im Schnee ist eine Kindheitsfreude
+Her dogs respond to a gentle command	Ihre Hunde reagieren auf einen sanften Befehl
 We can get through the task eventually	Wir können die Aufgabe schließlich erledigen
 We should openly confront the problem	Wir sollten das Problem offen konfrontieren
 It might blow up the balloon slowly	Es könnte den Ballon langsam aufblasen
@@ -803,19 +1015,25 @@ The bright sun and the dark moon appeared daily	Die helle Sonne und der dunkle M
 She grows a plant which is beautifully green	Sie züchtet eine Pflanze, die wunderschön grün ist
 The fire spread through the forest	Das Feuer breitete sich im Wald aus
 We can talk over the plan openly	Wir können den Plan offen besprechen
+The clever student did her homework in the library	Die kluge Schülerin machte ihre Hausaufgaben in der Bibliothek
 You could calmly accept the situation	Sie könnten die Situation ruhig akzeptieren
 The story feels powerfully emotional throughout the chapters	Die Geschichte fühlt sich in den Kapiteln kraftvoll emotional an
 Dancing through the night is a fun activity	Die ganze Nacht zu tanzen ist eine lustige Aktivität
+A woman walked into the room with a file	Eine Frau betrat den Raum mit einer Akte
+A friend shared the news and the group reacted immediately	Ein Freund teilte die Nachricht und die Gruppe reagierte sofort
 She should try on the comfortable shoes	Sie sollte die bequemen Schuhe anprobieren
 I wrote a short note and left	Ich schrieb eine kurze Notiz und ging
 The pure gold shone brilliantly yellow	Das reine Gold glänzte leuchtend gelb
 A fresh apple and a pear tasted sweetly	Ein frischer Apfel und eine Birne schmeckten süß
 It can successfully overcome the obstacles	Es kann die Hindernisse erfolgreich überwinden
 They would tell a story to the children	Sie würden den Kindern eine Geschichte erzählen
+Inside the old house the air felt damp	Im Inneren des alten Hauses fühlte sich die Luft feucht an
 The view looks immensely grand from the peak	Die Aussicht vom Gipfel sieht unermesslich großartig aus
 The researcher collected the data and the analysis began promptly	Der Forscher sammelte die Daten und die Analyse begann prompt
 From the small village the news spread quickly	Aus dem kleinen Dorf verbreitete sich die Nachricht schnell
 The dog saw the cat and barked	Der Hund sah die Katze und bellte
+The hole in the bucket leaked constantly	Das Loch im Eimer leckte ständig
+There is a blanket on the sofa	Auf dem Sofa liegt eine Decke
 A message could be sent instantly	Eine Nachricht könnte sofort gesendet werden
 The calm sea and the stormy ocean contrasted sharply	Das ruhige Meer und der stürmische Ozean standen in scharfem Kontrast
 I remembered an important detail and returned	Ich erinnerte mich an ein wichtiges Detail und kehrte zurück
@@ -826,6 +1044,7 @@ We will take out the smelly trash	Wir werden den stinkenden Müll rausbringen
 A peaceful resolution and a violent conflict ended differently	Eine friedliche Lösung und ein gewaltsamer Konflikt endeten unterschiedlich
 A man entered the room and waited	Ein Mann betrat den Raum und wartete
 The letter written by the man was long	Der vom Mann geschriebene Brief war lang
+The doctor aimed to help their patient	Der Arzt wollte seinem Patienten helfen
 His apology had a sincerer tone	Seine Entschuldigung hatte einen aufrichtigeren Ton
 It offers a unique opportunity for the team	Es bietet eine einzigartige Gelegenheit für das Team
 She wore a coat against the cold	Sie trug einen Mantel gegen die Kälte
@@ -836,6 +1055,7 @@ They are a unique example in the field	Sie sind ein einzigartiges Beispiel auf d
 The high mountain in the distance stood majestically grand	Der hohe Berg in der Ferne stand majestätisch groß
 Among the colorful flowers a bee buzzed	Zwischen den bunten Blumen summte eine Biene
 They read a story which is incredibly sad	Sie lesen eine Geschichte, die unglaublich traurig ist
+The doctor managed to help the patient	Der Arzt schaffte es, dem Patienten zu helfen
 He might truly understand the concept	Er könnte das Konzept wirklich verstehen
 They must clean up the dirty dishes	Sie müssen das schmutzige Geschirr abräumen
 She has never seen that movie	Sie hat diesen Film noch nie gesehen
@@ -844,6 +1064,7 @@ They were successfully completed despite the initial difficulties	Sie wurden tro
 We were truly amazed at the sight	Wir waren wirklich erstaunt über den Anblick
 He wants to tell a fantastic tale	Er will eine fantastische Geschichte erzählen
 The document was secretly hidden inside our vault	Das Dokument wurde heimlich in unserem Tresor versteckt
+There is a pen on the paper	Auf dem Papier liegt ein Stift
 They were constantly monitored within the system	Sie wurden innerhalb des Systems ständig überwacht
 The mystery solved by the detective was complex	Das vom Detektiv gelöste Rätsel war komplex
 A heavy rain fell surprisingly hard	Ein starker Regen fiel überraschend heftig
@@ -853,16 +1074,24 @@ We will carry out the strict instructions	Wir werden die strengen Anweisungen au
 A deep understanding and a shallow knowledge affected the outcome	Ein tiefes Verständnis und ein oberflächliches Wissen beeinflussten das Ergebnis
 A deep sigh felt profoundly sad	Ein tiefer Seufzer fühlte sich zutiefst traurig an
 The solution was universally adopted by its users	Die Lösung wurde von ihren Nutzern allgemein angenommen
+Breathing in fresh air feels a true blessing	Frische Luft einzuatmen ist ein wahrer Segen
 I will throw a party for her graduation	Ich werde eine Party für ihren Abschluss schmeißen
 The musician composed the melody beautifully to create harmony	Der Musiker komponierte die Melodie wunderschön, um Harmonie zu schaffen
 The secret of the treasure remained hidden	Das Geheimnis des Schatzes blieb verborgen
+The traveler yearned to visit the country	Der Reisende sehnte sich danach, das Land zu besuchen
 The child received the gift and the smile appeared instantly	Das Kind erhielt das Geschenk und das Lächeln erschien sofort
+Speaking before a crowd takes a lot of courage	Vor einer Menge zu sprechen erfordert viel Mut
 Your offer can be accepted gladly	Ihr Angebot kann gerne angenommen werden
 We discussed a sensitive topic privately	Wir haben ein heikles Thema privat besprochen
+Her plan had a saner logic	Ihr Plan hatte eine vernünftigere Logik
 They plan to host a massive party	Sie planen eine riesige Party
 Hemingway fished from a small boat	Hemingway fischte von einem kleinen Boot aus
 We will live through the tough period	Wir werden die schwere Zeit überstehen
+The water flowed over the rocks	Das Wasser floss über die Felsen
 They should look into the complex problem	Sie sollten sich das komplexe Problem ansehen
+The bears might search for food	Die Bären könnten nach Nahrung suchen
+The burden that you carry seems very heavy	Die Last, die du trägst, scheint sehr schwer zu sein
+There was a hum from the machine	Es gab ein Summen von der Maschine
 A sweet aroma smelled deliciously pleasant	Ein süßes Aroma roch köstlich angenehm
 The tall tree stood perfectly still	Der hohe Baum stand vollkommen still
 Many viewers prefer a happy ending	Viele Zuschauer bevorzugen ein Happy End
@@ -878,6 +1107,8 @@ They were simply explained to the audience	Sie wurden dem Publikum einfach erkl�
 We discover a fascinating fact in the document	Wir entdecken eine faszinierende Tatsache in dem Dokument
 The committee voted to approve their proposal	Der Ausschuss stimmte für die Genehmigung ihres Vorschlags
 Before the crucial moment the tension increased dramatically	Vor dem entscheidenden Moment stieg die Spannung dramatisch an
+A challenge which they faced strengthened their resolve	Eine Herausforderung, der sie sich stellten, stärkte ihre Entschlossenheit
+There was a stain on the rug	Auf dem Teppich war ein Fleck
 We should study the map before our journey	Wir sollten die Karte vor unserer Reise studieren
 A solution could be found eventually	Eine Lösung könnte schließlich gefunden werden
 He climbed a tall tree and looked	Er kletterte auf einen hohen Baum und schaute
@@ -922,22 +1153,30 @@ I reminded my colleague to file immediately	Ich erinnerte meinen Kollegen daran,
 The song chosen by the DJ was perfect	Das vom DJ gewählte Lied war perfekt
 I experienced a sudden change sometime ago	Ich habe vor einiger Zeit eine plötzliche Veränderung erlebt
 An actor from a movie visited the school	Ein Schauspieler aus einem Film besuchte die Schule
+There was dust on the floor	Auf dem Boden lag Staub
 It is quite challenging at the moment	Es ist im Moment ziemlich herausfordernd
 She chose a dress from the rack	Sie wählte ein Kleid vom Ständer
 The bright future and a dream seemed real	Die strahlende Zukunft und ein Traum schienen real
 About the truth and the lie we speak openly	Über die Wahrheit und die Lüge sprechen wir offen
+There is a spark in his eyes	In seinen Augen liegt ein Funke
+The team scored the goal and the fans celebrated wildly	Die Mannschaft schoss das Tor und die Fans feierten wild
 All patients must provide their history	Alle Patienten müssen ihre Krankengeschichte angeben
 The brave soldier stood incredibly resolute to fight	Der tapfere Soldat stand unglaublich entschlossen zu kämpfen
 You could calmly explain the situation	Sie könnten die Situation ruhig erklären
 A piece of the puzzle was a different color	Ein Teil des Puzzles hatte eine andere Farbe
+I use a hammer and he uses a drill	Ich benutze einen Hammer und er benutzt einen Bohrer
 I believed the suspect to be elsewhere	Ich glaubte, der Verdächtige sei woanders
 We built a huge sandcastle and cheered	Wir bauten eine riesige Sandburg und jubelten
 He might vaguely remember the event	Er könnte sich vage an das Ereignis erinnern
+You are fiercely independent in your actions	Sie sind in Ihren Handlungen äußerst unabhängig
 Laughing with a friend creates a fond memory	Lachen mit einem Freund schafft eine schöne Erinnerung
 A wave crashed onto the shore	Eine Welle schlug an die Küste
+He should charge his phone before the trip	Er sollte sein Telefon vor der Reise aufladen
 He could turn on the old radio	Er konnte das alte Radio einschalten
 He put the letter inside the envelope	Er steckte den Brief in den Umschlag
+We should frankly express our concerns	Wir sollten unsere Bedenken offen äußern
 Napoleon fought with a grand army	Napoleon kämpfte mit einer großen Armee
+Those cars can be repaired by our mechanic	Diese Autos können von unserem Mechaniker repariert werden
 He noticed a crack in the pavement	Er bemerkte einen Riss im Bürgersteig
 The light from the moon illuminated the path	Das Licht vom Mond beleuchtete den Weg
 She will send out the invitations soon	Sie wird die Einladungen bald verschicken
@@ -945,10 +1184,15 @@ She accepted the grand prize and beamed	Sie nahm den Hauptpreis entgegen und str
 A clear message and a vague hint confused the recipient	Eine klare Botschaft und ein vager Hinweis verwirrten den Empfänger
 The wine produced in that region tastes superb	Der in dieser Region produzierte Wein schmeckt hervorragend
 I want to see a good movie	Ich möchte einen guten Film sehen
+The society worked to improve the conditions	Die Gesellschaft arbeitete daran, die Bedingungen zu verbessern
+Few people appreciate a truly complex problem	Wenige Menschen schätzen ein wirklich komplexes Problem
+The insight that you gained changed your perspective	Die Erkenntnis, die Sie gewonnen haben, hat Ihre Perspektive verändert
+A clear message and a vague hint confused recipients	Eine klare Botschaft und ein vager Hinweis verwirrten die Empfänger
 The speaker wanted to share their thoughts	Der Redner wollte seine Gedanken teilen
 The software needs a simpler interface	Die Software benötigt eine einfachere Benutzeroberfläche
 A tired worker rested absolutely still	Ein müder Arbeiter ruhte absolut still
 We should always follow the safety guideline	Wir sollten immer die Sicherheitsrichtlinie befolgen
+A method which they use is very efficient	Eine von ihnen verwendete Methode ist sehr effizient
 He was honorably mentioned in the speech	Er wurde in der Rede ehrenhaft erwähnt
 You could settle down the crowd calmly	Sie könnten die Menge ruhig beruhigen
 They could prepare a surprise for her birthday	Sie könnten eine Überraschung für ihren Geburtstag vorbereiten
@@ -957,8 +1201,10 @@ A powerful engine and a machine ran smoothly	Ein leistungsstarker Motor und eine
 She intends to learn a new language	Sie beabsichtigt, eine neue Sprache zu lernen
 A decision made by the committee was final	Eine vom Ausschuss getroffene Entscheidung war endgültig
 The message was politely delivered to your doorstep	Die Nachricht wurde höflich an Ihre Haustür geliefert
+Her performance received a louder applause	Ihre Leistung erhielt einen lauteren Applaus
 A king issued a decree and commanded	Ein König erließ ein Dekret und befahl
 The quick runner on the track finished surprisingly fast	Der schnelle Läufer auf der Strecke beendete überraschend schnell
+The train arrived late from the city	Der Zug kam verspätet aus der Stadt
 A ship sailed into the harbor and docked	Ein Schiff segelte in den Hafen und legte an
 She painted a stunning portrait long ago	Sie malte vor langer Zeit ein atemberaubendes Porträt
 You are really focused on the goal	Sie sind wirklich auf das Ziel konzentriert
@@ -966,18 +1212,23 @@ Around the peaceful lake the animals gathered	Um den friedlichen See versammelte
 That strange noise came from the attic	Dieses seltsame Geräusch kam vom Dachboden
 We want to make a real difference	Wir wollen einen echten Unterschied machen
 The rebels will be defeated by the army	Die Rebellen werden von der Armee besiegt werden
+These experiments test a bold new hypothesis	Diese Experimente testen eine kühne neue Hypothese
 Beneath the warm blanket the child slept	Unter der warmen Decke schlief das Kind
 It gives a signal that is quite strong	Es gibt ein ziemlich starkes Signal
 The plant started to grow its leaves	Die Pflanze begann, ihre Blätter zu wachsen
 He would read a poem at the ceremony	Er würde bei der Zeremonie ein Gedicht lesen
+The vessel tried to navigate the way	Das Schiff versuchte, den Weg zu navigieren
+The runner struggled to keep the pace	Der Läufer kämpfte darum, das Tempo zu halten
 She would frequently recall her happy childhood	Sie erinnerte sich häufig an ihre glückliche Kindheit
 Against the current and the tide they swim strongly	Gegen den Strom und die Gezeiten schwimmen sie stark
 It can rapidly spread the message	Es kann die Nachricht schnell verbreiten
+There was a sound from the attic	Vom Dachboden kam ein Geräusch
 The musicians will play a symphony	Die Musiker werden eine Symphonie spielen
 He might rarely miss a deadline	Er könnte selten eine Frist verpassen
 The process is relatively simple without the complications	Der Prozess ist ohne die Komplikationen relativ einfach
 The old clock ticked slowly quietly	Die alte Uhr tickte langsam leise
 We were generally accepted by the members	Wir wurden von den Mitgliedern allgemein akzeptiert
+A shadow in the corner caught my attention	Ein Schatten in der Ecke erregte meine Aufmerksamkeit
 They designed a building for the client	Sie entwarfen ein Gebäude für den Kunden
 The friendly local motioned to me	Der freundliche Einheimische winkte mir zu
 She chose a risky path and succeeded	Sie wählte einen riskanten Weg und hatte Erfolg
@@ -986,6 +1237,7 @@ It can constantly monitor the system	Es kann das System ständig überwachen
 The signal faded through the static	Das Signal verblasste durch das Rauschen
 The director filmed the scene and the actors performed	Der Regisseur filmte die Szene und die Schauspieler spielten
 You have wisely chosen the path	Sie haben den Weg weise gewählt
+A storm broke the branch and the tree fell down	Ein Sturm brach den Ast und der Baum fiel um
 They could stage a protest for a social cause	Sie könnten einen Protest für eine soziale Sache inszenieren
 We will have a picnic in the park	Wir werden im Park ein Picknick machen
 They could quietly read the book	Sie könnten leise das Buch lesen
@@ -997,6 +1249,7 @@ She packed a small bag and departed	Sie packte eine kleine Tasche und ging
 He can skillfully navigate the treacherous water	Er kann geschickt durch das tückische Wasser navigieren
 He should buy a gift for his friend	Er sollte ein Geschenk für seinen Freund kaufen
 We admire a painting which is truly beautiful	Wir bewundern ein Gemälde, das wirklich schön ist
+She was watching the game intently	Sie schaute das Spiel aufmerksam an
 You left the book on the table	Du hast das Buch auf dem Tisch gelassen
 You were quickly informed about the event	Sie wurden schnell über die Veranstaltung informiert
 The guard heard a faint sound and listened	Der Wächter hörte ein leises Geräusch und lauschte
@@ -1010,12 +1263,17 @@ The happy song from the radio sounded quite joyful	Das fröhliche Lied aus dem R
 She was emotionally touched by the poignant melody	Sie war von der ergreifenden Melodie emotional berührt
 We need a strong leader in the group	Wir brauchen einen starken Anführer in der Gruppe
 We discovered a secret passage and explored	Wir entdeckten einen Geheimgang und erkundeten ihn
+The proud father smiled at his son	Der stolze Vater lächelte seinen Sohn an
+There is a light in its eyes	In seinen Augen ist ein Licht
 He gains a significant advantage over the competition	Er verschafft sich einen erheblichen Vorteil gegenüber der Konkurrenz
 Mandela emerged from a long imprisonment	Mandela kam aus einer langen Gefangenschaft
 The new system worked exceptionally well	Das neue System funktionierte außergewöhnlich gut
 We will come along the entire journey	Wir werden die gesamte Reise mitmachen
+The secret information was leaked to you	Die geheimen Informationen wurden Ihnen zugespielt
+She is never complacent with her achievements	Sie ist nie mit ihren Leistungen zufrieden
 Sharing with another person shows a kind heart	Teilen mit einer anderen Person zeigt ein freundliches Herz
 The old song sounded nostalgically familiar to recall	Das alte Lied klang nostalgisch vertraut, um sich daran zu erinnern
+There was a ripple in its wake	Es gab eine Welle in seinem Kielwasser
 The waves crash against the rocky shore	Die Wellen schlagen gegen die felsige Küste
 A record set by an athlete was incredible	Ein von einem Athleten aufgestellter Rekord war unglaublich
 It has widely accepted the change	Es hat die Veränderung weithin akzeptiert
@@ -1023,6 +1281,7 @@ She should select a topic for her presentation	Sie sollte ein Thema für ihre Pr
 The inventor built the device ingeniously to solve a problem	Der Erfinder baute das Gerät genial, um ein Problem zu lösen
 They might wisely choose a different strategy	Sie könnten klugerweise eine andere Strategie wählen
 I helped the tourist to look around	Ich half dem Touristen, sich umzusehen
+There is a mirror beside the dresser	Neben der Kommode steht ein Spiegel
 He could think over the complex proposal	Er könnte den komplexen Vorschlag überdenken
 He can perfectly imitate a famous actor	Er kann einen berühmten Schauspieler perfekt imitieren
 A fresh bread tasted delightfully fresh	Ein frisches Brot schmeckte herrlich frisch
@@ -1030,6 +1289,7 @@ The soft sound and the loud noise affected the quiet	Der leise Ton und der laute
 You were temporarily housed in the shelter	Sie waren vorübergehend in der Notunterkunft untergebracht
 A warm fire and a breeze blew lightly	Ein warmes Feuer und eine Brise wehten leicht
 A tired worker in the chair rested absolutely still	Ein müder Arbeiter im Stuhl ruhte absolut still
+The guide showed the path and the travelers followed safely	Der Führer zeigte den Weg und die Reisenden folgten sicher
 Despite the urgent warning the group continued	Trotz der dringenden Warnung fuhr die Gruppe fort
 A keen eye observed sharply focused	Ein scharfes Auge beobachtete scharf fokussiert
 He can confidently lead the entire team	Er kann das gesamte Team selbstbewusst führen
@@ -1038,11 +1298,13 @@ There is a glint in their gaze	In ihrem Blick liegt ein Schimmern
 You could wisely invest the capital	Sie könnten das Kapital klug investieren
 The early bird and the late worm experienced different fates	Der frühe Vogel und der späte Wurm erlebten unterschiedliche Schicksale
 The new system in the office worked exceptionally well	Das neue System im Büro funktionierte außergewöhnlich gut
+A leader inspired the followers and the movement grew	Ein Anführer inspirierte die Anhänger und die Bewegung wuchs
 The task can be completed quickly	Die Aufgabe kann schnell erledigt werden
 The report is critically important for the analysis	Der Bericht ist für die Analyse von entscheidender Bedeutung
 Around the huge table the group gathered	Um den riesigen Tisch versammelte sich die Gruppe
 They express a deep gratitude for the support	Sie drücken eine tiefe Dankbarkeit für die Unterstützung aus
 The sharp knife in the kitchen cut precisely clean	Das scharfe Messer in der Küche schnitt präzise sauber
+Arguing about a detail wastes a lot of time	Streiten über ein Detail verschwendet viel Zeit
 A promise from the true friend has been kept faithfully	Ein Versprechen des wahren Freundes wurde treu gehalten
 The system in the new building has been running efficiently	Das System im neuen Gebäude läuft effizient
 You must cut off the supply completely	Sie müssen die Versorgung vollständig unterbrechen
@@ -1054,6 +1316,7 @@ The soldiers should follow the order	Die Soldaten sollten den Befehl befolgen
 The decision was wisely made for their benefit	Die Entscheidung wurde zu ihrem Vorteil weise getroffen
 A smile on the happy face has been shining brightly	Ein Lächeln auf dem glücklichen Gesicht hat hell gestrahlt
 All passengers must show their ticket	Alle Passagiere müssen ihr Ticket vorzeigen
+She has a genuine passion for animal welfare	Sie hat eine echte Leidenschaft für den Tierschutz
 The monkeys might steal your food	Die Affen könnten Ihr Essen stehlen
 We should pick up the packages later	Wir sollten die Pakete später abholen
 A timid mouse scurried under the sofa	Eine schüchterne Maus huschte unter das Sofa
@@ -1064,14 +1327,17 @@ A sweet aroma from the bakery drifted widely	Ein süßer Duft aus der Bäckerei 
 He will set up the equipment neatly	Er wird die Ausrüstung ordentlich aufstellen
 The task assigned to the group was difficult	Die der Gruppe zugewiesene Aufgabe war schwierig
 The food in the oven cooked evenly	Das Essen im Ofen garte gleichmäßig
+During the entire process the system remained stable	Während des gesamten Prozesses blieb das System stabil
 The debate will be broadcast live	Die Debatte wird live übertragen
 The wise advice from the elder helped greatly	Der weise Rat des Älteren half sehr
+The teams will compete for the prize	Die Mannschaften werden um den Preis kämpfen
 We build a house but they build a home	Wir bauen ein Haus, aber sie bauen ein Zuhause
 Hiking on a mountain offers a great view	Wandern auf einem Berg bietet eine tolle Aussicht
 The difficult question in the test remained unanswered	Die schwierige Frage im Test blieb unbeantwortet
 They were carefully chosen from the group	Sie wurden sorgfältig aus der Gruppe ausgewählt
 The gray wolf returned to it	Der graue Wolf kehrte dorthin zurück
 She was secretly observed from the nearby building	Sie wurde heimlich vom nahegelegenen Gebäude aus beobachtet
+I felt an overwhelming sense of pure joy	Ich empfand ein überwältigendes Gefühl reiner Freude
 We were genuinely surprised at the unexpected twist	Wir waren wirklich überrascht von der unerwarteten Wendung
 A runner finished in the race	Ein Läufer beendete das Rennen
 The athlete ran the race and the winner celebrated	Der Athlet lief das Rennen und der Gewinner feierte
@@ -1082,15 +1348,19 @@ We should formally request the information	Wir sollten die Informationen formell
 Among the scattered papers a letter appeared	Zwischen den verstreuten Papieren tauchte ein Brief auf
 They were thoroughly examined for the unusual symptoms	Sie wurden gründlich auf die ungewöhnlichen Symptome untersucht
 He read an interesting article online	Er las online einen interessanten Artikel
+A detective solved the mystery and the case was closed	Ein Detektiv löste das Rätsel und der Fall wurde abgeschlossen
 You could neatly arrange the items	Sie könnten die Gegenstände ordentlich anordnen
 He has strongly advised the group	Er hat die Gruppe dringend beraten
+The famous author signed a book	Der berühmte Autor signierte ein Buch
 We will wear out the durable material	Wir werden das strapazierfähige Material abnutzen
 The leader sought to guide their followers	Der Anführer versuchte, seine Anhänger zu führen
 A tree near the small house has been growing fast	Ein Baum in der Nähe des kleinen Hauses ist schnell gewachsen
 It demonstrates a clear improvement in the system	Es zeigt eine deutliche Verbesserung im System
 A brave soldier fought truly heroically	Ein tapferer Soldat kämpfte wirklich heldenhaft
+A program written by an expert works flawlessly	Ein von einem Experten geschriebenes Programm funktioniert einwandfrei
 You hope to achieve a personal goal	Sie hoffen, ein persönliches Ziel zu erreichen
 Camping in the wilderness presents a unique challenge	Camping in der Wildnis stellt eine einzigartige Herausforderung dar
+I need a practical solution to this everyday problem	Ich brauche eine praktische Lösung für dieses alltägliche Problem
 This medicine should be taken orally	Dieses Medikament sollte oral eingenommen werden
 I cook the dinner and she cooks the breakfast	Ich koche das Abendessen und sie kocht das Frühstück
 A deep sigh from the person felt profoundly sad	Ein tiefer Seufzer der Person fühlte sich zutiefst traurig an
@@ -1101,17 +1371,26 @@ A terrifying monster appeared before them	Ein schreckliches Monster erschien vor
 The curtain moved with the breeze	Der Vorhang bewegte sich mit der Brise
 The old custom and the new trend clashed visibly	Der alte Brauch und der neue Trend stießen sichtbar aufeinander
 The prisoners will be escorted by a guard	Die Gefangenen werden von einem Wächter eskortiert
+It is a simple pleasure in the daily life	Es ist eine einfache Freude im täglichen Leben
 We followed a path through the forest	Wir folgten einem Pfad durch den Wald
 The dog in the big house barked loudly	Der Hund im großen Haus bellte laut
 She needs to find a suitable apartment	Sie muss eine passende Wohnung finden
 You were unexpectedly caught in the heavy rain	Sie wurden unerwartet vom starken Regen erwischt
+The player tried to score their point	Der Spieler versuchte, seinen Punkt zu erzielen
+There is a note on the fridge	Am Kühlschrank ist eine Notiz
 He owns a fast car despite the traffic	Er besitzt trotz des Verkehrs ein schnelles Auto
+To build a company requires a strong team	Um ein Unternehmen aufzubauen, braucht man ein starkes Team
 You could make a sandwich for your lunch	Sie könnten sich ein Sandwich zum Mittagessen machen
 I wanted the dog to stay inside	Ich wollte, dass der Hund drinnen bleibt
 All flights must be confirmed with the airline	Alle Flüge müssen bei der Fluggesellschaft bestätigt werden
 Cooking for a family shows a love	Für eine Familie zu kochen zeigt Liebe
+There was a chill in your bones	Es ging Ihnen durch Mark und Bein
 The pattern looks remarkably complex on the screen	Das Muster sieht auf dem Bildschirm bemerkenswert komplex aus
+Dreaming about the future gives a person hope	Vom Zukunft träumen gibt einem Menschen Hoffnung
 A shadow in the corner moved stealthily	Ein Schatten in der Ecke bewegte sich verstohlen
+She will lead a workshop for the aspiring writers	Sie wird einen Workshop für die aufstrebenden Schriftsteller leiten
+The gift in the colorful wrapping has been opened	Das Geschenk in der bunten Verpackung wurde geöffnet
+She has confidently presented her ideas	Sie hat ihre Ideen selbstbewusst präsentiert
 The colors blend into a beautiful pattern	Die Farben verschmelzen zu einem wunderschönen Muster
 He can physically lift that heavy box	Er kann diese schwere Kiste physisch anheben
 The busy market and the empty square differed greatly	Der belebte Markt und der leere Platz unterschieden sich stark
@@ -1119,28 +1398,38 @@ We reached a mutual understanding after a long conversation	Wir haben nach einem
 She is certainly capable of the feat	Sie ist der Tat sicherlich fähig
 She is never late for the meeting	Sie ist nie zu spät zum Treffen
 A fast car moved extremely quickly	Ein schnelles Auto bewegte sich extrem schnell
+The driver intended to park their vehicle	Der Fahrer beabsichtigte, sein Fahrzeug zu parken
 The bird began to build its nest	Der Vogel begann, sein Nest zu bauen
 They must rigorously test the product	Sie müssen das Produkt rigoros testen
+This special key opened that locked box	Dieser spezielle Schlüssel öffnete diese verschlossene Kiste
 A lawyer made an objection and argued	Ein Anwalt legte Einspruch ein und argumentierte
 She drew a perfect circle and admired	Sie zeichnete einen perfekten Kreis und bewunderte ihn
 You must count down the seconds precisely	Sie müssen die Sekunden genau herunterzählen
+She has tirelessly campaigned for the change	Sie hat sich unermüdlich für die Veränderung eingesetzt
 The professional gamer competed in a tournament	Der professionelle Spieler trat in einem Turnier an
 The old house felt remarkably cold	Das alte Haus fühlte sich bemerkenswert kalt an
 A ship sailed across the ocean	Ein Schiff segelte über den Ozean
+Amidst the chaos and the order they find balance	Inmitten von Chaos und Ordnung finden sie Gleichgewicht
 It can powerfully influence the outcome	Es kann das Ergebnis stark beeinflussen
 Singing in a choir builds a community	Singen im Chor schafft Gemeinschaft
 They must thoroughly examine the evidence	Sie müssen die Beweise gründlich prüfen
+The wind blew hard across the valley	Der Wind wehte heftig durch das Tal
 The company behind the product grew exponentially	Das Unternehmen hinter dem Produkt wuchs exponentiell
 He could bring up the sensitive topic	Er könnte das heikle Thema ansprechen
+The old book and the new article provided different insights	Das alte Buch und der neue Artikel lieferten unterschiedliche Erkenntnisse
 They deserve to know the honest truth	Sie verdienen es, die ehrliche Wahrheit zu erfahren
+She was cautiously approached by the strange animal	Sie wurde vorsichtig von dem seltsamen Tier angesprochen
+A hunter tracked the animal and the creature escaped	Ein Jäger verfolgte das Tier und die Kreatur entkam
 You are a clear voice in the debate	Sie sind eine klare Stimme in der Debatte
 He owns a car that is usually fast	Er besitzt ein Auto, das normalerweise schnell ist
+I made a solemn promise to my dying father	Ich gab meinem sterbenden Vater ein feierliches Versprechen
 A gentle breeze through the window blew pleasantly cool	Eine sanfte Brise durch das Fenster wehte angenehm kühl
 The theory is conceptually simple to the experts	Die Theorie ist für die Experten konzeptionell einfach
 You could brightly illuminate the room	Sie könnten den Raum hell erleuchten
 A meal cooked by a chef tasted divine	Ein von einem Koch zubereitetes Essen schmeckte göttlich
 She finds a valuable resource on the internet	Sie findet eine wertvolle Ressource im Internet
 They are a reliable source for the information	Sie sind eine zuverlässige Informationsquelle
+The strong foundation and the weak structure determined stability	Das starke Fundament und die schwache Struktur bestimmten die Stabilität
 Across the borders and the boundaries they trade freely	Über die Grenzen und die Grenzen hinweg handeln sie frei
 She creates a product which is impressively innovative	Sie schafft ein Produkt, das beeindruckend innovativ ist
 A tall tree in the forest grew incredibly slowly	Ein hoher Baum im Wald wuchs unglaublich langsam
@@ -1149,20 +1438,29 @@ She begged the judge to listen carefully	Sie flehte den Richter an, genau zuzuh�
 The lesson from the past mistake has been learned well	Die Lektion aus dem vergangenen Fehler wurde gut gelernt
 The organization decided to launch its campaign	Die Organisation beschloss, ihre Kampagne zu starten
 On the left and the right we walk cautiously	Links und rechts gehen wir vorsichtig
+I should pack a lunch for my long hike	Ich sollte ein Mittagessen für meine lange Wanderung einpacken
 We should leave a message for the next shift	Wir sollten eine Nachricht für die nächste Schicht hinterlassen
+They are planning a trip excitedly	Sie planen aufgeregt eine Reise
+A strong will and a weak resolve decided outcomes	Ein starker Wille und ein schwacher Entschluss entschieden über die Ergebnisse
 The soldier from the war had a vivid memory	Der Soldat aus dem Krieg hatte eine lebhafte Erinnerung
 All errors must be corrected by the programmer	Alle Fehler müssen vom Programmierer korrigiert werden
 Inside the hidden chamber a relic gleamed	In der verborgenen Kammer glänzte ein Relikt
 The scent is deliciously strong from the flowers	Der Duft ist köstlich stark von den Blumen
+For the joy and the sorrow they experience life	Für die Freude und das Leid erleben sie das Leben
 She will cautiously approach the animal	Sie wird sich dem Tier vorsichtig nähern
+We heard a noise and investigated the sound	Wir hörten ein Geräusch und untersuchten den Ton
 Roosevelt spoke with a confident voice	Roosevelt sprach mit zuversichtlicher Stimme
 It was perfectly designed for the specific purpose	Es wurde perfekt für den spezifischen Zweck entworfen
+By the choice and the consequence they learn lessons	Durch die Wahl und die Konsequenz lernen sie Lektionen
 Our city wants a cleaner environment	Unsere Stadt will eine sauberere Umwelt
 We should gently handle the fragile object	Wir sollten den zerbrechlichen Gegenstand vorsichtig behandeln
 A path through the dense forest has been explored recently	Ein Weg durch den dichten Wald wurde kürzlich erkundet
+There is a hope in your dreams	In deinen Träumen liegt eine Hoffnung
 Those trees provide a welcome shade	Diese Bäume spenden willkommenen Schatten
+There is a basket by the door	An der Tür steht ein Korb
 A project managed by that woman was successful	Ein von dieser Frau geleitetes Projekt war erfolgreich
 A clear voice spoke remarkably calm	Eine klare Stimme sprach bemerkenswert ruhig
+Some animals might hibernate through winter	Einige Tiere könnten den Winter über Winterschlaf halten
 There was a sound from our room	Aus unserem Zimmer kam ein Geräusch
 The players will start the game	Die Spieler werden das Spiel beginnen
 We are completely prepared for the journey	Wir sind vollständig auf die Reise vorbereitet
@@ -1180,6 +1478,8 @@ They must draw up a detailed plan	Sie müssen einen detaillierten Plan ausarbeit
 Gutenberg invented a revolutionary press in Germany	Gutenberg erfand in Deutschland eine revolutionäre Druckerpresse
 He writes a compelling story about the past	Er schreibt eine fesselnde Geschichte über die Vergangenheit
 You have carefully planned the event	Sie haben die Veranstaltung sorgfältig geplant
+It has already shown the results	Es hat bereits die Ergebnisse gezeigt
+To find a solution is the main goal	Eine Lösung zu finden ist das Hauptziel
 The witness described the event vividly to help the police	Der Zeuge beschrieb das Ereignis lebhaft, um der Polizei zu helfen
 He might secretly hide the treasure	Er könnte den Schatz heimlich verstecken
 He will throw away the trash quickly	Er wird den Müll schnell wegwerfen
@@ -1205,51 +1505,72 @@ We are a united front against the opposition	Wir sind eine vereinte Front gegen 
 Lying to a judge constitutes a serious crime	Lügen vor einem Richter stellt ein schweres Verbrechen dar
 You could quietly contemplate the idea	Sie könnten leise über die Idee nachdenken
 They were frequently visited during the year	Sie wurden während des Jahres häufig besucht
+The child tried to open the box	Das Kind versuchte, die Schachtel zu öffnen
 He could pass by the famous landmark	Er konnte am berühmten Wahrzeichen vorbeigehen
+The village rallied to protect the traditions	Das Dorf sammelte sich, um die Traditionen zu schützen
 It is a common occurrence in the area	Es ist ein häufiges Vorkommnis in der Gegend
 The product sold by that vendor was faulty	Das von diesem Anbieter verkaufte Produkt war fehlerhaft
 She should back up the crucial data	Sie sollte die entscheidenden Daten sichern
 An evil sorcerer lived in a tower	Ein böser Zauberer lebte in einem Turm
 A story about a hero ended tragically	Eine Geschichte über einen Helden endete tragisch
+All candidates face a tough final interview	Alle Kandidaten stehen vor einem harten Abschlussgespräch
 It can efficiently process the data	Es kann die Daten effizient verarbeiten
 We have broadly supported the policy	Wir haben die Politik weitgehend unterstützt
+All visitors must register at the desk	Alle Besucher müssen sich am Schreibtisch registrieren
 She sang a beautiful song and bowed	Sie sang ein wunderschönes Lied und verbeugte sich
 The program continued to run its course	Das Programm lief weiter
+The books must be returned by Friday	Die Bücher müssen bis Freitag zurückgegeben werden
 Within the quiet room a clock ticked slowly	Im ruhigen Zimmer tickte eine Uhr langsam
 There is a stain on my hand	Auf meiner Hand ist ein Fleck
 We cleaned the entire house and relaxed	Wir haben das ganze Haus geputzt und uns entspannt
 A memory flashed into the head	Eine Erinnerung blitzte im Kopf auf
 The broken window and a door creaked eerily	Das zerbrochene Fenster und eine Tür knarrten unheimlich
 The brave knight fought against a dragon	Der tapfere Ritter kämpfte gegen einen Drachen
+They were marching in the parade proudly	Sie marschierten stolz in der Parade
 That car stopped near the building	Dieses Auto hielt in der Nähe des Gebäudes an
 You paint a picture while I paint a wall	Du malst ein Bild, während ich eine Wand male
 I will start a fire in the fireplace	Ich werde ein Feuer im Kamin anzünden
 You see a problem while I see a solution	Du siehst ein Problem, während ich eine Lösung sehe
+He learned a valuable lesson that day	Er hat an diesem Tag eine wertvolle Lektion gelernt
 You could slowly walk the path	Sie könnten den Weg langsam gehen
+The vehicle turned to follow the route	Das Fahrzeug bog ab, um der Route zu folgen
 A dream appeared in the sleep	Ein Traum erschien im Schlaf
 A student in the class answered correctly	Ein Schüler in der Klasse antwortete richtig
 Napoleon fought a decisive battle near Waterloo	Napoleon schlug eine entscheidende Schlacht in der Nähe von Waterloo
 A wild animal in the forest moved stealthily	Ein wildes Tier im Wald bewegte sich verstohlen
 You were diligently trained for the demanding competition	Sie wurden fleißig für den anspruchsvollen Wettbewerb trainiert
+The farmer planted the seeds and watered	Der Bauer pflanzte die Samen und goss
 They should fix the leak in the roof	Sie sollten das Leck im Dach reparieren
 The researcher found the cure and the disease vanished	Der Forscher fand das Heilmittel und die Krankheit verschwand
 He is a skilled craftsman with the wood	Er ist ein geschickter Handwerker mit dem Holz
 Painting on a canvas requires a steady hand	Malen auf einer Leinwand erfordert eine ruhige Hand
+Between the old and the new we find balance	Zwischen dem Alten und dem Neuen finden wir Gleichgewicht
+A decision which they made affects the future	Eine von ihnen getroffene Entscheidung betrifft die Zukunft
 The cat slept in the basket	Die Katze schlief im Korb
 They must calm down the agitated crowd	Sie müssen die aufgeregte Menge beruhigen
 She has a talent that is truly remarkable	Sie hat ein wirklich bemerkenswertes Talent
+The coach trained the athletes rigorously to enhance performance	Der Trainer trainierte die Athleten rigoros, um die Leistung zu verbessern
+The musician was playing the piano skillfully	Der Musiker spielte geschickt Klavier
+The problem with the new system has been resolved	Das Problem mit dem neuen System wurde behoben
 They found a house that is truly old	Sie fanden ein Haus, das wirklich alt ist
+The king of the jungle surveyed his domain	Der König des Dschungels überblickte sein Reich
 We raised a flag over the castle	Wir hissten eine Flagge über dem Schloss
 The contestants will perform their routine	Die Teilnehmer werden ihre Routine vorführen
+They felt a profound sense of irreversible loss	Sie empfanden ein tiefes Gefühl des unwiderruflichen Verlusts
 He told the child to go outside	Er sagte dem Kind, es solle nach draußen gehen
 You were repeatedly warned about the potential danger	Sie wurden wiederholt vor der potenziellen Gefahr gewarnt
 A golden eagle soared above the canyon	Ein Steinadler schwebte über der Schlucht
+The magician waved his wand and disappeared	Der Zauberer schwang seinen Zauberstab und verschwand
+It provides a safe environment for the children	Es bietet eine sichere Umgebung für die Kinder
 The active team and a group worked efficiently	Das aktive Team und eine Gruppe arbeiteten effizient
 The secret agent crept along the corridor	Der Geheimagent schlich den Korridor entlang
 They must strictly follow the protocol	Sie müssen sich strikt an das Protokoll halten
 A cold shiver went down him	Ein kalter Schauer überlief ihn
+She is wearing a new dress proudly	Sie trägt stolz ein neues Kleid
+They have gradually improved their skill	Sie haben ihre Fähigkeit allmählich verbessert
 He is a quick learner in the class	Er lernt im Unterricht schnell
 He wrote a long letter yesterday	Er schrieb gestern einen langen Brief
+She should call her mother before the trip	Sie sollte ihre Mutter vor der Reise anrufen
 A method which they prefer works for the task	Eine Methode, die sie bevorzugen, funktioniert für die Aufgabe
 The old clock on the wall ticked slowly quietly	Die alte Uhr an der Wand tickte langsam und leise
 A sweet aroma and a scent filled pleasantly	Ein süßer Duft erfüllte angenehm den Raum
@@ -1257,6 +1578,7 @@ A calm ocean in the morning sparkled brightly	Ein ruhiger Ozean glitzerte am Mor
 He might eagerly accept the offer	Er könnte das Angebot eifrig annehmen
 She must submit a report for the quarterly review	Sie muss einen Bericht für die vierteljährliche Überprüfung einreichen
 A film directed by that artist seems interesting	Ein Film, der von diesem Künstler inszeniert wurde, wirkt interessant
+My siblings share a very close bond	Meine Geschwister haben eine sehr enge Bindung
 I like to eat a delicious meal	Ich esse gern eine leckere Mahlzeit
 Across the plains and the mountains they journey far	Über Ebenen und Berge reisen sie weit
 We need to find a better solution	Wir müssen eine bessere Lösung finden
@@ -1270,19 +1592,27 @@ We visit a city that is historically significant	Wir besuchen eine Stadt, die hi
 We saw a scary movie this afternoon	Wir haben heute Nachmittag einen gruseligen Film gesehen
 The busy street in the city appeared amazingly vibrant	Die belebte Straße in der Stadt wirkte erstaunlich lebendig
 The programmer wrote the code efficiently to optimize performance	Der Programmierer schrieb den Code effizient, um die Leistung zu optimieren
+The plant started to grow the leaves	Die Pflanze begann, Blätter zu treiben
+The echoes resonate in the vast empty hall	Die Echos hallen in der weiten leeren Halle
 He has just finished the report	Er hat den Bericht gerade fertiggestellt
 Freud delved into the human psyche	Freud drang in die menschliche Psyche ein
 The house on the hill stood silently	Das Haus auf dem Hügel stand still
 You should gently close the door	Du solltest die Tür sanft schließen
 The quiet librarian worked at the desk	Die ruhige Bibliothekarin arbeitete am Schreibtisch
 They must set a date for the wedding	Sie müssen ein Datum für die Hochzeit festlegen
+The researcher worked to prove the theory	Die Forscherin arbeitete daran, die Theorie zu beweisen
 The small cat slept on the mat	Die kleine Katze schlief auf der Matte
 The law passed by the government seems unfair	Das von der Regierung verabschiedete Gesetz erscheint unfair
 There was a scratch on its surface	Auf seiner Oberfläche war ein Kratzer
+He courageously fought against the formidable opponent	Er kämpfte mutig gegen den mächtigen Gegner
 He may propose a toast at the dinner	Er könnte beim Abendessen einen Toast aussprechen
 It can effectively present the data	Es kann die Daten effektiv präsentieren
+My parents travel to a different country	Meine Eltern reisen in ein anderes Land
 A sudden storm brewed over the ocean	Ein plötzlicher Sturm braute sich über dem Ozean zusammen
+The historian researched the period extensively to document events	Der Historiker erforschte die Epoche ausführlich, um Ereignisse zu dokumentieren
+My boss read the report and frowned	Mein Chef las den Bericht und runzelte die Stirn
 They must decisively act on the plan	Sie müssen entschlossen nach dem Plan handeln
+There was a sense in our actions	In unserem Handeln lag ein Sinn
 You were emotionally moved by the heartfelt story	Du warst von der rührenden Geschichte emotional bewegt
 We finished a difficult project just yesterday	Wir haben erst gestern ein schwieriges Projekt abgeschlossen
 Across the wide river the bridge stretched far	Über den breiten Fluss spannte sich eine lange Brücke
@@ -1292,20 +1622,25 @@ A monster from a legend terrorized the village	Ein Monster aus einer Legende ter
 A tall stranger walked into the room	Ein großer Fremder betrat den Raum
 A warm blanket on the couch felt cozy	Eine warme Decke auf dem Sofa fühlte sich gemütlich an
 They will plant a tree in the garden	Sie werden einen Baum im Garten pflanzen
+The person stopped to pick their bag	Die Person hielt an, um ihre Tasche aufzuheben
 Against the strong current the swimmer pushed hard	Gegen die starke Strömung kämpfte der Schwimmer heftig an
 They receive an email and we receive a letter	Sie erhalten eine E-Mail und wir einen Brief
 They have instantly recognized the voice	Sie haben die Stimme sofort erkannt
+We must follow the rules in this place	Wir müssen die Regeln an diesem Ort befolgen
 The results will be announced by a committee	Die Ergebnisse werden von einem Ausschuss bekannt gegeben
 Around the corners and the bends we turn cautiously	Um die Ecken und Biegungen biegen wir vorsichtig ab
 King had a famous dream in Washington	King hatte in Washington einen berühmten Traum
 They might eventually find the hidden treasure	Sie könnten schließlich den verborgenen Schatz finden
 Samsung competed in a global marketplace	Samsung konkurrierte auf einem globalen Markt
+The artist drew a sketch and the patron admired it	Der Künstler zeichnete eine Skizze und der Gönner bewunderte sie
 A quiet room and a noisy street contrasted sharply	Ein ruhiger Raum und eine laute Straße standen in starkem Kontrast
 She will fairly judge the competition	Sie wird den Wettbewerb fair beurteilen
 We can call back the person politely	Wir können die Person höflich zurückrufen
 A bridge designed by a genius stood strong	Eine von einem Genie entworfene Brücke stand stabil
+The smell of fresh bread filled the kitchen	Der Geruch von frischem Brot erfüllte die Küche
 We can look over the report carefully	Wir können den Bericht sorgfältig durchsehen
 A sample of the product convinced the customer	Ein Muster des Produkts überzeugte den Kunden
+They sell a product and we sell a service	Sie verkaufen ein Produkt und wir eine Dienstleistung
 You choose a path while I choose a destination	Du wählst einen Weg, während ich ein Ziel wähle
 She could paint a picture on the canvas	Sie könnte ein Bild auf die Leinwand malen
 He wishes to paint a stunning portrait	Er möchte ein beeindruckendes Porträt malen
@@ -1316,19 +1651,24 @@ This path offers a shorter journey	Dieser Weg bietet eine kürzere Reise
 Microsoft released a dominant operating system from Redmond	Microsoft brachte ein dominantes Betriebssystem aus Redmond heraus
 A dog chased a squirrel and the animal ran	Ein Hund jagte ein Eichhörnchen und das Tier rannte davon
 We had a great time at the party	Wir hatten eine tolle Zeit auf der Party
+A reason which you gave convinced the audience	Ein von dir gegebener Grund überzeugte das Publikum
 The report was thoroughly reviewed in your hands	Der Bericht wurde in deinen Händen gründlich geprüft
 A young man and a woman talked politely	Ein junger Mann und eine Frau unterhielten sich höflich
+That company has a great reputation in the industry	Diese Firma hat einen hervorragenden Ruf in der Branche
 We receive a blessing which is truly unexpected	Wir erhalten einen Segen, der wirklich unerwartet ist
 From the beginning and the end we learn much	Vom Anfang und vom Ende lernen wir viel
 Over the hurdles and the obstacles we jump easily	Über die Hürden und Hindernisse springen wir leicht
 We have vividly recalled the memory	Wir haben uns lebhaft an die Erinnerung erinnert
 He might regularly review the progress	Er könnte den Fortschritt regelmäßig überprüfen
+There was a fear in their voices	In ihren Stimmen lag Angst
 They must create an opportunity for the young intern	Sie müssen eine Gelegenheit für den jungen Praktikanten schaffen
 We can discuss the issue after the meeting	Wir können das Thema nach der Besprechung besprechen
 They are a valuable asset to the company	Sie sind eine wertvolle Ressource für das Unternehmen
 All citizens must pay a tax	Alle Bürger müssen eine Steuer zahlen
 The prisoners should be released by the government	Die Gefangenen sollten von der Regierung freigelassen werden
 We create some art but they create some chaos	Wir schaffen etwas Kunst, aber sie schaffen etwas Chaos
+There was a spill under the table	Unter dem Tisch war ein Fleck
+The tasks will be completed by our team	Die Aufgaben werden von unserem Team erledigt
 The birds sing in the tall tree	Die Vögel singen im hohen Baum
 The task was easily managed with its system	Die Aufgabe wurde mit dem System leicht bewältigt
 The atmosphere feels beautifully calm around the lake	Die Atmosphäre wirkt wunderbar ruhig am See
@@ -1336,6 +1676,7 @@ A distant star twinkled in the darkness	Ein ferner Stern funkelte in der Dunkelh
 He was easily confused with the other	Er wurde leicht mit dem anderen verwechselt
 She should pass on the important message	Sie sollte die wichtige Nachricht weitergeben
 We faced a major challenge back then	Damals standen wir vor einer großen Herausforderung
+Inside the quiet library the silence reigned supreme	In der stillen Bibliothek herrschte völlige Ruhe
 All applicants must complete this form	Alle Bewerber müssen dieses Formular ausfüllen
 For the summer and the winter they prepare carefully	Für Sommer und Winter bereiten sie sich sorgfältig vor
 A powerful engine ran incredibly smooth	Ein leistungsstarker Motor lief unglaublich ruhig
@@ -1362,10 +1703,13 @@ The dog chased a red ball and barked	Der Hund jagte einem roten Ball nach und be
 We learn a lesson that is deeply insightful	Wir lernen eine Lektion, die sehr aufschlussreich ist
 Freud developed a controversial theory in Austria	Freud entwickelte in Österreich eine umstrittene Theorie
 She will politely refuse the request	Sie wird die Bitte höflich ablehnen
+He was driving his car recklessly	Er fuhr sein Auto rücksichtslos
+The system detected an anomaly quickly to prevent any errors	Das System erkannte schnell eine Anomalie, um Fehler zu vermeiden
 There was a hum from its engine	Ein Summen kam aus seinem Motor
 She would usually eat a light breakfast	Sie aß gewöhnlich ein leichtes Frühstück
 You could happily sing a song	Du könntest fröhlich ein Lied singen
 They might reluctantly accept the final offer	Sie könnten das endgültige Angebot widerwillig annehmen
+She was entirely consumed by the pressing urgency	Sie war völlig von der dringenden Not erfasst
 The fresh water in the stream flowed freely	Das frische Wasser im Bach floss frei
 Cleopatra sailed on a magnificent barge	Kleopatra segelte auf einer prächtigen Barke
 The prisoner escaped from the cell and fled	Der Gefangene entkam aus der Zelle und floh
@@ -1375,12 +1719,14 @@ His argument required a clearer explanation	Sein Argument erforderte eine klarer
 A speaker gave the speech and the crowd applauded loudly	Ein Redner hielt die Rede und die Menge applaudierte laut
 The jewel stolen by the thief was priceless	Das vom Dieb gestohlene Juwel war unbezahlbar
 An issue with the software caused a major problem	Ein Problem mit der Software verursachte ein großes Problem
+The customer chose to buy their item	Der Kunde entschied sich, den Artikel zu kaufen
 The treasure might be found eventually	Der Schatz könnte schließlich gefunden werden
 They may perform a ceremony for the deceased leader	Sie könnten eine Zeremonie für den verstorbenen Anführer abhalten
 The green parrot squawked at them	Der grüne Papagei kreischte sie an
 The wine had a richer flavor	Der Wein hatte ein volleres Aroma
 Working from the office has an advantage	Die Arbeit vom Büro aus hat einen Vorteil
 There was a silence around their home	Es herrschte Stille um ihr Haus
+The fire consumed the wood and the ashes remained behind	Das Feuer verzehrte das Holz und die Asche blieb zurück
 This technology allows a deeper analysis	Diese Technologie ermöglicht eine tiefere Analyse
 The car needed a better engine	Das Auto brauchte einen besseren Motor
 The gate opened toward the field	Das Tor öffnete sich zum Feld hin
@@ -1393,6 +1739,7 @@ The wildlife struggled to maintain its balance	Die Wildtiere kämpften darum, ih
 The lead actor bowed to the audience	Der Hauptdarsteller verbeugte sich vor dem Publikum
 I bake a cake and he bakes a pie	Ich backe einen Kuchen und er backt eine Torte
 You could look up the details quickly	Du könntest die Details schnell nachschlagen
+A climber reached the peak and the view appeared	Ein Kletterer erreichte den Gipfel und die Aussicht erschien
 I opened the heavy door and entered	Ich öffnete die schwere Tür und trat ein
 Many people may dislike the change	Viele Menschen könnten die Veränderung nicht mögen
 She is surprisingly patient with the process	Sie ist überraschend geduldig mit dem Prozess
@@ -1420,14 +1767,19 @@ They were consistently praised by the critics	Sie wurden von den Kritikern durch
 It can easily solve the puzzle	Es kann das Rätsel leicht lösen
 By the book and the rule we follow strictly	Nach dem Buch und der Regel handeln wir strikt
 The nominations should be announced by the academy	Die Nominierungen sollten von der Akademie bekannt gegeben werden
+The photographer prepared to capture the image	Der Fotograf bereitete sich vor, das Bild einzufangen
 All citizens deserve a fair trial	Alle Bürger verdienen ein faires Verfahren
+There is a remote under the cushion	Unter dem Kissen liegt eine Fernbedienung
 A heavy box slid toward him	Ein schwerer Kasten rutschte auf ihn zu
 We can live through the experience bravely	Wir können die Erfahrung tapfer durchleben
 Many chefs use a secret ingredient	Viele Köche verwenden eine geheime Zutat
 The fragile item felt extremely delicate to touch	Der zerbrechliche Gegenstand fühlte sich äußerst empfindlich an
 He builds a sturdy shelter near the forest	Er baut einen stabilen Unterschlupf nahe dem Wald
+The leader sought to guide the group	Die Führungsperson versuchte, die Gruppe zu leiten
+She is teaching a class effectively	Sie unterrichtet eine Klasse effektiv
 She likes to drive a fast car	Sie fährt gern ein schnelles Auto
 This job should be done carefully	Diese Arbeit sollte sorgfältig erledigt werden
+You can pay cash or card here	Du kannst hier bar oder mit Karte bezahlen
 I heard a strange noise just now	Ich habe gerade ein seltsames Geräusch gehört
 Our team found a faster route	Unser Team fand eine schnellere Route
 It was finally solved without the help	Es wurde schließlich ohne Hilfe gelöst
@@ -1436,7 +1788,11 @@ A stray dog went to them	Ein streunender Hund ging zu ihnen
 We are occasionally hesitant regarding the decision	Gelegentlich sind wir unentschlossen bezüglich der Entscheidung
 It might turn on the light easily	Es könnte leicht das Licht einschalten
 They maintain a peaceful atmosphere within the group	Sie bewahren eine friedliche Atmosphäre in der Gruppe
+She possesses a rare ability for language learning	Sie besitzt eine seltene Fähigkeit zum Sprachenlernen
+A worker loaded the boxes and the truck departed promptly	Ein Arbeiter lud die Kisten und der Lastwagen fuhr sofort ab
+We suggest a change but they suggest a revolution	Wir schlagen eine Veränderung vor, aber sie schlagen eine Revolution vor
 The scent smells delightfully sweet from the flowers	Der Duft der Blumen riecht wunderbar süß
+The investor agreed to fund the project	Der Investor stimmte zu, das Projekt zu finanzieren
 She should buy a ticket for the concert	Sie sollte eine Eintrittskarte für das Konzert kaufen
 Against the strong current the swimmer pushed	Gegen die starke Strömung kämpfte der Schwimmer an
 We reached the high summit and gazed	Wir erreichten den hohen Gipfel und blickten umher
@@ -1451,6 +1807,7 @@ We have always supported the idea	Wir haben die Idee immer unterstützt
 The tall building and a house stood solidly	Das hohe Gebäude und ein Haus standen fest
 They must promptly answer the question	Sie müssen die Frage umgehend beantworten
 The messages will be delivered by a courier	Die Nachrichten werden von einem Kurier überbracht
+They want a peaceful resolution to this long conflict	Sie wollen eine friedliche Lösung für diesen langen Konflikt
 The committee should review the proposal	Das Komitee sollte den Vorschlag prüfen
 He told a funny joke earlier	Er erzählte vorhin einen lustigen Witz
 She can find a substitute for the missing ingredient	Sie kann einen Ersatz für die fehlende Zutat finden
@@ -1458,11 +1815,14 @@ Our military requires a tougher training	Unser Militär braucht ein härteres Tr
 Protesting against an injustice shows a strong character	Gegen Ungerechtigkeit zu protestieren zeigt einen starken Charakter
 The knowledge that we seek lies in the research	Das Wissen, das wir suchen, liegt in der Forschung
 We enjoy a game that is incredibly fun	Wir genießen ein Spiel, das unglaublich viel Spaß macht
+She is learning a new skill eagerly	Sie lernt eifrig eine neue Fähigkeit
 The new system in the office worked smoothly	Das neue System im Büro funktionierte reibungslos
 It is almost perfect within the design	Es ist im Design nahezu perfekt
 The heavy load felt incredibly burdensome to carry	Die schwere Last fühlte sich unglaublich belastend an
 She is a graceful dancer on the stage	Sie ist eine anmutige Tänzerin auf der Bühne
 A guard at the gate stood watchfully	Ein Wachmann am Tor stand wachsam
+The judge ruled to uphold their decision	Der Richter entschied, ihre Entscheidung aufrechtzuerhalten
+We should openly share our thoughts	Wir sollten unsere Gedanken offen teilen
 The air in the small space has been circulating poorly	Die Luft im kleinen Raum zirkulierte schlecht
 We should immediately report any suspicious activity	Wir sollten jede verdächtige Aktivität sofort melden
 She enjoys a hobby which is remarkably relaxing	Sie hat ein Hobby, das bemerkenswert entspannend ist
@@ -1473,6 +1833,7 @@ She nurtured a secret ambition for a political career	Sie hegte den geheimen Wun
 He can barely see the distant shoreline	Er kann die ferne Küste kaum sehen
 A powerful engine in the car ran smoothly	Ein leistungsstarker Motor im Auto lief reibungslos
 This simple solution worked for the problem	Diese einfache Lösung funktionierte für das Problem
+There is a clock on the wall	An der Wand hängt eine Uhr
 You were completely surrounded near the building	Du warst nahe dem Gebäude völlig umzingelt
 It might move on the project swiftly	Es könnte mit dem Projekt zügig vorankommen
 It was reliably delivered to the customer	Es wurde zuverlässig an den Kunden geliefert
@@ -1482,8 +1843,10 @@ NASA planned for a manned mission	Die NASA plante eine bemannte Mission
 We should respectfully listen to the speaker	Wir sollten dem Redner respektvoll zuhören
 The old tradition and the new custom coexisted peacefully	Die alte Tradition und der neue Brauch koexistierten friedlich
 The bird flew into the sky	Der Vogel flog in den Himmel
+The rain cooled the air and the ground absorbed moisture	Der Regen kühlte die Luft und der Boden nahm Feuchtigkeit auf
 The calm sea seemed incredibly vast	Das ruhige Meer wirkte unglaublich weit
 She would hide a diary under her bed	Sie würde ein Tagebuch unter ihrem Bett verstecken
+The researcher worked to prove their theory	Die Forscherin arbeitete daran, ihre Theorie zu beweisen
 They must diligently finish the work	Sie müssen die Arbeit gewissenhaft beenden
 She should move on the new chapter	Sie sollte mit dem neuen Kapitel weitermachen
 I felt a chill in the air	Ich spürte eine Kühle in der Luft
@@ -1494,12 +1857,18 @@ The wolves could hunt the deer	Die Wölfe könnten das Reh jagen
 He seeks a better understanding of the world	Er sucht ein besseres Verständnis der Welt
 The quick runner finished incredibly fast	Der schnelle Läufer beendete das Rennen unglaublich schnell
 They hear a voice which is surprisingly clear	Sie hören eine Stimme, die überraschend klar ist
+The artist painted on a canvas with a brush	Die Künstlerin malte mit einem Pinsel auf einer Leinwand
 A wild animal and a creature moved suddenly	Ein Wildtier und ein Wesen bewegten sich plötzlich
 The nation united to defend its borders	Die Nation vereinte sich, um ihre Grenzen zu verteidigen
 The information was securely stored within its network	Die Informationen wurden sicher in seinem Netzwerk gespeichert
+We could eat pizza or pasta tonight	Wir könnten heute Abend Pizza oder Pasta essen
 A loud alarm from the building sounded shrilly	Ein lauter Alarm aus dem Gebäude ertönte schrill
+By the principle and the practice they achieve success	Durch Prinzip und Praxis erreichen sie Erfolg
+There is a strength in their unity	In ihrer Einheit liegt eine Stärke
 There was a hum in her voice	In ihrer Stimme war ein Summen
 A star twinkled in the night	Ein Stern funkelte in der Nacht
+The object was visibly distinguished by its unique design	Der Gegenstand war durch sein einzigartiges Design deutlich zu erkennen
+We saw an amazing variety of tropical fish	Wir sahen eine erstaunliche Vielfalt tropischer Fische
 She is certainly honest with the truth	Sie ist mit der Wahrheit gewiss ehrlich
 The researcher found the evidence robustly to support the theory	Die Forscherin fand belastbare Beweise zur Untermauerung der Theorie
 He would build a castle on the beach	Er würde eine Burg am Strand bauen
@@ -1515,6 +1884,7 @@ All users must accept the term	Alle Nutzer müssen die Bedingung akzeptieren
 Shopping for a bargain is a fun challenge	Auf Schnäppchenjagd zu gehen ist eine unterhaltsame Herausforderung
 The driver saw the light and stopped	Der Fahrer sah das Licht und hielt an
 We see a movie which is generally good	Wir sehen einen Film, der allgemein gut ist
+Those ideas sound extremely radical to the board	Diese Ideen klingen für den Vorstand äußerst radikal
 The pure gold in the box shone brilliantly yellow	Das reine Gold in der Schachtel glänzte brillant gelb
 All students need a quiet place	Alle Schüler brauchen einen ruhigen Ort
 We should carefully consider every possible option	Wir sollten jede mögliche Option sorgfältig abwägen
@@ -1523,23 +1893,33 @@ A swift current flowed powerfully strong	Eine schnelle Strömung floss kraftvoll
 We were calmly reassured after the news	Wir wurden nach den Nachrichten ruhig beruhigt
 He cooked a delicious meal and rested	Er kochte ein köstliches Essen und ruhte sich aus
 Ford built a revolutionary automobile in Detroit	Ford baute in Detroit ein revolutionäres Auto
+The guard checked my ID and admitted	Der Wachmann überprüfte meinen Ausweis und ließ mich hinein
 A famous singer on the stage sang beautifully soft	Ein berühmter Sänger sang auf der Bühne wunderschön sanft
 There is a flaw in our argument	In unserem Argument gibt es einen Fehler
 The answer feels deeply satisfying to the question	Die Antwort fühlt sich auf die Frage zutiefst befriedigend an
+The investor agreed to fund their project	Der Investor stimmte zu, ihr Projekt zu finanzieren
 The memory is incredibly vivid in the mind	Die Erinnerung ist im Kopf unglaublich lebendig
 You built a fence that is wonderfully sturdy	Du hast einen Zaun gebaut, der wunderbar stabil ist
 We develop a useful application for the community	Wir entwickeln eine nützliche Anwendung für die Gemeinschaft
 A stranger approached the counter and ordered	Ein Fremder trat an die Theke und bestellte
 The hot summer and a winter ended quickly	Der heiße Sommer und ein Winter gingen schnell zu Ende
 They assumed the result to be otherwise	Sie nahmen an, dass das Ergebnis anders sei
+A guard opened the gate and the visitor entered slowly	Ein Wachmann öffnete das Tor und der Besucher trat langsam ein
+During the long journey they read a story	Während der langen Reise lasen sie eine Geschichte
 The committee moved to finalize its recommendations	Der Ausschuss ging dazu über, seine Empfehlungen abzuschließen
+The editor proofread the text and the manuscript was finalized	Der Lektor korrigierte den Text und das Manuskript wurde fertiggestellt
+I may receive a commendation for my heroic act	Ich könnte für meine heldenhafte Tat eine Auszeichnung erhalten
 The melody sounds wonderfully soothing during the evening	Die Melodie klingt am Abend wunderbar beruhigend
+The gardener started to prune the bushes	Der Gärtner begann, die Büsche zu beschneiden
 It can grow into a strong tree	Es kann zu einem starken Baum heranwachsen
 This information should be handled confidentially	Diese Information sollte vertraulich behandelt werden
 We should definitely try that new restaurant	Wir sollten dieses neue Restaurant unbedingt ausprobieren
 These policies create a real impact	Diese Richtlinien haben eine echte Wirkung
 The door might be opened remotely	Die Tür könnte aus der Ferne geöffnet werden
 A book which we like sits on the shelf	Ein Buch, das wir mögen, steht im Regal
+There is a pen in their hands	In ihren Händen ist ein Stift
+They will explore the ruins of the castle	Sie werden die Ruinen der Burg erkunden
+Her sister received a gift and gasped	Ihre Schwester erhielt ein Geschenk und schnappte nach Luft
 I drink some water and he drinks some juice	Ich trinke etwas Wasser und er trinkt etwas Saft
 He is evidently skilled at the craft	Er ist offensichtlich geschickt in seinem Handwerk
 The light touch on the skin felt surprisingly gentle	Die leichte Berührung auf der Haut fühlte sich überraschend sanft an
@@ -1550,15 +1930,27 @@ I saw the cat in the garden	Ich sah die Katze im Garten
 The government decided to implement its policy	Die Regierung beschloss, ihre Politik umzusetzen
 Beyond the limits and the boundaries they explore freely	Jenseits der Grenzen erkunden sie frei
 We may adopt a kitten for our lonely cat	Wir könnten ein Kätzchen für unsere einsame Katze aufnehmen
+These letters should be sent by mail	Diese Briefe sollten per Post verschickt werden
+The secrets should be kept by everyone	Die Geheimnisse sollten von allen bewahrt werden
 The bridges will be inspected by an engineer	Die Brücken werden von einem Ingenieur inspiziert
+A message which they received arrived in the morning	Eine Nachricht, die sie erhielten, kam am Morgen an
 She is a patient listener during the discussion	Sie ist eine geduldige Zuhörerin während der Diskussion
 The old book on the shelf lay completely still	Das alte Buch im Regal lag völlig still
+A secret hid within the pages	Ein Geheimnis verbarg sich in den Seiten
+We diligently searched for the missing piece	Wir haben sorgfältig nach dem fehlenden Teil gesucht
+I have a vague memory of that distant event	Ich habe eine vage Erinnerung an jenes entfernte Ereignis
+They were arguing about politics heatedly	Sie stritten heftig über Politik
+We left the party because it was loud	Wir verließen die Party, weil es laut war
+A journalist wrote the article and the newspaper published it	Ein Journalist schrieb den Artikel und die Zeitung veröffentlichte ihn
 It might break down the barrier gradually	Es könnte die Barriere nach und nach durchbrechen
 They experience a feeling which is utterly unique	Sie erleben ein Gefühl, das völlig einzigartig ist
+A lack of evidence weakened the entire case	Ein Mangel an Beweisen schwächte den gesamten Fall
+The visitor wished to explore the surroundings	Der Besucher wollte die Umgebung erkunden
 He will speak up the truth bravely	Er wird die Wahrheit mutig aussprechen
 A hot beverage and a cold drink cooled differently	Ein heißes Getränk und ein kaltes Getränk kühlten sich unterschiedlich ab
 I took a photo of the sunset	Ich machte ein Foto vom Sonnenuntergang
 They should clean out the closet thoroughly	Sie sollten den Schrank gründlich ausräumen
+The cold water and the hot steam produced different effects	Das kalte Wasser und der heiße Dampf erzeugten unterschiedliche Effekte
 We must entirely trust the system	Wir müssen dem System vollkommen vertrauen
 She has often visited the garden	Sie hat den Garten oft besucht
 Those dogs could chase the squirrel	Diese Hunde könnten dem Eichhörnchen nachjagen
@@ -1569,32 +1961,58 @@ A brave knight and a soldier fought fiercely	Ein tapferer Ritter und ein Soldat 
 He needs to buy a reliable computer	Er muss einen zuverlässigen Computer kaufen
 The doctor treated the patient gently to ease suffering	Der Arzt behandelte den Patienten sanft, um das Leiden zu lindern
 He might occasionally visit the place	Er könnte gelegentlich den Ort besuchen
+The team played a good game today	Die Mannschaft spielte heute ein gutes Spiel
 They should take on the responsibility willingly	Sie sollten die Verantwortung bereitwillig übernehmen
 I saw an old friend downtown yesterday	Ich sah gestern in der Stadt einen alten Freund
 The bees could swarm the hive	Die Bienen könnten den Bienenstock umschwärmen
+The employee volunteered to complete the task	Der Mitarbeiter meldete sich freiwillig, um die Aufgabe zu erledigen
 You drew a map on a napkin	Du hast eine Karte auf eine Serviette gezeichnet
 She would never attempt a dangerous stunt	Sie würde niemals ein gefährliches Kunststück versuchen
 I made a terrible mistake and apologized	Ich machte einen schlimmen Fehler und entschuldigte mich
 Within the dusty attic a memory lingered	Im staubigen Dachboden verweilte eine Erinnerung
+The file on my computer disappeared completely	Die Datei auf meinem Computer verschwand vollständig
 He buys a gadget that is wonderfully convenient	Er kauft ein Gerät, das wunderbar praktisch ist
 I felt a sharp pain right here	Ich spürte genau hier einen stechenden Schmerz
 They are consistently reliable for the task	Sie sind durchweg zuverlässig für die Aufgabe
 She will willingly offer the support	Sie wird bereitwillig Unterstützung anbieten
+The judge ruled to uphold the decision	Der Richter entschied, die Entscheidung aufrechtzuerhalten
 The car with a flat tire stopped abruptly	Das Auto mit einem platten Reifen hielt abrupt an
 A tailor sewed the garment and the customer wore	Ein Schneider nähte das Kleidungsstück und der Kunde trug es
 He has bravely fought the battle	Er hat tapfer den Kampf geführt
+A problem which they ignored resulted in the chaos	Ein Problem, das sie ignorierten, führte zum Chaos
+The soldier aimed his rifle and fired	Der Soldat zielte mit seinem Gewehr und feuerte
 She paid a stranger to wait nearby	Sie bezahlte einen Fremden, in der Nähe zu warten
 She is a diligent student for the exam	Sie ist eine fleißige Schülerin für die Prüfung
 He has humbly accepted the award	Er hat die Auszeichnung demütig angenommen
 A flower bloomed in the garden	Eine Blume blühte im Garten
 A story could be written beautifully	Eine Geschichte könnte wunderschön geschrieben werden
 We should cautiously proceed with the plan	Wir sollten mit dem Plan vorsichtig fortfahren
+A letter from my sister arrived yesterday	Gestern kam ein Brief von meiner Schwester an
+There was a sound from the kitchen	Aus der Küche kam ein Geräusch
 The painting by the artist sold immediately	Das Gemälde des Künstlers wurde sofort verkauft
 He discovers a talent that is surprisingly impressive	Er entdeckt ein Talent, das überraschend beeindruckend ist
 The system failed to complete its operation	Das System konnte den Vorgang nicht abschließen
 Under the clear sky the stars twinkled brightly	Unter dem klaren Himmel funkelten die Sterne hell
+The girl with red hair won the prize	Das Mädchen mit den roten Haaren gewann den Preis
+Our team played a great game and celebrated	Unser Team spielte ein großartiges Spiel und feierte
 She bought a new dress and smiled	Sie kaufte ein neues Kleid und lächelte
 A large rock crashed into the valley	Ein großer Fels krachte ins Tal
 I own a tool that is quite effective	Ich besitze ein Werkzeug, das ziemlich effektiv ist
 The system for the entry worked perfectly	Das Zugangssystem funktionierte einwandfrei
 He lost a valuable watch somewhere around	Er verlor irgendwo eine wertvolle Uhr
+Beyond the mountains and the seas we travel widely	Jenseits der Berge und Meere reisen wir weit
+We are a strong team for the project	Wir sind ein starkes Team für das Projekt
+They solved a puzzle in the game	Sie lösten ein Rätsel im Spiel
+You are undoubtedly intelligent for the challenge	Du bist zweifellos klug für die Herausforderung
+There is a rhythm in your pulse	In deinem Puls ist ein Rhythmus
+The first attempt and the final trial produced varied results	Der erste Versuch und die letzte Probe ergaben unterschiedliche Ergebnisse
+I caught a big fish out there	Ich fing dort draußen einen großen Fisch
+It is a vital component within the system	Es ist eine entscheidende Komponente im System
+You find a solution which is clearly effective	Du findest eine Lösung, die eindeutig wirksam ist
+The baby saw its mother and gurgled	Das Baby sah seine Mutter und gluckste
+It is purely theoretical at this stage	Es ist in diesem Stadium rein theoretisch
+They are debating the topic passionately	Sie diskutieren leidenschaftlich über das Thema
+They might secretly plan a surprise party	Sie könnten heimlich eine Überraschungsparty planen
+I will gladly accept your kind offer	Ich werde dein freundliches Angebot gern annehmen
+They carry a heavy load during the trip	Sie tragen während der Reise eine schwere Last
+They persuaded the committee to vote yes	Sie überzeugten den Ausschuss, mit Ja zu stimmen
