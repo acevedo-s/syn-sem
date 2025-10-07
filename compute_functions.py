@@ -16,7 +16,8 @@ from utils import (
                 syn_group_ids_path,
                 len_group_ids_path,
                 syn_group_id_paths_for_sem_data,
-                sem_ids_path,
+                sem_ids_with_syn_path,
+                syn_ids_with_sem_path,
                 syn_syn_ids_path,
                 torch_to_jax, 
                 flatten_tokens_features, 
@@ -84,15 +85,22 @@ def similarities(
         all_activations_B = all_activations_A
         
     if data_var == 'sem' and centers_var == 'syn' and center_A_flag != 0:
-        sem_ids = from_numpy(np.loadtxt(sem_ids_path,dtype=int)).long() # filtering data to have their syntax group in space A 
+        sem_ids_with_syn = from_numpy(np.loadtxt(sem_ids_with_syn_path,dtype=int)).long() # filtering sem_data to have their syntax group in space A 
         for layer in all_activations_A:
-            all_activations_A[layer] = all_activations_A[layer][sem_ids]
-            all_activations_B[layer] = all_activations_B[layer][sem_ids]
+            all_activations_A[layer] = all_activations_A[layer][sem_ids_with_syn]
+            all_activations_B[layer] = all_activations_B[layer][sem_ids_with_syn]
         total_sample_size = all_activations_A[next(reversed(all_activations_A))].shape[0]
-
         # if center_B_flag != 0:
         #     syn_syn_indices = jnp.array(np.loadtxt(syn_syn_ids_path,dtype=int),dtype=jnp.int32) # filtering data to ALSO have their syntax group in space B
         #     total_sample_size = syn_syn_indices.shape[0]
+    
+    elif data_var == 'syn' and centers_var == 'sem' and center_A_flag != 0:
+        syn_ids_with_sem = from_numpy(np.loadtxt(syn_ids_with_sem_path,dtype=int)).long() # filtering sem_data to have their syntax group in space A 
+        for layer in all_activations_A:
+            all_activations_A[layer] = all_activations_A[layer][syn_ids_with_sem]
+            all_activations_B[layer] = all_activations_B[layer][syn_ids_with_sem]    
+        total_sample_size = all_activations_A[next(reversed(all_activations_A))].shape[0]
+
     else:
         total_sample_size = all_activations_A[next(reversed(all_activations_A))].shape[0]
 

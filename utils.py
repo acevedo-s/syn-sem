@@ -34,7 +34,9 @@ syn_group_id_paths_for_sem_data = {'A' : "/home/acevedo/syn-sem/datasets/txt/sem
                                   }
 syn_common_indices_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_common_indices_B.txt"
 common_group_ids_B_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/common_group_ids_B.txt"
-sem_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/sem_ids.txt"
+sem_ids_with_syn_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/sem_ids_with_syn.txt"
+syn_ids_with_sem_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/syn_ids_with_sem.txt"
+sem_centers_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/sem_centers_ids.txt"
 syn_syn_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_syn_indices.txt"
 
 def get_centers_folder_A(sim_folder):
@@ -319,7 +321,6 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             space_index,
                                             removal_method:str,
                                             syn_group_ids_path,
-                                            seed = 1234,
                                             ):
   centers_folder = sim_folder
 
@@ -340,6 +341,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
     ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
 
   if center_flag == -1:
+    seed = np.random.randint(0, 2**31 - 1)   # random 32-bit integer
     key_center = jax.random.PRNGKey(seed)
     centers = jax.random.permutation(key_center,centers)
   
@@ -545,16 +547,14 @@ def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,num
   centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
 
   semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy'),dtype=act.dtype) #(num_sentences,E)
-  assert (act.shape == semantic_centers.shape)
 
   if data_var == 'syn':
-    print('TODO::::')
-    sys.exit() # TODO: check
-    # semantic_labels_file = '/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/semantic_labels.txt'
-    # indices = jnp.array(np.loadtxt(semantic_labels_file,dtype=int,unpack=True)[0])
-  elif data_var == 'sem':
-    indices = jnp.arange(act.shape[0],dtype=jnp.int32)
-    
+    sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
+    semantic_centers = semantic_centers[sem_center_ids] # this alignes centers to syntax data
+
+  assert (act.shape == semantic_centers.shape)
+
+  indices = jnp.arange(act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
     key_centers = jax.random.PRNGKey(999)
     indices = jax.random.permutation(key_centers,indices)
@@ -587,7 +587,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = list(range(1,len(my_languages)+1))
+        number_of_languages_list = [6] # list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 
@@ -597,7 +597,7 @@ def set_language_list_permutations(center_A_flag, center_B_flag, centers_var):
 
   if center_A_flag != 0 or center_B_flag != 0:
     if centers_var == 'sem':
-       language_list_permutations = list(range(0,len(my_languages)))
+       language_list_permutations = [0] #list(range(0,len(my_languages)))
 
   return language_list_permutations
 
