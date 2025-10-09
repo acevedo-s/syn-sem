@@ -20,7 +20,6 @@ from utils import (
                 depths,
                 emb_dims,
                 reduce_list_half_preserve_extremes,
-
                 )
 
 from geometry import *
@@ -43,6 +42,7 @@ if __name__ == "__main__":
     parser.add_argument("modelA", type=str) # llama, deepseek or qwen
     parser.add_argument("method", type=str, choices=['max','min'], help="max = corr coeff, min = II")
     parser.add_argument("data_var", type=str, choices=['syn','sem'], help="syntax or semantics")
+    parser.add_argument("match_var", type=str, choices=['matching','mismatching'])
     parser.add_argument("centers_var", type=str, choices=['syn','sem'])
     parser.add_argument("language", type=str)
     parser.add_argument("center_A_flag", type=int)
@@ -51,11 +51,13 @@ if __name__ == "__main__":
     parser.add_argument("removal_method", type=str, choices=['projection', 'subtraction', 'none'])
     parser.add_argument("global_centering", type=int, choices=[0,1])
     parser.add_argument("avg_tokens", type=int, choices=[0,1])
+    parser.add_argument("similarity_fn", type=str, choices=['L2_distance','normalized_L2_distance'])
     args = parser.parse_args()
 
     spaces = 'AB'
     Nbits_list = [0]
     diagonal_constraint = 1
+    n_files = 21
     n_tokens_list = []
     match_var_list = [] # in ['matching','mismatching']
     similarity_fn = lambda x: x
@@ -87,100 +89,94 @@ if __name__ == "__main__":
         layers_A = reduce_list_half_preserve_extremes(layers_A)
         layers_B = reduce_list_half_preserve_extremes(layers_B)
 
-
-    n_files = 21
-    match_var_list = ["matching"]
-
     print(f'{Nbits_list=}')
     print(f'{diagonal_constraint=}')
 
-    if args.method == 'max':
-        similarity_fn = jnp.dot
-    elif args.method == 'min':
-        similarity_fn = normalized_L2_distance 
-        
+    if args.similarity_fn == 'normalized_L2_distance':
+        similarity_fn = normalized_L2_distance
+    elif args.similarity_fn == 'L2_distance':
+        similarity_fn = L2_distance 
     assert 1 not in Nbits_list
 
-    for match_var in match_var_list:
-        input_path_A = input_paths['english'][args.modelA][match_var]['0'][args.data_var]
-        print("Input path A = ", input_path_A, flush=True)
-        if spaces == 'AB':
-            input_path_B = input_paths[args.language][modelB][match_var]['1'][args.data_var]
-            print("Input path B = ", input_path_B, flush=True)
-        
-        output_folder0 = makefolder(base=f'./results/',
-                                create_folder=True,
-                                global_centering=args.global_centering,
-                                spaces=spaces,
-                                similarity_fn=similarity_fn.__name__,
-                                precision=precision,
-                                language=args.language,
-                                data_var=args.data_var,
-                                modelA=args.modelA,
-                                modelB=modelB,
-                                match_var=match_var,
-                                n_files=n_files,
-                                min_token_length=min_token_length,
-                                )
+    input_path_A = input_paths['english'][args.modelA][args.match_var]['0'][args.data_var]
+    print("Input path A = ", input_path_A, flush=True)
+    if spaces == 'AB':
+        input_path_B = input_paths[args.language][modelB][args.match_var]['1'][args.data_var]
+        print("Input path B = ", input_path_B, flush=True)
     
-        ### Computation:
-        similarities(
-            modelA=args.modelA,
-            modelB=modelB,
-            layers_A=layers_A,
-            layers_B=layers_B,
-            input_path_A=input_path_A,
-            input_path_B=input_path_B,
-            min_token_length=min_token_length,
-            n_files=n_files,
-            n_tokens_list=n_tokens_list,
-            output_folder0=output_folder0,
-            avg_tokens=args.avg_tokens,
-            Nbits_list=Nbits_list,
-            diagonal_constraint=diagonal_constraint,
-            batch_shuffle=batch_shuffle,
-            similarity_fn=similarity_fn,
-            data_var=args.data_var,
-            centers_var=args.centers_var,
-            center_A_flag=args.center_A_flag,
-            center_B_flag=args.center_B_flag,
-            zero_activations=args.zero_activations,
-            removal_method=removal_method,
-            precision=precision,
-            spaces=spaces,
-            global_centering=args.global_centering
+    output_folder0 = makefolder(base=f'./results/',
+                            create_folder=True,
+                            global_centering=args.global_centering,
+                            spaces=spaces,
+                            similarity_fn=similarity_fn.__name__,
+                            precision=precision,
+                            language=args.language,
+                            data_var=args.data_var,
+                            modelA=args.modelA,
+                            modelB=modelB,
+                            match_var=args.match_var,
+                            n_files=n_files,
+                            min_token_length=min_token_length,
+                            )
+
+    ### Computation:
+    similarities(
+        modelA=args.modelA,
+        modelB=modelB,
+        layers_A=layers_A,
+        layers_B=layers_B,
+        input_path_A=input_path_A,
+        input_path_B=input_path_B,
+        min_token_length=min_token_length,
+        n_files=n_files,
+        n_tokens_list=n_tokens_list,
+        output_folder0=output_folder0,
+        avg_tokens=args.avg_tokens,
+        Nbits_list=Nbits_list,
+        diagonal_constraint=diagonal_constraint,
+        batch_shuffle=batch_shuffle,
+        similarity_fn=similarity_fn,
+        data_var=args.data_var,
+        centers_var=args.centers_var,
+        center_A_flag=args.center_A_flag,
+        center_B_flag=args.center_B_flag,
+        zero_activations=args.zero_activations,
+        removal_method=removal_method,
+        precision=precision,
+        spaces=spaces,
+        global_centering=args.global_centering
+    )
+
+    if args.method == 'max':
+        pass
+        # compute_coeff(layers_A,
+        #                 layers_B,
+        #                 Nbits_list,
+        #                 n_tokens_list,
+        #                 avg_flags,
+        #                 diagonal_constraint,
+        #                 args.method,
+        #                 batch_shuffle,
+        #                 centers_var,
+        #                 )
+    elif args.method == 'min':
+        compute_II(
+                    output_folder0,
+                    layers_A,
+                    layers_B,
+                    Nbits_list,
+                    n_tokens_list,
+                    args.avg_tokens,
+                    diagonal_constraint,
+                    args.method,
+                    batch_shuffle,
+                    args.centers_var,
+                    center_A_flag=args.center_A_flag,
+                    center_B_flag=args.center_B_flag,
+                    zero_activations=args.zero_activations,
+                    removal_method=removal_method,
+                    precision=precision,
         )
 
-        if args.method == 'max':
-            pass
-            # compute_coeff(layers_A,
-            #                 layers_B,
-            #                 Nbits_list,
-            #                 n_tokens_list,
-            #                 avg_flags,
-            #                 diagonal_constraint,
-            #                 args.method,
-            #                 batch_shuffle,
-            #                 centers_var,
-            #                 )
-        elif args.method == 'min':
-            compute_II(
-                        output_folder0,
-                        layers_A,
-                        layers_B,
-                        Nbits_list,
-                        n_tokens_list,
-                        args.avg_tokens,
-                        diagonal_constraint,
-                        args.method,
-                        batch_shuffle,
-                        args.centers_var,
-                        center_A_flag=args.center_A_flag,
-                        center_B_flag=args.center_B_flag,
-                        zero_activations=args.zero_activations,
-                        removal_method=removal_method,
-                        precision=precision,
-            )
-    
 
 

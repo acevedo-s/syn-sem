@@ -175,35 +175,19 @@ def reduce_list_half_preserve_extremes(lst):
     Reduces the input list to approximately half its original size,
     preserving the first and last elements, and sampling uniformly
     from the intermediate elements.
-    
-    Parameters:
-    -----------
-    lst : list
-        The input list to reduce.
-    
-    Returns:
-    --------
-    list
-        A reduced list with approximately half the points,
-        preserving the first and last elements.
     """
     N = len(lst)
     if N <= 2:
         return lst.copy()
-    
+
     half_N = max(N // 2, 2)
-    num_points_to_sample = half_N - 2
-    
-    new_lst = [lst[0]]
-    
-    if num_points_to_sample > 0:
-        # Calculate the indices to sample from intermediates
-        step = (N - 2) / (num_points_to_sample + 1)
-        intermediate_indices = [int(round(1 + i * step)) for i in range(num_points_to_sample)]
-        new_lst.extend([lst[i] for i in intermediate_indices])
-    
-    new_lst.append(lst[-1])
-    return new_lst
+    # use linspace for evenly spaced *float* indices, then floor and deduplicate
+    indices = np.linspace(0, N - 1, num=half_N, endpoint=True)
+    indices = np.unique(np.floor(indices).astype(int))
+    if indices[-1] != N - 1:
+        indices = np.append(indices, N - 1)
+    return [lst[i] for i in indices]
+
 
 def reshuffle_batch_axis(act, key):
     """
@@ -316,7 +300,8 @@ def _collect_data(input_path, min_token_length, n_files, model_name):
     return all_hidden_states
 
 def compute_and_subtract_syn_group_averages(sim_folder,
-                                            act,
+                                            act_A,
+                                            act_B,
                                             center_flag,
                                             space_index,
                                             removal_method:str,
@@ -324,7 +309,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             ):
   centers_folder = sim_folder
 
-  assert len(act.shape) == 2
+  assert len(act_A.shape) == 2
   assert space_index == 'A' or space_index == 'B'
   assert removal_method in ['subtraction','projection']
 
@@ -338,7 +323,7 @@ def compute_and_subtract_syn_group_averages(sim_folder,
   centers, # (n_groups,n_features)
   all_indices, # (n_groups, n_samples)
   all_counts, # (n_groups, 1)
-    ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
+    ) = _compute_and_export_syn_centers(syn_group_ids_path, act_A, centers_folder, space_index)
 
   if center_flag == -1:
     seed = np.random.randint(0, 2**31 - 1)   # random 32-bit integer
@@ -349,8 +334,8 @@ def compute_and_subtract_syn_group_averages(sim_folder,
   for group_index in range(centers.shape[0]):
     dynamic_indices = all_indices[group_index][:all_counts[group_index]]
     center = centers[group_index]
-    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method],center_flag)
-  return act
+    act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method],center_flag)
+  return act_A
 
 @jax.jit
 def _compute_syn_center(act, group_index, all_group_ids):
@@ -376,106 +361,64 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
 
   return centers, all_indices, all_counts
 
-# @jax.jit
-# def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int):
-#     """
-#     act: (n_samples, T*E)
-#     dynamic_indices: (n_samples_at_given_group,)
-#     center: (T*E,)
-#     removal_method: 0 = subtraction, 1 = projection
-#     """
-
-#     def _subtraction(act, dynamic_indices, center): # leave-one-out averages
-#         k = dynamic_indices.shape[0]
-#         return act.at[dynamic_indices].set(
-#             act[dynamic_indices] - (k * center - act[dynamic_indices]) / (k - 1)
-#         )
-
-#     def _projection(act, dynamic_indices, center):
-#         # dynamic_indices: indices of the group
-#         # center: mean over this group (shape: (T*E,))
-#         k = dynamic_indices.shape[0]
-
-#         # Extract the group's activations
-#         group_acts = act[dynamic_indices]  # shape (k, T*E)
-
-#         # Compute leave-one-out centers for each sample
-#         loo_centers = (k * center - group_acts) / (k - 1)  # shape (k, T*E)
-
-#         # Project each sample onto its leave-one-out center
-#         proj_coeffs = jnp.sum(group_acts * loo_centers, axis=1) / jnp.sum(loo_centers * loo_centers, axis=1)
-#         projections = proj_coeffs[:, None] * loo_centers
-#         # jax.debug.print("proj_coeffs = {x}", x=proj_coeffs)
-#         # Subtract the projections
-#         return act.at[dynamic_indices].set(group_acts - projections)
-
-
-#     return jax.lax.switch(
-#         removal_method,
-#         [_subtraction, _projection],
-#         act,
-#         dynamic_indices,
-#         center,
-#     )
-
-
-import jax
-import jax.numpy as jnp
+def leave_two_out_centers(group_acts_A,group_acts_B,center,k):
+  return (k * center - (group_acts_A + group_acts_B)) / (k - 2)
 
 @jax.jit
-def _remove_syn_group_average(act, dynamic_indices, center, removal_method: int, center_flag: int):
+def _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method: int, center_flag: int):
     """
     act: (n_samples, T*E)
     dynamic_indices: (n_samples_at_given_group,)
     center: (T*E,)
     removal_method: 0 = subtraction, 1 = projection
-    center_flag: +1 = use leave-one-out centers, -1 = use given center
+    center_flag: +1 = use leave-two-out centers, -1 = use given center
     """
 
-    def _subtraction(act, dynamic_indices, center):
+    def _subtraction(act_A, act_B, dynamic_indices, center):
         k = dynamic_indices.shape[0]
-        group_acts = act[dynamic_indices]
+        group_acts_A = act_A[dynamic_indices]  # shape (k, T*E)
+        group_acts_B = act_B[dynamic_indices]  # shape (k, T*E)
 
-        # Leave-one-out version
-        loo_sub = group_acts - (k * center - group_acts) / (k - 1)
+        lto_sub = group_acts_A - leave_two_out_centers(group_acts_A,group_acts_B,center,k)
 
         # regular center version
-        regular_sub = group_acts - center
+        regular_sub = group_acts_A - center
 
-        def use_loo(_):
-            return loo_sub
+        def use_lto(_):
+            return lto_sub
 
         def use_center(_):
             return regular_sub
 
-        updated = jax.lax.cond(center_flag == 1, use_loo, use_center, operand=None)
-        return act.at[dynamic_indices].set(updated)
+        updated = jax.lax.cond(center_flag == 1, use_lto, use_center, operand=None)
+        return act_A.at[dynamic_indices].set(updated)
 
-    def _projection(act, dynamic_indices, center):
+    def _projection(act_A, act_B, dynamic_indices, center):
         k = dynamic_indices.shape[0]
-        group_acts = act[dynamic_indices]  # shape (k, T*E)
+        group_acts_A = act_A[dynamic_indices]  # shape (k, T*E)
+        group_acts_B = act_B[dynamic_indices]  # shape (k, T*E)
 
-        # Compute leave-one-out centers
-        loo_centers = (k * center - group_acts) / (k - 1)
+        lto_centers = leave_two_out_centers(group_acts_A,group_acts_B,center,k)
 
-        def use_loo(_):
-            return loo_centers
+        def use_lto(_):
+            return lto_centers
 
         def use_center(_):
-            return jnp.broadcast_to(center, loo_centers.shape)
+            return jnp.broadcast_to(center, lto_centers.shape)
 
-        centers = jax.lax.cond(center_flag == 1, use_loo, use_center, operand=None)
+        centers = jax.lax.cond(center_flag == 1, use_lto, use_center, operand=None)
 
         # Projection
-        proj_coeffs = jnp.sum(group_acts * centers, axis=1) / jnp.sum(centers * centers, axis=1)
+        proj_coeffs = jnp.sum(group_acts_A * centers, axis=1) / jnp.sum(centers * centers, axis=1)
         projections = proj_coeffs[:, None] * centers
 
-        return act.at[dynamic_indices].set(group_acts - projections)
+        return act_A.at[dynamic_indices].set(group_acts_A - projections)
 
     return jax.lax.switch(
         removal_method,
         [_subtraction, _projection],
-        act,
+        act_A,
+        act_B,
         dynamic_indices,
         center,
     )

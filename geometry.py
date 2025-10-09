@@ -203,76 +203,76 @@ def build_mutual_k_NN_alignment(k=10):
     
     return jax.jit(mutual_k_NN_alignment)
 
-### Correlation coefficient 
-""" 
-only works for ranks.shape[0] = ranks.shape[1]...
-"""
+# ### Correlation coefficient 
+# """ 
+# only works for ranks.shape[0] = ranks.shape[1]...
+# """
 
-### without ties:
-def relative_ranks(ranks):
-    sorting_indices_X = jax.numpy.argsort(ranks[0],axis=1)
-    relative_ranks_Y = jnp.take_along_axis(ranks[1], sorting_indices_X, axis=1)
-    sorting_indices_Y = jax.numpy.argsort(ranks[1],axis=1)
-    relative_ranks_X = jnp.take_along_axis(ranks[0], sorting_indices_Y, axis=1)
-    return (relative_ranks_X,relative_ranks_Y)
+# ### without ties:
+# def relative_ranks(ranks):
+#     sorting_indices_X = jax.numpy.argsort(ranks[0],axis=1)
+#     relative_ranks_Y = jnp.take_along_axis(ranks[1], sorting_indices_X, axis=1)
+#     sorting_indices_Y = jax.numpy.argsort(ranks[1],axis=1)
+#     relative_ranks_X = jnp.take_along_axis(ranks[0], sorting_indices_Y, axis=1)
+#     return (relative_ranks_X,relative_ranks_Y)
 
-def get_xis(relative_ranks):
-    xis = 1-3*jnp.abs(jnp.diff(relative_ranks,axis=1)).sum(axis=1) / (relative_ranks.shape[0]**2 - 1.)
-    return xis
+# def get_xis(relative_ranks):
+#     xis = 1-3*jnp.abs(jnp.diff(relative_ranks,axis=1)).sum(axis=1) / (relative_ranks.shape[0]**2 - 1.)
+#     return xis
 
-### with ties:
-def relative_ranks_ties(ranks):
-    key = jax.random.PRNGKey(0)
-    noise = jax.random.uniform(key, shape=ranks[0].shape)
-    sorting_indices_X = jnp.lexsort((noise, ranks[0]))
-    relative_ranks_Y = jnp.take_along_axis(ranks[1], sorting_indices_X, axis=1)
+# ### with ties:
+# def relative_ranks_ties(ranks):
+#     key = jax.random.PRNGKey(0)
+#     noise = jax.random.uniform(key, shape=ranks[0].shape)
+#     sorting_indices_X = jnp.lexsort((noise, ranks[0]))
+#     relative_ranks_Y = jnp.take_along_axis(ranks[1], sorting_indices_X, axis=1)
 
-    key = jax.random.PRNGKey(0+1)
-    noise = jax.random.uniform(key, shape=ranks[1].shape)
-    sorting_indices_Y = jnp.lexsort((noise, ranks[1]))
-    relative_ranks_X = jnp.take_along_axis(ranks[0], sorting_indices_Y, axis=1)
+#     key = jax.random.PRNGKey(0+1)
+#     noise = jax.random.uniform(key, shape=ranks[1].shape)
+#     sorting_indices_Y = jnp.lexsort((noise, ranks[1]))
+#     relative_ranks_X = jnp.take_along_axis(ranks[0], sorting_indices_Y, axis=1)
 
-    return (relative_ranks_X,relative_ranks_Y)
+#     return (relative_ranks_X,relative_ranks_Y)
 
-def get_xis_ties(r,l):
-    """
-    r: relative ranks
-    """
-    xis = 1-r.shape[0]*jnp.abs(jnp.diff(r,axis=1)).sum(axis=1) / (l*(l.shape[0]-l)).sum(axis=1) / 2
-    return xis
+# def get_xis_ties(r,l):
+#     """
+#     r: relative ranks
+#     """
+#     xis = 1-r.shape[0]*jnp.abs(jnp.diff(r,axis=1)).sum(axis=1) / (l*(l.shape[0]-l)).sum(axis=1) / 2
+#     return xis
 
-def build_corr_coeff_ties(average=True):
+# def build_corr_coeff_ties(average=True):
 
-    def __corr_coef(R,L):
-        assert R[0].shape == R[1].shape
+#     def __corr_coef(R,L):
+#         assert R[0].shape == R[1].shape
 
-        (relative_ranks_X,relative_ranks_Y) = relative_ranks_ties(R)
-        xis_XY = get_xis_ties(relative_ranks_Y,L[1])
-        xis_YX = get_xis_ties(relative_ranks_X,L[0])
-        return xis_XY, xis_YX
+#         (relative_ranks_X,relative_ranks_Y) = relative_ranks_ties(R)
+#         xis_XY = get_xis_ties(relative_ranks_Y,L[1])
+#         xis_YX = get_xis_ties(relative_ranks_X,L[0])
+#         return xis_XY, xis_YX
 
-    if average:
-        def _corr_coeff(R,L):
-            xis_XY, xis_YX = __corr_coef(R,L)
-            return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
-    else:
-            _corr_coeff = __corr_coef
-    return jax.jit(_corr_coeff)
+#     if average:
+#         def _corr_coeff(R,L):
+#             xis_XY, xis_YX = __corr_coef(R,L)
+#             return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
+#     else:
+#             _corr_coeff = __corr_coef
+#     return jax.jit(_corr_coeff)
 
-def build_corr_coeff(average=True):
+# def build_corr_coeff(average=True):
 
-    def __corr_coef(R):
-        assert R[0].shape == R[1].shape
+#     def __corr_coef(R):
+#         assert R[0].shape == R[1].shape
 
-        (relative_ranks_X,relative_ranks_Y) = relative_ranks(R)
-        xis_XY = get_xis(relative_ranks_Y)
-        xis_YX = get_xis(relative_ranks_X)
-        return xis_XY, xis_YX
+#         (relative_ranks_X,relative_ranks_Y) = relative_ranks(R)
+#         xis_XY = get_xis(relative_ranks_Y)
+#         xis_YX = get_xis(relative_ranks_X)
+#         return xis_XY, xis_YX
 
-    if average:
-        def _corr_coeff(R):
-            xis_XY, xis_YX = __corr_coef(R)
-            return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
-    else:
-            _corr_coeff = __corr_coef
-    return jax.jit(_corr_coeff)
+#     if average:
+#         def _corr_coeff(R):
+#             xis_XY, xis_YX = __corr_coef(R)
+#             return jnp.array([xis_XY.mean(), xis_YX.mean()]), jnp.array([xis_XY.std(), xis_YX.std()])
+#     else:
+#             _corr_coeff = __corr_coef
+#     return jax.jit(_corr_coeff)

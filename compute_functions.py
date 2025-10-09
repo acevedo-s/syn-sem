@@ -32,8 +32,8 @@ from utils import (
                 set_global_center,
                 get_centers_folder_A,
                 )
-
 from geometry import *
+from corr_coeff_functions import *
 from time import time
 from torch import zeros_like, from_numpy
 
@@ -164,9 +164,9 @@ def similarities(
                             if centers_var == 'syn':
                                 if data_var == 'syn':
                                     if center_A_flag != 0:
-                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, center_A_flag,'A', removal_method, syn_group_ids_path)
+                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, act_B, center_A_flag,'A', removal_method, syn_group_ids_path)
                                     if center_B_flag != 0:
-                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, center_B_flag,'B', removal_method, syn_group_ids_path) # note that syn_group_ids_path['A'] is not a bug, since they share the syntax here
+                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, act_A, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
                                 elif data_var == 'sem':
                                     if center_A_flag != 0:
                                         centers_folder_A = get_centers_folder_A(sim_folder)
@@ -319,82 +319,84 @@ def compute_II(
     return
 
 
-# def compute_coeff(layers_A,
-#                 layers_B,
-#                 Nbits_list,
-#                 n_tokens_list,
-#                 avg_flags,
-#                 diagonal_constraint,
-#                 method,
-#                 batch_shuffle,
-#                 centers_list,
-#                 ratio_jackknife=.5,
-#                 jack_seeds=1,
-#                 ):
+def compute_coeff(
+                output_folder0,
+                layers_A,
+                layers_B,
+                Nbits_list,
+                n_tokens_list,
+                avg_flags,
+                diagonal_constraint,
+                method,
+                batch_shuffle,
+                centers_list,
+                ratio_jackknife=.5,
+                jack_seeds=1,
+                ):
 
-#     if jack_seeds == 1:
-#         ratio_jackknife = 1.0
+    if jack_seeds == 1:
+        ratio_jackknife = 1.0
     
-#     print(f'computing corr coeff')
-#     start_time = time()
+    print(f'computing corr coeff')
+    start_time = time()
 
-#     jack_seeds = np.arange(jack_seeds,dtype=int)
-#     corr_coeff = build_corr_coeff_ties()
+    jack_seeds = np.arange(jack_seeds,dtype=int)
+    corr_coeff = build_corr_coeff_2D_ties()
 
-#     for centers in centers_list:
-#         for Nbits_id,Nbits in enumerate(Nbits_list):
-#             print(f'{Nbits=}')
-#             for avg_id,avg_tokens in enumerate(avg_flags):
-#                 for n_tokens_id,n_tokens in enumerate(n_tokens_list):
-#                     print(f'{n_tokens=}')
-#                     xi = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
-#                     std = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
+    for centers in centers_list:
+        for Nbits_id,Nbits in enumerate(Nbits_list):
+            print(f'{Nbits=}')
+            for avg_id,avg_tokens in enumerate(avg_flags):
+                for n_tokens_id,n_tokens in enumerate(n_tokens_list):
+                    print(f'{n_tokens=}')
+                    xi = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
+                    std = np.zeros(shape=(len(jack_seeds),2,len(layers_A),len(layers_B)))
 
-#                     for A_counter,layer_A in enumerate(layers_A):
-#                         for B_counter,layer_B in enumerate(layers_B):
-#                             if diagonal_constraint == 1 and layer_B != layer_A:
-#                                 continue
-#                             sim_folder = makefolder(base=output_folder0+f'similarities/',
-#                                                     create_folder=False,
-#                                                     centers=centers,
-#                                                     Nbits=Nbits,
-#                                                     n_tokens=n_tokens,
-#                                                     avg_tokens=avg_tokens,
-#                                                     batch_shuffle=batch_shuffle,
-#                                                     layer_A=layer_A,
-#                                                     layer_B=layer_B,
-#                                                     )
-#                             output_folder = makefolder(base=output_folder0,
-#                                                     create_folder=True,
-#                                                     centers=centers,
-#                                                     Nbits=Nbits,
-#                                                     n_tokens=n_tokens,
-#                                                     avg_tokens=avg_tokens,
-#                                                     batch_shuffle=batch_shuffle,
-#                                                     )                            
-#                             sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
-#                             sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
+                    for A_counter,layer_A in enumerate(layers_A):
+                        for B_counter,layer_B in enumerate(layers_B):
+                            if diagonal_constraint == 1 and layer_B != layer_A:
+                                continue
+                            sim_folder = makefolder(base=output_folder0+f'similarities/',
+                                                    create_folder=False,
+                                                    centers=centers,
+                                                    Nbits=Nbits,
+                                                    n_tokens=n_tokens,
+                                                    avg_tokens=avg_tokens,
+                                                    batch_shuffle=batch_shuffle,
+                                                    layer_A=layer_A,
+                                                    layer_B=layer_B,
+                                                    )
+                            output_folder = makefolder(base=output_folder0,
+                                                    create_folder=True,
+                                                    centers=centers,
+                                                    Nbits=Nbits,
+                                                    n_tokens=n_tokens,
+                                                    avg_tokens=avg_tokens,
+                                                    batch_shuffle=batch_shuffle,
+                                                    )                            
+                            sim_A = np.load(os.path.join(sim_folder, "sim_A.npy"))
+                            sim_B = np.load(os.path.join(sim_folder, "sim_B.npy"))
 
 
-#                             for jack_seed_id,jack_seed in enumerate(jack_seeds):
-#                                 jack_key = jax.random.PRNGKey(jack_seed)
-#                                 jack_indices = jax.random.choice(key=jack_key,
-#                                                                 a=sim_A.shape[0],
-#                                                                 shape=(int(ratio_jackknife*sim_A.shape[0]),),
-#                                                                 replace=False)
-#                                 A_ranks, B_ranks = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
-#                                                                             sim_B[jack_indices, :][:, jack_indices])
-#                                 A_l,B_l = mapped_compute_ranks(method)(-sim_A[jack_indices, :][:, jack_indices],
-#                                                                     -sim_B[jack_indices, :][:, jack_indices])
+                            for jack_seed_id,jack_seed in enumerate(jack_seeds):
+                                jack_key = jax.random.PRNGKey(jack_seed)
+                                jack_indices = jax.random.choice(key=jack_key,
+                                                                a=sim_A.shape[0],
+                                                                shape=(int(ratio_jackknife*sim_A.shape[0]),),
+                                                                replace=False)
+                                A_ranks, B_ranks = mapped_compute_ranks(method)(sim_A[jack_indices, :][:, jack_indices],
+                                                                            sim_B[jack_indices, :][:, jack_indices])
+                                A_l,B_l = mapped_compute_ranks(method)(-sim_A[jack_indices, :][:, jack_indices],
+                                                                    -sim_B[jack_indices, :][:, jack_indices])
 
-#                                 (xi[jack_seed_id,:,A_counter,B_counter],
-#                                 std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((A_ranks,B_ranks),(A_l,B_l))
-#                                 print(corr_coeff((A_ranks,B_ranks),(A_l,B_l)))
+                                (xi[jack_seed_id,:,A_counter,B_counter],
+                                std[jack_seed_id,:,A_counter,B_counter]) = corr_coeff((A_ranks,B_ranks),(A_l,B_l))
+                                print(corr_coeff((A_ranks,B_ranks),(A_l,B_l)))
 
-#                     jack_std = xi.std(axis=0)
-#                     xi = xi.mean(axis=0)
-#                     np.save(output_folder+"corr_coeff.npy",xi)
-#                     np.save(output_folder+"corr_coeff_jack_std.npy",jack_std)
+                    jack_std = xi.std(axis=0)
+                    xi = xi.mean(axis=0)
+                    np.save(output_folder+"corr_coeff.npy",xi)
+                    np.save(output_folder+"corr_coeff_jack_std.npy",jack_std)
                         
-#     print(f'corr coeff took {(time()-start_time)/60.} m')
-#     return
+    print(f'corr coeff took {(time()-start_time)/60.} m')
+    return

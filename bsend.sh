@@ -3,22 +3,23 @@
 dbg=0
 modelA="qwen7b"
 method="min"
-data_var="syn"
-centers_var="syn"
+data_var="sem"
+match_var="matching"  # "matching" or "mismatching"
+centers_var="sem"
 # languages=("spanish" "chinese" "arabic" "german" "italian" "turkish")
 languages=('english')
 zero_activations=0
-center_A_flags=(-1)
+center_A_flags=(0 1 -1)
 # center_B_flag=0
 removal_methods=("projection")
 global_centerings=(0)
 avg_tokens_list=(0 1)
+similarity_fn='normalized_L2_distance'
 
-# Set min_token_length based on data_var or centers_var
 if [ "$data_var" = "syn" ] || [ "$centers_var" = "syn" ]; then
-    min_token_length=3
-else
     min_token_length=6
+else
+    min_token_length=3
 fi
 
 if [ "$dbg" -eq 0 ]; then
@@ -41,6 +42,7 @@ for avg_tokens in "${avg_tokens_list[@]}";do
             $modelA \
             $method \
             $data_var \
+            $match_var \
             $centers_var \
             $language \
             $center_A_flag \
@@ -48,7 +50,8 @@ for avg_tokens in "${avg_tokens_list[@]}";do
             $zero_activations \
             $removal_method \
             $global_centering \
-            $avg_tokens
+            $avg_tokens \
+            $similarity_fn
           sleep .2
         done
       done
