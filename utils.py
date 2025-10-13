@@ -436,7 +436,7 @@ def load_syn_group_averages(act,
   assert len(all_group_ids) == act.shape[0]
 
   if center_flag == -1:
-    key = jax.random.PRNGKey(9999)  
+    key = jax.random.PRNGKey(np.random.randint(1E5))  
     all_group_ids = jax.random.permutation(key, all_group_ids)
 
   if global_center != None:
@@ -456,6 +456,7 @@ def load_and_subtract_syn_group_averages(act,
                                         removal_method:str, # 'subtraction' or 'projection'
                                         global_center,
                                         space_index,
+
                                         ):
   
   print(f'loading and subtracting syn group averages')
@@ -482,7 +483,15 @@ def remove_syn_group_averages(act, centers, all_group_ids, removal_method,center
     act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method],center_flag)
   return act
 
-def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,number_of_languages,language_list_permutation,removal_method):
+def load_and_subtract_sem_group_averages(sim_folder,
+                                         act,
+                                         data_var,
+                                         center_flag,
+                                         number_of_languages,
+                                         language_list_permutation,
+                                         removal_method,
+                                         ):
+
   centers_folder = sim_folder
   # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
@@ -499,7 +508,7 @@ def load_and_subtract_sem_group_averages(sim_folder,act,data_var,center_flag,num
 
   indices = jnp.arange(act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
-    key_centers = jax.random.PRNGKey(999)
+    key_centers = jax.random.PRNGKey(np.random.randint(1E5))
     indices = jax.random.permutation(key_centers,indices)
   
   if removal_method == 'subtraction':

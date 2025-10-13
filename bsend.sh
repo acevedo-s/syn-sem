@@ -3,9 +3,9 @@
 dbg=0
 modelA="qwen7b"
 method="min"
-data_var="sem"
+data_var="syn"
 match_var="matching"  # "matching" or "mismatching"
-centers_var="sem"
+centers_var="syn"
 # languages=("spanish" "chinese" "arabic" "german" "italian" "turkish")
 languages=('english')
 zero_activations=0

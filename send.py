@@ -29,7 +29,8 @@ from time import time
 
 from compute_functions import (
                 similarities,
-                compute_II
+                compute_coeff,
+                compute_II,
                 )
 
 
@@ -147,36 +148,41 @@ if __name__ == "__main__":
         global_centering=args.global_centering
     )
 
-    if args.method == 'max':
-        pass
-        # compute_coeff(layers_A,
-        #                 layers_B,
-        #                 Nbits_list,
-        #                 n_tokens_list,
-        #                 avg_flags,
-        #                 diagonal_constraint,
-        #                 args.method,
-        #                 batch_shuffle,
-        #                 centers_var,
-        #                 )
-    elif args.method == 'min':
-        compute_II(
-                    output_folder0,
-                    layers_A,
-                    layers_B,
-                    Nbits_list,
-                    n_tokens_list,
-                    args.avg_tokens,
-                    diagonal_constraint,
-                    args.method,
-                    batch_shuffle,
-                    args.centers_var,
-                    center_A_flag=args.center_A_flag,
-                    center_B_flag=args.center_B_flag,
-                    zero_activations=args.zero_activations,
-                    removal_method=removal_method,
-                    precision=precision,
-        )
+
+    compute_coeff(
+                output_folder0,
+                layers_A,
+                layers_B,
+                Nbits_list,
+                n_tokens_list,
+                args.avg_tokens,
+                diagonal_constraint,
+                # args.method,
+                batch_shuffle,
+                args.centers_var,
+                center_A_flag=args.center_A_flag,
+                center_B_flag=args.center_B_flag,
+                zero_activations=args.zero_activations,
+                removal_method=removal_method,
+                precision=precision,
+    )
+    compute_II(
+                output_folder0,
+                layers_A,
+                layers_B,
+                Nbits_list,
+                n_tokens_list,
+                args.avg_tokens,
+                diagonal_constraint,
+                args.method,
+                batch_shuffle,
+                args.centers_var,
+                center_A_flag=args.center_A_flag,
+                center_B_flag=args.center_B_flag,
+                zero_activations=args.zero_activations,
+                removal_method=removal_method,
+                precision=precision,
+    )
 
 
 
