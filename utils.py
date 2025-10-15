@@ -539,7 +539,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = [6] # list(range(1,len(my_languages)+1))
+        number_of_languages_list = [1] # list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 
@@ -549,7 +549,7 @@ def set_language_list_permutations(center_A_flag, center_B_flag, centers_var):
 
   if center_A_flag != 0 or center_B_flag != 0:
     if centers_var == 'sem':
-       language_list_permutations = [0] #list(range(0,len(my_languages)))
+       language_list_permutations = list(range(0,len(my_languages)))
 
   return language_list_permutations
 

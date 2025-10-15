@@ -5,9 +5,9 @@ model="qwen7b"
 min_token_length=3
 
 # parameter sweeps
-num_languages=(6) # from 1 to len(my_languages)
+num_languages=(1) # from 1 to len(my_languages)
 avg_tokens_list=(0 1)
-n_permutations_list=(0) # from 0 to len(my_languages)-1
+n_permutations_list=(1 2 3 4 5) # from 0 to len(my_languages)-1
 
 
 for n_permutations in "${n_permutations_list[@]}"; do

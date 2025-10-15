@@ -3,13 +3,12 @@
 dbg=0
 modelA="qwen7b"
 method="min"
-data_var="syn"
+data_var="sem"
 match_var="matching"  # "matching" or "mismatching"
-centers_var="syn"
-# languages=("spanish" "chinese" "arabic" "german" "italian" "turkish")
+centers_var="sem"
 languages=('english')
 zero_activations=0
-center_A_flags=(0 1 -1)
+center_A_flags=(1)
 # center_B_flag=0
 removal_methods=("projection")
 global_centerings=(0)
@@ -17,7 +16,7 @@ avg_tokens_list=(0 1)
 similarity_fn='normalized_L2_distance'
 
 if [ "$data_var" = "syn" ] || [ "$centers_var" = "syn" ]; then
-    min_token_length=6
+    min_token_length=3
 else
     min_token_length=3
 fi
