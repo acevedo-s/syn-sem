@@ -222,13 +222,16 @@ def collect_data(input_path,
         with open(os.path.join(input_path, file.name), 'rb') as f:
             outputs = pickle.load(f)['outputs']  # list of batch_size "outputs"
         for output_id,output in enumerate(outputs):
-            hidden = output['meta_info']['all_hidden_states'][0]  # shape (L, sentence_length, E)
+            if model_name == 'deepseek':
+              hidden = output['meta_info']['hidden_states'][0]  # shape (L, sentence_length, E)
+            else:
+              hidden = output['meta_info']['all_hidden_states'][0]  # shape (L, sentence_length, E)
             hidden = torch.from_numpy(hidden).view(torch.bfloat16)
             if avg_tokens == 0: 
               assert hidden.shape[1] >= min_token_length, f"{file.name=},{output_id=},{hidden.shape=}"
               hidden = hidden[:, -min_token_length:, :]  
             elif avg_tokens == 1:
-              hidden = torch.mean(hidden[:,2:,:].to(torch.float32),dim=1).to(model_dtype) # I remove the first 2 tokens which are not semantic
+              hidden = torch.mean(hidden[:,min_token_length:,:].to(torch.float32),dim=1).to(model_dtype)
 
             for i in range(hidden.shape[0]):  # Loop over layers directly
                 all_hidden_states[f"layer_{i}"].append(hidden[i])
@@ -237,63 +240,6 @@ def collect_data(input_path,
     for layer in all_hidden_states:
         all_hidden_states[layer] = torch.stack(all_hidden_states[layer])
     
-    print(f'{all_hidden_states["layer_0"].shape=}')
-    print(f'importing took {(time()-start_time)/60.} m')
-
-    return all_hidden_states
-
-def _collect_data(input_path, min_token_length, n_files, model_name):
-    config = AutoConfig.from_pretrained(model_paths[model_name])
-    model_dtype = config.torch_dtype
-    print(f'{model_name} dtype: {model_dtype}')
-    start_time = time()
-    files = list_folder(input_path, desc="chunk_")[:n_files]
-
-    # --- Peek at the first file to get sizes
-    with open(os.path.join(input_path, files[0].name), 'rb') as f:
-        first_outputs = pickle.load(f)['outputs']
-    batch_size = len(first_outputs)
-    first_hidden = torch.as_tensor(
-        first_outputs[0]['meta_info']['all_hidden_states'][0],
-        dtype=model_dtype
-    )
-    n_layers, _, hidden_dim = first_hidden.shape
-
-    # --- Preallocate assuming all files are full
-    max_samples = n_files * batch_size
-    all_hidden_states = {
-        f"layer_{i}": torch.empty(
-            (max_samples, min_token_length, hidden_dim),
-            dtype=model_dtype
-        )
-        for i in range(n_layers)
-    }
-
-    # --- Fill batch-wise
-    ptr = 0
-    for file in tqdm(files, desc="Collect File"):
-        with open(os.path.join(input_path, file.name), 'rb') as f:
-            outputs = pickle.load(f)['outputs']
-
-        # Convert entire batch to tensor of shape (batch_size, n_layers, seq_len, hidden_dim)
-        batch_hidden = torch.stack([
-            torch.as_tensor(
-                o['meta_info']['all_hidden_states'][0], dtype=model_dtype
-            )[:, -min_token_length:, :]
-            for o in outputs
-        ])  # shape: (batch_size, n_layers, min_token_length, hidden_dim)
-
-        b = batch_hidden.shape[0]  # actual batch size (last batch might be smaller)
-
-        # Copy layer-wise in one shot
-        for i in range(n_layers):
-            all_hidden_states[f"layer_{i}"][ptr:ptr+b] = batch_hidden[:, i, :, :]
-        ptr += b
-
-    # --- Trim unused rows
-    for i in range(n_layers):
-        all_hidden_states[f"layer_{i}"] = all_hidden_states[f"layer_{i}"][:ptr]
-
     print(f'{all_hidden_states["layer_0"].shape=}')
     print(f'importing took {(time()-start_time)/60.} m')
 
@@ -361,54 +307,66 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
 
   return centers, all_indices, all_counts
 
-def leave_two_out_centers(group_acts_A,group_acts_B,center,k):
+def leave_two_out_centers(group_acts_A, group_acts_B, center, k):
   return (k * center - (group_acts_A + group_acts_B)) / (k - 2)
 
+def leave_one_out_centers(group_acts_A, center, k):
+  return (k * center - (group_acts_A)) / (k - 1)
+
 @jax.jit
-def _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method: int, center_flag: int):
+def _remove_syn_group_average(
+    act_A, act_B, dynamic_indices, center, removal_method: int, center_flag: int
+):
     """
     act: (n_samples, T*E)
     dynamic_indices: (n_samples_at_given_group,)
     center: (T*E,)
     removal_method: 0 = subtraction, 1 = projection
-    center_flag: +1 = use leave-two-out centers, -1 = use given center
+    center_flag: +1 = use leave-two/one-out centers, -1 = use given center
     """
+
+    def _compute_centers(group_acts_A, group_acts_B, center, k):
+        # detect if act_B is just zeros (same shape, all zeros)
+        actB_zero_flag = jnp.all(group_acts_B == 0)
+        # jax.debug.print("actB_zero_flag = {}", actB_zero_flag)
+
+        def _use_two_out(_):
+            return leave_two_out_centers(group_acts_A, group_acts_B, center, k)
+
+        def _use_one_out(_):
+            return leave_one_out_centers(group_acts_A, center, k)
+
+        return jax.lax.cond(actB_zero_flag, _use_one_out, _use_two_out, operand=None)
 
     def _subtraction(act_A, act_B, dynamic_indices, center):
         k = dynamic_indices.shape[0]
-        group_acts_A = act_A[dynamic_indices]  # shape (k, T*E)
-        group_acts_B = act_B[dynamic_indices]  # shape (k, T*E)
+        group_acts_A = act_A[dynamic_indices]
+        group_acts_B = act_B[dynamic_indices]
 
-        lto_sub = group_acts_A - leave_two_out_centers(group_acts_A,group_acts_B,center,k)
+        centers = _compute_centers(group_acts_A, group_acts_B, center, k)
 
-        # regular center version
-        regular_sub = group_acts_A - center
-
-        def use_lto(_):
-            return lto_sub
-
-        def use_center(_):
-            return regular_sub
-
-        updated = jax.lax.cond(center_flag == 1, use_lto, use_center, operand=None)
+        updated = jax.lax.cond(
+            center_flag == 1,
+            lambda _: group_acts_A - centers,
+            lambda _: group_acts_A - center,
+            operand=None,
+        )
         return act_A.at[dynamic_indices].set(updated)
 
     def _projection(act_A, act_B, dynamic_indices, center):
         k = dynamic_indices.shape[0]
-        group_acts_A = act_A[dynamic_indices]  # shape (k, T*E)
-        group_acts_B = act_B[dynamic_indices]  # shape (k, T*E)
+        group_acts_A = act_A[dynamic_indices]
+        group_acts_B = act_B[dynamic_indices]
 
-        lto_centers = leave_two_out_centers(group_acts_A,group_acts_B,center,k)
+        centers = _compute_centers(group_acts_A, group_acts_B, center, k)
 
-        def use_lto(_):
-            return lto_centers
+        centers = jax.lax.cond(
+            center_flag == 1,
+            lambda _: centers,
+            lambda _: jnp.broadcast_to(center, centers.shape),
+            operand=None,
+        )
 
-        def use_center(_):
-            return jnp.broadcast_to(center, lto_centers.shape)
-
-        centers = jax.lax.cond(center_flag == 1, use_lto, use_center, operand=None)
-
-        # Projection
         proj_coeffs = jnp.sum(group_acts_A * centers, axis=1) / jnp.sum(centers * centers, axis=1)
         projections = proj_coeffs[:, None] * centers
 
@@ -425,6 +383,7 @@ def _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_met
 
 
 
+
 def load_syn_group_averages(act,
                             group_ids_path,
                             centers_folder,
@@ -436,6 +395,7 @@ def load_syn_group_averages(act,
   assert len(all_group_ids) == act.shape[0]
 
   if center_flag == -1:
+    print(f'permuting_group_ids')
     key = jax.random.PRNGKey(np.random.randint(1E5))  
     all_group_ids = jax.random.permutation(key, all_group_ids)
 
@@ -456,7 +416,6 @@ def load_and_subtract_syn_group_averages(act,
                                         removal_method:str, # 'subtraction' or 'projection'
                                         global_center,
                                         space_index,
-
                                         ):
   
   print(f'loading and subtracting syn group averages')
@@ -467,7 +426,8 @@ def load_and_subtract_syn_group_averages(act,
                                                   global_center,
                                                   space_index,
                                                   )
-  act = remove_syn_group_averages(act, 
+  act = remove_syn_group_averages(act,
+                                  jnp.zeros_like(act), # carefull if 
                                   centers, 
                                   all_group_ids, 
                                   removal_method,
@@ -475,13 +435,13 @@ def load_and_subtract_syn_group_averages(act,
 
   return act
 
-def remove_syn_group_averages(act, centers, all_group_ids, removal_method,center_flag):
+def remove_syn_group_averages(act_A, act_B, centers, all_group_ids, removal_method, center_flag):
     
   for group_index in range(centers.shape[0]):
     dynamic_indices = jnp.where(all_group_ids==group_index)[0]
     center = centers[group_index]
-    act = _remove_syn_group_average(act, dynamic_indices, center, removal_method_map[removal_method],center_flag)
-  return act
+    act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method], center_flag)
+  return act_A
 
 def load_and_subtract_sem_group_averages(sim_folder,
                                          act,
@@ -497,6 +457,7 @@ def load_and_subtract_sem_group_averages(sim_folder,
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
   centers_folder = re.sub(r'similarity_fn_[^/]+', 'similarity_fn_none', centers_folder)
   centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
+  centers_folder = re.sub(r'batch_shuffle_1','batch_shuffle_0',centers_folder)
 
   semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy'),dtype=act.dtype) #(num_sentences,E)
 
@@ -539,7 +500,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = [1] # list(range(1,len(my_languages)+1))
+        number_of_languages_list = [1] #list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 
@@ -549,7 +510,7 @@ def set_language_list_permutations(center_A_flag, center_B_flag, centers_var):
 
   if center_A_flag != 0 or center_B_flag != 0:
     if centers_var == 'sem':
-       language_list_permutations = list(range(0,len(my_languages)))
+       language_list_permutations = [0] #list(range(0,len(my_languages)))
 
   return language_list_permutations
 

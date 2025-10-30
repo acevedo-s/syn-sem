@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ranks")
     parser.add_argument("dbg", type=int)
     parser.add_argument("min_token_length", type=int)
-    parser.add_argument("modelA", type=str) # llama, deepseek or qwen
+    parser.add_argument("modelA", type=str)
     parser.add_argument("method", type=str, choices=['max','min'], help="max = corr coeff, min = II")
     parser.add_argument("data_var", type=str, choices=['syn','sem'], help="syntax or semantics")
     parser.add_argument("match_var", type=str, choices=['matching','mismatching'])
@@ -150,38 +150,40 @@ if __name__ == "__main__":
 
 
     compute_coeff(
-                output_folder0,
-                layers_A,
-                layers_B,
-                Nbits_list,
-                n_tokens_list,
-                args.avg_tokens,
-                diagonal_constraint,
-                # args.method,
-                batch_shuffle,
-                args.centers_var,
-                center_A_flag=args.center_A_flag,
-                center_B_flag=args.center_B_flag,
-                zero_activations=args.zero_activations,
-                removal_method=removal_method,
-                precision=precision,
+            output_folder0,
+            layers_A,
+            layers_B,
+            Nbits_list,
+            n_tokens_list,
+            args.avg_tokens,
+            diagonal_constraint,
+            # args.method,
+            batch_shuffle,
+            args.centers_var,
+            center_A_flag=args.center_A_flag,
+            center_B_flag=args.center_B_flag,
+            zero_activations=args.zero_activations,
+            removal_method=removal_method,
+            precision=precision,
+            # n_jack_seeds=n_jack_seeds,
     )
     compute_II(
-                output_folder0,
-                layers_A,
-                layers_B,
-                Nbits_list,
-                n_tokens_list,
-                args.avg_tokens,
-                diagonal_constraint,
-                args.method,
-                batch_shuffle,
-                args.centers_var,
-                center_A_flag=args.center_A_flag,
-                center_B_flag=args.center_B_flag,
-                zero_activations=args.zero_activations,
-                removal_method=removal_method,
-                precision=precision,
+            output_folder0,
+            layers_A,
+            layers_B,
+            Nbits_list,
+            n_tokens_list,
+            args.avg_tokens,
+            diagonal_constraint,
+            args.method,
+            batch_shuffle,
+            args.centers_var,
+            center_A_flag=args.center_A_flag,
+            center_B_flag=args.center_B_flag,
+            zero_activations=args.zero_activations,
+            removal_method=removal_method,
+            precision=precision,
+            # n_jack_seeds=n_jack_seeds,
     )
 
 

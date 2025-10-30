@@ -7,6 +7,7 @@
 #SBATCH --output=./log_output/%x.o%j              # Standard output
 #SBATCH --error=./log_output/%x.o%j               # Standard error
 #SBATCH --qos=mira
+# SBATCH --reservation=acevedo
 
 export TF_CPP_MIN_LOG_LEVEL=0      # show INFO, WARNING, and ERROR (default hides INFO=2)
 export JAX_DEBUG_NANS=True         # show warnings if NaNs/Infs are encountered

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --time=24:00:00
 #SBATCH --qos=mira
-#SBATCH --reservation=deepseek2
+#SBATCH --reservation=acevedo
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=1      
 #SBATCH --gres=gpu:8

@@ -11,7 +11,7 @@ def process_file(
                 n_lines,
                 IO_paths):
     
-    config = AutoConfig.from_pretrained(model_paths[model_name])
+    config = AutoConfig.from_pretrained(model_paths[model_name], trust_remote_code=True)
     model_dtype = config.torch_dtype
     
     with open(IO_paths["file_path"], "r") as f:
@@ -28,15 +28,15 @@ def process_file(
         outputs = llm.generate(
             batch,
             sampling_params=sampling_params,
-            return_hidden_states=True,
+            # return_hidden_states=True,
         )
 
         # Clip hidden states per sentence
         for output in outputs:
-            hidden = output['meta_info']['all_hidden_states'][0]  # (L, T, E)
+            hidden = output['meta_info']['hidden_states'][0]  # (L, T, E)
             hidden_clipped = clip_hidden_torch(torch.as_tensor(hidden,dtype=model_dtype))
             # Convert to uint16 for storage
-            output['meta_info']['all_hidden_states'][0] = hidden_clipped
+            output['meta_info']['hidden_states'][0] = hidden_clipped
 
         # extract per-layer hidden states for each prompt in batch
         save_dict = {
@@ -77,7 +77,7 @@ def main(model_name,
         node_rank=NODE_RANK,
         grammar_backend="xgrammar",
         disable_radix_cache=True,
-        enable_return_hidden_states=True,
+        return_hidden_states=True,
     )
 
     sampling_params = {

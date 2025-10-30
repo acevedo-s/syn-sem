@@ -44,7 +44,7 @@ def similarities(
         layers_B,
         input_path_A, 
         input_path_B,
-        min_token_length, 
+        min_token_length,
         n_files,
         n_tokens_list,
         output_folder0,
@@ -170,7 +170,7 @@ def similarities(
                                 elif data_var == 'sem':
                                     if center_A_flag != 0:
                                         centers_folder_A = get_centers_folder_A(sim_folder)
-                                        act_A = load_and_subtract_syn_group_averages(act_A,syn_group_id_paths_for_sem_data['A'],centers_folder_A,center_A_flag,removal_method,global_center_A,'A')
+                                        act_A = load_and_subtract_syn_group_averages(act_A, syn_group_id_paths_for_sem_data['A'], centers_folder_A, center_A_flag, removal_method, global_center_A, 'A')
                                         # centers_folder_B = sim_folder
                                         # act_B = act_B[syn_syn_indices] # first I select them, for those I subtract the centers that I have
                                         # act_B = load_and_subtract_syn_group_averages(act_B,syn_group_id_paths_for_sem_data['B'],centers_folder_B,center_B_flag,removal_method,global_center_B,'B')
@@ -216,14 +216,14 @@ def compute_II(
                 removal_method,
                 precision,
                 ratio_jackknife=0.5,
-                jack_seeds=1,
+                n_jack_seeds=5,
                 ):
-    if jack_seeds == 1:
+    if n_jack_seeds == 1:
         ratio_jackknife = 1.0
             
     start_time = time()
 
-    jack_seeds = np.arange(jack_seeds,dtype=int)
+    jack_seeds = np.arange(n_jack_seeds,dtype=int)
     II_fn = build_information_imbalance(k=1)
 
     number_of_languages_list = set_number_of_languages_list(center_A_flag, center_B_flag, centers_var)
@@ -287,6 +287,7 @@ def compute_II(
                             sim_B = jnp.array(np.load(os.path.join(sim_folder, "sim_B.npy"))).astype(precision_map[precision])
 
                             for jack_seed_id,jack_seed in enumerate(jack_seeds):
+                                print(f'{jack_seed=}')
                                 jack_key = jax.random.PRNGKey(jack_seed)
                                 jack_indices = jax.random.choice(key=jack_key,
                                                                 a=sim_A.shape[0],
@@ -305,14 +306,17 @@ def compute_II(
                             os.remove(os.path.join(sim_folder, "sim_B.npy"))
                             try:
                                 shutil.rmtree(sim_folder)
-                            except FileNotFoundError:
-                                pass  # folder already deleted
+                            except Exception as e:
+                                print(f"Could not delete {sim_folder}: {type(e).__name__} - {e}")
 
                                 
                     jack_std = inf_imb.std(axis=0)
                     inf_imb = inf_imb.mean(axis=0)
-                    np.save(II_folder+"II.npy",inf_imb)
-                    np.save(II_folder+"II_jack_std.npy",jack_std)
+                    II_path = II_folder + f"II_{ratio_jackknife:.2f}.npy"
+                    np.save(II_path, inf_imb)
+                    print(f'II saved to {II_path}')
+                    if ratio_jackknife < 1.0:
+                        np.save(II_folder + f"II_jack_std_{ratio_jackknife:.2f}.npy",jack_std)
 
                     
     print(f'II took {(time()-start_time)/60.} m')
@@ -336,7 +340,7 @@ def compute_coeff(
                 removal_method,
                 precision,
                 ratio_jackknife=0.5,
-                jack_seeds=1,
+                n_jack_seeds=5,
                 ):
 
     master_seed = 9999
@@ -344,13 +348,13 @@ def compute_coeff(
     keyA, keyB = jax.random.split(master_key)
     average=True
 
-    if jack_seeds == 1:
+    if n_jack_seeds == 1:
         ratio_jackknife = 1.0
     
     print(f'computing corr coeff')
     start_time = time()
 
-    jack_seeds = np.arange(jack_seeds,dtype=int)
+    jack_seeds = np.arange(n_jack_seeds,dtype=int)
     rankdata_2D_ties = build_rankdata_2D_ties()
     corr_coeff = build_corr_coeff_2D_ties(average=average)
 
@@ -444,8 +448,9 @@ def compute_coeff(
 
                     jack_std = xi.std(axis=0)
                     xi = xi.mean(axis=0)
-                    np.save(os.path.join(corr_folder, "corr_coeff.npy"), xi)
-                    np.save(os.path.join(corr_folder, "corr_coeff_jack_std.npy"), jack_std)
+                    np.save(os.path.join(corr_folder, f"corr_coeff_{ratio_jackknife:.2f}.npy"), xi)
+                    if ratio_jackknife < 1:
+                        np.save(os.path.join(corr_folder, f"corr_coeff_jack_std_{ratio_jackknife:.2f}.npy"), jack_std)
 
                             
     print(f'corr coeff took {(time()-start_time)/60.} m')
