@@ -84,7 +84,7 @@ def similarities(
     elif spaces == 'AA':
         all_activations_B = all_activations_A
         
-    if data_var == 'sem' and centers_var == 'syn' and center_A_flag != 0:
+    if data_var == 'sem' and centers_var == 'syn':
         sem_ids_with_syn = from_numpy(np.loadtxt(sem_ids_with_syn_path,dtype=int)).long() # filtering sem_data to have their syntax group in space A 
         for layer in all_activations_A:
             all_activations_A[layer] = all_activations_A[layer][sem_ids_with_syn]
@@ -94,7 +94,7 @@ def similarities(
         #     syn_syn_indices = jnp.array(np.loadtxt(syn_syn_ids_path,dtype=int),dtype=jnp.int32) # filtering data to ALSO have their syntax group in space B
         #     total_sample_size = syn_syn_indices.shape[0]
     
-    elif data_var == 'syn' and centers_var == 'sem' and center_A_flag != 0:
+    elif data_var == 'syn' and centers_var == 'sem':
         syn_ids_with_sem = from_numpy(np.loadtxt(syn_ids_with_sem_path,dtype=int)).long() # filtering sem_data to have their syntax group in space A 
         for layer in all_activations_A:
             all_activations_A[layer] = all_activations_A[layer][syn_ids_with_sem]
@@ -181,7 +181,6 @@ def similarities(
                                 if center_B_flag != 0:
                                     act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages,language_list_permutation,removal_method)
 
-                            # print(f'{act_A[0,-10:]=}')
 
                             sim_A,sim_B = get_similarities(act_A,act_B)
                             sim_folder = makefolder(base=sim_folder,

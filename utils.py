@@ -419,7 +419,7 @@ def load_and_subtract_syn_group_averages(act,
                                         ):
   
   print(f'loading and subtracting syn group averages')
-  centers, all_group_ids = load_syn_group_averages(act,
+  syn_centers, all_group_ids = load_syn_group_averages(act,
                                                   group_ids_path,
                                                   centers_folder,
                                                   center_flag,
@@ -428,7 +428,7 @@ def load_and_subtract_syn_group_averages(act,
                                                   )
   act = remove_syn_group_averages(act,
                                   jnp.zeros_like(act), # carefull if 
-                                  centers, 
+                                  syn_centers, 
                                   all_group_ids, 
                                   removal_method,
                                   center_flag)
@@ -443,6 +443,19 @@ def remove_syn_group_averages(act_A, act_B, centers, all_group_ids, removal_meth
     act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method], center_flag)
   return act_A
 
+def load_sem_centers(sim_folder,number_of_languages,language_list_permutation):
+
+  centers_folder = sim_folder
+  # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
+  centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
+  centers_folder = re.sub(r'similarity_fn_[^/]+', 'similarity_fn_none', centers_folder)
+  centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
+  centers_folder = re.sub(r'batch_shuffle_1','batch_shuffle_0',centers_folder)
+
+  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy')) #(num_sentences,E)
+
+  return semantic_centers # careful about precision
+
 def load_and_subtract_sem_group_averages(sim_folder,
                                          act,
                                          data_var,
@@ -452,14 +465,7 @@ def load_and_subtract_sem_group_averages(sim_folder,
                                          removal_method,
                                          ):
 
-  centers_folder = sim_folder
-  # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
-  centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
-  centers_folder = re.sub(r'similarity_fn_[^/]+', 'similarity_fn_none', centers_folder)
-  centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
-  centers_folder = re.sub(r'batch_shuffle_1','batch_shuffle_0',centers_folder)
-
-  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy'),dtype=act.dtype) #(num_sentences,E)
+  semantic_centers = load_sem_centers(sim_folder,number_of_languages,language_list_permutation).astype(act.dtype) #(num_sentences,E)
 
   if data_var == 'syn':
     sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
