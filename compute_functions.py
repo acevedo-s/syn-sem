@@ -30,7 +30,6 @@ from utils import (
                 set_number_of_languages_list,
                 set_language_list_permutations,
                 set_global_center,
-                get_centers_folder_A,
                 )
 from geometry import *
 from corr_coeff_functions import *
@@ -169,8 +168,7 @@ def similarities(
                                         act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, act_A, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
                                 elif data_var == 'sem':
                                     if center_A_flag != 0:
-                                        centers_folder_A = get_centers_folder_A(sim_folder)
-                                        act_A = load_and_subtract_syn_group_averages(act_A, syn_group_id_paths_for_sem_data['A'], centers_folder_A, center_A_flag, removal_method, global_center_A, 'A')
+                                        act_A = load_and_subtract_syn_group_averages(act_A, syn_group_id_paths_for_sem_data['A'], sim_folder, center_A_flag, removal_method, global_center_A, 'A')
                                         # centers_folder_B = sim_folder
                                         # act_B = act_B[syn_syn_indices] # first I select them, for those I subtract the centers that I have
                                         # act_B = load_and_subtract_syn_group_averages(act_B,syn_group_id_paths_for_sem_data['B'],centers_folder_B,center_B_flag,removal_method,global_center_B,'B')

@@ -39,7 +39,7 @@ syn_ids_with_sem_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/
 sem_centers_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/sem_centers_ids.txt"
 syn_syn_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_syn_indices.txt"
 
-def get_centers_folder_A(sim_folder):
+def get_syn_centroids_folder(sim_folder):
   centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
   return centers_folder
 
@@ -307,11 +307,6 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
 
   return centers, all_indices, all_counts
 
-def leave_two_out_centers(group_acts_A, group_acts_B, center, k):
-  return (k * center - (group_acts_A + group_acts_B)) / (k - 2)
-
-def leave_one_out_centers(group_acts_A, center, k):
-  return (k * center - (group_acts_A)) / (k - 1)
 
 @jax.jit
 def _remove_syn_group_average(
@@ -324,6 +319,11 @@ def _remove_syn_group_average(
     removal_method: 0 = subtraction, 1 = projection
     center_flag: +1 = use leave-two/one-out centers, -1 = use given center
     """
+    def leave_two_out_centers(group_acts_A, group_acts_B, center, k):
+      return (k * center - (group_acts_A + group_acts_B)) / (k - 2)
+
+    def leave_one_out_centers(group_acts_A, center, k):
+      return (k * center - (group_acts_A)) / (k - 1)
 
     def _compute_centers(group_acts_A, group_acts_B, center, k):
         # detect if act_B is just zeros (same shape, all zeros)
@@ -411,7 +411,7 @@ def load_syn_group_averages(act,
 
 def load_and_subtract_syn_group_averages(act,
                                         group_ids_path,
-                                        centers_folder,
+                                        sim_folder,
                                         center_flag,
                                         removal_method:str, # 'subtraction' or 'projection'
                                         global_center,
@@ -419,19 +419,38 @@ def load_and_subtract_syn_group_averages(act,
                                         ):
   
   print(f'loading and subtracting syn group averages')
-  syn_centers, all_group_ids = load_syn_group_averages(act,
-                                                  group_ids_path,
-                                                  centers_folder,
-                                                  center_flag,
-                                                  global_center,
-                                                  space_index,
-                                                  )
-  act = remove_syn_group_averages(act,
-                                  jnp.zeros_like(act), # carefull if 
-                                  syn_centers, 
-                                  all_group_ids, 
-                                  removal_method,
-                                  center_flag)
+
+  syn_centroids_folder = get_syn_centroids_folder(sim_folder)
+
+  (syn_centroids, # (n_groups,E)
+   all_group_ids, #(n_samples,)
+   ) = load_syn_group_averages(act,
+                              group_ids_path,
+                              syn_centroids_folder,
+                              center_flag,
+                              global_center,
+                              space_index,
+                              )
+  expanded_centroids = syn_centroids[all_group_ids] # (n_samples,E)
+
+  unique_group_ids, group_counts = jnp.unique(all_group_ids,return_counts=True)
+  assert unique_group_ids.max() == syn_centroids.shape[0] - 1
+  expanded_group_counts = group_counts[all_group_ids] #(n_samples,)
+  loo_expanded_centroids = (expanded_group_counts[:,None] * expanded_centroids - act) / (expanded_group_counts[:,None] - 1)
+
+
+  indices = jnp.arange(act.shape[0],dtype=jnp.int32)
+  if center_flag == -1:
+    key_centers = jax.random.PRNGKey(np.random.randint(1E5))
+    indices = jax.random.permutation(key_centers,indices)
+  else:
+    semantic_centroids = load_sem_centers(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sentences,E)
+    loo_expanded_centroids = batched_remove_centroid_projections(loo_expanded_centroids,indices,semantic_centroids)
+
+  if removal_method == 'subtraction':
+    act = batched_subtract_centroids(act,indices,loo_expanded_centroids)
+  elif removal_method == 'projection':
+    act = batched_remove_centroid_projections(act,indices,loo_expanded_centroids)
 
   return act
 
@@ -448,6 +467,7 @@ def load_sem_centers(sim_folder,number_of_languages,language_list_permutation):
   centers_folder = sim_folder
   # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
   centers_folder = re.sub(r'data_var_syn', 'data_var_sem', centers_folder)  
+  centers_folder = re.sub(r'centers_syn', 'centers_sem', centers_folder)  
   centers_folder = re.sub(r'similarity_fn_[^/]+', 'similarity_fn_none', centers_folder)
   centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
   centers_folder = re.sub(r'batch_shuffle_1','batch_shuffle_0',centers_folder)
@@ -479,22 +499,22 @@ def load_and_subtract_sem_group_averages(sim_folder,
     indices = jax.random.permutation(key_centers,indices)
   
   if removal_method == 'subtraction':
-    act = remove_sem_group_center(act, indices, semantic_centers)
+    act = batched_subtract_centroids(act, indices, semantic_centers)
   elif removal_method == 'projection':
-    act = remove_sem_group_projections(act, indices, semantic_centers)
+    act = batched_remove_centroid_projections(act, indices, semantic_centers)
   return act
 
 @jax.jit
-def remove_sem_group_center(act, indices, semantic_centers):
+def batched_subtract_centroids(act, indices, semantic_centers):
 
   act = act - semantic_centers[indices]
   return  act
 
 @jax.jit
-def remove_sem_group_projections(act,indices,semantic_centers):
+def batched_remove_centroid_projections(act,indices,centroids):
 
-  proj_coeffs = (jnp.einsum("ij,ij->i", act[indices], semantic_centers[indices])) / (jnp.einsum("ij,ij->i", semantic_centers[indices], semantic_centers[indices]) + 1E-8) #(len(indices),)
-  projections = proj_coeffs[:, None] * semantic_centers[indices]  # (len(indices), E)
+  proj_coeffs = (jnp.einsum("ij,ij->i", act[indices], centroids[indices])) / (jnp.einsum("ij,ij->i", centroids[indices], centroids[indices]) + 1E-8) #(len(indices),)
+  projections = proj_coeffs[:, None] * centroids[indices]  # (len(indices), E)
   act = act - projections
 
   return act
