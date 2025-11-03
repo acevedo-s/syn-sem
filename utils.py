@@ -74,7 +74,7 @@ def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_path
 
 depths = {}
 emb_dims = {}
-models = ['qwen7b', 'llama8b', 'deepseek',]
+models = ['qwen7b', 'deepseek',]
 
 for model in models:
   add_model_metadata(depths, emb_dims, model, model_paths)
