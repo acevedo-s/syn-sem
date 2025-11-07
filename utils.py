@@ -227,11 +227,10 @@ def collect_data(input_path,
             else:
               hidden = output['meta_info']['all_hidden_states'][0]  # shape (L, sentence_length, E)
             hidden = torch.from_numpy(hidden).view(torch.bfloat16)
-            if avg_tokens == 0: 
-              assert hidden.shape[1] >= min_token_length, f"{file.name=},{output_id=},{hidden.shape=}"
-              hidden = hidden[:, -min_token_length:, :]  
-            elif avg_tokens == 1:
-              hidden = torch.mean(hidden[:,min_token_length:,:].to(torch.float32),dim=1).to(model_dtype)
+            assert hidden.shape[1] >= min_token_length, f"{file.name=},{output_id=},{hidden.shape=}"
+            hidden = hidden[:, -min_token_length:, :]  
+            if avg_tokens == 1:
+              hidden = torch.mean(hidden.to(torch.float32),dim=1).to(model_dtype)
 
             for i in range(hidden.shape[0]):  # Loop over layers directly
                 all_hidden_states[f"layer_{i}"].append(hidden[i])
@@ -526,7 +525,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = [1] #list(range(1,len(my_languages)+1))
+        number_of_languages_list = [6] #list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 

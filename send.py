@@ -67,12 +67,8 @@ if __name__ == "__main__":
     precision = 32
     batch_shuffle = 0
 
-    if args.avg_tokens:
-        min_token_length = -1
-        n_tokens_list = [-1]
-    else:
-        min_token_length = args.min_token_length
-        n_tokens_list = np.array([args.min_token_length])
+    min_token_length = args.min_token_length
+    n_tokens_list = np.array([args.min_token_length])
 
     removal_method = args.removal_method
     if removal_method == 'none':

@@ -89,7 +89,6 @@ def main(
                     activations = torch_to_jax(activations,precision)
                     semantic_center = semantic_center.at[language_id].set(activations)
                     print(f'{activations.shape=}')
-                    # print(f'{activations[0,-10:]=}')
                 print(f'{semantic_center.shape=}')
                 semantic_center = jnp.mean(semantic_center,axis=0)
 
@@ -137,12 +136,9 @@ if __name__ == "__main__":
     languages = languages[:args.number_of_languages]
     print(f'{languages=}')
 
-    if args.avg_tokens == 0:
-        min_token_length = args.min_token_length  
-        n_tokens_list = np.array([min_token_length])
-    else:
-        n_tokens_list = [-1]
-        min_token_length = -1
+
+    min_token_length = args.min_token_length  
+    n_tokens_list = np.array([min_token_length])
 
 
     print(f'{Nbits_list=}')

@@ -28,4 +28,4 @@ export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1)
 export MASTER_PORT=29500
 
 # pip install -e /home/acevedo/sglang/python
-srun  /home/acevedo/my_sglang/bin/python3 extract_hidden_states.py "${ARGS[@]}"
+srun  /home/acevedo/my_sglang/bin/python3 qwen_extract_hidden_states.py "${ARGS[@]}"
