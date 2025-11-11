@@ -8,7 +8,7 @@ match_var="matching"  # "matching" or "mismatching"
 centers_var="syn"
 languages=('english')
 zero_activations=0
-center_A_flags=(0 1 -1)
+center_A_flags=(0)
 removal_methods=("projection")
 global_centerings=(0)
 avg_tokens_list=(0 1)
@@ -38,7 +38,7 @@ for avg_tokens in "${avg_tokens_list[@]}";do
         fi
 
         for removal_method in "${removal_methods[@]}"; do
-          echo "$language, center_A_flag=$center_A_flag, center_B_flag=$center_B_flag, $removal_method, (dbg=$dbg)"
+          echo "data_var=$data_var, centers_var=$centers_var, center_A_flag=$center_A_flag, center_B_flag=$center_B_flag, $removal_method, (dbg=$dbg)"
           sbatch $gpu_flag ssend.sh \
             $dbg \
             $min_token_length \

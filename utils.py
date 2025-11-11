@@ -245,8 +245,7 @@ def collect_data(input_path,
     return all_hidden_states
 
 def compute_and_subtract_syn_group_averages(sim_folder,
-                                            act_A,
-                                            act_B,
+                                            act,
                                             center_flag,
                                             space_index,
                                             removal_method:str,
@@ -254,41 +253,46 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             ):
   centers_folder = sim_folder
 
-  assert len(act_A.shape) == 2
+  assert len(act.shape) == 2
   assert space_index == 'A' or space_index == 'B'
   assert removal_method in ['subtraction','projection']
 
-  # try: 
-  #   centers = jnp.array(np.load(os.path.join(centers_folder, f'syn_centers_{space_index}.npy'))).astype(act.dtype) #(num_groups,E)
-  #   all_indices = jnp.array(np.loadtxt(centers_folder + f'syn_all_indices_{space_index}.txt',dtype=int),dtype=jnp.int32)
-  #   all_counts = jnp.array(np.loadtxt(centers_folder + f'syn_all_counts_{space_index}.txt',dtype=int),dtype=jnp.int32)
-  #   print(f'centers imported from {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
-  # except:
+  all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(jnp.int32)) # (n_syn_samples,)
   (
-  centers, # (n_groups,n_features)
+  unique_syn_centroids, # (n_groups,n_features)
   all_indices, # (n_groups, n_samples)
   all_counts, # (n_groups, 1)
-    ) = _compute_and_export_syn_centers(syn_group_ids_path, act_A, centers_folder, space_index)
+    ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
+  expanded_syn_centroids = unique_syn_centroids[all_syn_group_ids] # (n_samples,E)
 
+  indices = jnp.arange(act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
-    seed = np.random.randint(0, 2**31 - 1)   # random 32-bit integer
-    key_center = jax.random.PRNGKey(seed)
-    centers = jax.random.permutation(key_center,centers)
+    key_centers = jax.random.PRNGKey(np.random.randint(1E5))
+    indices = jax.random.permutation(key_centers,indices)
+
+  expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,all_syn_group_ids)
+  loo_expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
   
-  #TODO: optimize with jax.jit
-  for group_index in range(centers.shape[0]):
-    dynamic_indices = all_indices[group_index][:all_counts[group_index]]
-    center = centers[group_index]
-    act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method],center_flag)
-  return act_A
+  if removal_method == 'subtraction':
+    act = batched_subtract_centroids(act,indices,loo_expanded_syn_centroids)
+  elif removal_method == 'projection':
+    act = batched_remove_centroid_projections(act,indices,loo_expanded_syn_centroids)
+  return act
+
+def get_syntax_expanded_counts(unique_syn_centroids, expanding_indices):
+  unique_syn_group_ids, unique_syn_group_counts = jnp.unique(expanding_indices,return_counts=True)
+  assert unique_syn_group_ids.max() == unique_syn_centroids.shape[0] - 1
+  assert unique_syn_group_ids.min() == 0
+  expanded_group_counts = unique_syn_group_counts[expanding_indices] #(n_samples,)
+  return expanded_group_counts
 
 @jax.jit
-def _compute_syn_center(act, group_index, all_group_ids):
-    mask = (all_group_ids == group_index)          # (n_samples,)
-    center = jnp.mean(act, where=mask[:,None], axis=0)  # broadcasting mask to (n_samples, E)
-    indices = jnp.nonzero(mask, size=act.shape[0])[0]  # where the matches are 
-    counts = jnp.sum(mask) # how many they are
-    return center, indices, counts
+def _compute_syn_centroid(act, group_index, all_group_ids):
+    mask = (all_group_ids == group_index)                 # (n_samples,)
+    centroid = jnp.mean(act, where=mask[:,None], axis=0)  # broadcasting mask to (n_samples, E)
+    indices = jnp.nonzero(mask, size=act.shape[0])[0]     # where the matches are 
+    counts = jnp.sum(mask)                                # how many they are
+    return centroid, indices, counts
 
 def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index):
   all_group_ids = jnp.array(np.loadtxt(syn_group_ids_path),dtype=jnp.int32)
@@ -297,7 +301,7 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
   assert len(all_group_ids) == act.shape[0]
   assert unique_groups_indices.min() == 0 and unique_groups_indices.max() == len(unique_groups_indices) - 1
   
-  centers, all_indices, all_counts = jax.vmap(_compute_syn_center,in_axes=(None,0,None))(act,unique_groups_indices,all_group_ids)  
+  centers, all_indices, all_counts = jax.vmap(_compute_syn_centroid,in_axes=(None,0,None))(act,unique_groups_indices,all_group_ids)  
 
   np.save(os.path.join(centers_folder, f"syn_centers_{space_index}"), centers)
   np.savetxt(os.path.join(centers_folder, f"syn_all_indices_{space_index}.txt"), all_indices, fmt='%d')
@@ -305,83 +309,6 @@ def _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, spa
   print(f'centers saved at {os.path.join(centers_folder, f"syn_centers_{space_index}.npy")}')
 
   return centers, all_indices, all_counts
-
-
-@jax.jit
-def _remove_syn_group_average(
-    act_A, act_B, dynamic_indices, center, removal_method: int, center_flag: int
-):
-    """
-    act: (n_samples, T*E)
-    dynamic_indices: (n_samples_at_given_group,)
-    center: (T*E,)
-    removal_method: 0 = subtraction, 1 = projection
-    center_flag: +1 = use leave-two/one-out centers, -1 = use given center
-    """
-    def leave_two_out_centers(group_acts_A, group_acts_B, center, k):
-      return (k * center - (group_acts_A + group_acts_B)) / (k - 2)
-
-    def leave_one_out_centers(group_acts_A, center, k):
-      return (k * center - (group_acts_A)) / (k - 1)
-
-    def _compute_centers(group_acts_A, group_acts_B, center, k):
-        # detect if act_B is just zeros (same shape, all zeros)
-        actB_zero_flag = jnp.all(group_acts_B == 0)
-        # jax.debug.print("actB_zero_flag = {}", actB_zero_flag)
-
-        def _use_two_out(_):
-            return leave_two_out_centers(group_acts_A, group_acts_B, center, k)
-
-        def _use_one_out(_):
-            return leave_one_out_centers(group_acts_A, center, k)
-
-        return jax.lax.cond(actB_zero_flag, _use_one_out, _use_two_out, operand=None)
-
-    def _subtraction(act_A, act_B, dynamic_indices, center):
-        k = dynamic_indices.shape[0]
-        group_acts_A = act_A[dynamic_indices]
-        group_acts_B = act_B[dynamic_indices]
-
-        centers = _compute_centers(group_acts_A, group_acts_B, center, k)
-
-        updated = jax.lax.cond(
-            center_flag == 1,
-            lambda _: group_acts_A - centers,
-            lambda _: group_acts_A - center,
-            operand=None,
-        )
-        return act_A.at[dynamic_indices].set(updated)
-
-    def _projection(act_A, act_B, dynamic_indices, center):
-        k = dynamic_indices.shape[0]
-        group_acts_A = act_A[dynamic_indices]
-        group_acts_B = act_B[dynamic_indices]
-
-        centers = _compute_centers(group_acts_A, group_acts_B, center, k)
-
-        centers = jax.lax.cond(
-            center_flag == 1,
-            lambda _: centers,
-            lambda _: jnp.broadcast_to(center, centers.shape),
-            operand=None,
-        )
-
-        proj_coeffs = jnp.sum(group_acts_A * centers, axis=1) / jnp.sum(centers * centers, axis=1)
-        projections = proj_coeffs[:, None] * centers
-
-        return act_A.at[dynamic_indices].set(group_acts_A - projections)
-
-    return jax.lax.switch(
-        removal_method,
-        [_subtraction, _projection],
-        act_A,
-        act_B,
-        dynamic_indices,
-        center,
-    )
-
-
-
 
 def load_syn_group_averages(act,
                             group_ids_path,
@@ -432,17 +359,8 @@ def load_and_subtract_syn_group_averages(act,
                               )
   expanded_syn_centroids = unique_syn_centroids[syn_group_ids_for_sem] # (n_samples,E)
 
-  # unique_group_ids, group_counts = jnp.unique(all_group_ids,return_counts=True)
-  # assert unique_group_ids.max() == syn_centroids.shape[0] - 1
-  # expanded_group_counts = group_counts[all_group_ids] #(n_samples,)
-  # loo_expanded_centroids = (expanded_group_counts[:,None] * expanded_centroids - act) / (expanded_group_counts[:,None] - 1)
-  
   ### I have to use the counting of the original syntax data to do LOO properly
-  all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(int)) # (n_syn_samples,)
-  unique_syn_group_ids, unique_syn_group_counts = jnp.unique(all_syn_group_ids,return_counts=True)
-  assert unique_syn_group_ids.max() == unique_syn_centroids.shape[0] - 1
-  assert unique_syn_group_ids.min() == 0
-  expanded_group_counts = unique_syn_group_counts[syn_group_ids_for_sem] #(n_samples_sem_with_syn,)
+  expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,syn_group_ids_for_sem)
   loo_expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
 
   indices = jnp.arange(act.shape[0],dtype=jnp.int32)

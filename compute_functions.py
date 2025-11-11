@@ -163,9 +163,9 @@ def similarities(
                             if centers_var == 'syn':
                                 if data_var == 'syn':
                                     if center_A_flag != 0:
-                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, act_B, center_A_flag,'A', removal_method, syn_group_ids_path)
+                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, center_A_flag,'A', removal_method, syn_group_ids_path)
                                     if center_B_flag != 0:
-                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, act_A, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
+                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
                                 elif data_var == 'sem':
                                     if center_A_flag != 0:
                                         act_A = load_and_subtract_syn_group_averages(act_A, syn_group_id_paths_for_sem_data['A'], sim_folder, center_A_flag, removal_method, global_center_A, 'A')
