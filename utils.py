@@ -421,8 +421,8 @@ def load_and_subtract_syn_group_averages(act,
 
   syn_centroids_folder = get_syn_centroids_folder(sim_folder)
 
-  (syn_centroids, # (n_groups,E)
-   all_group_ids, #(n_samples,)
+  (unique_syn_centroids, #(n_groups,E)
+   syn_group_ids_for_sem, #(n_samples,)
    ) = load_syn_group_averages(act,
                               group_ids_path,
                               syn_centroids_folder,
@@ -430,27 +430,33 @@ def load_and_subtract_syn_group_averages(act,
                               global_center,
                               space_index,
                               )
-  expanded_centroids = syn_centroids[all_group_ids] # (n_samples,E)
+  expanded_syn_centroids = unique_syn_centroids[syn_group_ids_for_sem] # (n_samples,E)
 
-  unique_group_ids, group_counts = jnp.unique(all_group_ids,return_counts=True)
-  assert unique_group_ids.max() == syn_centroids.shape[0] - 1
-  expanded_group_counts = group_counts[all_group_ids] #(n_samples,)
-  loo_expanded_centroids = (expanded_group_counts[:,None] * expanded_centroids - act) / (expanded_group_counts[:,None] - 1)
-
+  # unique_group_ids, group_counts = jnp.unique(all_group_ids,return_counts=True)
+  # assert unique_group_ids.max() == syn_centroids.shape[0] - 1
+  # expanded_group_counts = group_counts[all_group_ids] #(n_samples,)
+  # loo_expanded_centroids = (expanded_group_counts[:,None] * expanded_centroids - act) / (expanded_group_counts[:,None] - 1)
+  
+  ### I have to use the counting of the original syntax data to do LOO properly
+  all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(int)) # (n_syn_samples,)
+  unique_syn_group_ids, unique_syn_group_counts = jnp.unique(all_syn_group_ids,return_counts=True)
+  assert unique_syn_group_ids.max() == unique_syn_centroids.shape[0] - 1
+  assert unique_syn_group_ids.min() == 0
+  expanded_group_counts = unique_syn_group_counts[syn_group_ids_for_sem] #(n_samples_sem_with_syn,)
+  loo_expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
 
   indices = jnp.arange(act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
     key_centers = jax.random.PRNGKey(np.random.randint(1E5))
     indices = jax.random.permutation(key_centers,indices)
   else:
-    semantic_centroids = load_sem_centers(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sentences,E)
-    loo_expanded_centroids = batched_remove_centroid_projections(loo_expanded_centroids,indices,semantic_centroids)
+    semantic_centroids = load_sem_centroids(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sentences,E)
+    loo_expanded_syn_centroids = batched_remove_centroid_projections(loo_expanded_syn_centroids,indices,semantic_centroids)
 
   if removal_method == 'subtraction':
-    act = batched_subtract_centroids(act,indices,loo_expanded_centroids)
+    act = batched_subtract_centroids(act,indices,loo_expanded_syn_centroids)
   elif removal_method == 'projection':
-    act = batched_remove_centroid_projections(act,indices,loo_expanded_centroids)
-
+    act = batched_remove_centroid_projections(act,indices,loo_expanded_syn_centroids)
   return act
 
 def remove_syn_group_averages(act_A, act_B, centers, all_group_ids, removal_method, center_flag):
@@ -461,7 +467,7 @@ def remove_syn_group_averages(act_A, act_B, centers, all_group_ids, removal_meth
     act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method], center_flag)
   return act_A
 
-def load_sem_centers(sim_folder,number_of_languages,language_list_permutation):
+def load_sem_centroids(sim_folder,number_of_languages,language_list_permutation):
 
   centers_folder = sim_folder
   # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
@@ -484,13 +490,12 @@ def load_and_subtract_sem_group_averages(sim_folder,
                                          removal_method,
                                          ):
 
-  semantic_centers = load_sem_centers(sim_folder,number_of_languages,language_list_permutation).astype(act.dtype) #(num_sentences,E)
-
+  semantic_centroids = load_sem_centroids(sim_folder,number_of_languages,language_list_permutation).astype(act.dtype) #(num_sem_sentences,E)
   if data_var == 'syn':
     sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
-    semantic_centers = semantic_centers[sem_center_ids] # this alignes centers to syntax data
+    semantic_centroids = semantic_centroids[sem_center_ids] # this alignes centers to syntax data
 
-  assert (act.shape == semantic_centers.shape)
+  assert (act.shape == semantic_centroids.shape)
 
   indices = jnp.arange(act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
@@ -498,9 +503,9 @@ def load_and_subtract_sem_group_averages(sim_folder,
     indices = jax.random.permutation(key_centers,indices)
   
   if removal_method == 'subtraction':
-    act = batched_subtract_centroids(act, indices, semantic_centers)
+    act = batched_subtract_centroids(act, indices, semantic_centroids)
   elif removal_method == 'projection':
-    act = batched_remove_centroid_projections(act, indices, semantic_centers)
+    act = batched_remove_centroid_projections(act, indices, semantic_centroids)
   return act
 
 @jax.jit

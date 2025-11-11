@@ -1,9 +1,9 @@
 #!/bin/bash
 
 dbg=0
-modelA="qwen7b"
+modelA="deepseek"
 method="min"
-data_var="sem"
+data_var="syn"
 match_var="matching"  # "matching" or "mismatching"
 centers_var="syn"
 languages=('english')
