@@ -1,5 +1,4 @@
 import os,sys
-os.environ["JAX_PLATFORMS"] = 'cpu'
 import jax.numpy as jnp
 import jax 
 import numpy as np
@@ -47,6 +46,22 @@ markers = ['p','o','h','^','s','*']
 _linestyles = ['-','--','dotted']
 plot_id = 0
 from time import time
+
+def one_index_per_group(syn_group_ids, seed=None):
+    rng = np.random.default_rng(seed)
+    syn_group_ids = np.asarray(syn_group_ids)
+    
+    # unique group ids and mapping of each element → group index
+    unique_groups, inverse = np.unique(syn_group_ids, return_inverse=True)
+    
+    # for each group, find the indices belonging to it
+    indices = []
+    for g in range(len(unique_groups)):
+        group_indices = np.nonzero(inverse == g)[0]
+        chosen = rng.choice(group_indices)
+        indices.append(chosen)
+
+    return jnp.array(indices,dtype=jnp.int32)
 
 @jax.jit
 def add_tiny_noise(sim_X, key, eps=1e-6):
@@ -136,7 +151,7 @@ def preprocessing(all_activations,
     if syn_centroids != None: print(f'{syn_centroids.shape=}')
     if global_center!= None: print(f'{global_center.shape=}')
 
-  return act, syn_centroids, sem_centroids, global_center
+  return act, syn_centroids, sem_centroids, global_center, syn_group_ids_for_sem
 
 letter_to_index_dict = {
                       'A':'0',
@@ -150,9 +165,9 @@ data_var = 'sem'
 global_center_flag = 0
 min_token_length = 3
 n_tokens = min_token_length
-space = sys.argv[1]
-avg_tokens = int(sys.argv[2])
-loo_flag = int(sys.argv[3])
+space = 'A' #sys.argv[1]
+avg_tokens = 0 #int(sys.argv[2])
+loo_flag = 1#int(sys.argv[3])
 input_path = input_paths['english'][model_name]['matching'][letter_to_index_dict[space]][data_var]
 syn_centroids_flag = 1
 
@@ -177,10 +192,11 @@ sem_inf_imb = []
 syn_inf_imb = []
 
 start = time()
-
+n_iter = 200
 verbose = True
+inf_imb = np.zeros(shape=(len(layer_vals),n_iter,2))
 for enum_layer_id,layer in enumerate(layer_vals):
-  act, syn_centroids, sem_centroids, global_center = preprocessing(
+  act, syn_centroids, sem_centroids, global_center, syn_group_ids_for_sem = preprocessing(
       all_activations, 
       layer, 
       space_index='A', # I only have syntax for A.
@@ -192,30 +208,37 @@ for enum_layer_id,layer in enumerate(layer_vals):
       verbose=verbose,
   )
   verbose = False
-  sample_size = act.shape[0]
-  if enum_layer_id == 0:
-    get_similarities = build_get_similarities(key=subkey_distances, 
-                                            sample_size=sample_size, 
-                                            similarity_fn=normalized_L2_distance,
-                                            )
-  # syn_centroids = batched_remove_centroid_projections(syn_centroids,jnp.arange(sem_centroids.shape[0],dtype=jnp.int32),sem_centroids)
 
-  if syn_centroids_flag and space == 'A':
-    cos = np.array(cosine_similarity(act,syn_centroids))
-    cos_means.append(cos.mean())
-    cos_stds.append(cos.std())
+  for iter in range(n_iter):
+
+    indices_iter = one_index_per_group(syn_group_ids_for_sem)
+
+    act_iter = act[indices_iter]
+    syn_centroids_iter = syn_centroids[indices_iter]
+    sem_centroids_iter = sem_centroids[indices_iter]
+    sample_size = act_iter.shape[0]
+    if enum_layer_id == 0 and iter == 0:
+      get_similarities = build_get_similarities(key=subkey_distances, 
+                                              sample_size=sample_size, 
+                                              similarity_fn=normalized_L2_distance,
+                                              )
+    syn_centroids = batched_remove_centroid_projections(syn_centroids,jnp.arange(sem_centroids.shape[0],dtype=jnp.int32),sem_centroids)
+    
+    # cos = np.array(cosine_similarity(act_iter,syn_centroids))
+    # cos_means.append(cos.mean())
+    # cos_stds.append(cos.std())
 
     ### centroids_inf_imb
-    sim_X, sim_Y = get_similarities(syn_centroids, sem_centroids)
-    key = jax.random.PRNGKey(np.random.randint(0,1e6))
+    sim_X, sim_Y = get_similarities(syn_centroids_iter, sem_centroids_iter)
 
-    sim_X = add_tiny_noise(sim_X, key)
-    key = jax.random.PRNGKey(np.random.randint(0,1e6))
-    sim_Y = add_tiny_noise(sim_Y, key)
+    # key = jax.random.PRNGKey(np.random.randint(0,1e6))
+    # sim_X = add_tiny_noise(sim_X, key)
+    # key = jax.random.PRNGKey(np.random.randint(0,1e6))
+    # sim_Y = add_tiny_noise(sim_Y, key)
     
     R_II = mapped_compute_ranks(method="min")(sim_X, sim_Y)
-    _inf_imb, _inf_imb_std = II_fn(R_II[0], R_II[1])
-    inf_imb.append(_inf_imb)
+    _inf_imb, _ = II_fn(R_II[0], R_II[1])
+    inf_imb[enum_layer_id,iter,:] = _inf_imb
 
     # ###syn_inf_imb
     # sim_X, sim_Y = get_similarities(act, syn_centroids)
@@ -223,22 +246,21 @@ for enum_layer_id,layer in enumerate(layer_vals):
     # _inf_imb, _inf_imb_std = II_fn(R_II[0], R_II[1])
     # syn_inf_imb.append(_inf_imb)
 
-  # ### sem_inf_imb
-  # sim_X, sim_Y = get_similarities(act, sem_centroids)
-  # R_II = mapped_compute_ranks(method="min")(sim_X, sim_Y)
-  # _inf_imb, _inf_imb_std = II_fn(R_II[0], R_II[1])
-  # sem_inf_imb.append(_inf_imb)
+    # ### sem_inf_imb
+    # sim_X, sim_Y = get_similarities(act, sem_centroids)
+    # R_II = mapped_compute_ranks(method="min")(sim_X, sim_Y)
+    # _inf_imb, _inf_imb_std = II_fn(R_II[0], R_II[1])
+    # sem_inf_imb.append(_inf_imb)
 
 print(f'inf_imb took {(time()-start)/60.:.2f} m')
 
-
 output_dir = f"results/centroids_correlations/loo_{loo_flag}/"
 os.makedirs(output_dir, exist_ok=True)
-print(f'{cos_means=}')
-print(f'{cos_stds=}')
-np.savetxt(os.path.join(output_dir,f'cos_similarities_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array([cos_means,cos_stds]).T)
+# print(f'{cos_means=}')
+# print(f'{cos_stds=}')
+# np.savetxt(os.path.join(output_dir,f'cos_similarities_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array([cos_means,cos_stds]).T)
 
 if syn_centroids_flag:
-  np.savetxt(os.path.join(output_dir,f'inf_imb_centroids_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(inf_imb))
+  np.save(os.path.join(output_dir,f'inf_imb_centroids_{space}_avg_{avg_tokens}_{model_name}.txt'), arr=inf_imb)
 #   np.savetxt(os.path.join(output_dir,f'inf_imb_syn_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(syn_inf_imb))
 # np.savetxt(os.path.join(output_dir,f'inf_imb_sem_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(sem_inf_imb))
