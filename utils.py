@@ -377,14 +377,6 @@ def load_and_subtract_syn_group_averages(act,
     act = batched_remove_centroid_projections(act,indices,loo_expanded_syn_centroids)
   return act
 
-def remove_syn_group_averages(act_A, act_B, centers, all_group_ids, removal_method, center_flag):
-    
-  for group_index in range(centers.shape[0]):
-    dynamic_indices = jnp.where(all_group_ids==group_index)[0]
-    center = centers[group_index]
-    act_A = _remove_syn_group_average(act_A, act_B, dynamic_indices, center, removal_method_map[removal_method], center_flag)
-  return act_A
-
 def load_sem_centroids(sim_folder,number_of_languages,language_list_permutation):
 
   centers_folder = sim_folder

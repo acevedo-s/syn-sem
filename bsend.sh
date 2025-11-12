@@ -3,12 +3,12 @@
 dbg=0
 modelA="deepseek"
 method="min"
-data_var="syn"
+data_var="sem"
 match_var="matching"  # "matching" or "mismatching"
-centers_var="syn"
+centers_var="sem"
 languages=('english')
 zero_activations=0
-center_A_flags=(0)
+center_A_flags=(0 1 -1)
 removal_methods=("projection")
 global_centerings=(0)
 avg_tokens_list=(0 1)
