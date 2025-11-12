@@ -12,11 +12,10 @@ from utils import (
                   flatten_tokens_features,
                   depths,
                   reduce_list_half_preserve_extremes,
-                  remove_syn_group_averages,
-                  load_and_subtract_syn_group_averages,
                   load_sem_centroids,
                   get_syn_centroids_folder,
                   load_syn_group_averages,
+                  get_syntax_expanded_counts,
                   batched_remove_centroid_projections,
                   reshuffle_batch_axis,
                    )
@@ -118,10 +117,8 @@ def preprocessing(all_activations,
                                 )
     syn_centroids = unique_syn_centroids[syn_group_ids_for_sem] #(n_samples_sem_with_syn,E)
     if loo_flag:
-      all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(int)) # (n_syn_samples,)
-      unique_syn_group_ids, unique_syn_group_counts = jnp.unique(all_syn_group_ids,return_counts=True)
-      assert unique_syn_group_ids.max() == unique_syn_centroids.shape[0] - 1
-      expanded_group_counts = unique_syn_group_counts[syn_group_ids_for_sem] #(n_samples_sem_with_syn,)
+      ### I have to use the counting of the original syntax data to do LOO properly
+      expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,syn_group_ids_for_sem)
       syn_centroids = (expanded_group_counts[:,None] * syn_centroids - act) / (expanded_group_counts[:,None] - 1) # loo syn_centroids
 
   ### 
@@ -211,9 +208,11 @@ for enum_layer_id,layer in enumerate(layer_vals):
     ### centroids_inf_imb
     sim_X, sim_Y = get_similarities(syn_centroids, sem_centroids)
     key = jax.random.PRNGKey(np.random.randint(0,1e6))
+
     sim_X = add_tiny_noise(sim_X, key)
     key = jax.random.PRNGKey(np.random.randint(0,1e6))
     sim_Y = add_tiny_noise(sim_Y, key)
+    
     R_II = mapped_compute_ranks(method="min")(sim_X, sim_Y)
     _inf_imb, _inf_imb_std = II_fn(R_II[0], R_II[1])
     inf_imb.append(_inf_imb)
@@ -239,7 +238,7 @@ print(f'{cos_means=}')
 print(f'{cos_stds=}')
 np.savetxt(os.path.join(output_dir,f'cos_similarities_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array([cos_means,cos_stds]).T)
 
-if syn_centroids_flag and space == 'A':
-  np.savetxt(os.path.join(output_dir,f'inf_imb_centroids_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(inf_imb))
+if syn_centroids_flag:
+  np.savetxt(os.path.join(output_dir,f'inf_imb_centroids_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(inf_imb))
 #   np.savetxt(os.path.join(output_dir,f'inf_imb_syn_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(syn_inf_imb))
 # np.savetxt(os.path.join(output_dir,f'inf_imb_sem_{space}_Ns_{sample_size}_avg_{avg_tokens}_{model_name}.txt'),np.array(sem_inf_imb))
