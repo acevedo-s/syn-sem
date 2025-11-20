@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+Her_PRP$ name_NN will_MD be_VB announced_VBN soon_RB
+You_PRP have_VBP deeply_RB regretted_VBN the_DT decision_NN
+The_DT student_NN learned_VBD from_IN the_DT lesson_NN
+The_DT official_JJ summons_NN went_VBD to_TO them_PRP
+An_DT old_JJ friend_NN talked_VBD to_TO us_PRP
+We_PRP should_MD openly_RB confront_VB the_DT problem_NN
+He_PRP might_MD suddenly_RB change_VB the_DT direction_NN
+Hemingway_NNP fished_VBD from_IN a_DT small_JJ boat_NN
+Mozart_NNP performed_VBD for_IN a_DT royal_JJ court_NN
+It_PRP can_MD instantly_RB change_VB the_DT atmosphere_NN
+They_PRP must_MD diligently_RB finish_VB the_DT work_NN
+He_PRP has_VBP bravely_RB fought_VBN the_DT battle_NN
+We_PRP have_VBP frequently_RB encountered_VBN the_DT issue_NN
+We_PRP have_VBP vividly_RB recalled_VBN the_DT memory_NN
+The_DT committee_NNS should_MD review_VB the_DT proposal_NN
+He_PRP has_VBP courageously_RB led_VBN the_DT team_NN
+She_PRP will_MD eagerly_RB anticipate_VB the_DT results_NNS
+They_PRP must_MD precisely_RB measure_VB the_DT dimensions_NNS
+She_PRP will_MD politely_RB interrupt_VB the_DT conversation_NN
+It_PRP can_MD effectively_RB present_VB the_DT data_NN
+All_DT pilots_NNS must_MD pass_VB the_DT test_NN
+A_DT runner_NN finished_VBD in_IN the_DT race_NN
+You_PRP could_MD calmly_RB accept_VB the_DT situation_NN
+You_PRP could_MD calmly_RB explain_VB the_DT situation_NN
+He_PRP might_MD accidentally_RB break_VB the_DT vase_NN
+All_DT citizens_NNS deserve_VBP a_DT fair_JJ trial_NN
+Those_DT clouds_NNS promise_VBP a_DT heavy_JJ rain_NN
+It_PRP can_MD reliably_RB provide_VB the_DT service_NN
+Maria_NNP vacationed_VBD on_IN a_DT tropical_JJ island_NN
+John_NNP lived_VBD in_IN a_DT small_JJ town_NN
+The_DT scent_NN wafted_VBD from_IN the_DT kitchen_NN
+A_DT thought_NN lingered_VBD in_IN the_DT mind_NN
+A_DT flower_NN bloomed_VBD in_IN the_DT garden_NN
+The_DT food_NN cooked_VBD on_IN the_DT stove_NN
+This_DT law_NN should_MD be_VB enforced_VBN strictly_RB
+The_DT system_NN will_MD be_VB updated_VBN automatically_RB
+It_PRP can_MD rapidly_RB spread_VB the_DT message_NN
+You_PRP could_MD quietly_RB observe_VB the_DT scene_NN
+Lincoln_NNP argued_VBD for_IN a_DT united_JJ nation_NN
+Bach_NNP played_VBD on_IN a_DT magnificent_JJ organ_NN
+All_DT homeowners_NNS must_MD maintain_VB their_PRP$ property_NN
+The_DT prisoner_NN will_MD be_VB released_VBN shortly_RB
+This_DT task_NN should_MD be_VB approached_VBN cautiously_RB
+It_PRP has_VBP rapidly_RB spread_VBN the_DT news_NN
+You_PRP have_VBP carefully_RB planned_VBN the_DT event_NN
+A_DT meeting_NN could_MD be_VB arranged_VBN privately_RB
+The_DT signal_NN might_MD be_VB received_VBN intermittently_RB
+We_PRP should_MD diligently_RB research_VB the_DT topic_NN
+It_PRP can_MD smoothly_RB handle_VB the_DT pressure_NN
+You_PRP could_MD slowly_RB walk_VB the_DT path_NN
+It_PRP can_MD powerfully_RB influence_VB the_DT outcome_NN
+The_DT curtain_NN moved_VBD with_IN the_DT breeze_NN
+A_DT sound_NN came_VBD from_IN the_DT room_NN
+Jobs_NNP insisted_VBD on_IN a_DT minimalist_JJ design_NN
+A_DT voice_NN echoed_VBD through_IN the_DT valley_NN
+The_DT smoke_NN rose_VBD from_IN the_DT chimney_NN
+A_DT wave_NN crashed_VBD onto_IN the_DT shore_NN
+The_DT device_NN powered_VBD off_IN the_DT grid_NN
+Victoria_NNP presided_VBD over_IN a_DT changing_JJ world_NN
+It_PRP can_MD easily_RB solve_VB the_DT puzzle_NN
+She_PRP will_MD cautiously_RB approach_VB the_DT animal_NN
+They_PRP have_VBP often_RB discussed_VBN the_DT problem_NN
+He_PRP has_VBP just_RB finished_VBN the_DT report_NN
+The_DT myth_NN might_MD be_VB debunked_VBN scientifically_RB
+A_DT former_JJ colleague_NN spoke_VBD to_TO them_PRP
+The_DT brown_JJ horse_NN galloped_VBD to_TO him_PRP
+Caesar_NNP marched_VBD into_IN a_DT foreign_JJ land_NN
+David_NNP arrived_VBD on_IN a_DT late_JJ train_NN
+This_DT rule_NN should_MD be_VB applied_VBN consistently_RB
+You_PRP could_MD easily_RB remember_VB the_DT details_NNS
+You_PRP have_VBP truly_RB surprised_VBN the_DT audience_NN
+It_PRP has_VBP widely_RB accepted_VBN the_DT change_NN
+A_DT story_NN could_MD be_VB written_VBN beautifully_RB
+The_DT building_NN might_MD be_VB demolished_VBN soon_RB
+The_DT game_NN might_MD be_VB won_VBN narrowly_RB
+A_DT message_NN could_MD be_VB sent_VBN instantly_RB
+You_PRP could_MD slowly_RB absorb_VB the_DT knowledge_NN
+He_PRP might_MD truly_RB understand_VB the_DT concept_NN
+We_PRP should_MD carefully_RB document_VB the_DT process_NN
+A_DT kind_JJ woman_NN waved_VBD to_TO me_PRP
+The_DT mysterious_JJ package_NN belonged_VBD to_TO him_PRP
+Michael_NNP played_VBD for_IN a_DT big_JJ team_NN
+A_DT special_JJ delivery_NN arrived_VBD for_IN you_PRP
+A_DT little_JJ girl_NN ran_VBD to_TO you_PRP
+You_PRP could_MD brightly_RB illuminate_VB the_DT room_NN
+The_DT pure_JJ gold_NN shone_VBD brilliantly_RB yellow_JJ
+The_DT last_JJ cookie_NN went_VBD to_TO her_PRP
+A_DT memory_NN flashed_VBD into_IN the_DT head_NN
+The_DT paper_NN lay_VBD on_IN the_DT desk_NN
+A_DT solution_NN could_MD be_VB found_VBN eventually_RB
+The_DT package_NN will_MD be_VB delivered_VBN tomorrow_RB
+These_DT policies_NNS create_VBP a_DT real_JJ impact_NN
+It_PRP can_MD successfully_RB overcome_VB the_DT obstacles_NNS
+We_PRP should_MD gracefully_RB accept_VB the_DT outcome_NN
+He_PRP might_MD boldly_RB challenge_VB the_DT idea_NN
+They_PRP must_MD immediately_RB address_VB the_DT issue_NN
+The_DT debate_NN will_MD be_VB broadcast_VBN live_RB
+He_PRP drove_VBD a_DT long_JJ distance_NN overnight_RB
+She_PRP sang_VBD a_DT beautiful_JJ song_NN there_RB
+Hitchcock_NNP delighted_VBD in_IN a_DT psychological_JJ twist_NN

@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+We_PRP seek_VBP a_DT perfect_JJ solution_NN for_IN the_DT problem_NN
+The_DT brave_JJ soldier_NN stood_VBD incredibly_RB resolute_JJ to_TO fight_VB
+The_DT complex_JJ puzzle_NN seemed_VBD surprisingly_RB easy_JJ to_TO solve_VB
+You_PRP feel_VBP a_DT strange_JJ presence_NN within_IN the_DT room_NN
+The_DT decision_NN was_VBD wisely_RB made_VBN for_IN their_PRP$ benefit_NN
+The_DT damage_NN was_VBD fully_RB repaired_VBN within_IN its_PRP$ structure_NN
+She_PRP finds_VBP a_DT valuable_JJ resource_NN on_IN the_DT internet_NN
+The_DT fast_JJ pace_NN and_CC a_DT rhythm_NN increased_VBD steadily_RB
+The_DT path_NN looks_VBZ incredibly_RB steep_JJ beyond_IN the_DT hill_NN
+The_DT plan_NN is_VBZ perfectly_RB good_JJ for_IN the_DT situation_NN
+You_PRP possess_VBP a_DT quality_NN that_WDT is_VBZ fundamentally_RB admirable_JJ
+They_PRP discuss_VBP a_DT topic_NN which_WDT is_VBZ academically_RB stimulating_JJ
+Near_IN the_DT rocky_JJ shore_NN the_DT waves_NNS crashed_VBD loudly_RB
+Volunteering_VBG at_IN a_DT shelter_NN makes_VBZ a_DT real_JJ difference_NN
+Failing_VBG on_IN a_DT test_NN is_VBZ a_DT learning_JJ experience_NN
+They_PRP are_VBZ a_DT reliable_JJ source_NN for_IN the_DT information_NN
+We_PRP are_VBZ a_DT cautious_JJ group_NN near_IN the_DT edge_NN
+She_PRP is_VBZ a_DT busy_JJ worker_NN during_IN the_DT day_NN
+Upon_IN the_DT smooth_JJ surface_NN the_DT water_NN rippled_VBD gently_RB
+The_DT answer_NN seems_VBZ very_RB clear_JJ in_IN the_DT book_NN
+The_DT outcome_NN looks_VBZ entirely_RB positive_JJ at_IN the_DT moment_NN
+A_DT clean_JJ plate_NN and_CC a_DT cup_NN sat_VBD neatly_RB
+The_DT final_JJ decision_NN felt_VBD utterly_RB necessary_JJ to_TO make_VB
+He_PRP is_VBZ a_DT creative_JJ mind_NN behind_IN the_DT design_NN
+We_PRP are_VBZ a_DT constant_JJ presence_NN throughout_IN the_DT year_NN
+He_PRP owns_VBP a_DT car_NN that_WDT is_VBZ usually_RB fast_JJ
+She_PRP remembers_VBP a_DT place_NN which_WDT is_VBZ nostalgically_RB beautiful_JJ
+They_PRP implement_VBP a_DT fair_JJ policy_NN across_IN the_DT organization_NN
+It_PRP offers_VBP a_DT unique_JJ perspective_NN on_IN the_DT subject_NN
+The_DT wall_NN painted_VBN by_IN a_DT child_NN looked_VBD cheerful_JJ
+The_DT product_NN sold_VBN by_IN that_DT vendor_NN was_VBD faulty_JJ
+A_DT young_JJ man_NN and_CC a_DT woman_NN talked_VBD politely_RB
+The_DT rising_JJ sun_NN and_CC a_DT shadow_NN lengthened_VBD slowly_RB
+The_DT girl_NN looked_VBD at_IN the_DT sky_NN and_CC sighed_VBD
+A_DT storm_NN gathered_VBD on_IN the_DT horizon_NN and_CC raged_VBD
+We_PRP share_VBP a_DT meal_NN that_WDT is_VBZ consistently_RB delicious_JJ
+You_PRP plant_VBP a_DT seed_NN which_WDT is_VBZ surprisingly_RB resilient_JJ
+The_DT data_NN was_VBD accurately_RB collected_VBN from_IN our_PRP$ samples_NNS
+The_DT solution_NN was_VBD universally_RB adopted_VBN by_IN its_PRP$ users_NNS
+I_PRP must_MD give_VB a_DT presentation_NN at_IN the_DT conference_NN
+The_DT heavy_JJ load_NN felt_VBD incredibly_RB burdensome_JJ to_TO carry_VB
+The_DT difficult_JJ task_NN proved_VBD quite_RB challenging_JJ to_TO complete_VB
+The_DT active_JJ team_NN and_CC a_DT group_NN worked_VBD efficiently_RB
+They_PRP are_VBZ a_DT unique_JJ example_NN in_IN the_DT field_NN
+It_PRP is_VBZ a_DT vital_JJ component_NN within_IN the_DT system_NN
+The_DT message_NN seems_VBZ incredibly_RB clear_JJ through_IN the_DT device_NN
+The_DT decision_NN is_VBZ absolutely_RB crucial_JJ for_IN the_DT future_NN
+Beneath_IN the_DT clear_JJ surface_NN the_DT fish_NNS swam_VBD freely_RB
+Past_IN the_DT busy_JJ street_NN the_DT shops_NNS closed_VBD early_RB
+She_PRP enjoys_VBP a_DT hobby_NN which_WDT is_VBZ remarkably_RB relaxing_JJ
+I_PRP own_VBP a_DT tool_NN that_WDT is_VBZ quite_RB effective_JJ
+Walking_VBG through_IN a_DT storm_NN builds_VBZ a_DT strong_JJ resilience_NN
+A_DT large_JJ dog_NN in_IN the_DT park_NN barked_VBD loudly_RB
+The_DT old_JJ house_NN in_IN the_DT village_NN stood_VBD silently_RB
+The_DT atmosphere_NN feels_VBZ beautifully_RB calm_JJ around_IN the_DT lake_NN
+The_DT sound_NN was_VBD faintly_RB heard_VBN from_IN their_PRP$ room_NN
+The_DT report_NN was_VBD diligently_RB prepared_VBN for_IN our_PRP$ review_NN
+We_PRP need_VBP a_DT strong_JJ leader_NN in_IN the_DT group_NN
+The_DT scent_NN smells_VBZ delightfully_RB sweet_JJ from_IN the_DT flowers_NNS
+The_DT task_NN appears_VBZ highly_RB difficult_JJ without_IN the_DT tools_NNS
+The_DT old_JJ song_NN sounded_VBD nostalgically_RB familiar_JJ to_TO recall_VB
+We_PRP were_VBD generally_RB accepted_VBN by_IN the_DT local_JJ residents_NNS
+I_PRP will_MD start_VB a_DT fire_NN in_IN the_DT fireplace_NN
+We_PRP would_MD sail_VB a_DT boat_NN on_IN the_DT lake_NN
+The_DT company_NN founded_VBN by_IN a_DT visionary_NN grew_VBD massive_JJ
+We_PRP may_MD find_VB a_DT solution_NN to_IN the_DT problem_NN
+Beyond_IN the_DT initial_JJ shock_NN the_DT understanding_NN grew_VBD slowly_RB
+During_IN the_DT tough_JJ challenge_NN the_DT team_NN persevered_VBD bravely_RB
+She_PRP studies_VBP a_DT subject_NN that_WDT is_VBZ deeply_RB fascinating_JJ
+You_PRP wear_VBP a_DT hat_NN which_WDT is_VBZ perfectly_RB stylish_JJ
+It_PRP was_VBD efficiently_RB managed_VBN by_IN the_DT experienced_JJ team_NN
+She_PRP was_VBD calmly_RB handled_VBN during_IN the_DT chaotic_JJ moment_NN
+It_PRP has_VBP a_DT feature_NN which_WDT is_VBZ extremely_RB useful_JJ
+They_PRP found_VBP a_DT treasure_NN that_WDT is_VBZ truly_RB valuable_JJ
+The_DT fragile_JJ item_NN felt_VBD extremely_RB delicate_JJ to_TO touch_VB
+Toward_IN the_DT bright_JJ light_NN the_DT insects_NNS flew_VBD fast_RB
+Under_IN the_DT watchful_JJ eye_NN the_DT work_NN progressed_VBD steadily_RB
+Across_IN the_DT vast_JJ desert_NN the_DT caravan_NN journeyed_VBD slowly_RB
+You_PRP are_VBZ a_DT careful_JJ planner_NN before_IN the_DT event_NN
+He_PRP is_VBZ a_DT great_JJ leader_NN within_IN the_DT team_NN
+A_DT clear_JJ message_NN and_CC a_DT note_NN arrived_VBD promptly_RB
+He_PRP gains_VBP a_DT significant_JJ advantage_NN over_IN the_DT competition_NN
+They_PRP maintain_VBP a_DT peaceful_JJ atmosphere_NN within_IN the_DT group_NN
+You_PRP solve_VBP a_DT complex_JJ problem_NN with_IN the_DT solution_NN
+The_DT water_NN tastes_VBZ strangely_RB bitter_JJ from_IN the_DT tap_NN
+The_DT answer_NN feels_VBZ deeply_RB satisfying_JJ to_IN the_DT question_NN
+The_DT problem_NN was_VBD quickly_RB resolved_VBN with_IN our_PRP$ intervention_NN
+The_DT equipment_NN was_VBD regularly_RB maintained_VBN within_IN your_PRP$ budget_NN
+The_DT award_NN was_VBD honorably_RB presented_VBN to_IN their_PRP$ nominee_NN
+The_DT story_NN was_VBD vividly_RB recalled_VBN from_IN our_PRP$ childhood_NN
+She_PRP is_VBZ a_DT wise_JJ elder_NN in_IN the_DT community_NN
+We_PRP are_VBZ a_DT strong_JJ team_NN for_IN the_DT project_NN
+He_PRP was_VBD openly_RB welcomed_VBN into_IN the_DT new_JJ community_NN
+She_PRP must_MD get_VB a_DT passport_NN for_IN the_DT travel_NN
+The_DT silence_NN feels_VBZ eerily_RB profound_JJ within_IN the_DT chamber_NN
+He_PRP sells_VBP a_DT product_NN that_WDT is_VBZ always_RB reliable_JJ
+We_PRP prefer_VBP a_DT path_NN which_WDT is_VBZ mostly_RB smooth_JJ
+The_DT small_JJ bird_NN in_IN the_DT tree_NN sang_VBD sweetly_RB
+A_DT hidden_JJ message_NN in_IN the_DT letter_NN was_VBD found_RB
+You_PRP are_VBZ a_DT keen_JJ observer_NN of_IN the_DT nature_NN

@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+Emily_NNP studied_VBD at_IN a_DT famous_JJ university_NN
+The_DT cat_NN slept_VBD in_IN the_DT basket_NN
+A_DT compromise_NN could_MD be_VB reached_VBN amicably_RB
+They_PRP must_MD diligently_RB complete_VB the_DT work_NN
+You_PRP could_MD patiently_RB explain_VB the_DT process_NN
+He_PRP might_MD reluctantly_RB accept_VB the_DT offer_NN
+It_PRP has_VBP precisely_RB fit_VBN the_DT space_NN
+They_PRP must_MD rigorously_RB test_VB the_DT product_NN
+We_PRP have_VBP always_RB supported_VBN the_DT idea_NN
+Mandela_NNP emerged_VBD from_IN a_DT long_JJ imprisonment_NN
+He_PRP has_VBP strongly_RB advised_VBN the_DT group_NN
+She_PRP will_MD politely_RB refuse_VB the_DT request_NN
+He_PRP might_MD safely_RB cross_VB the_DT street_NN
+He_PRP might_MD secretly_RB plot_VB the_DT escape_NN
+The_DT door_NN might_MD be_VB opened_VBN remotely_RB
+A_DT treaty_NN could_MD be_VB signed_VBN peacefully_RB
+A_DT cup_NN sat_VBD on_IN the_DT counter_NN
+A_DT path_NN led_VBD to_IN the_DT cottage_NN
+The_DT rain_NN fell_VBD on_IN the_DT ground_NN
+A_DT dog_NN barked_VBD at_IN the_DT stranger_NN
+She_PRP will_MD eagerly_RB await_VB the_DT news_NN
+We_PRP have_VBP consistently_RB achieved_VBN the_DT goal_NN
+We_PRP solved_VBD a_DT complex_JJ puzzle_NN together_RB
+The_DT team_NN scored_VBD against_IN the_DT opponent_NN
+You_PRP could_MD wisely_RB invest_VB the_DT capital_NN
+They_PRP must_MD seriously_RB consider_VB the_DT proposal_NN
+This_DT method_NN should_MD be_VB used_VBN sparingly_RB
+A_DT star_NN twinkled_VBD in_IN the_DT night_NN
+The_DT music_NN played_VBD inside_IN the_DT hall_NN
+He_PRP might_MD quickly_RB find_VB the_DT key_NN
+You_PRP should_MD gently_RB close_VB the_DT door_NN
+NASA_NNP planned_VBD for_IN a_DT manned_JJ mission_NN
+A_DT path_NN could_MD be_VB chosen_VBN wisely_RB
+The_DT task_NN can_MD be_VB completed_VBN quickly_RB
+Microsoft_NNP competed_VBD with_IN a_DT rival_JJ company_NN
+He_PRP might_MD easily_RB forget_VB the_DT details_NNS
+He_PRP might_MD vaguely_RB remember_VB the_DT event_NN
+They_PRP must_MD strictly_RB follow_VB the_DT protocol_NN
+A_DT dog_NN chased_VBD a_DT squirrel_NN and_CC the_DT animal_NN ran_VBD fast_RB
+The_DT athlete_NN won_VBD the_DT medal_NN and_CC the_DT crowd_NN cheered_VBD loudly_RB
+The_DT soft_JJ sound_NN and_CC the_DT loud_JJ noise_NN affected_VBD the_DT quiet_NN
+A_DT strong_JJ opinion_NN and_CC a_DT weak_JJ argument_NN influenced_VBD the_DT debate_NN
+A_DT peaceful_JJ walk_NN and_CC a_DT hurried_JJ run_NN consumed_VBD different_JJ energies_NNS
+The_DT captain_NN guided_VBD the_DT ship_NN and_CC the_DT journey_NN proceeded_VBD smoothly_RB
+A_DT child_NN found_VBD a_DT toy_NN and_CC the_DT parent_NN smiled_VBD widely_RB
+The_DT early_JJ bird_NN and_CC the_DT late_JJ worm_NN experienced_VBD different_JJ fates_NNS
+The_DT item_NN that_WDT they_PRP need_VBP is_VBZ in_IN the_DT store_NN
+The_DT star_NN of_IN the_DT show_NN delivered_VBD a_DT great_JJ performance_NN
+A_DT part_NN of_IN the_DT machine_NN made_VBD a_DT strange_JJ sound_NN
+The_DT person_NN who_WDT you_PRP saw_VBP works_VBZ in_IN the_DT building_NN
+The_DT cook_NN prepared_VBD the_DT meal_NN and_CC the_DT diner_NN ate_VBD
+A_DT dog_NN chased_VBD a_DT squirrel_NN and_CC the_DT animal_NN ran_VBD
+A_DT child_NN found_VBD a_DT toy_NN and_CC the_DT parent_NN smiled_VBD
+I_PRP support_VBP a_DT team_NN and_CC he_PRP supports_VBZ a_DT player_NN
+I_PRP prefer_VBP the_DT coffee_NN and_CC she_PRP prefers_VBZ the_DT tea_NN
+The_DT researcher_NN found_VBD the_DT cure_NN and_CC the_DT disease_NN vanished_VBD
+I_PRP cook_VBP the_DT dinner_NN and_CC she_PRP cooks_VBZ the_DT breakfast_NN
+You_PRP tell_VBP a_DT story_NN while_CC I_PRP tell_VBP a_DT lie_NN
+I_PRP could_MD record_VB a_DT video_NN for_IN my_PRP$ online_JJ channel_NN
+You_PRP read_VBP a_DT book_NN while_CC I_PRP watch_VBP a_DT film_NN
+They_PRP ask_VBP a_DT question_NN and_CC we_PRP ask_VBP a_DT favor_NN
+We_PRP had_VBD a_DT heated_JJ debate_NN about_IN a_DT controversial_JJ topic_NN
+The_DT knowledge_NN that_WDT we_PRP seek_VBP lies_VBZ in_IN the_DT research_NN
+We_PRP climb_VBP a_DT mountain_NN but_CC they_PRP climb_VBP a_DT ladder_NN
+You_PRP fix_VBP a_DT machine_NN while_CC I_PRP fix_VBP a_DT problem_NN
+They_PRP face_VBP a_DT challenge_NN and_CC we_PRP face_VBP a_DT crisis_NN
+You_PRP choose_VBP a_DT path_NN while_CC I_PRP choose_VBP a_DT destination_NN
+You_PRP see_VBP a_DT flock_NN while_CC I_PRP see_VBP a_DT bird_NN
+They_PRP plant_VBP a_DT tree_NN and_CC we_PRP plant_VBP a_DT seed_NN
+I_PRP bake_VBP a_DT cake_NN and_CC he_PRP bakes_VBZ a_DT pie_NN
+A_DT species_NN which_WDT they_PRP study_VBP lives_VBZ in_IN the_DT ocean_NN
+A_DT detail_NN in_IN the_DT report_NN changed_VBD the_DT entire_JJ story_NN
+An_DT issue_NN with_IN the_DT software_NN caused_VBD a_DT major_JJ problem_NN
+A_DT chapter_NN in_IN the_DT book_NN described_VBD a_DT fantastic_JJ world_NN
+The_DT bird_NN on_IN the_DT branch_NN sang_VBD a_DT lovely_JJ tune_NN
+I_PRP drink_VBP some_DT water_NN and_CC he_PRP drinks_VBZ some_DT juice_NN
+I_PRP remember_VBP a_DT name_NN and_CC she_PRP remembers_VBZ a_DT face_NN
+He_PRP should_MD say_VB a_DT prayer_NN for_IN his_PRP$ sick_JJ relative_NN
+The_DT new_JJ system_NN in_IN the_DT office_NN worked_VBD exceptionally_RB well_RB
+A_DT piece_NN of_IN the_DT puzzle_NN was_VBD a_DT different_JJ color_NN
+A_DT tired_JJ worker_NN in_IN the_DT chair_NN rested_VBD absolutely_RB still_JJ
+The_DT air_NN appears_VBZ remarkably_RB humid_JJ in_IN the_DT tropics_NNS
+The_DT message_NN seems_VBZ perfectly_RB clear_JJ for_IN the_DT recipients_NNS
+It_PRP offers_VBP a_DT unique_JJ opportunity_NN for_IN the_DT team_NN
+He_PRP is_VBZ a_DT famous_JJ writer_NN throughout_IN the_DT world_NN
+The_DT urgent_JJ message_NN felt_VBD instantly_RB critical_JJ to_TO deliver_VB
+The_DT sweet_JJ fruit_NN tasted_VBD deliciously_RB ripe_JJ to_TO eat_VB
+He_PRP can_MD book_VB a_DT room_NN for_IN our_PRP$ vacation_NN
+I_PRP should_MD find_VB a_DT cure_NN for_IN my_PRP$ ailment_NN
+The_DT child_NN fell_VBD on_IN the_DT ground_NN and_CC cried_VBD
+A_DT volcano_NN erupted_VBD near_IN the_DT town_NN and_CC destroyed_VBD
+They_PRP took_VBD a_DT long_JJ walk_NN along_IN the_DT beach_NN
+He_PRP showed_VBD a_DT real_JJ talent_NN for_IN the_DT music_NN
+The_DT clear_JJ sky_NN looked_VBD truly_RB beautiful_JJ to_TO behold_VB
+Near_IN the_DT peaceful_JJ lake_NN the_DT ducks_NNS swam_VBD calmly_RB
+Around_IN the_DT central_JJ pillar_NN the_DT stairs_NNS wound_VBD upward_RB
+He_PRP sings_VBP a_DT song_NN which_WDT is_VBZ always_RB memorable_JJ
+It_PRP sends_VBP a_DT message_NN that_WDT is_VBZ critically_RB urgent_JJ
+We_PRP have_VBP a_DT friend_NN who_WDT is_VBZ always_RB kind_JJ
+He_PRP chooses_VBP a_DT route_NN that_WDT is_VBZ usually_RB scenic_JJ

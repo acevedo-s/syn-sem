@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+A_DT bird_NN on_IN the_DT thin_JJ wire_NN sang_VBD sweetly_RB
+We_PRP were_VBD deeply_RB impressed_VBN with_IN the_DT excellent_JJ performance_NN
+He_PRP was_VBD calmly_RB interviewed_VBN by_IN the_DT local_JJ journalist_NN
+I_PRP may_MD adopt_VB a_DT puppy_NN from_IN the_DT shelter_NN
+He_PRP will_MD find_VB the_DT book_NN in_IN the_DT library_NN
+He_PRP will_MD cook_VB a_DT feast_NN for_IN the_DT celebration_NN
+We_PRP should_MD clean_VB the_DT house_NN before_IN the_DT party_NN
+An_DT actor_NN from_IN a_DT movie_NN visited_VBD the_DT school_NN
+The_DT painting_NN on_IN the_DT wall_NN impressed_VBD the_DT critic_NN
+He_PRP was_VBD honorably_RB mentioned_VBN in_IN the_DT main_JJ speech_NN
+You_PRP were_VBD emotionally_RB moved_VBN by_IN the_DT heartfelt_JJ story_NN
+The_DT paintings_NNS will_MD be_VB sold_VBN at_IN an_DT auction_NN
+Through_IN the_DT narrow_JJ gap_NN a_DT glimpse_NN appeared_VBD briefly_RB
+Across_IN the_DT empty_JJ stage_NN the_DT spotlight_NN shone_VBD brightly_RB
+The_DT jewel_NN stolen_VBN by_IN the_DT thief_NN was_VBD priceless_JJ
+Dancing_VBG through_IN the_DT night_NN is_VBZ a_DT fun_JJ activity_NN
+Laughing_VBG with_IN a_DT friend_NN creates_VBZ a_DT fond_JJ memory_NN
+All_DT resources_NNS must_MD be_VB managed_VBN by_IN a_DT supervisor_NN
+I_PRP need_VBP a_DT quiet_JJ place_NN for_IN some_DT meditation_NN
+We_PRP can_MD discuss_VB the_DT issue_NN after_IN the_DT meeting_NN
+I_PRP may_MD write_VB a_DT song_NN for_IN the_DT competition_NN
+I_PRP must_MD finish_VB this_DT work_NN by_IN the_DT deadline_NN
+They_PRP can_MD organize_VB a_DT fundraiser_NN for_IN the_DT charity_NN
+The_DT light_NN from_IN the_DT moon_NN illuminated_VBD the_DT path_NN
+A_DT woman_NN with_IN a_DT hat_NN entered_VBD the_DT shop_NN
+They_PRP will_MD plant_VB a_DT tree_NN in_IN the_DT garden_NN
+You_PRP might_MD find_VB some_DT money_NN on_IN the_DT street_NN
+Protesting_VBG against_IN an_DT injustice_NN shows_VBZ a_DT strong_JJ character_NN
+Fishing_VBG at_IN a_DT lake_NN is_VBZ a_DT peaceful_JJ pastime_NN
+Camping_VBG in_IN the_DT wilderness_NN presents_VBZ a_DT unique_JJ challenge_NN
+Learning_VBG about_IN a_DT culture_NN is_VBZ a_DT rewarding_JJ endeavor_NN
+He_PRP may_MD propose_VB a_DT toast_NN at_IN the_DT dinner_NN
+I_PRP will_MD get_VB the_DT tickets_NN for_IN the_DT show_NN
+A_DT project_NN managed_VBN by_IN that_DT woman_NN was_VBD successful_JJ
+You_PRP could_MD leave_VB the_DT key_NN under_IN the_DT doormat_NN
+He_PRP was_VBD courageously_RB fought_VBN against_IN the_DT formidable_JJ opponent_NN
+You_PRP were_VBD repeatedly_RB warned_VBN about_IN the_DT potential_JJ danger_NN
+They_PRP must_MD build_VB a_DT bridge_NN over_IN the_DT river_NN
+The_DT fragile_JJ vase_NN on_IN the_DT shelf_NN broke_VBD easily_RB
+Sharing_VBG with_IN another_DT person_NN shows_VBZ a_DT kind_JJ heart_NN
+He_PRP was_VBD logically_RB deduced_VBN from_IN the_DT available_JJ facts_NNS
+She_PRP can_MD make_VB a_DT cake_NN for_IN the_DT event_NN
+Upon_IN the_DT polished_JJ floor_NN the_DT light_NN reflected_VBD brightly_RB
+Within_IN the_DT quiet_JJ room_NN a_DT clock_NN ticked_VBD slowly_RB
+Against_IN the_DT strong_JJ current_NN the_DT swimmer_NN pushed_VBD hard_RB
+A_DT powerful_JJ engine_NN in_IN the_DT car_NN ran_VBD smoothly_RB
+Through_IN the_DT dense_JJ fog_NN a_DT light_NN appeared_VBD faintly_RB
+A_DT promise_NN broken_VBN by_IN a_DT politician_NN feels_VBZ normal_JJ
+The_DT green_JJ grass_NN in_IN the_DT field_NN grew_VBD rapidly_RB
+Lying_VBG to_IN a_DT judge_NN constitutes_VBZ a_DT serious_JJ crime_NN
+A_DT warm_JJ blanket_NN on_IN the_DT couch_NN felt_VBD cozy_RB
+The_DT wise_JJ advice_NN from_IN the_DT elder_NN helped_VBD greatly_RB
+A_DT sweet_JJ aroma_NN from_IN the_DT bakery_NN drifted_VBD widely_RB
+The_DT old_JJ painting_NN in_IN the_DT museum_NN hung_VBD quietly_RB
+We_PRP were_VBD mutually_RB agreed_VBN upon_IN the_DT proposed_JJ terms_NNS
+They_PRP can_MD start_VB the_DT project_NN after_IN the_DT meeting_NN
+She_PRP will_MD lead_VB the_DT team_NN to_IN a_DT victory_NN
+The_DT new_JJ system_NN in_IN the_DT office_NN worked_VBD smoothly_RB
+A_DT brave_JJ soldier_NN on_IN the_DT field_NN fought_VBD fiercely_RB
+She_PRP was_VBD clearly_RB affected_VBN by_IN the_DT shocking_JJ news_NN
+You_PRP were_VBD wisely_RB advised_VBN against_IN the_DT risky_JJ venture_NN
+A_DT quick_JJ glance_NN at_IN the_DT clock_NN passed_VBD swiftly_RB
+The_DT tall_JJ tree_NN near_IN the_DT house_NN swayed_VBD gently_RB
+You_PRP were_VBD bravely_RB fought_VBN against_IN the_DT unfair_JJ system_NN
+He_PRP was_VBD unfortunately_RB impacted_VBN by_IN the_DT severe_JJ weather_NN
+The_DT difficult_JJ question_NN in_IN the_DT test_NN remained_VBD unanswered_RB
+A_DT fast_JJ car_NN on_IN the_DT road_NN moved_VBD quickly_RB
+They_PRP were_VBD truly_RB surprised_VBN by_IN the_DT sudden_JJ announcement_NN
+She_PRP was_VBD secretly_RB observed_VBN from_IN the_DT nearby_JJ building_NN
+A_DT heavy_JJ door_NN on_IN the_DT vault_NN closed_VBD securely_RB
+The_DT fresh_JJ water_NN in_IN the_DT stream_NN flowed_VBD freely_RB
+You_PRP were_VBD diligently_RB trained_VBN for_IN the_DT demanding_JJ competition_NN
+She_PRP was_VBD politely_RB declined_VBN by_IN the_DT organizing_JJ committee_NN
+The_DT quiet_JJ child_NN in_IN the_DT bed_NN slept_VBD peacefully_RB
+A_DT heavy_JJ rain_NN on_IN the_DT roof_NN fell_VBD steadily_RB
+An_DT employee_NN with_IN no_DT experience_NN got_VBD the_DT job_NN
+The_DT busy_JJ market_NN in_IN the_DT square_NN bustled_VBD constantly_RB
+A_DT urgent_JJ call_NN from_IN the_DT phone_NN rang_VBD loudly_RB
+They_PRP can_MD solve_VB the_DT puzzle_NN in_IN the_DT newspaper_NN
+A_DT calm_JJ ocean_NN in_IN the_DT morning_NN sparkled_VBD brightly_RB
+The_DT empty_JJ theatre_NN after_IN the_DT show_NN remained_VBD quiet_RB
+The_DT horse_NN in_IN the_DT lead_NN won_VBD the_DT race_NN
+A_DT monster_NN from_IN a_DT legend_NN terrorized_VBD the_DT village_NN
+The_DT president_NN of_IN the_DT club_NN made_VBD an_DT announcement_NN
+It_PRP was_VBD patiently_RB explained_VBN to_IN the_DT young_JJ student_NN
+We_PRP were_VBD genuinely_RB surprised_VBN at_IN the_DT unexpected_JJ twist_NN
+A_DT clear_JJ voice_NN from_IN the_DT speaker_NN echoed_VBD loudly_RB
+The_DT soft_JJ whisper_NN in_IN the_DT ear_NN comforted_VBD gently_RB
+The_DT evidence_NN found_VBN by_IN the_DT detective_NN seemed_VBD conclusive_JJ
+A_DT record_NN set_VBN by_IN an_DT athlete_NN was_VBD incredible_JJ
+The_DT broken_JJ toy_NN on_IN the_DT floor_NN lay_VBD sadly_RB
+A_DT final_JJ decision_NN in_IN the_DT meeting_NN was_VBD announced_RB
+The_DT car_NN with_IN the_DT loud_JJ engine_NN drove_VBD quickly_RB
+The_DT quick_JJ runner_NN on_IN the_DT track_NN finished_VBD fast_RB
+A_DT young_JJ artist_NN in_IN the_DT studio_NN painted_VBD skillfully_RB
+The_DT train_NN at_IN the_DT station_NN departed_VBD punctually_RB
+A_DT rumor_NN about_IN the_DT celebrity_NN spread_VBD virally_RB
+We_PRP cleaned_VBD the_DT entire_JJ house_NN and_CC relaxed_VBD
+He_PRP planted_VBD a_DT tiny_JJ seed_NN and_CC watered_VBD
+Churchill_NNP gave_VBD a_DT defiant_JJ speech_NN in_IN London_NNP

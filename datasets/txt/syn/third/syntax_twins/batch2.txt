@@ -1,0 +1,100 @@
+I_PRP might_MD write_VB a_DT letter_NN to_IN my_PRP$ uncle_NN	She_PRP will_MD bake_VB a_DT cake_NN for_IN her_PRP$ friend_NN
+We_PRP should_MD study_VB the_DT map_NN before_IN our_PRP$ journey_NN	You_PRP can_MD clean_VB the_DT room_NN after_IN your_PRP$ party_NN
+A_DT meal_NN cooked_VBN by_IN a_DT chef_NN tasted_VBD divine_JJ	The_DT money_NN hidden_VBN under_IN the_DT mattress_NN went_VBD missing_JJ
+The_DT artifact_NN discovered_VBN in_IN the_DT tomb_NN was_VBD ancient_JJ	A_DT message_NN written_VBN on_IN a_DT napkin_NN became_VBD famous_JJ
+The_DT green_JJ parrot_NN squawked_VBD at_IN them_PRP	A_DT crazy_JJ driver_NN honked_VBD at_IN us_PRP
+We_PRP discussed_VBD a_DT sensitive_JJ topic_NN privately_RB	She_PRP ate_VBD a_DT sour_JJ lemon_NN slowly_RB
+Amazon_NNP started_VBD an_DT online_JJ bookstore_NN in_IN Seattle_NNP	Beethoven_NNP composed_VBD a_DT beautiful_JJ symphony_NN in_IN Vienna_NNP
+NASA_NNP landed_VBD a_DT robotic_JJ rover_NN on_IN Mars_NNP	Picasso_NNP painted_VBD a_DT cubist_JJ portrait_NN in_IN Spain_NNP
+Many_DT people_NNS may_MD dislike_VB the_DT change_NN	All_DT dogs_NNS must_MD obey_VB the_DT rule_NN
+We_PRP diligently_VBD searched_RB for_VBN the_IN missing_DT item_JJ	It_PRP was_VBD never_RB seen_VBN as_IN a_DT criminal_JJ
+It_PRP was_VBD rapidly_RB transformed_VBN into_IN a_DT beautiful_JJ garden_NN	He_PRP was_VBD badly_RB injured_VBN in_IN a_DT terrible_JJ accident_NN
+He_PRP read_VBD an_DT interesting_JJ article_NN online_RB	She_PRP sang_VBD a_DT romantic_JJ song_NN beautifully_RB
+A_DT clear_JJ voice_NN spoke_VBD remarkably_RB calm_JJ	The_DT dark_JJ room_NN felt_VBD surprisingly_RB cold_JJ
+You_PRP write_VBP a_DT poem_NN while_CC I_PRP write_VBP a_DT novel_NN	We_PRP eat_VBP a_DT pizza_NN but_CC they_PRP eat_VBP a_DT salad_NN
+He_PRP can_MD skillfully_RB navigate_VB the_DT treacherous_JJ water_NN	She_PRP will_MD probably_RB win_VB the_DT first_JJ prize_NN
+I_PRP will_MD personally_RB guarantee_VB a_DT positive_JJ outcome_NN	He_PRP should_MD immediately_RB stop_VB this_DT foolish_JJ behavior_NN
+The_DT flowers_NNS bloom_VBP in_IN the_DT warm_JJ spring_NN	These_DT machines_NNS run_VBP on_IN a_DT new_JJ system_NN
+Those_DT buildings_NNS stand_VBP on_IN a_DT solid_JJ foundation_NN	Some_DT birds_NNS fly_VBP to_IN a_DT warmer_JJ climate_NN
+A_DT powerful_JJ engine_NN ran_VBD incredibly_RB smooth_JJ	A_DT happy_JJ dog_NN played_VBD very_RB rough_JJ
+The_DT tall_JJ tree_NN stood_VBD perfectly_RB still_JJ	The_DT old_JJ man_NN sat_VBD quietly_RB alone_JJ
+He_PRP can_MD perfectly_RB imitate_VB a_DT famous_JJ actor_NN	I_PRP must_MD really_RB hate_VB that_DT stupid_JJ game_NN
+They_PRP love_VBP the_DT summer_NN and_CC we_PRP love_VBP the_DT winter_NN	You_PRP bring_VBP the_DT wine_NN and_CC I_PRP bring_VBP the_DT cheese_NN
+All_DT drivers_NNS must_MD have_VB a_DT license_NN	Some_DT students_NNS may_MD need_VB a_DT tutor_NN
+They_PRP might_MD eventually_RB find_VB the_DT hidden_JJ treasure_NN	We_PRP will_MD surely_RB miss_VB the_DT last_JJ bus_NN
+She_PRP may_MD request_VB a_DT song_NN from_IN the_DT wedding_JJ DJ_NN	He_PRP could_MD buy_VB a_DT car_NN from_IN the_DT used_JJ lot_NN
+Many_DT chefs_NNS use_VBP a_DT secret_JJ ingredient_NN	No_DT cats_NNS like_VBP a_DT wet_JJ floor_NN
+Few_DT politicians_NNS tell_VBP the_DT whole_JJ truth_NN	These_DT kids_NNS eat_VBP the_DT sweet_JJ candy_NN
+I_PRP will_MD undoubtedly_RB remember_VB this_DT wonderful_JJ day_NN	You_PRP can_MD easily_RB see_VB that_DT bright_JJ star_NN
+A_DT speeding_JJ car_NN raced_VBD toward_IN us_PRP	The_DT angry_JJ bear_NN ran_VBD after_IN him_PRP
+You_PRP should_MD take_VB an_DT aspirin_NN for_IN your_PRP$ headache_NN	We_PRP must_MD clean_VB the_DT garage_NN before_IN our_PRP$ trip_NN
+She_PRP would_MD hide_VB a_DT diary_NN under_IN her_PRP$ bed_NN	He_PRP might_MD put_VB the_DT key_NN in_IN his_PRP$ pocket_NN
+A_DT bold_JJ move_NN felt_VBD unusually_RB risky_JJ	The_DT hot_JJ soup_NN tasted_VBD extremely_RB spicy_JJ
+The_DT cold_JJ drink_NN tasted_VBD wonderfully_RB sweet_JJ	A_DT long_JJ hike_NN seemed_VBD impossibly_RB hard_JJ
+I_PRP play_VBP the_DT guitar_NN and_CC she_PRP plays_VBP the_DT violin_NN	They_PRP watch_VBP the_DT game_NN and_CC we_PRP watch_VBP the_DT movie_NN
+He_PRP can_MD legally_RB refuse_VB this_DT unreasonable_JJ demand_NN	I_PRP will_MD happily_RB sign_VB that_DT legal_JJ document_NN
+They_PRP might_MD accidentally_RB break_VB the_DT expensive_JJ vase_NN	You_PRP should_MD never_RB touch_VB a_DT hot_JJ stove_NN
+He_PRP can_MD catch_VB a_DT ball_NN with_IN his_PRP$ glove_NN	She_PRP will_MD paint_VB the_DT wall_NN with_IN her_PRP$ brush_NN
+I_PRP might_MD receive_VB an_DT award_NN for_IN my_PRP$ achievement_NN	You_PRP may_MD need_VB a_DT permit_NN for_IN your_PRP$ business_NN
+They_PRP might_MD quietly_RB leave_VB the_DT noisy_JJ party_NN	We_PRP can_MD slowly_RB climb_VB the_DT steep_JJ hill_NN
+I_PRP will_MD gladly_RB accept_VB your_PRP$ kind_JJ offer_NN	She_PRP would_MD kindly_RB help_VB my_PRP$ sick_JJ mother_NN
+You_PRP were_VBD unexpectedly_RB caught_VBN in_IN the_DT heavy_JJ rain_NN	We_PRP were_VBD pleasantly_RB surprised_VBN by_IN the_DT good_JJ news_NN
+I_PRP forgot_VBD an_DT important_JJ date_NN just_RB now_RB	He_PRP bought_VBD a_DT red_JJ car_NN right_RB there_RB
+She_PRP painted_VBD a_DT stunning_JJ portrait_NN long_RB ago_RB	They_PRP visited_VBD that_DT old_JJ castle_NN twice_RB daily_RB
+She_PRP should_MD select_VB a_DT topic_NN for_IN her_PRP$ presentation_NN	You_PRP must_MD wear_VB a_DT helmet_NN for_IN your_PRP$ safety_NN
+She_PRP would_MD usually_RB eat_VB a_DT light_JJ breakfast_NN	It_PRP can_MD sometimes_RB rain_VB a_DT little_JJ bit_NN
+Singing_VBG in_IN a_DT choir_NN builds_VBZ a_DT community_NN	Walking_VBG in_IN the_DT rain_NN causes_VBZ a_DT cold_NN
+She_PRP would_MD hardly_RB recognize_VB this_DT old_JJ town_NN	I_PRP can_MD barely_RB hear_VB that_DT quiet_JJ sound_NN
+He_PRP can_MD almost_RB touch_VB the_DT low_JJ ceiling_NN	We_PRP will_MD just_RB watch_VB the_DT big_JJ game_NN
+The_DT task_NN assigned_VBN to_IN the_DT group_NN was_VBD difficult_JJ	A_DT letter_NN sent_VBN to_IN the_DT mayor_NN was_VBD angry_JJ
+A_DT rumor_NN started_VBN by_IN a_DT rival_NN proved_VBD false_JJ	The_DT cake_NN baked_VBN by_IN the_DT mom_NN smelled_VBD good_JJ
+She_PRP would_MD frequently_RB recall_VB her_PRP$ happy_JJ childhood_NN	He_PRP must_MD always_RB wash_VB his_PRP$ dirty_JJ hands_NN
+The_DT bright_JJ light_NN shone_VBD intensely_RB clear_JJ	A_DT loud_JJ noise_NN sounded_VBD terribly_RB annoying_JJ
+A_DT wise_JJ elder_NN spoke_VBD profoundly_RB true_JJ	The_DT new_JJ girl_NN acted_VBD very_RB shy_JJ
+The_DT king_NN of_IN the_DT realm_NN ruled_VBD wisely_RB	A_DT piece_NN of_IN the_DT pie_NN tasted_VBD bad_RB
+A_DT terrifying_JJ monster_NN appeared_VBD before_IN them_PRP	The_DT shy_JJ cat_NN hid_VBD behind_IN us_PRP
+The_DT small_JJ child_NN smiled_VBD very_RB happily_RB	A_DT fat_JJ cat_NN sat_VBD there_RB lazily_RB
+It_PRP was_VBD broadly_RB accepted_VBN as_IN a_DT new_JJ standard_NN	He_PRP was_VBD widely_RB known_VBN as_IN a_DT bad_JJ actor_NN
+They_PRP fear_VBP the_DT dark_NN and_CC we_PRP fear_VBP the_DT unknown_NN	I_PRP like_VBP the_DT sun_NN but_CC you_PRP like_VBP the_DT rain_NN
+You_PRP see_VBP a_DT problem_NN while_CC I_PRP see_VBP a_DT solution_NN	We_PRP want_VBP a_DT cat_NN but_CC they_PRP want_VBP a_DT dog_NN
+The_DT monkeys_NNS might_MD steal_VB your_PRP$ food_NN	These_DT tools_NNS can_MD fix_VB my_PRP$ bike_NN
+All_DT patients_NNS must_MD provide_VB their_PRP$ history_NN	Some_DT teachers_NNS should_MD check_VB our_PRP$ work_NN
+He_PRP can_MD confidently_RB lead_VB the_DT entire_JJ team_NN	It_PRP might_MD suddenly_RB rain_VB the_DT whole_JJ day_NN
+They_PRP might_MD also_RB want_VB a_DT small_JJ snack_NN	We_PRP will_MD not_RB need_VB a_DT big_JJ bag_NN
+A_DT sharp_JJ wit_NN seemed_VBD surprisingly_RB quick_JJ	The_DT blue_JJ sky_NN looked_VBD amazingly_RB clear_JJ
+The_DT hot_JJ sun_NN shone_VBD intensely_RB bright_JJ	A_DT loud_JJ bell_NN rang_VBD very_RB long_JJ
+Lincoln_NNP delivered_VBD a_DT powerful_JJ address_NN at_IN Gettysburg_NNP	Shakespeare_NNP wrote_VBD a_DT famous_JJ play_NN in_IN London_NNP
+The_DT girl_NN with_IN the_DT red_JJ ribbon_NN danced_VBD gracefully_RB	A_DT boy_NN on_IN a_DT blue_JJ bike_NN rode_VBD fast_RB
+The_DT quick_JJ runner_NN finished_VBD incredibly_RB fast_RB	That_DT old_JJ man_NN walked_VBD very_RB slowly_RB
+A_DT large_JJ dog_NN barked_VBD quite_RB loudly_RB	The_DT small_JJ bird_NN sang_VBD so_RB sweetly_RB
+We_PRP create_VBP some_DT art_NN but_CC they_PRP create_VBP some_DT chaos_NN	I_PRP need_VBP no_DT help_NN and_CC you_PRP need_VBP no_DT money_NN
+The_DT dog_NN by_IN the_DT window_NN barked_VBD loudly_RB	A_DT cat_NN in_IN the_DT garden_NN slept_VBD soundly_RB
+A_DT story_NN about_IN a_DT hero_NN ended_VBD tragically_RB	The_DT song_NN by_IN the_DT band_NN played_VBD constantly_RB
+The_DT wine_NN produced_VBN in_IN that_DT region_NN tastes_VBZ superb_JJ	A_DT film_NN made_VBN in_IN this_DT studio_NN looks_VBZ great_JJ
+The_DT old_JJ house_NN felt_VBD remarkably_RB cold_JJ	A_DT wet_JJ dog_NN smelled_VBD really_RB bad_JJ
+A_DT bird_NN on_IN a_DT wire_NN chirped_VBD merrily_RB	The_DT book_NN on_IN the_DT shelf_NN fell_VBD down_RB
+An_DT idea_NN from_IN the_DT meeting_NN developed_VBD quickly_RB	The_DT smoke_NN from_IN the_DT fire_NN rose_VBD high_RB
+You_PRP would_MD enjoy_VB a_DT vacation_NN on_IN a_DT tropical_JJ island_NN	We_PRP might_MD see_VB a_DT movie_NN at_IN the_DT new_JJ theater_NN
+We_PRP will_MD demand_VB an_DT explanation_NN for_IN this_DT total_JJ disaster_NN	They_PRP can_MD build_VB a_DT house_NN with_IN that_DT extra_JJ wood_NN
+The_DT dark_JJ shape_NN moved_VBD towards_IN her_PRP	A_DT nice_JJ man_NN waved_VBD at_IN me_PRP
+A_DT swift_JJ current_NN flowed_VBD powerfully_RB strong_JJ	The_DT bad_JJ news_NN spread_VBD horribly_RB wide_JJ
+Working_VBG from_IN the_DT office_NN has_VBZ an_DT advantage_NN	Running_VBG in_IN a_DT park_NN is_VBZ a_DT joy_NN
+I_PRP will_MD happily_RB join_VB your_PRP$ special_JJ celebration_NN	We_PRP can_MD surely_RB fix_VB our_PRP$ broken_JJ car_NN
+They_PRP might_MD just_RB miss_VB the_DT morning_JJ train_NN	You_PRP should_MD not_RB eat_VB the_DT green_JJ apple_NN
+He_PRP can_MD now_RB see_VB a_DT clear_JJ path_NN	She_PRP will_MD soon_RB buy_VB a_DT new_JJ phone_NN
+Maria_NNP bought_VBD an_DT expensive_JJ dress_NN in_IN Paris_NNP	John_NNP built_VBD a_DT wooden_JJ shed_NN in_IN Texas_NNP
+We_PRP closed_VBD a_DT huge_JJ deal_NN this_JJ afternoon_NN	They_PRP watched_VBD a_DT long_JJ movie_NN last_JJ night_NN
+He_PRP can_MD easily_RB solve_VB any_DT complex_JJ problem_NN	I_PRP must_MD really_RB scrub_VB this_DT dirty_JJ floor_NN
+A_DT tired_JJ worker_NN rested_VBD absolutely_RB still_JJ	The_DT sick_JJ boy_NN lay_VBD completely_RB flat_JJ
+The_DT cool_JJ breeze_NN felt_VBD delightfully_RB refreshing_JJ	A_DT warm_JJ bath_NN felt_VBD incredibly_RB relaxing_JJ
+The_DT complex_JJ puzzle_NN seemed_VBD surprisingly_RB easy_JJ	That_DT math_JJ test_NN was_VBD terribly_RB hard_JJ
+A_DT swift_JJ river_NN flowed_VBD extremely_RB rapid_JJ	The_DT old_JJ clock_NN ticked_VBD very_RB loud_JJ
+These_DT computers_NNS work_VBP with_IN a_DT new_JJ system_NN	All_DT students_NNS sit_VBP in_IN a_DT big_JJ circle_NN
+The_DT stars_NNS shine_VBP in_IN the_DT dark_JJ night_NN	Some_DT kids_NNS play_VBP on_IN the_DT green_JJ grass_NN
+They_PRP might_MD wisely_RB choose_VB a_DT different_JJ strategy_NN	We_PRP can_MD happily_RB sing_VB a_DT happy_JJ song_NN
+I_PRP will_MD voluntarily_RB assume_VB this_DT extra_JJ responsibility_NN	You_PRP should_MD carefully_RB read_VB that_DT small_JJ print_NN
+The_DT deep_JJ water_NN looked_VBD mysteriously_RB dark_JJ	A_DT fresh_JJ apple_NN tasted_VBD remarkably_RB sweet_JJ
+A_DT warm_JJ blanket_NN felt_VBD incredibly_RB soft_JJ	The_DT rough_JJ road_NN was_VBD terribly_RB bumpy_JJ
+She_PRP would_MD outwardly_RB show_VB no_DT real_JJ emotion_NN	He_PRP might_MD secretly_RB want_VB some_DT cold_JJ milk_NN
+We_PRP should_MD always_RB follow_VB the_DT safety_JJ guideline_NN	They_PRP can_MD never_RB find_VB the_DT right_JJ way_NN
+A_DT strong_JJ wind_NN blew_VBD fiercely_RB wild_JJ	The_DT little_JJ boy_NN ran_VBD very_RB wild_JJ

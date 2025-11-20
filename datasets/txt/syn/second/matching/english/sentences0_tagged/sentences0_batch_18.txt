@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+I_PRP had_VBD a_DT vivid_JJ dream_NN last_JJ night_NN
+A_DT stranger_NN approached_VBD the_DT counter_NN and_CC ordered_VBD
+The_DT crowd_NN saw_VBD the_DT star_NN and_CC cheered_VBD
+She_PRP heard_VBD a_DT noise_NN from_IN the_DT basement_NN
+The_DT leader_NN sought_VBD to_TO guide_VB their_PRP$ followers_NNS
+You_PRP choose_VBP to_TO live_VB a_DT simple_JJ life_NN
+We_PRP deserve_VBP to_TO get_VB a_DT second_JJ chance_NN
+I_PRP helped_VBD the_DT tourist_NN to_TO look_VB around_RB
+She_PRP warned_VBD the_DT explorer_NN to_TO tread_VB lightly_RB
+Among_IN the_DT colorful_JJ flowers_NNS a_DT bee_NN buzzed_VBD
+King_NNP had_VBD a_DT famous_JJ dream_NN in_IN Washington_NNP
+Beethoven_NNP composed_VBD a_DT timeless_JJ symphony_NN in_IN Vienna_NNP
+He_PRP needs_VBZ to_TO buy_VB a_DT reliable_JJ computer_NN
+The_DT artist_NN planned_VBD to_TO complete_VB their_PRP$ painting_NN
+The_DT government_NN decided_VBD to_TO implement_VB its_PRP$ policy_NN
+We_PRP prefer_VBP to_TO read_VB a_DT printed_JJ book_NN
+You_PRP deserve_VBP to_TO have_VB a_DT wonderful_JJ time_NN
+Gandhi_NNP led_VBD a_DT peaceful_JJ movement_NN in_IN India_NNP
+He_PRP taught_VBD a_DT lesson_NN to_IN the_DT class_NN
+She_PRP wore_VBD a_DT coat_NN against_IN the_DT cold_NN
+We_PRP expect_VBP to_TO witness_VB a_DT historic_JJ event_NN
+I_PRP like_VBP to_TO eat_VB a_DT delicious_JJ meal_NN
+She_PRP counseled_VBD the_DT student_NN to_TO study_VB diligently_RB
+It_PRP is_VBZ almost_RB perfect_JJ within_IN the_DT design_NN
+There_EX was_VBZ a_DT dent_NN on_IN its_PRP$ side_NN
+There_EX is_VBZ a_DT glint_NN in_IN their_PRP$ gaze_NN
+The_DT system_NN detected_VBD an_DT error_NN and_CC rebooted_VBD
+The_DT company_NN launched_VBD a_DT product_NN and_CC failed_VBD
+I_PRP took_VBD a_DT photo_NN of_IN the_DT sunset_NN
+They_PRP were_VBD consistently_RB praised_VBN by_IN the_DT critics_NNS
+She_PRP needs_VBZ to_TO find_VB a_DT suitable_JJ apartment_NN
+I_PRP will_MD faithfully_RB execute_VB my_PRP$ official_JJ duty_NN
+The_DT society_NN worked_VBD to_TO improve_VB its_PRP$ conditions_NNS
+You_PRP need_VBP to_TO take_VB a_DT short_JJ break_NN
+We_PRP choose_VBP to_TO support_VB a_DT local_JJ charity_NN
+He_PRP told_VBD the_DT child_NN to_TO go_VB outside_RB
+The_DT system_NN failed_VBD to_TO complete_VB its_PRP$ operation_NN
+The_DT child_NN began_VBD to_TO draw_VB their_PRP$ picture_NN
+Beyond_IN the_DT towering_JJ cliffs_NNS a_DT ship_NN sailed_VBD
+He_PRP lost_VBD a_DT wallet_NN at_IN the_DT station_NN
+She_PRP chose_VBD a_DT dress_NN from_IN the_DT rack_NN
+Freud_NNP developed_VBD a_DT controversial_JJ theory_NN in_IN Austria_NNP
+Mozart_NNP played_VBD a_DT complex_JJ sonata_NN in_IN Salzburg_NNP
+There_EX was_VBZ a_DT sound_NN from_IN our_PRP$ room_NN
+The_DT bird_NN began_VBD to_TO build_VB its_PRP$ nest_NN
+The_DT worker_NN hurried_VBD to_TO finish_VB their_PRP$ task_NN
+There_EX is_VBZ a_DT message_NN from_IN our_PRP$ past_NN
+There_EX was_VBZ a_DT thought_NN in_IN your_PRP$ head_NN
+Through_IN the_DT narrow_JJ passage_NN the_DT explorers_NNS squeezed_VBD
+Around_IN the_DT peaceful_JJ lake_NN the_DT animals_NNS gathered_VBD
+They_PRP designed_VBD a_DT building_NN for_IN the_DT client_NN
+The_DT computer_NN processed_VBD the_DT data_NN and_CC displayed_VBD
+The_DT comedian_NN told_VBD a_DT joke_NN and_CC laughed_VBD
+There_EX is_VBZ a_DT flaw_NN in_IN our_PRP$ argument_NN
+There_EX was_VBZ a_DT stain_NN on_IN his_PRP$ shirt_NN
+I_PRP wanted_VBD the_DT dog_NN to_TO stay_VB inside_RB
+She_PRP begged_VBD the_DT judge_NN to_TO listen_VB carefully_RB
+The_DT company_NN planned_VBD to_TO expand_VB its_PRP$ market_NN
+The_DT community_NN gathered_VBD to_TO support_VB their_PRP$ cause_NN
+I_PRP prefer_VBP to_TO hear_VB a_DT logical_JJ argument_NN
+There_EX is_VBZ a_DT sparkle_NN in_IN their_PRP$ laughter_NN
+There_EX was_VBZ a_DT sign_NN on_IN his_PRP$ door_NN
+There_EX is_VBZ a_DT flaw_NN in_IN its_PRP$ design_NN
+Under_IN the_DT cloudy_JJ sky_NN the_DT fields_NNS darkened_VBD
+The_DT detective_NN found_VBD a_DT clue_NN and_CC investigated_VBD
+The_DT athlete_NN crossed_VBD the_DT line_NN and_CC collapsed_VBD
+There_EX is_VBZ a_DT limit_NN to_IN our_PRP$ patience_NN
+There_EX was_VBZ a_DT hum_NN in_IN her_PRP$ voice_NN
+Ford_NNP built_VBD a_DT revolutionary_JJ automobile_NN in_IN Detroit_NNP
+I_PRP made_VBD a_DT terrible_JJ mistake_NN and_CC apologized_VBD
+He_PRP cooked_VBD a_DT delicious_JJ meal_NN and_CC rested_VBD
+There_EX is_VBZ a_DT reason_NN for_IN their_PRP$ absence_NN
+There_EX was_VBZ a_DT buzz_NN in_IN your_PRP$ head_NN
+They_PRP encouraged_VBD the_DT artist_NN to_TO paint_VB boldly_RB
+After_IN the_DT big_JJ storm_NN the_DT sky_NN cleared_VBD
+I_PRP caught_VBD a_DT fish_NN in_IN the_DT lake_NN
+She_PRP found_VBD a_DT key_NN under_IN the_DT mat_NN
+We_PRP followed_VBD a_DT path_NN through_IN the_DT forest_NN
+There_EX is_VBZ a_DT sound_NN from_IN my_PRP$ device_NN
+She_PRP chose_VBD a_DT risky_JJ path_NN and_CC succeeded_VBD
+We_PRP built_VBD a_DT huge_JJ sandcastle_NN and_CC cheered_VBD
+I_PRP intend_VBP to_TO start_VB a_DT small_JJ business_NN
+You_PRP seem_VBP to_TO have_VB a_DT valid_JJ point_NN
+Across_IN the_DT barren_JJ desert_NN the_DT wind_NN howled_VBD
+They_PRP expect_VBP to_TO find_VB a_DT hidden_JJ treasure_NN
+The_DT speaker_NN wanted_VBD to_TO share_VB their_PRP$ thoughts_NNS
+You_PRP might_MD give_VB away_RP the_DT unwanted_JJ clothes_NNS
+You_PRP broke_VBD a_DT record_NN at_IN the_DT competition_NN
+He_PRP chased_VBD a_DT squirrel_NN across_IN the_DT lawn_NN
+He_PRP is_VBZ evidently_RB unwell_JJ during_IN the_DT day_NN
+He_PRP gave_VBD a_DT convincing_JJ argument_NN and_CC convinced_VBD
+They_PRP trusted_VBD the_DT contractor_NN to_TO build_VB solidly_RB
+He_PRP beseeched_VBD the_DT guard_NN to_TO look_VB away_RB
+The_DT committee_NN moved_VBD to_TO finalize_VB its_PRP$ recommendations_NNS
+He_PRP signaled_VBD the_DT driver_NN to_TO proceed_VB slowly_RB
+We_PRP found_VBD a_DT spider_NN in_IN the_DT bathtub_NN
+They_PRP begged_VBD the_DT king_NN to_TO rule_VB justly_RB
+Toward_IN the_DT bright_JJ light_NN the_DT insects_NNS flew_VBD
+Near_IN the_DT rocky_JJ shore_NN the_DT waves_NNS crashed_VBD
+He_PRP was_VBD widely_RB known_VBN throughout_IN the_DT region_NN

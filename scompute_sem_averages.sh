@@ -12,4 +12,5 @@
 ARGS=("$@") # list of commandline inputs
 echo "${ARGS[@]}"
 # PYTHONWARNINGS="error" python3 -u compute.py "${ARGS[@]}"
+source /home/acevedo/venv/bin/activate
 python3 -u compute_sem_averages.py "${ARGS[@]}"

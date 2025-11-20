@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+Beethoven_NNP composed_VBD in_IN a_DT quiet_JJ room_NN
+Ferrari_NNP aimed_VBD for_IN an_DT unmatched_JJ performance_NN
+You_PRP could_MD happily_RB sing_VB a_DT song_NN
+It_PRP can_MD powerfully_RB affect_VB the_DT outcome_NN
+He_PRP might_MD quickly_RB pack_VB the_DT luggage_NN
+The_DT weary_JJ traveler_NN stopped_VBD at_IN an_DT inn_NN
+That_DT tragic_JJ event_NN occurred_VBD on_IN a_DT Tuesday_NN
+They_PRP were_VBD constantly_RB monitored_VBN within_IN the_DT system_NN
+She_PRP was_VBD quietly_RB observed_VBN from_IN a_DT distance_NN
+She_PRP will_MD kindly_RB offer_VB a_DT hand_NN
+A_DT clever_JJ fox_NN hid_VBD behind_IN a_DT bush_NN
+That_DT strange_JJ noise_NN came_VBD from_IN the_DT attic_NN
+He_PRP might_MD rarely_RB miss_VB a_DT deadline_NN
+We_PRP must_MD entirely_RB trust_VB the_DT system_NN
+They_PRP renovated_VBD an_DT old_JJ house_NN completely_RB
+He_PRP can_MD physically_RB lift_VB that_DT heavy_JJ box_NN
+They_PRP might_MD reluctantly_RB accept_VB the_DT final_JJ offer_NN
+You_PRP smell_VBP the_DT flower_NN while_CC I_PRP smell_VBP the_DT smoke_NN
+We_PRP need_VBP some_DT help_NN but_CC they_PRP need_VBP a_DT rest_NN
+I_PRP wrote_VBD a_DT story_NN about_IN a_DT dragon_NN
+He_PRP put_VBD the_DT letter_NN inside_IN the_DT envelope_NN
+A_DT loud_JJ noise_NN sounded_VBD exceedingly_RB harsh_JJ
+The_DT light_JJ touch_NN felt_VBD surprisingly_RB gentle_JJ
+This_DT child_NN played_VBD with_IN a_DT toy_NN
+I_PRP will_MD visit_VB the_DT museum_NN after_IN my_PRP$ lunch_NN
+The_DT colors_NNS blend_VBP into_IN a_DT beautiful_JJ pattern_NN
+Those_DT dogs_NNS bark_VBP at_IN every_DT passing_JJ car_NN
+We_PRP should_MD wisely_RB choose_VB a_DT leader_NN
+It_PRP was_VBD securely_RB fastened_VBN with_IN a_DT strong_JJ rope_NN
+We_PRP were_VBD eagerly_RB awaited_VBN for_IN the_DT positive_JJ outcome_NN
+They_PRP design_VBP a_DT building_NN and_CC we_PRP design_VBP a_DT bridge_NN
+You_PRP feel_VBP the_DT heat_NN while_CC I_PRP feel_VBP the_DT warmth_NN
+It_PRP was_VBD rapidly_RB completed_VBN in_IN a_DT week_NN
+We_PRP were_VBD deeply_RB disappointed_VBN with_IN the_DT result_NN
+It_PRP has_VBP unexpectedly_RB caused_VBN a_DT delay_NN
+They_PRP have_VBP systematically_RB analyzed_VBN the_DT data_NN
+We_PRP should_MD immediately_RB report_VB any_DT suspicious_JJ activity_NN
+He_PRP might_MD slowly_RB approach_VB the_DT animal_NN
+The_DT damp_JJ air_NN felt_VBD unpleasantly_RB heavy_JJ
+Freud_NNP delved_VBD into_IN the_DT human_JJ psyche_NN
+Picasso_NNP painted_VBD in_IN a_DT messy_JJ studio_NN
+We_PRP build_VBP a_DT house_NN but_CC they_PRP build_VBP a_DT home_NN
+The_DT chefs_NNS will_MD prepare_VB the_DT banquet_NN
+All_DT applicants_NNS must_MD complete_VB this_DT form_NN
+That_DT car_NN stopped_VBD near_IN the_DT building_NN
+We_PRP should_MD publicly_RB acknowledge_VB his_PRP$ great_JJ contribution_NN
+She_PRP would_MD slowly_RB sip_VB her_PRP$ hot_JJ tea_NN
+We_PRP are_VBZ completely_RB exhausted_JJ after_IN the_DT work_NN
+His_DT ideas_NNS challenge_VBP every_DT conventional_JJ thought_NN
+Those_DT trees_NNS provide_VBP a_DT welcome_JJ shade_NN
+They_PRP must_MD speak_VB up_RP the_DT valuable_JJ opinion_NN
+You_PRP might_MD come_VB across_RP a_DT useful_JJ tool_NN
+You_PRP have_VBP wisely_RB chosen_VBN the_DT path_NN
+You_PRP might_MD call_VB in_RP an_DT expert_JJ opinion_NN
+We_PRP will_MD show_VB off_RP the_DT new_JJ invention_NN
+I_PRP want_VBP a_DT car_NN and_CC you_PRP want_VBP a_DT bike_NN
+She_PRP would_MD rarely_RB miss_VB a_DT family_JJ gathering_NN
+We_PRP should_MD carefully_RB consider_VB every_DT possible_JJ option_NN
+She_PRP has_VBP never_RB seen_VBN that_DT movie_NN
+He_PRP wrote_VBD a_DT long_JJ letter_NN yesterday_RB
+A_DT fast_JJ car_NN moved_VBD extremely_RB quickly_RB
+The_DT old_JJ clock_NN ticked_VBD slowly_RB quietly_RB
+The_DT new_JJ system_NN worked_VBD exceptionally_RB well_RB
+A_DT young_JJ artist_NN painted_VBD quite_RB skillfully_RB
+Sarah_NNP worked_VBD at_IN a_DT local_JJ shop_NN
+Amazon_NNP started_VBD as_IN an_DT online_JJ bookstore_NN
+He_PRP could_MD take_VB down_RP the_DT old_JJ curtain_NN
+It_PRP can_MD grow_VB into_RP a_DT strong_JJ tree_NN
+The_DT company_NN behind_IN the_DT product_NN grew_VBD exponentially_RB
+A_DT man_NN in_IN a_DT suit_NN walked_VBD briskly_RB
+A_DT deep_JJ sigh_NN felt_VBD profoundly_RB sad_JJ
+The_DT blue_JJ sky_NN looked_VBD wonderfully_RB clear_JJ
+A_DT famous_JJ singer_NN sang_VBD beautifully_RB soft_JJ
+They_PRP study_VBP the_DT history_NN and_CC we_PRP study_VBP the_DT future_NN
+You_PRP paint_VBP a_DT picture_NN while_CC I_PRP paint_VBP a_DT wall_NN
+Some_DT children_NNS play_VBP near_IN a_DT large_JJ pond_NN
+Many_DT artists_NNS live_VBP in_IN this_DT vibrant_JJ city_NN
+It_PRP has_VBP recently_RB become_VBN a_DT trend_NN
+A_DT hero_NN from_IN a_DT legend_NN appeared_VBD magically_RB
+Ford_NNP dreamed_VBD of_IN an_DT affordable_JJ automobile_NN
+Cleopatra_NNP sailed_VBD on_IN a_DT magnificent_JJ barge_NN
+He_PRP can_MD quickly_RB assemble_VB the_DT complicated_JJ device_NN
+An_DT evil_JJ sorcerer_NN lived_VBD in_IN a_DT tower_NN
+This_DT simple_JJ solution_NN worked_VBD for_IN the_DT problem_NN
+He_PRP lost_VBD a_DT valuable_JJ watch_NN somewhere_RB around_RB
+I_PRP saw_VBD an_DT old_JJ friend_NN downtown_RB yesterday_RB
+All_DT citizens_NNS must_MD pay_VB a_DT tax_NN
+The_DT programmers_NNS should_MD debug_VB the_DT code_NN
+It_PRP is_VBZ purely_RB theoretical_JJ at_IN this_DT stage_NN
+The_DT happy_JJ song_NN sounded_VBD quite_RB joyful_JJ
+A_DT horrible_JJ smell_NN drifted_VBD from_IN it_PRP
+The_DT huge_JJ wave_NN crashed_VBD toward_IN us_PRP
+She_PRP parked_VBD the_DT scooter_NN behind_IN the_DT truck_NN
+You_PRP drew_VBD a_DT map_NN on_IN a_DT napkin_NN
+They_PRP have_VBP instantly_RB recognized_VBN the_DT voice_NN
+She_PRP bought_VBD an_DT expensive_JJ car_NN last_JJ week_NN
+They_PRP must_MD draw_VB up_RP a_DT detailed_JJ plan_NN
+We_PRP will_MD shut_VB off_RP the_DT main_JJ power_NN
+They_PRP might_MD simply_RB forget_VB the_DT scheduled_JJ appointment_NN
+She_PRP would_MD really_RB enjoy_VB a_DT quiet_JJ afternoon_NN

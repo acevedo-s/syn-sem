@@ -1,133 +1,203 @@
 import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# === 1. Load models ===
-# Translation model: e.g. mBART or Marian
-# You can pick a model that supports en→es and en→zh
-# Here, as placeholder:
-trans_model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-en-ROMANCE").to(device)
-trans_tok = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-en-ROMANCE")
 
-# For Chinese, maybe a separate model; you might need two translation models.
-# (For simplicity, using same model here; you’d replace with a proper en→zh model.)
-
-# Qwen model
-qwen_name = "Qwen/Qwen-7B"  # or whichever variant you want
+# === Load Qwen ===
+qwen_name = "Qwen/Qwen-7B"
+# Note: Ensure you have flash_attn installed or remove trust_remote_code if not needed, 
+# but Qwen usually requires it.
 qwen_tok = AutoTokenizer.from_pretrained(qwen_name, trust_remote_code=True)
-qwen = AutoModelForCausalLM.from_pretrained(qwen_name, trust_remote_code=True, device_map="auto").eval()
+qwen = AutoModelForCausalLM.from_pretrained(
+    qwen_name, trust_remote_code=True, device_map="auto"
+).eval()
 
-# === 2. helper: translate and get Qwen activation ===
+# === Function to read translations ===
+def load_translations(filepath, n_languages=None):
+    with open(filepath, "r", encoding="utf-8") as f:
+        lines = [line.strip() for line in f.readlines() if line.strip()]
+    if n_languages is not None:
+        lines = lines[:n_languages]
+    print(f"Loaded {len(lines)} translations from {filepath}")
+    for i, t in enumerate(lines, 1):
+        print(f"  [{i}] {t}")
+    return lines
 
-def translate_and_get_hidden(input_en: str, tgt_lang: str, layer_idx: int):
+# [markdown]
+# # Multi layer 
+
+#
+# === 1. Efficiently Build T for ALL layers ===
+def build_all_layers_T(filepath, n_languages=None):
     """
-    Translate input_en → target language, then run Qwen and return
-    the hidden activations at layer layer_idx (shape: [seq_len, hidden_dim]).
+    Computes a steering vector for EVERY layer simultaneously.
+    Returns a tensor of shape [Num_Layers, Hidden_Dim].
     """
-    # translate
-    # you may want to use different translation models per target
-    tok = trans_tok
-    model = trans_model
-    # e.g. add language prefix if needed
-    t = tok(input_en, return_tensors="pt", padding=True).to(device)
-    out = model.generate(**t, num_beams=4, max_length=2 * t["input_ids"].shape[1])
-    translation = tok.batch_decode(out, skip_special_tokens=True)[0]
-    # now feed to Qwen
-    q = qwen_tok(translation, return_tensors="pt").to(device)
-    # define hook to capture hidden at that layer
-    hidden_cache = {}
-    def hook_fn(module, inp, out):
-        # out is (batch, seq_len, hidden_dim)
-        hidden_cache["h"] = out.detach()[0]  # take batch=0
-    # get number of layers
-    # assume qwen.transformer.h is list of layers (you may need introspection)
-    layers = qwen.model.decoder.layers if hasattr(qwen, "model") else qwen.transformer.h
-    handle = layers[layer_idx].register_forward_hook(hook_fn)
-    # forward pass
-    with torch.no_grad():
-        qwen(**q)  # not generating, just feed through
-    handle.remove()
-    # hidden_cache["h"] is shape [seq_len, hidden_dim]
-    return hidden_cache["h"], translation
+    translations = load_translations(filepath, n_languages)
+    
+    # Storage for all layers: List of Tensors
+    # We will accumulate vectors here then average them
+    accumulated_vecs = [] 
 
-# === 3. Build T vector for a given input_en ===
+    print(f"Extracting activations for {len(translations)} sentences...")
 
-def build_centroid_T(input_en: str, central_layer: int):
+    for i, sentence in enumerate(translations):
+        inputs = qwen_tok(sentence, return_tensors="pt").to(device)
+        
+        with torch.no_grad():
+            # output_hidden_states=True returns a tuple of all layer outputs
+            out = qwen(**inputs, output_hidden_states=True)
+        
+        # out.hidden_states is a tuple of len(layers + 1). 
+        # Index 0 is embeddings. Indices 1 to N are the transformer layers.
+        # We slice [1:] to get the actual layer outputs.
+        all_layers_hidden = out.hidden_states[1:] 
+        
+        # Stack layers into tensor: [Num_Layers, Batch(1), Seq, Dim]
+        stacked = torch.stack(all_layers_hidden).squeeze(1) 
+        
+        # Take last token: [Num_Layers, Dim]
+        vec = stacked[:, -1, :]
+            
+        accumulated_vecs.append(vec)
+
+    # Stack all sentences: [Num_Sentences, Num_Layers, Dim]
+    all_sentences_tensor = torch.stack(accumulated_vecs)
+    
+    # Average across sentences (dim 0) to get Centroid: [Num_Layers, Dim]
+    T_all = all_sentences_tensor.mean(dim=0)
+    
+    # Normalize each layer's vector independently
+    # T_all.norm(dim=1, keepdim=True) gives norms of shape [Num_Layers, 1]
+    T_all = T_all / (T_all.norm(dim=1, keepdim=True) + 1e-8)
+    
+    print(f"Built T_all. Shape: {tuple(T_all.shape)} (Layers, Dim)")
+    return T_all.to(device)
+
+
+#
+# === 2. Multi-Layer Steering ===
+def generate_with_multilayer_steering(
+    input_en: str, 
+    T_all: torch.Tensor, 
+    max_new_tokens=40,
+    start_layer_idx: int = 0, # New: Start steering from this layer
+    end_layer_idx: int = None # New: Stop steering before this layer
+):
     """
-    Returns T vector (hidden_dim,) computed as average over translations.
-    We'll generate 2 Spanish, 2 Chinese translations (you can extend).
+    Applies steering to a specified range of layers using the corresponding 
+    vector from T_all. Defaults to the full range if indices are not set 
+    (or set to 0 and None).
     """
-    Ts = []
-    # Spanish translations (2 variants)
-    for _ in range(2):
-        h_es, _ = translate_and_get_hidden(input_en, tgt_lang="es", layer_idx=central_layer)
-        Ts.append(h_es.mean(dim=0))
-    # Chinese translations (2 variants)
-    for _ in range(2):
-        h_zh, _ = translate_and_get_hidden(input_en, tgt_lang="zh", layer_idx=central_layer)
-        Ts.append(h_zh.mean(dim=0))
-    # average
-    T = torch.stack(Ts, dim=0).mean(dim=0)  # shape [hidden_dim]
-    # optionally normalize T
-    T = T / (T.norm() + 1e-8)
-    return T
+    inputs = qwen_tok(input_en, return_tensors="pt").to(device)
+    
+    # Identify layers
+    if hasattr(qwen, "model"):
+        layers = qwen.model.decoder.layers
+    else:
+        layers = qwen.transformer.h
+    
+    num_layers = len(layers)
 
-# === 4. Run Qwen on English input with intervention ===
+    # Set end_layer_idx to the total number of layers if None
+    if end_layer_idx is None:
+        end_layer_idx = num_layers
+    
+    # Validate shapes and range
+    if T_all.shape[0] != num_layers:
+        raise ValueError(f"T_all has {T_all.shape[0]} layers, but model has {num_layers}.")
+    if not (0 <= start_layer_idx < end_layer_idx <= num_layers):
+         raise ValueError(f"Invalid layer indices. Must be 0 <= start({start_layer_idx}) < end({end_layer_idx}) <= {num_layers}")
 
-def generate_with_steering(input_en: str, T: torch.Tensor, central_layer: int, max_new_tokens=20):
-    """
-    Generate from Qwen on original English, but intervene at the last token's
-    hidden at central_layer (subtracting projection onto T).
-    """
-    q = qwen_tok(input_en, return_tensors="pt").to(device)
-    input_ids = q["input_ids"]
-    attention_mask = q["attention_mask"]
-    # Hook that modifies only the hidden of the *last token* at that layer
-    def steering_hook(module, inp, out):
-        # out: (batch, seq_len, hidden_dim)
-        h = out  # alias
-        # get last token hidden
-        last = h[:, -1, :]  # shape (batch, hidden_dim)
-        # subtract projection: proj = (last ⋅ T) T
-        # assume T is on same device
-        proj = (last * T).sum(dim=-1, keepdim=True) * T  # shape (batch, hidden_dim)
-        new_last = last - proj
-        # replace back
-        h2 = h.clone()
-        h2[:, -1, :] = new_last
-        return h2
+    def make_hook(T_layer):
+        """Creates a closure for a specific layer's vector T_layer"""
+        def _hook(module, args, output):
+            # Unpack tuple when necessary (related to QK cache's during generation?)
+            if isinstance(output, tuple):
+                hidden_states = output[0]
+            else:
+                hidden_states = output
+            # Modification
+            # [Batch, Seq, Dim]
+            hidden_states = hidden_states.clone() 
+            
+            # [Batch, Dim] (Last token)
+            last_token = hidden_states[:, -1, :] 
+            
+            # Cast T to match fp16/bf16 if needed
+            T_vec = T_layer.to(last_token.dtype)
+            
+            # Projection: (v . u) * u
+            dot = (last_token * T_vec).sum(dim=-1, keepdim=True)
+            proj = dot * T_vec
+            
+            # Remove projection
+            hidden_states[:, -1, :] = last_token - proj
+            
+            # Repack
+            if isinstance(output, tuple):
+                return (hidden_states,) + output[1:]
+            return hidden_states
+        return _hook
 
-    layers = qwen.model.decoder.layers if hasattr(qwen, "model") else qwen.transformer.h
-    handle = layers[central_layer].register_forward_hook(steering_hook)
+    # Register hooks for the selected range of layers
+    hooks = []
+    # Loop over the indices in the defined range
+    for i in range(start_layer_idx, end_layer_idx):
+        layer = layers[i]
+        # Extract the vector for this specific layer index
+        T_l = T_all[i] 
+        # Create and register hook
+        h = layer.register_forward_hook(make_hook(T_l))
+        hooks.append(h)
 
-    # now generate (with modification)
-    with torch.no_grad():
-        out_ids = qwen.generate(input_ids=input_ids, attention_mask=attention_mask, max_new_tokens=max_new_tokens)
-    handle.remove()
+    try:
+        with torch.no_grad():
+            output_ids = qwen.generate(**inputs, max_new_tokens=max_new_tokens)
+    except Exception as e:
+        print(f"[!] Generation failed with error: {type(e).__name__}: {e}")
+        output_ids = None
+    finally:
+        for h in hooks:
+            h.remove()
 
-    return qwen_tok.batch_decode(out_ids, skip_special_tokens=True)[0]
+    return qwen_tok.decode(output_ids[0], skip_special_tokens=True)
 
-# === 5. Full pipeline: for an English sentence ===
-
-def steering_pipeline(input_en: str, central_layer: int = None):
-    # pick central layer: e.g. half
-    total_layers = len(qwen.model.decoder.layers) if hasattr(qwen, "model") else len(qwen.transformer.h)
-    if central_layer is None:
-        central_layer = total_layers // 2
-    print("Using central layer:", central_layer)
-    T = build_centroid_T(input_en, central_layer).to(device)
-    print("T norm:", T.norm().item())
-    # baseline generation
-    baseline = qwen.generate(**qwen_tok(input_en, return_tensors="pt").to(device), max_new_tokens=20)
-    baseline_text = qwen_tok.batch_decode(baseline, skip_special_tokens=True)[0]
-    steered = generate_with_steering(input_en, T, central_layer, max_new_tokens=20)
-    return baseline_text, steered
-
-# === 6. Example usage ===
-
+# === Run Test ===
 if __name__ == "__main__":
-    inp = "The weather tomorrow will be"
-    base, steered = steering_pipeline(inp)
-    print("Baseline:", base)
-    print("Steered:", steered)
+    # Settings
+    translations_path = "/home/acevedo/syn-sem/datasets/txt/steering/translations.txt" 
+    input_sentence = "Alessandro went for a hike on Sunday"
+    n_languages = 5
+    max_new_tokens = 40
+    
+    # 1. Build vectors for ALL layers
+    # This returns a tensor of shape [Num_Layers, Hidden_Dim]
+    T_all_layers = build_all_layers_T(translations_path, n_languages=n_languages)
+
+    # Calculate layer indices for the second half
+    num_layers = T_all_layers.shape[0]
+    start = num_layers * 1 // 4
+    end = num_layers * 3 // 4
+    
+    print("\n--- Generating Baseline ---")
+    for _ in range(10):
+        # 2. Baseline
+        baseline = qwen.generate(**qwen_tok(input_sentence, return_tensors="pt").to(device), max_new_tokens=max_new_tokens)
+        print(qwen_tok.decode(baseline[0], skip_special_tokens=True))
+    print("\n--- Generating with Multi-Layer Steering ---")
+    print(f"Steering layers in range: {start} to {end}")
+
+    for _ in range(10):
+        # 3. Multi-Layer Steered ()
+        steered = generate_with_multilayer_steering(
+            input_sentence, 
+            T_all_layers, 
+            max_new_tokens=max_new_tokens,
+            start_layer_idx=start,
+            end_layer_idx=end
+        )
+        print(steered)
+
+

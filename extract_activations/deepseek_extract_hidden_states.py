@@ -102,16 +102,17 @@ def main(model_name,
 
 
 if __name__ == "__main__":
-    model_name = sys.argv[1] # 
-    language = sys.argv[2] # 
-    data_var = sys.argv[3] # syn or sem
-    match_var = sys.argv[4] # 'matching' or 'mismatching'
+    print(f'{sys.argv=}')
+    model_name = 'deepseek' # 
+    language = sys.argv[1] # 
+    data_var = sys.argv[2] # syn or sem
+    match_var = sys.argv[3] # 'matching' or 'mismatching'
+    dataset_var = 'third'
 
     tp_size, nnodes = get_slurm_config()
     print(f'{tp_size=}, {nnodes=}')
     n_lines = 2100
     batch_size = 100
-    dataset_var = 'second'
 
     IO_paths_list = [
         {
@@ -120,8 +121,11 @@ if __name__ == "__main__":
         }
         for i in [0, 1]
     ]
-    # avoiding computing the activations of english more than once
-    if language != 'english' and data_var == 'sem':
+    
+    # avoiding computing the activations of english original sentences more than once
+    condition_1 = language != 'english' and data_var == 'sem'
+    condition_2 = language == 'english' and data_var == 'syn' and dataset_var == 'third' 
+    if condition_1 or condition_2:
         IO_paths_list = IO_paths_list[1:]
 
     main(

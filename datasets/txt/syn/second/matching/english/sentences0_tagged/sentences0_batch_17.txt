@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+You_PRP wear_VBP a_DT shirt_NN that_WDT is_VBZ perfectly_RB clean_JJ
+It_PRP emits_VBP a_DT sound_NN which_WDT is_VBZ pleasantly_RB soft_JJ
+Shopping_VBG for_IN a_DT bargain_NN is_VBZ a_DT fun_JJ challenge_NN
+She_PRP felt_VBD a_DT deep_JJ sadness_NN after_IN the_DT news_NN
+They_PRP might_MD see_VB a_DT deer_NN in_IN the_DT forest_NN
+They_PRP discover_VBP a_DT secret_NN that_WDT is_VBZ immensely_RB valuable_JJ
+The_DT tall_JJ tower_NN in_IN the_DT distance_NN stood_VBD majestically_RB
+Past_IN the_DT busy_JJ street_NN the_DT shops_NNS closed_VBD
+Upon_IN the_DT fragile_JJ ice_NN the_DT skaters_NNS glided_VBD
+Under_IN the_DT vast_JJ sky_NN the_DT plains_NNS stretched_VBD
+I_PRP plan_VBP to_TO bake_VB a_DT special_JJ cake_NN
+You_PRP deserve_VBP to_TO receive_VB a_DT sincere_JJ apology_NN
+The_DT visitor_NN wished_VBD to_TO explore_VB their_PRP$ surroundings_NNS
+The_DT village_NN rallied_VBD to_TO protect_VB its_PRP$ traditions_NNS
+The_DT nation_NN united_VBD to_TO defend_VB its_PRP$ borders_NNS
+The_DT athlete_NN trained_VBD to_TO improve_VB their_PRP$ skills_NNS
+You_PRP want_VBP to_TO hear_VB a_DT funny_JJ story_NN
+There_EX was_VBZ a_DT light_NN in_IN its_PRP$ core_NN
+There_EX is_VBZ a_DT mark_NN on_IN her_PRP$ face_NN
+Robert_NNP saw_VBD a_DT great_JJ movie_NN in_IN London_NNP
+The_DT seller_NN offered_VBD to_TO reduce_VB their_PRP$ price_NN
+The_DT wildlife_NN struggled_VBD to_TO maintain_VB its_PRP$ balance_NN
+She_PRP plans_VBZ to_TO adopt_VB a_DT little_JJ puppy_NN
+He_PRP likes_VBZ to_TO watch_VB a_DT classic_JJ film_NN
+The_DT animal_NN tried_VBD to_TO reach_VB its_PRP$ food_NN
+The_DT volunteer_NN helped_VBD to_TO achieve_VB their_PRP$ mission_NN
+The_DT chef_NN tasted_VBD the_DT soup_NN and_CC nodded_VBD
+A_DT customer_NN tried_VBD the_DT sample_NN and_CC purchased_VBD
+They_PRP prefer_VBP to_TO use_VB a_DT manual_JJ tool_NN
+The_DT audience_NN gathered_VBD to_TO express_VB its_PRP$ approval_NN
+The_DT writer_NN hoped_VBD to_TO publish_VB their_PRP$ story_NN
+Toward_IN the_DT setting_JJ sun_NN the_DT birds_NNS flew_VBD
+Beside_IN the_DT ancient_JJ river_NN the_DT ruins_NNS crumbled_VBD
+She_PRP intends_VBZ to_TO learn_VB a_DT new_JJ language_NN
+He_PRP wishes_VBZ to_TO paint_VB a_DT stunning_JJ portrait_NN
+He_PRP seems_VBZ to_TO want_VB a_DT quiet_JJ evening_NN
+She_PRP loves_VBZ to_TO wear_VB a_DT colorful_JJ dress_NN
+You_PRP hope_VBP to_TO achieve_VB a_DT personal_JJ goal_NN
+I_PRP love_VBP to_TO explore_VB a_DT strange_JJ city_NN
+They_PRP love_VBP to_TO solve_VB a_DT complex_JJ puzzle_NN
+I_PRP expect_VBP to_TO face_VB a_DT tough_JJ challenge_NN
+There_EX is_VBZ a_DT stain_NN on_IN my_PRP$ hand_NN
+Despite_IN the_DT heavy_JJ rain_NN the_DT flowers_NNS bloomed_VBD
+Cleopatra_NNP ruled_VBD a_DT powerful_JJ kingdom_NN in_IN Egypt_NNP
+Einstein_NNP conceived_VBD a_DT groundbreaking_JJ concept_NN in_IN Switzerland_NNP
+There_EX was_VBZ a_DT scent_NN in_IN its_PRP$ fur_NN
+The_DT committee_NN voted_VBD to_TO approve_VB their_PRP$ proposal_NN
+The_DT dog_NN loved_VBD to_TO chase_VB its_PRP$ tail_NN
+The_DT plant_NN started_VBD to_TO grow_VB its_PRP$ leaves_NNS
+The_DT manager_NN paused_VBD to_TO review_VB their_PRP$ notes_NNS
+Shakespeare_NNP wrote_VBD a_DT famous_JJ play_NN in_IN England_NNP
+The_DT vehicle_NN turned_VBD to_TO follow_VB its_PRP$ route_NN
+The_DT employee_NN volunteered_VBD to_TO complete_VB their_PRP$ task_NN
+The_DT student_NN decided_VBD to_TO study_VB their_PRP$ lesson_NN
+The_DT species_NN fought_VBD to_TO preserve_VB its_PRP$ habitat_NN
+They_PRP hope_VBP to_TO build_VB a_DT new_JJ house_NN
+There_EX is_VBZ a_DT book_NN on_IN your_PRP$ desk_NN
+There_EX was_VBZ a_DT scent_NN in_IN their_PRP$ garden_NN
+There_EX was_VBZ a_DT hum_NN from_IN its_PRP$ engine_NN
+There_EX is_VBZ a_DT tear_NN in_IN her_PRP$ eye_NN
+I_PRP want_VBP to_TO see_VB a_DT good_JJ movie_NN
+They_PRP wish_VBP to_TO create_VB a_DT beautiful_JJ garden_NN
+There_EX was_VBZ a_DT scratch_NN on_IN its_PRP$ surface_NN
+There_EX is_VBZ a_DT warmth_NN in_IN my_PRP$ heart_NN
+Running_VBG in_IN the_DT park_NN is_VBZ a_DT routine_NN
+Michelangelo_NNP carved_VBD a_DT magnificent_JJ statue_NN in_IN Florence_NNP
+Isabella_NNP painted_VBD a_DT beautiful_JJ portrait_NN in_IN Spain_NNP
+We_PRP need_VBP to_TO find_VB a_DT better_JJ solution_NN
+I_PRP will_MD promptly_RB answer_VB your_PRP$ urgent_JJ email_NN
+Bach_NNP wrote_VBD a_DT complex_JJ fugue_NN in_IN Leipzig_NNP
+They_PRP persuaded_VBD the_DT committee_NN to_TO vote_VB yes_RB
+The_DT program_NN continued_VBD to_TO run_VB its_PRP$ course_NN
+The_DT traveler_NN yearned_VBD to_TO see_VB their_PRP$ home_NN
+The_DT cook_NN needed_VBD to_TO prepare_VB their_PRP$ meal_NN
+The_DT organization_NN decided_VBD to_TO launch_VB its_PRP$ campaign_NN
+There_EX was_VBZ a_DT silence_NN around_IN their_PRP$ home_NN
+There_EX is_VBZ a_DT key_NN in_IN my_PRP$ pocket_NN
+Gutenberg_NNP invented_VBD a_DT revolutionary_JJ press_NN in_IN Germany_NNP
+Joan_NNP heard_VBD a_DT divine_JJ voice_NN in_IN Orleans_NNP
+Hemingway_NNP wrote_VBD a_DT classic_JJ novel_NN in_IN Cuba_NNP
+The_DT architect_NN designed_VBD to_TO build_VB their_PRP$ structure_NN
+The_DT machine_NN stopped_VBD to_TO perform_VB its_PRP$ function_NN
+A_DT man_NN entered_VBD the_DT room_NN and_CC waited_VBD
+The_DT dog_NN saw_VBD the_DT cat_NN and_CC barked_VBD
+I_PRP like_VBP to_TO drink_VB a_DT cold_JJ beverage_NN
+The_DT vessel_NN tried_VBD to_TO navigate_VB its_PRP$ way_NN
+The_DT runner_NN struggled_VBD to_TO keep_VB their_PRP$ pace_NN
+He_PRP intends_VBZ to_TO climb_VB a_DT huge_JJ mountain_NN
+She_PRP likes_VBZ to_TO drive_VB a_DT fast_JJ car_NN
+She_PRP hung_VBD a_DT painting_NN on_IN the_DT wall_NN
+He_PRP noticed_VBD a_DT crack_NN in_IN the_DT pavement_NN
+They_PRP solved_VBD a_DT puzzle_NN in_IN the_DT game_NN
+They_PRP plan_VBP to_TO host_VB a_DT massive_JJ party_NN
+We_PRP want_VBP to_TO make_VB a_DT real_JJ difference_NN
+There_EX is_VBZ a_DT message_NN on_IN your_PRP$ screen_NN
+There_EX was_VBZ a_DT challenge_NN in_IN their_PRP$ path_NN
+He_PRP read_VBD a_DT passage_NN from_IN the_DT book_NN
+They_PRP told_VBD a_DT lie_NN to_IN the_DT teacher_NN
+We_PRP hope_VBP to_TO see_VB a_DT peaceful_JJ resolution_NN
+They_PRP choose_VBP to_TO follow_VB a_DT safer_JJ path_NN

@@ -1,0 +1,100 @@
+Beethoven_NNP composed_VBD in_IN a_DT quiet_JJ room_NN	Orion_NNP drifted_VBD through_IN a_DT distant_JJ galaxy_NN
+Ferrari_NNP aimed_VBD for_IN an_DT unmatched_JJ performance_NN	Apollo_NNP searched_VBD for_IN an_DT ancient_JJ artifact_NN
+You_PRP could_MD happily_RB sing_VB a_DT song_NN	We_PRP could_MD suddenly_RB chase_VB a_DT comet_NN
+It_PRP can_MD powerfully_RB affect_VB the_DT outcome_NN	It_PRP can_MD subtly_RB reshape_VB the_DT landscape_NN
+He_PRP might_MD quickly_RB pack_VB the_DT luggage_NN	She_PRP might_MD boldly_RB carve_VB the_DT sculpture_NN
+The_DT weary_JJ traveler_NN stopped_VBD at_IN an_DT inn_NN	The_DT bitter_JJ snowfall_NN settled_VBD on_IN an_DT orchard_NN
+That_DT tragic_JJ event_NN occurred_VBD on_IN a_DT Tuesday_NN	That_DT distant_JJ crater_NN formed_VBD on_IN a_DT planet_NN
+They_PRP were_VBD constantly_RB monitored_VBN within_IN the_DT system_NN	We_PRP were_VBD quietly_RB guided_VBN across_IN the_DT valley_NN
+She_PRP was_VBD quietly_RB observed_VBN from_IN a_DT distance_NN	He_PRP was_VBD silently_RB lifted_VBN into_IN a_DT spaceship_NN
+She_PRP will_MD kindly_RB offer_VB a_DT hand_NN	He_PRP will_MD sternly_RB guard_VB a_DT fortress_NN
+A_DT clever_JJ fox_NN hid_VBD behind_IN a_DT bush_NN	A_DT radiant_JJ moon_NN rose_VBD above_IN a_DT shoreline_NN
+That_DT strange_JJ noise_NN came_VBD from_IN the_DT attic_NN	That_DT ancient_JJ carving_NN emerged_VBD from_IN the_DT canyon_NN
+He_PRP might_MD rarely_RB miss_VB a_DT deadline_NN	You_PRP might_MD gently_RB form_VB a_DT lantern_NN
+We_PRP must_MD entirely_RB trust_VB the_DT system_NN	They_PRP must_MD carefully_RB mend_VB the_DT engine_NN
+They_PRP renovated_VBD an_DT old_JJ house_NN completely_RB	She_PRP restored_VBD an_DT ornate_JJ tapestry_NN flawlessly_RB
+He_PRP can_MD physically_RB lift_VB that_DT heavy_JJ box_NN	You_PRP can_MD cleverly_RB alter_VB that_DT fragile_JJ sketch_NN
+They_PRP might_MD reluctantly_RB accept_VB the_DT final_JJ offer_NN	We_PRP might_MD cautiously_RB enter_VB the_DT hidden_JJ chamber_NN
+You_PRP smell_VBP the_DT flower_NN while_CC I_PRP smell_VBP the_DT smoke_NN	We_PRP track_VBP the_DT comet_NN while_CC they_PRP map_VBP the_DT terrain_NN
+We_PRP need_VBP some_DT help_NN but_CC they_PRP need_VBP a_DT rest_NN	I_PRP gather_VBP much_DT data_NN but_CC you_PRP gather_VBP a_DT sample_NN
+I_PRP wrote_VBD a_DT story_NN about_IN a_DT dragon_NN	She_PRP carved_VBD a_DT statue_NN beside_IN a_DT fountain_NN
+He_PRP put_VBD the_DT letter_NN inside_IN the_DT envelope_NN	She_PRP slid_VBD the_DT tablet_NN beneath_IN the_DT blanket_NN
+A_DT loud_JJ noise_NN sounded_VBD exceedingly_RB harsh_JJ	A_DT narrow_JJ canyon_NN appeared_VBD remarkably_RB vast_JJ
+The_DT light_JJ touch_NN felt_VBD surprisingly_RB gentle_JJ	The_DT dim_JJ lantern_NN glowed_VBD unexpectedly_RB bright_JJ
+This_DT child_NN played_VBD with_IN a_DT toy_NN	This_DT traveler_NN bargained_VBD with_IN a_DT merchant_NN
+I_PRP will_MD visit_VB the_DT museum_NN after_IN my_PRP$ lunch_NN	You_PRP will_MD survey_VB the_DT hillside_NN after_IN your_PRP$ meeting_NN
+The_DT colors_NNS blend_VBP into_IN a_DT beautiful_JJ pattern_NN	The_DT storms_NNS roll_VBP toward_IN a_DT distant_JJ shoreline_NN
+Those_DT dogs_NNS bark_VBP at_IN every_DT passing_JJ car_NN	These_DT lights_NNS flicker_VBP near_IN each_DT wandering_JJ traveler_NN
+We_PRP should_MD wisely_RB choose_VB a_DT leader_NN	You_PRP should_MD calmly_RB craft_VB a_DT model_NN
+It_PRP was_VBD securely_RB fastened_VBN with_IN a_DT strong_JJ rope_NN	It_PRP was_VBD carefully_RB shaped_VBN from_IN a_DT polished_JJ stone_NN
+We_PRP were_VBD eagerly_RB awaited_VBN for_IN the_DT positive_JJ outcome_NN	They_PRP were_VBD solemnly_RB hailed_VBN for_IN the_DT heroic_JJ rescue_NN
+They_PRP design_VBP a_DT building_NN and_CC we_PRP design_VBP a_DT bridge_NN	We_PRP track_VBP a_DT comet_NN and_CC they_PRP chart_VBP a_DT nebula_NN
+You_PRP feel_VBP the_DT heat_NN while_CC I_PRP feel_VBP the_DT warmth_NN	They_PRP trace_VBP the_DT map_NN while_CC we_PRP scan_VBP the_DT horizon_NN
+It_PRP was_VBD rapidly_RB completed_VBN in_IN a_DT week_NN	It_PRP was_VBD suddenly_RB unearthed_VBN during_IN a_DT storm_NN
+We_PRP were_VBD deeply_RB disappointed_VBN with_IN the_DT result_NN	They_PRP were_VBD bitterly_RB divided_VBN over_IN the_DT treaty_NN
+It_PRP has_VBP unexpectedly_RB caused_VBN a_DT delay_NN	It_PRP has_VBP steadily_RB formed_VBN a_DT coastline_NN
+They_PRP have_VBP systematically_RB analyzed_VBN the_DT data_NN	We_PRP have_VBP meticulously_RB charted_VBN the_DT caverns_NN
+We_PRP should_MD immediately_RB report_VB any_DT suspicious_JJ activity_NN	You_PRP should_MD urgently_RB replace_VB each_DT damaged_JJ circuit_NN
+He_PRP might_MD slowly_RB approach_VB the_DT animal_NN	She_PRP might_MD subtly_RB redirect_VB the_DT current_NN
+The_DT damp_JJ air_NN felt_VBD unpleasantly_RB heavy_JJ	The_DT narrow_JJ trail_NN seemed_VBD strangely_RB twisted_JJ
+Freud_NNP delved_VBD into_IN the_DT human_JJ psyche_NN	Sirius_NNP drifted_VBD toward_IN the_DT swirling_JJ nebula_NN
+Picasso_NNP painted_VBD in_IN a_DT messy_JJ studio_NN	Calypso_NNP practiced_VBD within_IN a_DT hidden_JJ cavern_NN
+We_PRP build_VBP a_DT house_NN but_CC they_PRP build_VBP a_DT home_NN	They_PRP craft_VBP a_DT vessel_NN but_CC we_PRP craft_VBP a_DT compass_NN
+The_DT chefs_NNS will_MD prepare_VB the_DT banquet_NN	The_DT miners_NNS will_MD excavate_VB the_DT cavern_NN
+All_DT applicants_NNS must_MD complete_VB this_DT form_NN	Most_DT travelers_NNS must_MD obtain_VB that_DT permit_NN
+That_DT car_NN stopped_VBD near_IN the_DT building_NN	That_DT storm_NN gathered_VBD above_IN the_DT valley_NN
+We_PRP should_MD publicly_RB acknowledge_VB his_PRP$ great_JJ contribution_NN	You_PRP could_MD openly_RB question_VB their_PRP$ bold_JJ strategy_NN
+She_PRP would_MD slowly_RB sip_VB her_PRP$ hot_JJ tea_NN	He_PRP would_MD quietly_RB mend_VB his_PRP$ worn_JJ boots_NN
+We_PRP are_VBZ completely_RB exhausted_JJ after_IN the_DT work_NN	They_PRP are_VBZ utterly_RB fascinated_JJ during_IN the_DT lecture_NN
+His_DT ideas_NNS challenge_VBP every_DT conventional_JJ thought_NN	Their_DT sketches_NNS inspire_VBP each_DT wandering_JJ artisan_NN
+Those_DT trees_NNS provide_VBP a_DT welcome_JJ shade_NN	These_DT towers_NNS cast_VBP a_DT looming_JJ shadow_NN
+They_PRP must_MD speak_VB up_RP the_DT valuable_JJ opinion_NN	We_PRP must_MD clear_VB out_RP the_DT tangled_JJ debris_NN
+You_PRP might_MD come_VB across_RP a_DT useful_JJ tool_NN	He_PRP might_MD step_VB over_RP a_DT broken_JJ branch_NN
+You_PRP have_VBP wisely_RB chosen_VBN the_DT path_NN	We_PRP have_VBP quietly_RB mapped_VBN the_DT route_NN
+You_PRP might_MD call_VB in_RP an_DT expert_JJ opinion_NN	They_PRP might_MD send_VB out_RP an_DT urgent_JJ warning_NN
+We_PRP will_MD show_VB off_RP the_DT new_JJ invention_NN	You_PRP will_MD take_VB up_RP the_DT bold_JJ mission_NN
+I_PRP want_VBP a_DT car_NN and_CC you_PRP want_VBP a_DT bike_NN	I_PRP need_VBP a_DT torch_NN and_CC they_PRP need_VBP a_DT compass_NN
+She_PRP would_MD rarely_RB miss_VB a_DT family_JJ gathering_NN	He_PRP would_MD hardly_RB risk_VB a_DT dangerous_JJ venture_NN
+We_PRP should_MD carefully_RB consider_VB every_DT possible_JJ option_NN	They_PRP could_MD quietly_RB restore_VB each_DT ancient_JJ relic_NN
+She_PRP has_VBP never_RB seen_VBN that_DT movie_NN	He_PRP has_VBP barely_RB touched_VBN that_DT monument_NN
+He_PRP wrote_VBD a_DT long_JJ letter_NN yesterday_RB	She_PRP found_VBD a_DT rare_JJ artifact_NN offshore_RB
+A_DT fast_JJ car_NN moved_VBD extremely_RB quickly_RB	A_DT bold_JJ hawk_NN dove_VBD unexpectedly_RB low_RB
+The_DT old_JJ clock_NN ticked_VBD slowly_RB quietly_RB	The_DT dim_JJ beacon_NN pulsed_VBD gently_RB steadily_RB
+The_DT new_JJ system_NN worked_VBD exceptionally_RB well_RB	The_DT vast_JJ network_NN expanded_VBD steadily_RB outward_RB
+A_DT young_JJ artist_NN painted_VBD quite_RB skillfully_RB	A_DT lone_JJ traveler_NN navigated_VBD remarkably_RB safely_RB
+Sarah_NNP worked_VBD at_IN a_DT local_JJ shop_NN	Orion_NNP trained_VBD within_IN a_DT frigid_JJ outpost_NN
+Amazon_NNP started_VBD as_IN an_DT online_JJ bookstore_NN	Atlantis_NNP emerged_VBD from_IN a_DT luminous_JJ lagoon_NN
+He_PRP could_MD take_VB down_RP the_DT old_JJ curtain_NN	She_PRP could_MD jot_VB down_RP the_DT brief_JJ message_NN
+It_PRP can_MD grow_VB into_RP a_DT strong_JJ tree_NN	He_PRP can_MD dive_VB into_RP a_DT deep_JJ cavern_NN
+The_DT company_NN behind_IN the_DT product_NN grew_VBD exponentially_RB	The_DT colony_NN beneath_IN the_DT ridge_NN thrived_VBD vigorously_RB
+A_DT man_NN in_IN a_DT suit_NN walked_VBD briskly_RB	A_DT ship_NN on_IN a_DT current_NN drifted_VBD lazily_RB
+A_DT deep_JJ sigh_NN felt_VBD profoundly_RB sad_JJ	A_DT dense_JJ fog_NN seemed_VBD incredibly_RB eerie_JJ
+The_DT blue_JJ sky_NN looked_VBD wonderfully_RB clear_JJ	The_DT bright_JJ lantern_NN shone_VBD warmly_RB golden_JJ
+A_DT famous_JJ singer_NN sang_VBD beautifully_RB soft_JJ	A_DT seasoned_JJ pilot_NN landed_VBD steadily_RB smooth_JJ
+They_PRP study_VBP the_DT history_NN and_CC we_PRP study_VBP the_DT future_NN	You_PRP measure_VBP the_DT distance_NN and_CC they_PRP gauge_VBP the_DT pressure_NN
+You_PRP paint_VBP a_DT picture_NN while_CC I_PRP paint_VBP a_DT wall_NN	They_PRP draft_VBP a_DT charter_NN while_CC we_PRP draft_VBP a_DT treaty_NN
+Some_DT children_NNS play_VBP near_IN a_DT large_JJ pond_NN	Several_DT travelers_NNS gather_VBP beside_IN a_DT rocky_JJ cliff_NN
+Many_DT artists_NNS live_VBP in_IN this_DT vibrant_JJ city_NN	Various_DT scholars_NNS teach_VBP within_IN this_DT ancient_JJ academy_NN
+It_PRP has_VBP recently_RB become_VBN a_DT trend_NN	It_PRP has_VBP steadily_RB remained_VBN a_DT mystery_NN
+A_DT hero_NN from_IN a_DT legend_NN appeared_VBD magically_RB	A_DT star_NN over_IN a_DT valley_NN flickered_VBD faintly_RB
+Ford_NNP dreamed_VBD of_IN an_DT affordable_JJ automobile_NN	Hera_NNP spoke_VBD of_IN a_DT forgotten_JJ prophecy_NN
+Cleopatra_NNP sailed_VBD on_IN a_DT magnificent_JJ barge_NN	Andromeda_NNP marched_VBD across_IN a_DT windswept_JJ ridge_NN
+He_PRP can_MD quickly_RB assemble_VB the_DT complicated_JJ device_NN	She_PRP can_MD deftly_RB unravel_VB the_DT tangled_JJ thread_NN
+An_DT evil_JJ sorcerer_NN lived_VBD in_IN a_DT tower_NN	An_DT ancient_JJ wanderer_NN slept_VBD near_IN a_DT canyon_NN
+This_DT simple_JJ solution_NN worked_VBD for_IN the_DT problem_NN	This_DT fragile_JJ vessel_NN drifted_VBD over_IN the_DT currents_NN
+He_PRP lost_VBD a_DT valuable_JJ watch_NN somewhere_RB around_RB	She_PRP found_VBD a_DT carved_JJ pendant_NN drifting_RB nearby_RB
+I_PRP saw_VBD an_DT old_JJ friend_NN downtown_RB yesterday_RB	We_PRP met_VBD a_DT new_JJ captain_NN offshore_RB recently_RB
+All_DT citizens_NNS must_MD pay_VB a_DT tax_NN	Most_DT traders_NNS should_MD store_VB a_DT harvest_NN
+The_DT programmers_NNS should_MD debug_VB the_DT code_NN	The_DT explorers_NNS might_MD navigate_VB the_DT delta_NN
+It_PRP is_VBZ purely_RB theoretical_JJ at_IN this_DT stage_NN	It_PRP is_VBZ loosely_RB symbolic_JJ within_IN that_DT ritual_NN
+The_DT happy_JJ song_NN sounded_VBD quite_RB joyful_JJ	The_DT dim_JJ lantern_NN glowed_VBD very_RB bright_JJ
+A_DT horrible_JJ smell_NN drifted_VBD from_IN it_PRP	A_DT subtle_JJ shimmer_NN radiated_VBD around_IN her_PRP
+The_DT huge_JJ wave_NN crashed_VBD toward_IN us_PRP	The_DT vast_JJ curtain_NN collapsed_VBD before_IN them_PRP
+She_PRP parked_VBD the_DT scooter_NN behind_IN the_DT truck_NN	He_PRP placed_VBD the_DT satchel_NN beneath_IN the_DT railing_NN
+You_PRP drew_VBD a_DT map_NN on_IN a_DT napkin_NN	They_PRP wrote_VBD a_DT code_NN atop_IN a_DT tablet_NN
+They_PRP have_VBP instantly_RB recognized_VBN the_DT voice_NN	We_PRP have_VBP readily_RB recovered_VBN the_DT artifact_NN
+She_PRP bought_VBD an_DT expensive_JJ car_NN last_JJ week_NN	He_PRP crafted_VBD a_DT delicate_JJ model_NN each_JJ evening_NN
+They_PRP must_MD draw_VB up_RP a_DT detailed_JJ plan_NN	You_PRP must_MD set_VB out_RP a_DT careful_JJ schedule_NN
+We_PRP will_MD shut_VB off_RP the_DT main_JJ power_NN	They_PRP will_MD break_VB down_RP the_DT old_JJ barrier_NN
+They_PRP might_MD simply_RB forget_VB the_DT scheduled_JJ appointment_NN	We_PRP might_MD gently_RB revise_VB the_DT intended_JJ blueprint_NN
+She_PRP would_MD really_RB enjoy_VB a_DT quiet_JJ afternoon_NN	He_PRP would_MD truly_RB cherish_VB a_DT peaceful_JJ sunrise_NN

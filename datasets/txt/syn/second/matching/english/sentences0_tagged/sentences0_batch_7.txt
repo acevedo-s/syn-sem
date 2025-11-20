@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+You_PRP must_MD count_VB down_RP the_DT seconds_NNS precisely_RB
+She_PRP could_MD hand_VB over_RP the_DT papers_NNS formally_RB
+We_PRP discovered_VBD a_DT secret_JJ passage_NN and_CC explored_VBD
+The_DT food_NN in_IN the_DT oven_NN cooked_VBD evenly_RB
+A_DT monster_NN under_IN the_DT bed_NN waited_VBD patiently_RB
+We_PRP will_MD come_VB along_RP the_DT entire_JJ journey_NN
+You_PRP might_MD give_VB back_RP the_DT borrowed_JJ item_NN
+A_DT king_NN issued_VBD a_DT decree_NN and_CC commanded_VBD
+The_DT jury_NN heard_VBD the_DT case_NN and_CC deliberated_VBD
+I_PRP locked_VBD the_DT main_JJ gate_NN and_CC checked_VBD
+We_PRP ate_VBD a_DT delicious_JJ meal_NN out_RB there_RB
+I_PRP heard_VBD a_DT strange_JJ noise_NN just_RB now_RB
+You_PRP are_VBZ really_RB focused_JJ on_IN the_DT goal_NN
+He_PRP is_VBZ evidently_RB skilled_JJ at_IN the_DT craft_NN
+They_PRP were_VBD carefully_RB chosen_VBN from_IN the_DT group_NN
+She_PRP was_VBD firmly_RB supported_VBN by_IN the_DT evidence_NN
+They_PRP should_MD hold_VB on_RP the_DT rope_NN tightly_RB
+You_PRP must_MD tear_VB up_RP the_DT document_NN carefully_RB
+She_PRP wore_VBD a_DT beautiful_JJ dress_NN last_JJ night_NN
+You_PRP discovered_VBD an_DT error_NN in_IN the_DT report_NN
+I_PRP packed_VBD a_DT suitcase_NN for_IN the_DT trip_NN
+We_PRP were_VBD generally_RB accepted_VBN by_IN the_DT members_NNS
+You_PRP must_MD clean_VB up_RP the_DT mess_NN thoroughly_RB
+It_PRP was_VBD perfectly_RB placed_VBN on_IN the_DT table_NN
+We_PRP should_MD respectfully_RB listen_VB to_IN the_DT speaker_NN
+They_PRP must_MD decisively_RB act_VB on_IN the_DT plan_NN
+Traveling_VBG to_IN a_DT country_NN broadens_VBZ a_DT perspective_NN
+They_PRP assumed_VBD the_DT result_NN to_TO be_VB otherwise_RB
+I_PRP recommended_VBD a_DT book_NN to_TO read_VB next_RB
+He_PRP taught_VBD his_PRP$ son_NN to_TO behave_VB properly_RB
+I_PRP reminded_VBD my_PRP$ colleague_NN to_TO file_VB immediately_RB
+They_PRP were_VBD simply_RB explained_VBN to_IN the_DT audience_NN
+Among_IN the_DT tall_JJ trees_NNS a_DT bird_NN sang_VBD
+Without_IN the_DT proper_JJ tools_NNS the_DT work_NN stopped_VBD
+She_PRP should_MD back_VB up_RP the_DT crucial_JJ data_NN
+He_PRP would_MD take_VB off_RP the_DT coat_NN immediately_RB
+They_PRP committed_VBD a_DT foolish_JJ crime_NN back_RB then_RB
+The_DT explorer_NN reached_VBD the_DT summit_NN and_CC exulted_VBD
+A_DT politician_NN made_VBD a_DT promise_NN and_CC lied_VBD
+It_PRP was_VBD reliably_RB delivered_VBN to_IN the_DT customer_NN
+You_PRP were_VBD quickly_RB informed_VBN about_IN the_DT event_NN
+She_PRP should_MD pass_VB on_RP the_DT important_JJ message_NN
+She_PRP wore_VBD a_DT stunning_JJ outfit_NN and_CC dazzled_VBD
+We_PRP finished_VBD the_DT long_JJ race_NN and_CC collapsed_VBD
+We_PRP sang_VBD a_DT song_NN around_IN the_DT campfire_NN
+I_PRP saw_VBD the_DT cat_NN in_IN the_DT garden_NN
+She_PRP will_MD send_VB out_RP the_DT invitations_NNS soon_RB
+You_PRP must_MD write_VB down_RP the_DT notes_NNS clearly_RB
+The_DT giant_JJ squid_NN surfaced_VBD near_IN the_DT boat_NN
+A_DT ghostly_JJ figure_NN appeared_VBD at_IN the_DT window_NN
+She_PRP paid_VBD a_DT stranger_NN to_TO wait_VB nearby_RB
+He_PRP showed_VBD the_DT apprentice_NN to_TO measure_VB precisely_RB
+Through_IN the_DT dense_JJ fog_NN a_DT light_NN appeared_VBD
+Past_IN the_DT old_JJ bridge_NN the_DT path_NN narrowed_VBD
+He_PRP could_MD throw_VB away_RP the_DT broken_JJ toy_NN
+We_PRP were_VBD eagerly_RB awaited_VBN for_IN the_DT results_NNS
+She_PRP bought_VBD a_DT new_JJ dress_NN and_CC smiled_VBD
+She_PRP requested_VBD the_DT audience_NN to_TO listen_VB silently_RB
+We_PRP witnessed_VBD a_DT spectacular_JJ event_NN over_RB there_RB
+It_PRP is_VBZ quite_RB challenging_JJ at_IN the_DT moment_NN
+You_PRP are_VBZ undoubtedly_RB intelligent_JJ for_IN the_DT challenge_NN
+She_PRP designed_VBD a_DT unique_JJ costume_NN and_CC won_VBD
+I_PRP answered_VBD the_DT tough_JJ question_NN and_CC passed_VBD
+A_DT green_JJ parrot_NN talked_VBD to_IN the_DT pirate_NN
+The_DT lost_JJ puppy_NN whimpered_VBD outside_IN the_DT door_NN
+You_PRP could_MD settle_VB down_RP the_DT crowd_NN calmly_RB
+He_PRP will_MD stand_VB by_RP the_DT decision_NN firmly_RB
+It_PRP might_MD get_VB ahead_RP the_DT schedule_NN smoothly_RB
+You_PRP must_MD cut_VB off_RP the_DT supply_NN completely_RB
+We_PRP were_VBD openly_RB challenged_VBN during_IN the_DT debate_NN
+He_PRP was_VBD kindly_RB remembered_VBN throughout_IN the_DT town_NN
+A_DT guard_NN at_IN the_DT gate_NN stood_VBD watchfully_RB
+The_DT painting_NN by_IN the_DT artist_NN sold_VBD immediately_RB
+Cheating_VBG on_IN a_DT partner_NN destroys_VBZ a_DT relationship_NN
+Swimming_VBG in_IN the_DT ocean_NN brings_VBZ a_DT thrill_NN
+She_PRP answered_VBD a_DT question_NN from_IN the_DT audience_NN
+We_PRP ate_VBD the_DT cake_NN after_IN the_DT dinner_NN
+I_PRP caught_VBD a_DT big_JJ fish_NN out_RB there_RB
+He_PRP made_VBD a_DT terrible_JJ mistake_NN once_RB before_RB
+We_PRP reached_VBD the_DT high_JJ summit_NN and_CC gazed_VBD
+It_PRP can_MD break_VB down_RP the_DT sturdy_JJ barrier_NN
+We_PRP will_MD take_VB out_RP the_DT smelly_JJ trash_NN
+The_DT diligent_JJ student_NN studied_VBD for_IN the_DT exam_NN
+They_PRP built_VBD a_DT house_NN near_IN the_DT river_NN
+She_PRP poured_VBD some_DT water_NN into_IN the_DT glass_NN
+They_PRP must_MD turn_VB off_RP the_DT loud_JJ music_NN
+It_PRP can_MD fall_VB apart_RP the_DT fragile_JJ structure_NN
+It_PRP is_VBZ purely_RB coincidental_JJ in_IN the_DT situation_NN
+You_PRP are_VBZ fiercely_RB loyal_JJ to_IN the_DT cause_NN
+She_PRP could_MD break_VB into_RP the_DT conversation_NN abruptly_RB
+Against_IN the_DT strong_JJ current_NN the_DT swimmer_NN pushed_VBD
+Inside_IN the_DT hidden_JJ chamber_NN a_DT relic_NN gleamed_VBD
+A_DT red_JJ car_NN sped_VBD down_IN the_DT highway_NN
+She_PRP developed_VBD a_DT new_JJ theory_NN sometime_RB recently_RB
+I_PRP got_VBD a_DT weird_JJ feeling_NN just_RB then_RB
+She_PRP trained_VBD her_PRP$ dog_NN to_TO sit_VB still_RB
+Near_IN the_DT bubbling_JJ spring_NN a_DT deer_NN drank_VBD
+Across_IN the_DT wide_JJ river_NN the_DT bridge_NN stretched_VBD
+I_PRP remembered_VBD an_DT important_JJ detail_NN and_CC returned_VBD
+We_PRP are_VBZ usually_RB cautious_JJ before_IN the_DT risk_NN
