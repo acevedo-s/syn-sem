@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+A_DT whisper_NN echoed_VBD in_IN the_DT corridor_NN
+It_PRP can_MD rapidly_RB spread_VB the_DT information_NN
+They_PRP must_MD constantly_RB monitor_VB the_DT progress_NN
+Our_DT city_NN wants_VBZ a_DT cleaner_JJR environment_NN
+A_DT problem_NN arose_VBD during_IN the_DT meeting_NN
+You_PRP could_MD clearly_RB articulate_VB the_DT message_NN
+This_DT coat_NN provides_VBZ a_DT warmer_JJR feeling_NN
+The_DT bees_NNS could_MD swarm_VB the_DT hive_NN
+All_DT participants_NNS must_MD wear_VB the_DT badge_NN
+The_DT market_NN saw_VBD a_DT steeper_JJR decline_NN
+His_DT argument_NN required_VBD a_DT clearer_JJR explanation_NN
+It_PRP can_MD constantly_RB monitor_VB the_DT system_NN
+She_PRP will_MD willingly_RB offer_VB the_DT support_NN
+This_DT recipe_NN produced_VBD a_DT sweeter_JJR cake_NN
+The_DT experiment_NN yielded_VBD a_DT rarer_JJR result_NN
+Napoleon_NNP fought_VBD with_IN a_DT grand_JJ army_NN
+Churchill_NNP stood_VBD against_IN a_DT formidable_JJ foe_NN
+The_DT statement_NN will_MD be_VB retracted_VBN publicly_RB
+A_DT decision_NN must_MD be_VB made_VBN now_RB
+They_PRP must_MD consistently_RB apply_VB the_DT method_NN
+This_DT problem_NN should_MD be_VB addressed_VBN immediately_RB
+You_PRP could_MD neatly_RB arrange_VB the_DT items_NNS
+We_PRP should_MD fairly_RB distribute_VB the_DT tasks_NNS
+Einstein_NNP thought_VBD about_IN a_DT unified_JJ theory_NN
+Gutenberg_NNP worked_VBD with_IN a_DT movable_JJ type_NN
+She_PRP will_MD kindly_RB assist_VB the_DT newcomers_NNS
+They_PRP have_VBP successfully_RB completed_VBN the_DT project_NN
+It_PRP has_VBP perfectly_RB matched_VBN the_DT description_NN
+The_DT work_NN will_MD be_VB finished_VBN shortly_RB
+The_DT signal_NN faded_VBD through_IN the_DT static_NN
+She_PRP will_MD patiently_RB teach_VB the_DT lesson_NN
+It_PRP can_MD effectively_RB convey_VB the_DT message_NN
+It_PRP can_MD efficiently_RB process_VB the_DT data_NN
+You_PRP could_MD simply_RB state_VB the_DT fact_NN
+Shakespeare_NNP wrote_VBD with_IN a_DT sharpened_JJ quill_NN
+Newton_NNP believed_VBD in_IN a_DT mechanical_JJ universe_NN
+The_DT athletes_NNS will_MD represent_VB their_PRP$ country_NN
+It_PRP can_MD precisely_RB measure_VB the_DT distance_NN
+You_PRP could_MD simply_RB answer_VB the_DT query_NN
+This_DT medicine_NN should_MD be_VB taken_VBN orally_RB
+A_DT fire_NN could_MD be_VB started_VBN deliberately_RB
+She_PRP has_VBP often_RB visited_VBN the_DT garden_NN
+The_DT journey_NN began_VBD from_IN the_DT station_NN
+A_DT ball_NN rolled_VBD down_IN the_DT hill_NN
+You_PRP have_VBP gracefully_RB handled_VBN the_DT challenge_NN
+A_DT smile_NN crossed_VBD on_IN the_DT face_NN
+The_DT machine_NN broke_VBD down_IN the_DT street_NN
+They_PRP could_MD quietly_RB read_VB the_DT book_NN
+She_PRP will_MD politely_RB decline_VB the_DT invitation_NN
+We_PRP must_MD carefully_RB observe_VB the_DT rules_NNS
+It_PRP can_MD broadly_RB categorize_VB the_DT items_NNS
+The_DT process_NN will_MD be_VB monitored_VBN closely_RB
+A_DT melody_NN drifted_VBD from_IN the_DT window_NN
+Many_DT viewers_NNS prefer_VBP a_DT happy_JJ ending_NN
+All_DT students_NNS need_VBP a_DT quiet_JJ place_NN
+The_DT parcel_NN arrived_VBD at_IN the_DT address_NN
+The_DT bird_NN flew_VBD into_IN the_DT sky_NN
+A_DT light_NN shone_VBD from_IN the_DT window_NN
+We_PRP should_MD humbly_RB acknowledge_VB the_DT mistake_NN
+He_PRP might_MD secretly_RB hide_VB the_DT treasure_NN
+A_DT tiny_JJ insect_NN moved_VBD incredibly_RB fast_RB
+It_PRP can_MD quickly_RB transfer_VB the_DT files_NNS
+He_PRP might_MD regularly_RB review_VB the_DT progress_NN
+She_PRP will_MD accurately_RB report_VB the_DT findings_NNS
+Toyota_NNP focused_VBD on_IN a_DT continuous_JJ improvement_NN
+A_DT dream_NN appeared_VBD in_IN the_DT sleep_NN
+A_DT stray_JJ dog_NN went_VBD to_TO them_PRP
+The_DT lost_JJ tourist_NN appealed_VBD to_TO us_PRP
+The_DT child_NN pointed_VBD at_IN the_DT picture_NN
+These_DT cats_NNS might_MD eat_VB the_DT food_NN
+She_PRP will_MD carefully_RB pack_VB the_DT luggage_NN
+The_DT friendly_JJ local_NN motioned_VBD to_TO me_PRP
+A_DT small_JJ child_NN walked_VBD to_TO her_PRP
+We_PRP have_VBP finally_RB reached_VBN the_DT destination_NN
+He_PRP has_VBP humbly_RB accepted_VBN the_DT award_NN
+She_PRP has_VBP calmly_RB handled_VBN the_DT situation_NN
+He_PRP might_MD abruptly_RB stop_VB the_DT music_NN
+They_PRP must_MD thoroughly_RB examine_VB the_DT evidence_NN
+Joan_NNP prayed_VBD in_IN a_DT small_JJ chapel_NN
+Roosevelt_NNP spoke_VBD with_IN a_DT confident_JJ voice_NN
+We_PRP should_MD calmly_RB discuss_VB the_DT issue_NN
+The_DT artifact_NN might_MD be_VB discovered_VBN unexpectedly_RB
+This_DT information_NN should_MD be_VB handled_VBN confidentially_RB
+The_DT artist_NN painted_VBD with_IN a_DT brush_NN
+The_DT gate_NN opened_VBD toward_IN the_DT field_NN
+Their_PRP$ secret_NN can_MD be_VB kept_VBN forever_RB
+You_PRP could_MD quietly_RB contemplate_VB the_DT idea_NN
+We_PRP should_MD formally_RB request_VB the_DT information_NN
+The_DT players_NNS will_MD start_VB the_DT game_NN
+The_DT workers_NNS should_MD wear_VB a_DT helmet_NN
+You_PRP should_MD strictly_RB follow_VB the_DT guidelines_NNS
+She_PRP will_MD warmly_RB welcome_VB the_DT visitors_NNS
+The_DT musicians_NNS will_MD play_VB a_DT symphony_NN
+The_DT members_NNS must_MD approve_VB the_DT budget_NN
+King_NNP spoke_VBD to_IN a_DT hopeful_JJ crowd_NN
+Samsung_NNP competed_VBD in_IN a_DT global_JJ marketplace_NN
+They_PRP could_MD clearly_RB define_VB the_DT terms_NNS
+This_DT job_NN should_MD be_VB done_VBN carefully_RB
+The_DT project_NN will_MD be_VB managed_VBN professionally_RB
+She_PRP will_MD fairly_RB judge_VB the_DT competition_NN

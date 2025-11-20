@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+She_PRP sang_VBD a_DT beautiful_JJ song_NN and_CC bowed_VBD
+She_PRP received_VBD a_DT mysterious_JJ package_NN earlier_RB today_RB
+I_PRP felt_VBD a_DT sharp_JJ pain_NN right_RB here_RB
+Beneath_IN the_DT crumbling_JJ wall_NN the_DT treasure_NN lay_VBD
+A_DT wooden_JJ bridge_NN stood_VBD over_IN the_DT stream_NN
+Behind_IN the_DT thick_JJ curtain_NN a_DT shadow_NN moved_VBD
+She_PRP packed_VBD a_DT small_JJ bag_NN and_CC departed_VBD
+They_PRP discovered_VBD a_DT secret_JJ passage_NN deep_RB underground_RB
+He_PRP will_MD speak_VB up_RP the_DT truth_NN bravely_RB
+She_PRP chose_VBD a_DT different_JJ path_NN long_RB ago_RB
+It_PRP was_VBD finally_RB solved_VBN without_IN the_DT help_NN
+It_PRP might_MD break_VB down_RP the_DT barrier_NN gradually_RB
+A_DT large_JJ rock_NN crashed_VBD into_IN the_DT valley_NN
+The_DT royal_JJ procession_NN moved_VBD toward_IN the_DT palace_NN
+An_DT ancient_JJ curse_NN fell_VBD upon_IN the_DT village_NN
+She_PRP should_MD move_VB on_RP the_DT new_JJ chapter_NN
+We_PRP will_MD wear_VB out_RP the_DT durable_JJ material_NN
+He_PRP challenged_VBD his_PRP$ rival_NN to_TO compete_VB honorably_RB
+A_DT timid_JJ mouse_NN scurried_VBD under_IN the_DT sofa_NN
+They_PRP must_MD put_VB away_RP the_DT fragile_JJ dishes_NNS
+A_DT shadow_NN in_IN the_DT corner_NN moved_VBD stealthily_RB
+The_DT gift_NN inside_IN the_DT box_NN rattled_VBD gently_RB
+We_PRP saw_VBD a_DT scary_JJ movie_NN this_JJ afternoon_NN
+You_PRP could_MD look_VB up_RP the_DT details_NNS quickly_RB
+They_PRP launched_VBD a_DT new_JJ product_NN just_RB recently_RB
+He_PRP gave_VBD a_DT powerful_JJ speech_NN back_RB then_RB
+They_PRP must_MD calm_VB down_RP the_DT agitated_JJ crowd_NN
+You_PRP were_VBD recently_RB promoted_VBN to_IN the_DT position_NN
+A_DT student_NN in_IN the_DT class_NN answered_VBD correctly_RB
+The_DT book_NN on_IN the_DT shelf_NN fell_VBD suddenly_RB
+We_PRP faced_VBD a_DT major_JJ challenge_NN back_RB then_RB
+We_PRP can_MD call_VB back_RP the_DT person_NN politely_RB
+She_PRP will_MD figure_VB out_RP the_DT answer_NN eventually_RB
+She_PRP should_MD write_VB down_RP the_DT significant_JJ points_NNS
+A_DT distant_JJ star_NN twinkled_VBD in_IN the_DT darkness_NN
+The_DT local_JJ team_NN won_VBD against_IN the_DT champion_NN
+The_DT lead_JJ actor_NN bowed_VBD to_IN the_DT audience_NN
+She_PRP found_VBD a_DT rare_JJ artifact_NN somewhere_RB nearby_RB
+You_PRP might_MD send_VB for_RP the_DT missing_JJ package_NN
+They_PRP must_MD hold_VB onto_RP the_DT precious_JJ memory_NN
+It_PRP might_MD fall_VB over_RP the_DT obstacle_NN clumsily_RB
+We_PRP can_MD get_VB through_RP the_DT task_NN eventually_RB
+They_PRP were_VBD secretly_RB watched_VBN from_IN the_DT window_NN
+He_PRP was_VBD patiently_RB educated_VBN by_IN the_DT teacher_NN
+She_PRP could_MD pass_VB out_RP the_DT flyers_NNS quickly_RB
+They_PRP must_MD put_VB down_RP the_DT boxes_NNS gently_RB
+The_DT information_NN on_IN the_DT screen_NN updated_VBD automatically_RB
+She_PRP allowed_VBD her_PRP$ daughter_NN to_TO play_VB freely_RB
+We_PRP will_MD set_VB aside_RP the_DT important_JJ document_NN
+It_PRP might_MD blow_VB up_RP the_DT balloon_NN slowly_RB
+A_DT bright_JJ light_NN shone_VBD through_IN the_DT window_NN
+She_PRP will_MD generously_RB contribute_VB to_IN the_DT cause_NN
+The_DT loyal_JJ dog_NN waited_VBD by_IN the_DT gate_NN
+A_DT smell_NN from_IN the_DT kitchen_NN drifted_VBD tantalizingly_RB
+I_PRP chose_VBD my_PRP$ friend_NN to_TO stand_VB beside_RB
+They_PRP should_MD look_VB into_RP the_DT complex_JJ problem_NN
+A_DT guest_NN at_IN the_DT hotel_NN complained_VBD bitterly_RB
+The_DT system_NN for_IN the_DT entry_NN worked_VBD perfectly_RB
+He_PRP will_MD throw_VB away_RP the_DT trash_NN quickly_RB
+It_PRP might_MD die_VB out_RP the_DT tradition_NN slowly_RB
+The_DT voice_NN on_IN the_DT phone_NN spoke_VBD calmly_RB
+A_DT star_NN in_IN the_DT sky_NN fell_VBD gracefully_RB
+A_DT brilliant_JJ idea_NN came_VBD to_TO her_PRP
+The_DT true_JJ ownership_NN reverted_VBD to_TO us_PRP
+He_PRP told_VBD a_DT funny_JJ joke_NN earlier_RB
+They_PRP must_MD promptly_RB answer_VB the_DT question_NN
+We_PRP should_MD broadly_RB support_VB the_DT initiative_NN
+The_DT fire_NN spread_VBD through_IN the_DT forest_NN
+Our_DT team_NN found_VBD a_DT faster_JJR route_NN
+The_DT company_NN adopted_VBD a_DT leaner_JJR structure_NN
+This_DT lens_NN gives_VBZ a_DT sharper_JJR image_NN
+Our_DT military_NN requires_VBZ a_DT tougher_JJR training_NN
+All_DT passengers_NNS must_MD show_VB their_PRP$ ticket_NN
+The_DT artists_NNS will_MD display_VB their_PRP$ work_NN
+A_DT ship_NN sailed_VBD across_IN the_DT ocean_NN
+The_DT student_NN wrote_VBD a_DT longer_JJR essay_NN
+His_DT condition_NN showed_VBD a_DT slower_JJR improvement_NN
+The_DT computer_NN ran_VBD a_DT newer_JJR version_NN
+Our_DT plan_NN needs_VBD a_DT firmer_JJR commitment_NN
+A_DT beautiful_JJ melody_NN drifted_VBD to_TO us_PRP
+The_DT big_JJ dog_NN ran_VBD to_TO me_PRP
+We_PRP have_VBP broadly_RB supported_VBN the_DT policy_NN
+She_PRP has_VBP regularly_RB visited_VBN the_DT library_NN
+All_DT users_NNS must_MD accept_VB the_DT term_NN
+Those_DT dogs_NNS could_MD chase_VB the_DT squirrel_NN
+His_DT apology_NN had_VBD a_DT sincerer_JJR tone_NN
+The_DT painting_NN used_VBD a_DT bolder_JJR color_NN
+The_DT treasure_NN might_MD be_VB found_VBN eventually_RB
+This_DT structure_NN should_MD be_VB built_VBN solidly_RB
+The_DT final_JJ decision_NN fell_VBD to_TO her_PRP
+A_DT sudden_JJ thought_NN occurred_VBD to_TO me_PRP
+It_PRP can_MD effectively_RB reduce_VB the_DT burden_NN
+He_PRP might_MD eagerly_RB accept_VB the_DT offer_NN
+They_PRP must_MD bravely_RB face_VB the_DT challenge_NN
+This_DT material_NN should_MD be_VB tested_VBN thoroughly_RB
+I_PRP met_VBD a_DT famous_JJ person_NN once_RB
+The_DT black_JJ cat_NN came_VBD to_TO me_PRP
+A_DT stray_JJ dog_NN went_VBD to_TO him_PRP
+The_DT animal_NN might_MD be_VB seen_VBN rarely_RB
+The_DT plan_NN changed_VBD after_IN the_DT review_NN

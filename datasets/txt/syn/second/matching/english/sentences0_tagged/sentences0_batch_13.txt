@@ -1,0 +1,114 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+The_DT system_NN is_VBZ perfectly_RB stable_JJ during_IN the_DT operation_NN
+The_DT air_NN feels_VBZ remarkably_RB fresh_JJ near_IN the_DT ocean_NN
+A_DT ship_NN sailed_VBD into_IN the_DT harbor_NN and_CC docked_VBD
+The_DT lion_NN roared_VBD at_IN the_DT prey_NN and_CC attacked_VBD
+We_PRP are_VBZ a_DT small_JJ part_NN of_IN the_DT whole_NN
+The_DT taste_NN feels_VBZ incredibly_RB sweet_JJ on_IN the_DT tongue_NN
+The_DT scent_NN is_VBZ deliciously_RB strong_JJ from_IN the_DT flowers_NNS
+They_PRP carry_VBP a_DT burden_NN that_WDT is_VBZ extremely_RB heavy_JJ
+She_PRP hears_VBP a_DT whisper_NN which_WDT is_VBZ barely_RB audible_JJ
+Before_IN the_DT grand_JJ ceremony_NN the_DT guests_NNS arrived_VBD promptly_RB
+She_PRP has_VBP a_DT talent_NN that_WDT is_VBZ truly_RB remarkable_JJ
+He_PRP builds_VBP a_DT structure_NN which_WDT is_VBZ remarkably_RB stable_JJ
+The_DT quick_JJ wit_NN and_CC a_DT humor_NN shone_VBD brightly_RB
+A_DT sweet_JJ aroma_NN and_CC a_DT scent_NN filled_VBD pleasantly_RB
+It_PRP provides_VBP a_DT service_NN which_WDT is_VBZ consistently_RB reliable_JJ
+You_PRP appreciate_VBP a_DT gesture_NN that_WDT is_VBZ genuinely_RB kind_JJ
+She_PRP bought_VBP a_DT book_NN which_WDT is_VBZ very_RB interesting_JJ
+They_PRP share_VBP a_DT thought_NN that_WDT is_VBZ extremely_RB complex_JJ
+The_DT machine_NN appears_VBZ remarkably_RB efficient_JJ in_IN the_DT tests_NNS
+The_DT argument_NN sounds_VBZ very_RB logical_JJ to_IN the_DT listeners_NNS
+The_DT solution_NN seems_VBZ fairly_RB simple_JJ despite_IN the_DT complexity_NN
+The_DT story_NN feels_VBZ powerfully_RB emotional_JJ throughout_IN the_DT chapters_NNS
+It_PRP provides_VBP a_DT clear_JJ view_NN from_IN the_DT window_NN
+They_PRP have_VBP a_DT great_JJ idea_NN for_IN the_DT project_NN
+The_DT updates_NNS should_MD be_VB installed_VBN by_IN the_DT user_NN
+All_DT flights_NNS must_MD be_VB confirmed_VBN with_IN the_DT airline_NN
+It_PRP is_VBZ a_DT sudden_JJ change_NN in_IN the_DT weather_NN
+A_DT speech_NN given_VBN by_IN the_DT president_NN felt_VBD inspiring_JJ
+The_DT mystery_NN solved_VBN by_IN the_DT detective_NN was_VBD complex_JJ
+A_DT small_JJ dog_NN and_CC a_DT cat_NN played_VBD happily_RB
+The_DT wide_JJ river_NN and_CC a_DT bridge_NN stretched_VBD impressively_RB
+The_DT product_NN was_VBD broadly_RB advertised_VBN in_IN their_PRP$ region_NN
+The_DT structure_NN was_VBD firmly_RB established_VBN upon_IN its_PRP$ foundation_NN
+The_DT message_NN was_VBD clearly_RB understood_VBN by_IN our_PRP$ group_NN
+The_DT area_NN was_VBD strictly_RB controlled_VBN within_IN their_PRP$ limits_NNS
+The_DT feeling_NN was_VBD deeply_RB felt_VBN throughout_IN our_PRP$ hearts_NNS
+He_PRP keeps_VBP a_DT promise_NN which_WDT is_VBZ perfectly_RB sacred_JJ
+It_PRP brings_VBP a_DT comfort_NN that_WDT is_VBZ really_RB deep_JJ
+Disney_NNP produced_VBD a_DT classic_JJ animated_JJ film_NN in_IN Burbank_NNP
+The_DT land_NN owned_VBN by_IN that_DT family_NN seems_VBZ vast_JJ
+They_PRP read_VBP a_DT poem_NN that_WDT is_VBZ deeply_RB moving_JJ
+You_PRP find_VBP a_DT reason_NN which_WDT is_VBZ perfectly_RB logical_JJ
+He_PRP discovers_VBP a_DT talent_NN that_WDT is_VBZ surprisingly_RB impressive_JJ
+We_PRP choose_VBP a_DT moment_NN which_WDT is_VBZ truly_RB unique_JJ
+The_DT device_NN was_VBD successfully_RB tested_VBN in_IN our_PRP$ laboratory_NN
+You_PRP are_VBZ a_DT crucial_JJ factor_NN in_IN the_DT decision_NN
+It_PRP is_VBZ a_DT good_JJ sign_NN for_IN the_DT future_NN
+The_DT crops_NNS should_MD be_VB harvested_VBN before_IN the_DT rain_NN
+All_DT complaints_NNS must_MD be_VB filed_VBN by_IN the_DT deadline_NN
+The_DT process_NN was_VBD smoothly_RB executed_VBN with_IN their_PRP$ cooperation_NN
+I_PRP learn_VBP a_DT new_JJ skill_NN at_IN the_DT workshop_NN
+The_DT decision_NN was_VBD mutually_RB agreed_VBN upon_IN our_PRP$ terms_NNS
+A_DT warm_JJ fire_NN and_CC a_DT breeze_NN blew_VBD lightly_RB
+The_DT good_JJ news_NN and_CC a_DT report_NN spread_VBD rapidly_RB
+The_DT strange_JJ creature_NN appeared_VBD truly_RB unusual_JJ to_TO observe_VB
+The_DT empty_JJ room_NN felt_VBD strangely_RB quiet_JJ to_TO enter_VB
+The_DT new_JJ system_NN felt_VBD perfectly_RB intuitive_JJ to_TO use_VB
+A_DT mistake_NN made_VBN by_IN the_DT surgeon_NN proved_VBD fatal_JJ
+The_DT path_NN taken_VBN by_IN the_DT guide_NN was_VBD safe_JJ
+They_PRP are_VBZ a_DT new_JJ addition_NN to_IN the_DT collection_NN
+The_DT broken_JJ window_NN and_CC a_DT door_NN creaked_VBD eerily_RB
+The_DT animals_NNS should_MD be_VB fed_VBN by_IN a_DT zookeeper_NN
+The_DT artifacts_NNS can_MD be_VB viewed_VBN at_IN the_DT museum_NN
+The_DT truth_NN was_VBD slowly_RB revealed_VBN within_IN its_PRP$ pages_NNS
+It_PRP creates_VBP a_DT warm_JJ feeling_NN inside_IN the_DT chest_NN
+You_PRP possess_VBP a_DT keen_JJ intellect_NN for_IN the_DT analysis_NN
+The_DT gifts_NNS should_MD be_VB wrapped_VBN before_IN the_DT party_NN
+The_DT results_NNS will_MD be_VB announced_VBN by_IN a_DT committee_NN
+Picasso_NNP started_VBD a_DT new_JJ artistic_JJ style_NN in_IN France_NNP
+A_DT unique_JJ talent_NN and_CC a_DT skill_NN developed_VBD constantly_RB
+A_DT fresh_JJ start_NN and_CC a_DT chance_NN offered_VBD openly_RB
+The_DT strong_JJ wind_NN and_CC a_DT rain_NN blew_VBD heavily_RB
+The_DT color_NN seems_VBZ truly_RB vibrant_JJ on_IN the_DT canvas_NN
+The_DT atmosphere_NN is_VBZ genuinely_RB warm_JJ within_IN the_DT gathering_NN
+We_PRP develop_VBP a_DT useful_JJ application_NN for_IN the_DT community_NN
+You_PRP find_VBP a_DT small_JJ house_NN near_IN the_DT lake_NN
+The_DT document_NN was_VBD secretly_RB hidden_VBN inside_IN our_PRP$ vault_NN
+The_DT issue_NN was_VBD seriously_RB considered_VBN by_IN their_PRP$ management_NN
+The_DT busy_JJ market_NN and_CC a_DT shop_NN closed_VBD early_RB
+They_PRP hear_VBP a_DT voice_NN which_WDT is_VBZ surprisingly_RB clear_JJ
+We_PRP visit_VBP a_DT city_NN that_WDT is_VBZ historically_RB significant_JJ
+The_DT quick_JJ movement_NN seemed_VBD impossibly_RB fast_JJ to_TO follow_VB
+The_DT plan_NN was_VBD confidently_RB presented_VBN before_IN their_PRP$ board_NN
+The_DT message_NN was_VBD instantly_RB transmitted_VBN through_IN your_PRP$ device_NN
+The_DT bright_JJ lamp_NN felt_VBD pleasantly_RB warm_JJ to_TO hold_VB
+The_DT tall_JJ mountain_NN seemed_VBD immensely_RB imposing_JJ to_TO climb_VB
+A_DT hidden_JJ path_NN and_CC a_DT road_NN appeared_VBD mysteriously_RB
+The_DT magician_NN performed_VBD an_DT amazing_JJ trick_NN and_CC vanished_VBD
+The_DT bird_NN caught_VBD a_DT wriggly_JJ worm_NN and_CC flew_VBD
+The_DT proposal_NN is_VBZ critically_RB important_JJ for_IN the_DT debate_NN
+The_DT child_NN looks_VBZ extremely_RB happy_JJ with_IN the_DT toy_NN
+The_DT detective_NN found_VBD a_DT vital_JJ clue_NN and_CC proceeded_VBD
+The_DT guest_NN tasted_VBD the_DT spicy_JJ soup_NN and_CC coughed_VBD
+The_DT error_NN was_VBD finally_RB corrected_VBN in_IN their_PRP$ code_NN
+The_DT message_NN was_VBD politely_RB delivered_VBN to_IN your_PRP$ doorstep_NN
+You_PRP could_MD make_VB a_DT sandwich_NN for_IN your_PRP$ lunch_NN
+He_PRP finds_VBP a_DT solution_NN that_WDT is_VBZ really_RB simple_JJ
+We_PRP receive_VBP a_DT blessing_NN which_WDT is_VBZ truly_RB unexpected_JJ
+The_DT news_NN was_VBD unexpectedly_RB received_VBN through_IN your_PRP$ broadcast_NN
+The_DT old_JJ building_NN looked_VBD truly_RB derelict_JJ to_TO enter_VB

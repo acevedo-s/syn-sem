@@ -3,3 +3,4 @@ results
 extract_activations/log_output
 log_output
 __pycache__
+log_steering

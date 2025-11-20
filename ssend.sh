@@ -17,4 +17,5 @@ export JAX_DEBUG_NANS=True         # show warnings if NaNs/Infs are encountered
 ARGS=("$@") # list of commandline inputs
 echo "${ARGS[@]}"
 # PYTHONWARNINGS="error" python3 -u compute.py "${ARGS[@]}"
+source /home/acevedo/venv/bin/activate
 python3 -u send.py "${ARGS[@]}"

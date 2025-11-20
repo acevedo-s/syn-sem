@@ -1,0 +1,98 @@
+The_DT teacher_NN used_VBD a_DT gentler_JJR approach_NN	The_DT manager_NN chose_VBD a_DT slower_JJR strategy_NN
+The_DT judge_NN gave_VBD a_DT harsher_JJR sentence_NN	The_DT editor_NN wrote_VBD a_DT longer_JJR preface_NN
+The_DT group_NN found_VBD a_DT drier_JJR shelter_NN	The_DT committee_NN proposed_VBD a_DT fairer_JJR policy_NN
+Against_IN the_DT current_NN and_CC the_DT tide_NN they_PRP swim_VBP strongly_RB	Against_IN the_DT schedule_NN and_CC the_DT budget_NN they_PRP push_VBP stubbornly_RB
+Below_IN the_DT surface_NN and_CC the_DT depth_NN we_PRP search_VBP patiently_RB	Below_IN the_DT balcony_NN and_CC the_DT stage_NN we_PRP wait_VBP quietly_RB
+His_PRP$ proposal_NN can_MD be_VB understood_VBN perfectly_RB	His_PRP$ accent_NN can_MD be_VB imitated_VBN easily_RB
+Your_PRP$ offer_NN can_MD be_VB accepted_VBN gladly_RB	Your_PRP$ idea_NN can_MD be_VB implemented_VBN enthusiastically_RB
+The_DT gray_JJ wolf_NN returned_VBD to_TO it_PRP	The_DT hungry_JJ fox_NN sneaked_VBD to_TO them_PRP
+The_DT patient_NN needed_VBD a_DT stronger_JJR medicine_NN	The_DT engine_NN required_VBD a_DT thicker_JJR lubricant_NN
+The_DT negotiation_NN reached_VBD a_DT calmer_JJR stage_NN	The_DT festival_NN entered_VBD a_DT quieter_JJR phase_NN
+By_IN the_DT book_NN and_CC the_DT rule_NN we_PRP follow_VBP strictly_RB	By_IN the_DT schedule_NN and_CC the_DT budget_NN we_PRP operate_VBP rigidly_RB
+The_DT long_JJ river_NN and_CC the_DT short_NN stream_NN met_VBD unexpectedly_RB	The_DT ancient_JJ castle_NN and_CC the_DT modern_NN tower_NN collapsed_VBD suddenly_RB
+The_DT pilot_NN navigated_VBD the_DT aircraft_NN precisely_RB to_TO reach_VB destination_NN	The_DT sailor_NN steered_VBD the_DT vessel_NN carefully_RB to_TO avoid_VB collision_NN
+The_DT doctor_NN treated_VBD the_DT patient_NN gently_RB to_TO ease_VB suffering_NN	The_DT tutor_NN coached_VBD the_DT student_NN patiently_RB to_TO build_VB confidence_NN
+The_DT reviewers_NNS should_MD evaluate_VB the_DT product_NN	The_DT managers_NNS should_MD reconsider_VB the_DT schedule_NN
+Over_IN the_DT hills_NNS and_CC the_DT valleys_NNS we_PRP trek_VBP steadily_RB	Over_IN the_DT rooftops_NNS and_CC the_DT alleys_NNS we_PRP glide_VBP silently_RB
+We_PRP may_MD offer_VB a_DT reward_NN for_IN the_DT lost_JJ dog_NN	We_PRP may_MD arrange_VB a_DT meeting_NN for_IN the_DT visiting_JJ delegation_NN
+A_DT crack_NN in_IN the_DT foundation_NN compromised_VBD the_DT whole_JJ structure_NN	A_DT error_NN in_IN the_DT formula_NN invalidated_VBD the_DT entire_JJ project_NN
+By_IN the_DT morning_NN and_CC the_DT evening_NN they_PRP eat_VBP slowly_RB	By_IN the_DT weekend_NN and_CC the_DT holiday_NN they_PRP travel_VBP eagerly_RB
+The_DT architect_NN designed_VBD a_DT taller_JJR building_NN	The_DT gardener_NN planted_VBD a_DT wider_JJR hedge_NN
+The_DT soldiers_NNS should_MD follow_VB the_DT order_NN	The_DT workers_NNS should_MD respect_VB the_DT schedule_NN
+The_DT guards_NNS will_MD protect_VB the_DT palace_NN	The_DT firefighters_NNS will_MD defend_VB the_DT neighborhood_NN
+The_DT whole_JJ responsibility_NN defaulted_VBD to_TO you_PRP	The_DT final_JJ payment_NN transferred_VBD to_TO them_PRP
+The_DT grand_JJ prize_NN went_VBD to_TO her_PRP	The_DT silver_JJ medal_NN belonged_VBD to_TO him_PRP
+The_DT wolves_NNS could_MD hunt_VB the_DT deer_NN	The_DT children_NNS could_MD chase_VB the_DT kite_NN
+A_DT warm_JJ fire_NN and_CC a_DT cool_JJ breeze_NN met_VBD suddenly_RB	A_DT bright_JJ comet_NN and_CC a_DT distant_JJ planet_NN appeared_VBD briefly_RB
+This_DT material_NN has_VBZ a_DT rougher_JJR texture_NN	This_DT lotion_NN gives_VBZ a_DT softer_JJR feeling_NN
+This_DT path_NN offers_VBZ a_DT shorter_JJR journey_NN	This_DT shortcut_NN guarantees_VBZ a_DT quicker_JJR arrival_NN
+Above_IN the_DT noise_NN and_CC the_DT chaos_NN they_PRP hear_VBP clearly_RB	Above_IN the_DT traffic_NN and_CC the_DT music_NN they_PRP sing_VBP boldly_RB
+The_DT big_JJ dog_NN ran_VBD to_TO them_PRP	The_DT tiny_JJ bird_NN flew_VBD to_TO us_PRP
+They_PRP have_VBP completely_RB ignored_VBN the_DT warning_NN	They_PRP have_VBP quietly_RB postponed_VBN the_DT meeting_NN
+About_IN the_DT known_NN and_CC the_DT unknown_NN we_PRP ponder_VBP endlessly_RB	About_IN the_DT victory_NN and_CC the_DT defeat_NN we_PRP argue_VBP bitterly_RB
+Beyond_IN the_DT limits_NNS and_CC the_DT boundaries_NNS they_PRP explore_VBP freely_RB	Beyond_IN the_DT forests_NNS and_CC the_DT rivers_NNS they_PRP wander_VBP fearlessly_RB
+Down_IN the_DT road_NN and_CC the_DT path_NN they_PRP walk_VBP briskly_RB	Down_IN the_DT hallway_NN and_CC the_DT staircase_NN they_PRP hurry_VBP nervously_RB
+Beyond_IN the_DT fence_NN and_CC the_DT wall_NN we_PRP see_VBP clearly_RB	Beyond_IN the_DT garden_NN and_CC the_DT gate_NN we_PRP breathe_VBP deeply_RB
+Across_IN the_DT board_NN and_CC the_DT table_NN we_PRP play_VBP fairly_RB	Across_IN the_DT field_NN and_CC the_DT court_NN we_PRP compete_VBP honestly_RB
+To_IN the_DT limit_NN and_CC the_DT extreme_NN they_PRP push_VBP tirelessly_RB	To_IN the_DT cliff_NN and_CC the_DT summit_NN they_PRP climb_VBP stubbornly_RB
+The_DT guests_NNS should_MD respect_VB the_DT rule_NN	The_DT tourists_NNS should_MD follow_VB the_DT map_NN
+The_DT candidates_NNS will_MD debate_VB the_DT issue_NN	The_DT shareholders_NNS will_MD discuss_VB the_DT proposal_NN
+For_IN the_DT summer_NN and_CC the_DT winter_NN they_PRP prepare_VBP carefully_RB	For_IN the_DT harvest_NN and_CC the_DT planting_NN they_PRP plan_VBP thoroughly_RB
+Around_IN the_DT clock_NN and_CC the_DT calendar_NN we_PRP plan_VBP meticulously_RB	Around_IN the_DT harbor_NN and_CC the_DT lighthouse_NN we_PRP navigate_VBP cautiously_RB
+The_DT actors_NNS will_MD rehearse_VB the_DT scene_NN	The_DT students_NNS will_MD discuss_VB the_DT topic_NN
+The_DT director_NN filmed_VBD the_DT scene_NN artistically_RB to_TO evoke_VB emotion_NN	The_DT photographer_NN framed_VBD the_DT portrait_NN carefully_RB to_TO capture_VB detail_NN
+The_DT sharks_NNS could_MD sense_VB the_DT movement_NN	The_DT children_NNS could_MD hear_VB the_DT thunder_NN
+About_IN the_DT truth_NN and_CC the_DT lie_NN we_PRP speak_VBP openly_RB	About_IN the_DT budget_NN and_CC the_DT surplus_NN we_PRP report_VBP frankly_RB
+Within_IN the_DT heart_NN and_CC the_DT soul_NN they_PRP feel_VBP deeply_RB	Within_IN the_DT storm_NN and_CC the_DT silence_NN they_PRP wait_VBP tensely_RB
+A_DT man_NN walked_VBD along_IN the_DT path_NN	A_DT child_NN played_VBD beside_IN the_DT pond_NN
+The_DT old_JJ custom_NN and_CC the_DT new_NN trend_NN clashed_VBD visibly_RB	The_DT ancient_JJ legend_NN and_CC the_DT modern_NN rumor_NN spread_VBD quickly_RB
+My_PRP$ opinion_NN can_MD be_VB changed_VBN easily_RB	My_PRP$ schedule_NN can_MD be_VB adjusted_VBN quickly_RB
+Tesla_NNP experimented_VBD with_IN a_DT high-voltage_JJ current_NN	Einstein_NNP worked_VBD with_IN a_DT complex_JJ equation_NN
+The_DT new_JJ intern_NN reported_VBD to_TO me_PRP	The_DT young_JJ actor_NN wrote_VBD to_TO us_PRP
+The_DT food_NN must_MD be_VB eaten_VBN slowly_RB	The_DT medicine_NN must_MD be_VB taken_VBN carefully_RB
+The_DT readers_NNS must_MD return_VB the_DT book_NN	The_DT renters_NNS must_MD clean_VB the_DT apartment_NN
+A_DT book_NN sat_VBD on_IN the_DT shelf_NN	A_DT candle_NN burned_VBD on_IN the_DT windowsill_NN
+The_DT truth_NN might_MD be_VB revealed_VBN accidentally_RB	The_DT document_NN might_MD be_VB shredded_VBN permanently_RB
+The_DT guard_NN ordered_VBD the_DT prisoner_NN to_TO speak_VB clearly_RB	The_DT referee_NN instructed_VBD the_DT player_NN to_TO restart_VB quickly_RB
+The_DT manager_NN required_VBD the_DT employee_NN to_TO dress_VB formally_RB	The_DT coach_NN encouraged_VBD the_DT runner_NN to_TO train_VB daily_RB
+Ferrari_NNP built_VBD a_DT legendary_JJ sports_JJ car_NN in_IN Maranello_NNP	Sony_NNP released_VBD a_DT powerful_JJ gaming_JJ console_NN in_IN Tokyo_NNP
+The_DT buildings_NNS can_MD be_VB designed_VBN by_IN an_DT architect_NN	The_DT gardens_NNS can_MD be_VB maintained_VBN by_IN an_DT expert_NN
+The_DT prisoners_NNS will_MD be_VB escorted_VBN by_IN a_DT guard_NN	The_DT artists_NNS will_MD be_VB interviewed_VBN by_IN a_DT journalist_NN
+The_DT program_NN enabled_VBD the_DT device_NN to_TO run_VB smoothly_RB	The_DT update_NN allowed_VBD the_DT system_NN to_TO start_VB quickly_RB
+The_DT rebels_NNS will_MD be_VB defeated_VBN by_IN the_DT army_NN	The_DT invaders_NNS will_MD be_VB repelled_VBN by_IN the_DT militia_NN
+All_DT shipments_NNS must_MD be_VB insured_VBN by_IN the_DT company_NN	All_DT documents_NNS must_MD be_VB archived_VBN by_IN the_DT office_NN
+The_DT cat_NN found_VBD a_DT cozy_JJ spot_NN and_CC napped_VBD	The_DT driver_NN noticed_VBD a_DT narrow_JJ exit_NN and_CC turned_VBD
+The_DT child_NN drew_VBD a_DT colorful_JJ picture_NN and_CC showed_VBD	The_DT tourist_NN snapped_VBD a_DT bright_JJ photograph_NN and_CC laughed_VBD
+A_DT mystery_NN solved_VBN by_IN the_DT hero_NN was_VBD complex_JJ	A_DT puzzle_NN completed_VBN by_IN the_DT team_NN was_VBD challenging_JJ
+The_DT chef_NN prepared_VBD a_DT fancy_JJ dish_NN and_CC waited_VBD	The_DT novelist_NN drafted_VBD a_DT lengthy_JJ chapter_NN and_CC revised_VBD
+The_DT captain_NN commanded_VBD the_DT soldier_NN to_TO march_VB forward_RB	The_DT director_NN instructed_VBD the_DT actor_NN to_TO move_VB closer_RB
+The_DT director_NN instructed_VBD the_DT actor_NN to_TO move_VB slowly_RB	The_DT teacher_NN advised_VBD the_DT class_NN to_TO read_VB silently_RB
+All_DT protocols_NNS must_MD be_VB followed_VBN by_IN the_DT staff_NN	All_DT guidelines_NNS must_MD be_VB observed_VBN by_IN the_DT crew_NN
+The_DT funds_NNS will_MD be_VB transferred_VBN by_IN the_DT bank_NN	The_DT tickets_NNS will_MD be_VB distributed_VBN by_IN the_DT office_NN
+The_DT messages_NNS will_MD be_VB delivered_VBN by_IN a_DT courier_NN	The_DT parcels_NNS will_MD be_VB collected_VBN by_IN a_DT driver_NN
+The_DT prisoners_NNS should_MD be_VB released_VBN by_IN the_DT government_NN	The_DT refugees_NNS should_MD be_VB sheltered_VBN by_IN the_DT community_NN
+The_DT man_NN read_VBD a_DT long_JJ chapter_NN and_CC slept_VBD	The_DT woman_NN solved_VBD a_DT difficult_JJ puzzle_NN and_CC smiled_VBD
+The_DT dog_NN chased_VBD a_DT red_JJ ball_NN and_CC barked_VBD	The_DT boy_NN kicked_VBD a_DT small_JJ stone_NN and_CC laughed_VBD
+All_DT questions_NNS must_MD be_VB answered_VBN by_IN the_DT witness_NN	All_DT complaints_NNS must_MD be_VB reviewed_VBN by_IN the_DT manager_NN
+The_DT decisions_NNS will_MD be_VB made_VBN by_IN the_DT board_NN	The_DT schedules_NNS will_MD be_VB arranged_VBN by_IN the_DT coordinator_NN
+The_DT letter_NN written_VBN by_IN the_DT man_NN was_VBD long_JJ	The_DT mural_NN painted_VBN by_IN the_DT artist_NN was_VBD vivid_JJ
+A_DT poem_NN recited_VBN by_IN the_DT student_NN was_VBD beautiful_JJ	A_DT song_NN performed_VBN by_IN the_DT choir_NN was_VBD haunting_JJ
+The_DT doctor_NN urged_VBD the_DT patient_NN to_TO rest_VB quietly_RB	The_DT mentor_NN encouraged_VBD the_DT apprentice_NN to_TO practice_VB daily_RB
+The_DT contracts_NNS will_MD be_VB drafted_VBN by_IN a_DT lawyer_NN	The_DT banners_NNS will_MD be_VB printed_VBN by_IN a_DT vendor_NN
+The_DT nominations_NNS should_MD be_VB announced_VBN by_IN the_DT academy_NN	The_DT winners_NNS should_MD be_VB revealed_VBN by_IN the_DT committee_NN
+The_DT guard_NN heard_VBD a_DT faint_JJ sound_NN and_CC listened_VBD	The_DT farmer_NN noticed_VBD a_DT distant_JJ storm_NN and_CC waited_VBD
+They_PRP were_VBD successfully_RB completed_VBN despite_IN the_DT initial_JJ difficulties_NNS	They_PRP were_VBD quietly_RB postponed_VBN despite_IN the_DT unexpected_JJ protests_NNS
+They_PRP were_VBD consistently_RB praised_VBN by_IN the_DT respected_JJ critics_NNS	They_PRP were_VBD rarely_RB questioned_VBN by_IN the_DT skeptical_JJ audiences_NNS
+The_DT bridges_NNS will_MD be_VB inspected_VBN by_IN an_DT engineer_NN	The_DT machines_NNS will_MD be_VB calibrated_VBN by_IN an_DT expert_NN
+All_DT errors_NNS must_MD be_VB corrected_VBN by_IN the_DT programmer_NN	All_DT invoices_NNS must_MD be_VB processed_VBN by_IN the_DT accountant_NN
+The_DT patients_NNS can_MD be_VB treated_VBN by_IN a_DT specialist_NN	The_DT animals_NNS can_MD be_VB examined_VBN by_IN a_DT veterinarian_NN
+The_DT problem_NN was_VBD simply_RB solved_VBN by_IN our_PRP$ efforts_NNS	The_DT delay_NN was_VBD finally_RB reduced_VBN by_IN our_PRP$ changes_NNS
+Under_IN the_DT clear_JJ sky_NN the_DT stars_NNS twinkled_VBD brightly_RB	Under_IN the_DT ancient_JJ bridge_NN the_DT waters_NNS flowed_VBD gently_RB
+The_DT cat_NN stretched_VBD in_IN the_DT sun_NN and_CC purred_VBD	The_DT child_NN splashed_VBD in_IN the_DT pool_NN and_CC laughed_VBD
+The_DT law_NN compelled_VBD the_DT citizen_NN to_TO act_VB accordingly_RB	The_DT storm_NN forced_VBD the_DT crew_NN to_TO dock_VB early_RB
+Painting_VBG on_IN a_DT canvas_NN requires_VBZ a_DT steady_JJ hand_NN	Driving_VBG through_IN a_DT blizzard_NN demands_VBZ a_DT careful_JJ focus_NN
+The_DT complex_JJ machine_NN in_IN the_DT factory_NN operated_VBD smoothly_RB	The_DT ancient_JJ clock_NN in_IN the_DT tower_NN ticked_VBD quietly_RB
+The_DT man_NN from_IN the_DT city_NN bought_VBD a_DT car_NN	The_DT chef_NN from_IN the_DT village_NN prepared_VBD a_DT feast_NN
+They_PRP observe_VBP a_DT phenomenon_NN which_WDT is_VBZ scientifically_RB intriguing_JJ	They_PRP monitor_VBP a_DT experiment_NN which_WDT is_VBZ surprisingly_RB successful_JJ
+She_PRP could_MD paint_VB a_DT picture_NN on_IN the_DT canvas_NN	She_PRP could_MD arrange_VB a_DT bouquet_NN on_IN the_DT table_NN
+The_DT old_JJ tradition_NN and_CC a_DT custom_NN changed_VBD gradually_RB	The_DT strict_JJ schedule_NN and_CC a_DT routine_NN shifted_VBD slowly_RB

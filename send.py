@@ -60,7 +60,6 @@ if __name__ == "__main__":
     diagonal_constraint = 1
     n_files = 21
     n_tokens_list = []
-    match_var_list = [] # in ['matching','mismatching']
     similarity_fn = lambda x: x
     input_path_B = ' '
     modelB = args.modelA
@@ -99,6 +98,8 @@ if __name__ == "__main__":
     print("Input path A = ", input_path_A, flush=True)
     if spaces == 'AB':
         input_path_B = input_paths[args.language][modelB][args.match_var]['1'][args.data_var]
+        if args.data_var == 'syn' and args.match_var == 'matching':
+            input_path_B = input_path_B.replace("second", "third")
         print("Input path B = ", input_path_B, flush=True)
     
     output_folder0 = makefolder(base=f'./results/',

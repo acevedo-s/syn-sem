@@ -284,7 +284,7 @@ def compute_II(
                             sim_B = jnp.array(np.load(os.path.join(sim_folder, "sim_B.npy"))).astype(precision_map[precision])
 
                             for jack_seed_id,jack_seed in enumerate(jack_seeds):
-                                print(f'{jack_seed=}')
+                                # print(f'{jack_seed=}')
                                 jack_key = jax.random.PRNGKey(jack_seed)
                                 jack_indices = jax.random.choice(key=jack_key,
                                                                 a=sim_A.shape[0],

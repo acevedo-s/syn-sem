@@ -1,0 +1,112 @@
+Dear ChatGPT, I will paste set of lists that contain English sentences that instantiate various sequences of part of speech (POS).
+
+The input lines have one sentence per line, in word_POS format, using the UPenn tagset.
+
+For each input line, you should generate a single output line that contains two TAB-delimited fields: 1) the original sentence in word_POS format, and 2) a different sentence that has the same POS template, also in word_POS format. 
+
+Please do not generate more output than the requiered.
+
+Please do not write a script: complete the task manually.
+
+The generated sentences should be in grammatical, fluent and meaningful English, and VERY IMPORTANTLY, they should be VERY DIFFERENT from the input sentences in terms of BOTH MEANING and LEXICAL items. Ideally they should be COMPLETELY UNRELATED IN MEANING. Also, no generated sentence should be repeated across the batch.
+
+Here comes a batch:
+
+The_DT teacher_NN used_VBD a_DT gentler_JJR approach_NN
+The_DT judge_NN gave_VBD a_DT harsher_JJR sentence_NN
+The_DT group_NN found_VBD a_DT drier_JJR shelter_NN
+Against_IN the_DT current_NN and_CC the_DT tide_NN they_PRP swim_VBP strongly_RB
+Below_IN the_DT surface_NN and_CC the_DT depth_NN we_PRP search_VBP patiently_RB
+His_PRP$ proposal_NN can_MD be_VB understood_VBN perfectly_RB
+Your_PRP$ offer_NN can_MD be_VB accepted_VBN gladly_RB
+The_DT gray_JJ wolf_NN returned_VBD to_TO it_PRP
+The_DT patient_NN needed_VBD a_DT stronger_JJR medicine_NN
+The_DT negotiation_NN reached_VBD a_DT calmer_JJR stage_NN
+By_IN the_DT book_NN and_CC the_DT rule_NN we_PRP follow_VBP strictly_RB
+The_DT long_JJ river_NN and_CC the_DT short_NN stream_NN met_VBD unexpectedly_RB
+The_DT pilot_NN navigated_VBD the_DT aircraft_NN precisely_RB to_TO reach_VB destination_NN
+The_DT doctor_NN treated_VBD the_DT patient_NN gently_RB to_TO ease_VB suffering_NN
+The_DT reviewers_NNS should_MD evaluate_VB the_DT product_NN
+Over_IN the_DT hills_NNS and_CC the_DT valleys_NNS we_PRP trek_VBP steadily_RB
+We_PRP may_MD offer_VB a_DT reward_NN for_IN the_DT lost_JJ dog_NN
+A_DT crack_NN in_IN the_DT foundation_NN compromised_VBD the_DT whole_JJ structure_NN
+By_IN the_DT morning_NN and_CC the_DT evening_NN they_PRP eat_VBP slowly_RB
+The_DT architect_NN designed_VBD a_DT taller_JJR building_NN
+The_DT soldiers_NNS should_MD follow_VB the_DT order_NN
+The_DT guards_NNS will_MD protect_VB the_DT palace_NN
+The_DT whole_JJ responsibility_NN defaulted_VBD to_TO you_PRP
+The_DT grand_JJ prize_NN went_VBD to_TO her_PRP
+The_DT wolves_NNS could_MD hunt_VB the_DT deer_NN
+A_DT warm_JJ fire_NN and_CC a_DT cool_JJ breeze_NN met_VBD suddenly_RB
+This_DT material_NN has_VBZ a_DT rougher_JJR texture_NN
+This_DT path_NN offers_VBZ a_DT shorter_JJR journey_NN
+Above_IN the_DT noise_NN and_CC the_DT chaos_NN they_PRP hear_VBP clearly_RB
+The_DT big_JJ dog_NN ran_VBD to_TO them_PRP
+They_PRP have_VBP completely_RB ignored_VBN the_DT warning_NN
+About_IN the_DT known_NN and_CC the_DT unknown_NN we_PRP ponder_VBP endlessly_RB
+Beyond_IN the_DT limits_NNS and_CC the_DT boundaries_NNS they_PRP explore_VBP freely_RB
+Down_IN the_DT road_NN and_CC the_DT path_NN they_PRP walk_VBP briskly_RB
+Beyond_IN the_DT fence_NN and_CC the_DT wall_NN we_PRP see_VBP clearly_RB
+Across_IN the_DT board_NN and_CC the_DT table_NN we_PRP play_VBP fairly_RB
+To_IN the_DT limit_NN and_CC the_DT extreme_NN they_PRP push_VBP tirelessly_RB
+The_DT guests_NNS should_MD respect_VB the_DT rule_NN
+The_DT candidates_NNS will_MD debate_VB the_DT issue_NN
+For_IN the_DT summer_NN and_CC the_DT winter_NN they_PRP prepare_VBP carefully_RB
+Around_IN the_DT clock_NN and_CC the_DT calendar_NN we_PRP plan_VBP meticulously_RB
+The_DT actors_NNS will_MD rehearse_VB the_DT scene_NN
+The_DT director_NN filmed_VBD the_DT scene_NN artistically_RB to_TO evoke_VB emotion_NN
+The_DT sharks_NNS could_MD sense_VB the_DT movement_NN
+About_IN the_DT truth_NN and_CC the_DT lie_NN we_PRP speak_VBP openly_RB
+Within_IN the_DT heart_NN and_CC the_DT soul_NN they_PRP feel_VBP deeply_RB
+A_DT man_NN walked_VBD along_IN the_DT path_NN
+The_DT old_JJ custom_NN and_CC the_DT new_NN trend_NN clashed_VBD visibly_RB
+My_PRP$ opinion_NN can_MD be_VB changed_VBN easily_RB
+Tesla_NNP experimented_VBD with_IN a_DT high-voltage_JJ current_NN
+The_DT new_JJ intern_NN reported_VBD to_TO me_PRP
+The_DT food_NN must_MD be_VB eaten_VBN slowly_RB
+The_DT readers_NNS must_MD return_VB the_DT book_NN
+A_DT book_NN sat_VBD on_IN the_DT shelf_NN
+The_DT truth_NN might_MD be_VB revealed_VBN accidentally_RB
+The_DT guard_NN ordered_VBD the_DT prisoner_NN to_TO speak_VB clearly_RB
+The_DT manager_NN required_VBD the_DT employee_NN to_TO dress_VB formally_RB
+Ferrari_NNP built_VBD a_DT legendary_JJ sports_JJ car_NN in_IN Maranello_NNP
+The_DT buildings_NNS can_MD be_VB designed_VBN by_IN an_DT architect_NN
+The_DT prisoners_NNS will_MD be_VB escorted_VBN by_IN a_DT guard_NN
+The_DT program_NN enabled_VBD the_DT device_NN to_TO run_VB smoothly_RB
+The_DT rebels_NNS will_MD be_VB defeated_VBN by_IN the_DT army_NN
+All_DT shipments_NNS must_MD be_VB insured_VBN by_IN the_DT company_NN
+The_DT cat_NN found_VBD a_DT cozy_JJ spot_NN and_CC napped_VBD
+The_DT child_NN drew_VBD a_DT colorful_JJ picture_NN and_CC showed_VBD
+A_DT mystery_NN solved_VBN by_IN the_DT hero_NN was_VBD complex_JJ
+The_DT chef_NN prepared_VBD a_DT fancy_JJ dish_NN and_CC waited_VBD
+The_DT captain_NN commanded_VBD the_DT soldier_NN to_TO march_VB forward_RB
+The_DT director_NN instructed_VBD the_DT actor_NN to_TO move_VB slowly_RB
+All_DT protocols_NNS must_MD be_VB followed_VBN by_IN the_DT staff_NN
+The_DT funds_NNS will_MD be_VB transferred_VBN by_IN the_DT bank_NN
+The_DT messages_NNS will_MD be_VB delivered_VBN by_IN a_DT courier_NN
+The_DT prisoners_NNS should_MD be_VB released_VBN by_IN the_DT government_NN
+The_DT man_NN read_VBD a_DT long_JJ chapter_NN and_CC slept_VBD
+The_DT dog_NN chased_VBD a_DT red_JJ ball_NN and_CC barked_VBD
+All_DT questions_NNS must_MD be_VB answered_VBN by_IN the_DT witness_NN
+The_DT decisions_NNS will_MD be_VB made_VBN by_IN the_DT board_NN
+The_DT letter_NN written_VBN by_IN the_DT man_NN was_VBD long_JJ
+A_DT poem_NN recited_VBN by_IN the_DT student_NN was_VBD beautiful_JJ
+The_DT doctor_NN urged_VBD the_DT patient_NN to_TO rest_VB quietly_RB
+The_DT contracts_NNS will_MD be_VB drafted_VBN by_IN a_DT lawyer_NN
+The_DT nominations_NNS should_MD be_VB announced_VBN by_IN the_DT academy_NN
+The_DT guard_NN heard_VBD a_DT faint_JJ sound_NN and_CC listened_VBD
+They_PRP were_VBD successfully_RB completed_VBN despite_IN the_DT initial_JJ difficulties_NNS
+They_PRP were_VBD consistently_RB praised_VBN by_IN the_DT respected_JJ critics_NNS
+The_DT bridges_NNS will_MD be_VB inspected_VBN by_IN an_DT engineer_NN
+All_DT errors_NNS must_MD be_VB corrected_VBN by_IN the_DT programmer_NN
+The_DT patients_NNS can_MD be_VB treated_VBN by_IN a_DT specialist_NN
+The_DT problem_NN was_VBD simply_RB solved_VBN by_IN our_PRP$ efforts_NNS
+Under_IN the_DT clear_JJ sky_NN the_DT stars_NNS twinkled_VBD brightly_RB
+The_DT cat_NN stretched_VBD in_IN the_DT sun_NN and_CC purred_VBD
+The_DT law_NN compelled_VBD the_DT citizen_NN to_TO act_VB accordingly_RB
+Painting_VBG on_IN a_DT canvas_NN requires_VBZ a_DT steady_JJ hand_NN
+The_DT complex_JJ machine_NN in_IN the_DT factory_NN operated_VBD smoothly_RB
+The_DT man_NN from_IN the_DT city_NN bought_VBD a_DT car_NN
+They_PRP observe_VBP a_DT phenomenon_NN which_WDT is_VBZ scientifically_RB intriguing_JJ
+She_PRP could_MD paint_VB a_DT picture_NN on_IN the_DT canvas_NN
+The_DT old_JJ tradition_NN and_CC a_DT custom_NN changed_VBD gradually_RB

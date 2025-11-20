@@ -1,0 +1,100 @@
+She_PRP sang_VBD a_DT beautiful_JJ song_NN and_CC bowed_VBD	He_PRP wrote_VBD a_DT heartfelt_JJ letter_NN and_CC sighed_VBD
+She_PRP received_VBD a_DT mysterious_JJ package_NN earlier_RB today_RB	He_PRP noticed_VBD a_DT subtle_JJ change_NN quite_RB recently_RB
+I_PRP felt_VBD a_DT sharp_JJ pain_NN right_RB here_RB	We_PRP sensed_VBD a_DT sudden_JJ tremor_NN very_RB nearby_RB
+Beneath_IN the_DT crumbling_JJ wall_NN the_DT treasure_NN lay_VBD	Under_IN the_DT rusted_JJ bridge_NN a_DT vehicle_NN stalled_VBD
+A_DT wooden_JJ bridge_NN stood_VBD over_IN the_DT stream_NN	The_DT ancient_JJ temple_NN loomed_VBD above_IN the_DT jungle_NN
+Behind_IN the_DT thick_JJ curtain_NN a_DT shadow_NN moved_VBD	Within_IN the_DT silent_JJ chapel_NN a_DT candle_NN burned_VBD
+She_PRP packed_VBD a_DT small_JJ bag_NN and_CC departed_VBD	He_PRP grabbed_VBD an_DT old_JJ jacket_NN and_CC sprinted_VBD
+They_PRP discovered_VBD a_DT secret_JJ passage_NN deep_RB underground_RB	We_PRP triggered_VBD an_DT ancient_JJ mechanism_NN suddenly_RB nearby_RB
+He_PRP will_MD speak_VB up_RP the_DT truth_NN bravely_RB	She_PRP might_MD bring_VB forth_RP the_DT evidence_NN boldly_RB
+She_PRP chose_VBD a_DT different_JJ path_NN long_RB ago_RB	He_PRP rejected_VBD the_DT offered_JJ promotion_NN years_RB earlier_RB
+It_PRP was_VBD finally_RB solved_VBN without_IN the_DT help_NN	She_PRP was_VBD quietly_RB transferred_VBN within_IN the_DT company_NN
+It_PRP might_MD break_VB down_RP the_DT barrier_NN gradually_RB	He_PRP could_MD chip_VB away_RP the_DT obstacle_NN slowly_RB
+A_DT large_JJ rock_NN crashed_VBD into_IN the_DT valley_NN	The_DT burning_JJ meteor_NN descended_VBD toward_IN the_DT ocean_NN
+The_DT royal_JJ procession_NN moved_VBD toward_IN the_DT palace_NN	A_DT noisy_JJ protest_NN marched_VBD through_IN the_DT capital_NN
+An_DT ancient_JJ curse_NN fell_VBD upon_IN the_DT village_NN	The_DT sudden_JJ storm_NN burst_VBD over_IN the_DT harbor_NN
+She_PRP should_MD move_VB on_RP the_DT new_JJ chapter_NN	They_PRP must_MD focus_VB on_RP the_DT next_JJ mission_NN
+We_PRP will_MD wear_VB out_RP the_DT durable_JJ material_NN	I_PRP might_MD stretch_VB out_RP the_DT fragile_JJ fabric_NN
+He_PRP challenged_VBD his_PRP$ rival_NN to_TO compete_VB honorably_RB	She_PRP praised_VBD her_PRP$ colleague_NN to_TO perform_VB confidently_RB
+A_DT timid_JJ mouse_NN scurried_VBD under_IN the_DT sofa_NN	The_DT curious_JJ child_NN crawled_VBD beneath_IN the_DT table_NN
+They_PRP must_MD put_VB away_RP the_DT fragile_JJ dishes_NNS	You_PRP should_MD pack_VB up_RP the_DT valuable_JJ paintings_NNS
+A_DT shadow_NN in_IN the_DT corner_NN moved_VBD stealthily_RB	The_DT figure_NN behind_IN the_DT curtain_NN vanished_VBD abruptly_RB
+The_DT gift_NN inside_IN the_DT box_NN rattled_VBD gently_RB	A_DT creature_NN beneath_IN the_DT floor_NN scratched_VBD quietly_RB
+We_PRP saw_VBD a_DT scary_JJ movie_NN this_JJ afternoon_NN	They_PRP hosted_VBD an_DT outdoor_JJ concert_NN last_JJ weekend_NN
+You_PRP could_MD look_VB up_RP the_DT details_NNS quickly_RB	We_PRP might_MD print_VB out_RP the_DT results_NNS instantly_RB
+They_PRP launched_VBD a_DT new_JJ product_NN just_RB recently_RB	She_PRP canceled_VBD the_DT annual_JJ festival_NN very_RB suddenly_RB
+He_PRP gave_VBD a_DT powerful_JJ speech_NN back_RB then_RB	They_PRP organized_VBD a_DT modest_JJ meeting_NN quite_RB late_RB
+They_PRP must_MD calm_VB down_RP the_DT agitated_JJ crowd_NN	You_PRP should_MD tone_VB down_RP the_DT aggressive_JJ slogan_NN
+You_PRP were_VBD recently_RB promoted_VBN to_IN the_DT position_NN	We_PRP were_VBD unexpectedly_RB relocated_VBN from_IN the_DT office_NN
+A_DT student_NN in_IN the_DT class_NN answered_VBD correctly_RB	The_DT waiter_NN at_IN the_DT cafe_NN apologized_VBD profusely_RB
+The_DT book_NN on_IN the_DT shelf_NN fell_VBD suddenly_RB	A_DT glass_NN near_IN the_DT sink_NN shattered_VBD loudly_RB
+We_PRP faced_VBD a_DT major_JJ challenge_NN back_RB then_RB	I_PRP missed_VBD an_DT important_JJ deadline_NN once_RB before_RB
+We_PRP can_MD call_VB back_RP the_DT person_NN politely_RB	They_PRP might_MD bring_VB back_RP the_DT camera_NN quietly_RB
+She_PRP will_MD figure_VB out_RP the_DT answer_NN eventually_RB	He_PRP may_MD work_VB out_RP the_DT schedule_NN slowly_RB
+She_PRP should_MD write_VB down_RP the_DT significant_JJ points_NNS	They_PRP must_MD mark_VB off_RP the_DT completed_JJ tasks_NNS
+A_DT distant_JJ star_NN twinkled_VBD in_IN the_DT darkness_NN	The_DT solitary_JJ lantern_NN burned_VBD beside_IN the_DT roadway_NN
+The_DT local_JJ team_NN won_VBD against_IN the_DT champion_NN	A_DT visiting_JJ artist_NN argued_VBD with_IN the_DT curator_NN
+The_DT lead_JJ actor_NN bowed_VBD to_IN the_DT audience_NN	The_DT young_JJ scientist_NN spoke_VBD before_IN the_DT committee_NN
+She_PRP found_VBD a_DT rare_JJ artifact_NN somewhere_RB nearby_RB	He_PRP misplaced_VBD an_DT old_JJ notebook_NN yesterday_RB outside_RB
+You_PRP might_MD send_VB for_RP the_DT missing_JJ package_NN	They_PRP could_MD search_VB for_RP the_DT stolen_JJ painting_NN
+They_PRP must_MD hold_VB onto_RP the_DT precious_JJ memory_NN	We_PRP should_MD cling_VB onto_RP the_DT fragile_JJ hope_NN
+It_PRP might_MD fall_VB over_RP the_DT obstacle_NN clumsily_RB	He_PRP could_MD trip_VB over_RP the_DT threshold_NN painfully_RB
+We_PRP can_MD get_VB through_RP the_DT task_NN eventually_RB	They_PRP may_MD push_VB through_RP the_DT crowd_NN slowly_RB
+They_PRP were_VBD secretly_RB watched_VBN from_IN the_DT window_NN	We_PRP were_VBD quietly_RB guided_VBN along_IN the_DT corridor_NN
+He_PRP was_VBD patiently_RB educated_VBN by_IN the_DT teacher_NN	She_PRP was_VBD harshly_RB criticized_VBN during_IN the_DT lecture_NN
+She_PRP could_MD pass_VB out_RP the_DT flyers_NNS quickly_RB	He_PRP might_MD hand_VB over_RP the_DT tickets_NNS quietly_RB
+They_PRP must_MD put_VB down_RP the_DT boxes_NNS gently_RB	You_PRP should_MD lay_VB out_RP the_DT tools_NNS neatly_RB
+The_DT information_NN on_IN the_DT screen_NN updated_VBD automatically_RB	A_DT message_NN across_IN the_DT billboard_NN flashed_VBD repeatedly_RB
+She_PRP allowed_VBD her_PRP$ daughter_NN to_TO play_VB freely_RB	He_PRP instructed_VBD his_PRP$ team_NN to_TO relax_VB briefly_RB
+We_PRP will_MD set_VB aside_RP the_DT important_JJ document_NN	They_PRP might_MD push_VB aside_RP the_DT broken_JJ furniture_NN
+It_PRP might_MD blow_VB up_RP the_DT balloon_NN slowly_RB	She_PRP could_MD heat_VB up_RP the_DT dinner_NN gently_RB
+A_DT bright_JJ light_NN shone_VBD through_IN the_DT window_NN	The_DT distant_JJ siren_NN wailed_VBD across_IN the_DT harbor_NN
+She_PRP will_MD generously_RB contribute_VB to_IN the_DT cause_NN	He_PRP must_MD reluctantly_RB donate_VB toward_IN the_DT project_NN
+The_DT loyal_JJ dog_NN waited_VBD by_IN the_DT gate_NN	A_DT weary_JJ traveler_NN rested_VBD near_IN the_DT fire_NN
+A_DT smell_NN from_IN the_DT kitchen_NN drifted_VBD tantalizingly_RB	The_DT smoke_NN above_IN the_DT factory_NN lingered_VBD ominously_RB
+I_PRP chose_VBD my_PRP$ friend_NN to_TO stand_VB beside_RB	We_PRP invited_VBD our_PRP$ neighbor_NN to_TO sit_VB closer_RB
+They_PRP should_MD look_VB into_RP the_DT complex_JJ problem_NN	You_PRP must_MD dig_VB into_RP the_DT hidden_JJ pattern_NN
+A_DT guest_NN at_IN the_DT hotel_NN complained_VBD bitterly_RB	The_DT guard_NN outside_IN the_DT museum_NN shouted_VBD angrily_RB
+The_DT system_NN for_IN the_DT entry_NN worked_VBD perfectly_RB	A_DT tunnel_NN beneath_IN the_DT city_NN flooded_VBD suddenly_RB
+He_PRP will_MD throw_VB away_RP the_DT trash_NN quickly_RB	She_PRP might_MD sweep_VB away_RP the_DT dust_NN silently_RB
+It_PRP might_MD die_VB out_RP the_DT tradition_NN slowly_RB	He_PRP could_MD fade_VB out_RP the_DT signal_NN gradually_RB
+The_DT voice_NN on_IN the_DT phone_NN spoke_VBD calmly_RB	A_DT siren_NN near_IN the_DT harbor_NN wailed_VBD loudly_RB
+A_DT star_NN in_IN the_DT sky_NN fell_VBD gracefully_RB	The_DT leaf_NN from_IN the_DT tree_NN drifted_VBD slowly_RB
+A_DT brilliant_JJ idea_NN came_VBD to_TO her_PRP	That_DT bold_JJ proposal_NN appealed_VBD to_TO me_PRP
+The_DT true_JJ ownership_NN reverted_VBD to_TO us_PRP	A_DT partial_JJ payment_NN belonged_VBD to_TO him_PRP
+He_PRP told_VBD a_DT funny_JJ joke_NN earlier_RB	She_PRP wrote_VBD an_DT angry_JJ letter_NN yesterday_RB
+They_PRP must_MD promptly_RB answer_VB the_DT question_NN	You_PRP should_MD carefully_RB review_VB the_DT contract_NN
+We_PRP should_MD broadly_RB support_VB the_DT initiative_NN	They_PRP must_MD fully_RB implement_VB the_DT proposal_NN
+The_DT fire_NN spread_VBD through_IN the_DT forest_NN	A_DT rumor_NN traveled_VBD across_IN the_DT campus_NN
+Our_DT team_NN found_VBD a_DT faster_JJR route_NN	Their_DT committee_NN proposed_VBD a_DT shorter_JJR agenda_NN
+The_DT company_NN adopted_VBD a_DT leaner_JJR structure_NN	That_DT family_NN opened_VBD a_DT smaller_JJR restaurant_NN
+This_DT lens_NN gives_VBZ a_DT sharper_JJR image_NN	That_DT engine_NN produces_VBZ a_DT stronger_JJR output_NN
+Our_DT military_NN requires_VBZ a_DT tougher_JJR training_NN	Their_DT orchestra_NN schedules_VBZ a_DT longer_JJR rehearsal_NN
+All_DT passengers_NNS must_MD show_VB their_PRP$ ticket_NN	Most_DT visitors_NNS should_MD present_VB their_PRP$ passport_NN
+The_DT artists_NNS will_MD display_VB their_PRP$ work_NN	Some_DT athletes_NNS might_MD donate_VB their_PRP$ prize_NN
+A_DT ship_NN sailed_VBD across_IN the_DT ocean_NN	The_DT plane_NN flew_VBD over_IN the_DT range_NN
+The_DT student_NN wrote_VBD a_DT longer_JJR essay_NN	A_DT journalist_NN filed_VBD a_DT shorter_JJR article_NN
+His_DT condition_NN showed_VBD a_DT slower_JJR improvement_NN	Their_DT project_NN achieved_VBD a_DT quicker_JJR result_NN
+The_DT computer_NN ran_VBD a_DT newer_JJR version_NN	Our_DT server_NN installed_VBD a_DT cleaner_JJR backup_NN
+Our_DT plan_NN needs_VBD a_DT firmer_JJR commitment_NN	This_DT contract_NN demands_VBD a_DT larger_JJR deposit_NN
+A_DT beautiful_JJ melody_NN drifted_VBD to_TO us_PRP	That_DT gentle_JJ breeze_NN carried_VBD to_TO her_PRP
+The_DT big_JJ dog_NN ran_VBD to_TO me_PRP	A_DT small_JJ child_NN rushed_VBD to_TO him_PRP
+We_PRP have_VBP broadly_RB supported_VBN the_DT policy_NN	They_PRP have_VBP quietly_RB opposed_VBN the_DT merger_NN
+She_PRP has_VBP regularly_RB visited_VBN the_DT library_NN	He_PRP has_VBP rarely_RB contacted_VBN the_DT office_NN
+All_DT users_NNS must_MD accept_VB the_DT term_NN	Some_DT members_NNS should_MD sign_VB the_DT charter_NN
+Those_DT dogs_NNS could_MD chase_VB the_DT squirrel_NN	These_DT students_NNS might_MD challenge_VB the_DT teacher_NN
+His_DT apology_NN had_VBD a_DT sincerer_JJR tone_NN	Their_DT argument_NN took_VBD a_DT colder_JJR turn_NN
+The_DT painting_NN used_VBD a_DT bolder_JJR color_NN	That_DT poster_NN featured_VBD a_DT brighter_JJR logo_NN
+The_DT treasure_NN might_MD be_VB found_VBN eventually_RB	This_DT document_NN could_MD be_VB released_VBN publicly_RB
+This_DT structure_NN should_MD be_VB built_VBN solidly_RB	That_DT bridge_NN must_MD be_VB reinforced_VBN carefully_RB
+The_DT final_JJ decision_NN fell_VBD to_TO her_PRP	That_DT crucial_JJ task_NN went_VBD to_TO him_PRP
+A_DT sudden_JJ thought_NN occurred_VBD to_TO me_PRP	The_DT strange_JJ rumor_NN spread_VBD to_TO them_PRP
+It_PRP can_MD effectively_RB reduce_VB the_DT burden_NN	He_PRP might_MD drastically_RB alter_VB the_DT schedule_NN
+He_PRP might_MD eagerly_RB accept_VB the_DT offer_NN	She_PRP could_MD reluctantly_RB decline_VB the_DT invitation_NN
+They_PRP must_MD bravely_RB face_VB the_DT challenge_NN	We_PRP should_MD honestly_RB address_VB the_DT problem_NN
+This_DT material_NN should_MD be_VB tested_VBN thoroughly_RB	That_DT theory_NN must_MD be_VB examined_VBN carefully_RB
+I_PRP met_VBD a_DT famous_JJ person_NN once_RB	We_PRP hired_VBD an_DT experienced_JJ lawyer_NN recently_RB
+The_DT black_JJ cat_NN came_VBD to_TO me_PRP	A_DT nervous_JJ bird_NN flew_VBD to_TO him_PRP
+A_DT stray_JJ dog_NN went_VBD to_TO him_PRP	The_DT playful_JJ kitten_NN jumped_VBD to_TO her_PRP
+The_DT animal_NN might_MD be_VB seen_VBN rarely_RB	This_DT comet_NN could_MD be_VB observed_VBN briefly_RB
+The_DT plan_NN changed_VBD after_IN the_DT review_NN	A_DT policy_NN collapsed_VBD during_IN the_DT debate_NN

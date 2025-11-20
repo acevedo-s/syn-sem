@@ -1,0 +1,100 @@
+Emily_NNP studied_VBD at_IN a_DT famous_JJ university_NN	Marcus_NNP trained_VBD with_IN a_DT renowned_JJ coach_NN
+The_DT cat_NN slept_VBD in_IN the_DT basket_NN	The_DT child_NN hid_VBD behind_IN the_DT curtain_NN
+A_DT compromise_NN could_MD be_VB reached_VBN amicably_RB	A_DT treaty_NN might_MD be_VB broken_VBN suddenly_RB
+They_PRP must_MD diligently_RB complete_VB the_DT work_NN	We_PRP should_MD carefully_RB organize_VB the_DT archive_NN
+You_PRP could_MD patiently_RB explain_VB the_DT process_NN	I_PRP might_MD slowly_RB assemble_VB the_DT device_NN
+He_PRP might_MD reluctantly_RB accept_VB the_DT offer_NN	She_PRP could_MD eagerly_RB embrace_VB the_DT challenge_NN
+It_PRP has_VBP precisely_RB fit_VBN the_DT space_NN	She_PRP has_VBP perfectly_RB matched_VBN the_DT color_NN
+They_PRP must_MD rigorously_RB test_VB the_DT product_NN	You_PRP should_MD thoroughly_RB clean_VB the_DT equipment_NN
+We_PRP have_VBP always_RB supported_VBN the_DT idea_NN	They_PRP have_VBP never_RB questioned_VBN the_DT rule_NN
+Mandela_NNP emerged_VBD from_IN a_DT long_JJ imprisonment_NN	Galileo_NNP retreated_VBD from_IN a_DT hostile_JJ audience_NN
+He_PRP has_VBP strongly_RB advised_VBN the_DT group_NN	She_PRP has_VBP quietly_RB guided_VBN the_DT team_NN
+She_PRP will_MD politely_RB refuse_VB the_DT request_NN	He_PRP might_MD firmly_RB cancel_VB the_DT reservation_NN
+He_PRP might_MD safely_RB cross_VB the_DT street_NN	She_PRP could_MD easily_RB climb_VB the_DT ladder_NN
+He_PRP might_MD secretly_RB plot_VB the_DT escape_NN	They_PRP could_MD quietly_RB plan_VB the_DT protest_NN
+The_DT door_NN might_MD be_VB opened_VBN remotely_RB	The_DT vault_NN could_MD be_VB monitored_VBN constantly_RB
+A_DT treaty_NN could_MD be_VB signed_VBN peacefully_RB	A_DT border_NN might_MD be_VB guarded_VBN heavily_RB
+A_DT cup_NN sat_VBD on_IN the_DT counter_NN	A_DT book_NN rested_VBD under_IN the_DT lamp_NN
+A_DT path_NN led_VBD to_IN the_DT cottage_NN	A_DT tunnel_NN descended_VBD beneath_IN the_DT fortress_NN
+The_DT rain_NN fell_VBD on_IN the_DT ground_NN	The_DT ash_NN settled_VBD over_IN the_DT village_NN
+A_DT dog_NN barked_VBD at_IN the_DT stranger_NN	A_DT guard_NN shouted_VBD toward_IN the_DT intruder_NN
+She_PRP will_MD eagerly_RB await_VB the_DT news_NN	He_PRP might_MD anxiously_RB read_VB the_DT verdict_NN
+We_PRP have_VBP consistently_RB achieved_VBN the_DT goal_NN	They_PRP have_VBP rarely_RB visited_VBN the_DT festival_NN
+We_PRP solved_VBD a_DT complex_JJ puzzle_NN together_RB	They_PRP built_VBD a_DT sturdy_JJ shelter_NN nearby_RB
+The_DT team_NN scored_VBD against_IN the_DT opponent_NN	The_DT choir_NN sang_VBD before_IN the_DT audience_NN
+You_PRP could_MD wisely_RB invest_VB the_DT capital_NN	We_PRP might_MD boldly_RB expand_VB the_DT business_NN
+They_PRP must_MD seriously_RB consider_VB the_DT proposal_NN	You_PRP should_MD carefully_RB evaluate_VB the_DT contract_NN
+This_DT method_NN should_MD be_VB used_VBN sparingly_RB	That_DT shortcut_NN might_MD be_VB applied_VBN frequently_RB
+A_DT star_NN twinkled_VBD in_IN the_DT night_NN	A_DT lantern_NN glowed_VBD through_IN the_DT fog_NN
+The_DT music_NN played_VBD inside_IN the_DT hall_NN	The_DT laughter_NN echoed_VBD across_IN the_DT campus_NN
+He_PRP might_MD quickly_RB find_VB the_DT key_NN	She_PRP could_MD easily_RB solve_VB the_DT riddle_NN
+You_PRP should_MD gently_RB close_VB the_DT door_NN	They_PRP must_MD firmly_RB secure_VB the_DT gate_NN
+NASA_NNP planned_VBD for_IN a_DT manned_JJ mission_NN	Tesla_NNP campaigned_VBD for_IN a_DT radical_JJ invention_NN
+A_DT path_NN could_MD be_VB chosen_VBN wisely_RB	A_DT leader_NN might_MD be_VB elected_VBN narrowly_RB
+The_DT task_NN can_MD be_VB completed_VBN quickly_RB	The_DT bridge_NN may_MD be_VB repaired_VBN soon_RB
+Microsoft_NNP competed_VBD with_IN a_DT rival_JJ company_NN	Spotify_NNP partnered_VBD with_IN a_DT major_JJ label_NN
+He_PRP might_MD easily_RB forget_VB the_DT details_NNS	She_PRP could_MD quickly_RB misplace_VB the_DT receipts_NNS
+He_PRP might_MD vaguely_RB remember_VB the_DT event_NN	They_PRP could_MD barely_RB notice_VB the_DT signal_NN
+They_PRP must_MD strictly_RB follow_VB the_DT protocol_NN	You_PRP should_MD carefully_RB read_VB the_DT manual_NN
+A_DT dog_NN chased_VBD a_DT squirrel_NN and_CC the_DT animal_NN ran_VBD fast_RB	A_DT child_NN dropped_VBD a_DT toy_NN and_CC the_DT mother_NN laughed_VBD softly_RB
+The_DT athlete_NN won_VBD the_DT medal_NN and_CC the_DT crowd_NN cheered_VBD loudly_RB	The_DT actor_NN finished_VBD the_DT scene_NN and_CC the_DT director_NN applauded_VBD briefly_RB
+The_DT soft_JJ sound_NN and_CC the_DT loud_JJ noise_NN affected_VBD the_DT quiet_NN	The_DT bright_JJ light_NN and_CC the_DT dim_JJ shadow_NN changed_VBD the_DT mood_NN
+A_DT strong_JJ opinion_NN and_CC a_DT weak_JJ argument_NN influenced_VBD the_DT debate_NN	A_DT sudden_JJ storm_NN and_CC a_DT gentle_JJ breeze_NN transformed_VBD the_DT landscape_NN
+A_DT peaceful_JJ walk_NN and_CC a_DT hurried_JJ run_NN consumed_VBD different_JJ energies_NNS	A_DT lengthy_JJ lecture_NN and_CC a_DT brief_JJ quiz_NN exhausted_VBD several_JJ students_NNS
+The_DT captain_NN guided_VBD the_DT ship_NN and_CC the_DT journey_NN proceeded_VBD smoothly_RB	The_DT mentor_NN trained_VBD the_DT intern_NN and_CC the_DT project_NN concluded_VBD successfully_RB
+A_DT child_NN found_VBD a_DT toy_NN and_CC the_DT parent_NN smiled_VBD widely_RB	A_DT tourist_NN lost_VBD a_DT map_NN and_CC the_DT guide_NN reacted_VBD calmly_RB
+The_DT early_JJ bird_NN and_CC the_DT late_JJ worm_NN experienced_VBD different_JJ fates_NNS	The_DT noisy_JJ neighbor_NN and_CC the_DT quiet_JJ tenant_NN received_VBD separate_JJ notices_NNS
+The_DT item_NN that_WDT they_PRP need_VBP is_VBZ in_IN the_DT store_NN	The_DT tool_NN that_WDT we_PRP use_VBP is_VBZ in_IN the_DT workshop_NN
+The_DT star_NN of_IN the_DT show_NN delivered_VBD a_DT great_JJ performance_NN	The_DT mayor_NN of_IN the_DT city_NN announced_VBD a_DT new_JJ policy_NN
+A_DT part_NN of_IN the_DT machine_NN made_VBD a_DT strange_JJ sound_NN	A_DT piece_NN of_IN the_DT puzzle_NN revealed_VBD a_DT hidden_JJ picture_NN
+The_DT person_NN who_WDT you_PRP saw_VBP works_VBZ in_IN the_DT building_NN	The_DT artist_NN who_WDT they_PRP trust_VBP teaches_VBZ at_IN the_DT college_NN
+The_DT cook_NN prepared_VBD the_DT meal_NN and_CC the_DT diner_NN ate_VBD	The_DT author_NN finished_VBD the_DT book_NN and_CC the_DT publisher_NN celebrated_VBD
+A_DT dog_NN chased_VBD a_DT squirrel_NN and_CC the_DT animal_NN ran_VBD	A_DT student_NN solved_VBD a_DT puzzle_NN and_CC the_DT teacher_NN applauded_VBD
+A_DT child_NN found_VBD a_DT toy_NN and_CC the_DT parent_NN smiled_VBD	A_DT visitor_NN photographed_VBD a_DT monument_NN and_CC the_DT guide_NN explained_VBD
+I_PRP support_VBP a_DT team_NN and_CC he_PRP supports_VBZ a_DT player_NN	We_PRP manage_VBP a_DT project_NN and_CC she_PRP directs_VBZ a_DT film_NN
+I_PRP prefer_VBP the_DT coffee_NN and_CC she_PRP prefers_VBZ the_DT tea_NN	You_PRP choose_VBP the_DT window_NN and_CC he_PRP chooses_VBZ the_DT aisle_NN
+The_DT researcher_NN found_VBD the_DT cure_NN and_CC the_DT disease_NN vanished_VBD	The_DT engineer_NN built_VBD the_DT bridge_NN and_CC the_DT traffic_NN improved_VBD
+I_PRP cook_VBP the_DT dinner_NN and_CC she_PRP cooks_VBZ the_DT breakfast_NN	We_PRP paint_VBP the_DT scenery_NN and_CC he_PRP paints_VBZ the_DT portrait_NN
+You_PRP tell_VBP a_DT story_NN while_CC I_PRP tell_VBP a_DT lie_NN	They_PRP play_VBP a_DT game_NN while_CC we_PRP solve_VBP a_DT riddle_NN
+I_PRP could_MD record_VB a_DT video_NN for_IN my_PRP$ online_JJ channel_NN	You_PRP might_MD design_VB a_DT logo_NN for_IN your_PRP$ startup_JJ brand_NN
+You_PRP read_VBP a_DT book_NN while_CC I_PRP watch_VBP a_DT film_NN	We_PRP play_VBP a_DT sport_NN while_CC they_PRP study_VBP a_DT language_NN
+They_PRP ask_VBP a_DT question_NN and_CC we_PRP ask_VBP a_DT favor_NN	You_PRP draw_VBP a_DT sketch_NN and_CC I_PRP write_VBP a_DT poem_NN
+We_PRP had_VBD a_DT heated_JJ debate_NN about_IN a_DT controversial_JJ topic_NN	They_PRP held_VBD a_DT formal_JJ banquet_NN for_IN a_DT visiting_JJ delegation_NN
+The_DT knowledge_NN that_WDT we_PRP seek_VBP lies_VBZ in_IN the_DT research_NN	The_DT answer_NN that_WDT they_PRP expect_VBP appears_VBZ within_IN the_DT archive_NN
+We_PRP climb_VBP a_DT mountain_NN but_CC they_PRP climb_VBP a_DT ladder_NN	I_PRP drive_VBP a_DT truck_NN but_CC you_PRP ride_VBP a_DT bicycle_NN
+You_PRP fix_VBP a_DT machine_NN while_CC I_PRP fix_VBP a_DT problem_NN	We_PRP build_VBP a_DT shelter_NN while_CC they_PRP build_VBP a_DT fire_NN
+They_PRP face_VBP a_DT challenge_NN and_CC we_PRP face_VBP a_DT crisis_NN	You_PRP host_VBP a_DT meeting_NN and_CC I_PRP host_VBP a_DT party_NN
+You_PRP choose_VBP a_DT path_NN while_CC I_PRP choose_VBP a_DT destination_NN	They_PRP draft_VBP a_DT contract_NN while_CC we_PRP draft_VBP a_DT proposal_NN
+You_PRP see_VBP a_DT flock_NN while_CC I_PRP see_VBP a_DT bird_NN	We_PRP hear_VBP a_DT symphony_NN while_CC they_PRP hear_VBP a_DT note_NN
+They_PRP plant_VBP a_DT tree_NN and_CC we_PRP plant_VBP a_DT seed_NN	You_PRP buy_VBP a_DT ticket_NN and_CC I_PRP buy_VBP a_DT snack_NN
+I_PRP bake_VBP a_DT cake_NN and_CC he_PRP bakes_VBZ a_DT pie_NN	We_PRP repair_VBP a_DT fence_NN and_CC she_PRP repairs_VBZ a_DT roof_NN
+A_DT species_NN which_WDT they_PRP study_VBP lives_VBZ in_IN the_DT ocean_NN	A_DT ritual_NN which_WDT they_PRP observe_VBP persists_VBZ in_IN the_DT village_NN
+A_DT detail_NN in_IN the_DT report_NN changed_VBD the_DT entire_JJ story_NN	A_DT glitch_NN within_IN the_DT system_NN disrupted_VBD the_DT normal_JJ routine_NN
+An_DT issue_NN with_IN the_DT software_NN caused_VBD a_DT major_JJ problem_NN	An_DT error_NN inside_IN the_DT engine_NN triggered_VBD a_DT serious_JJ failure_NN
+A_DT chapter_NN in_IN the_DT book_NN described_VBD a_DT fantastic_JJ world_NN	A_DT mural_NN on_IN the_DT wall_NN depicted_VBD a_DT distant_JJ galaxy_NN
+The_DT bird_NN on_IN the_DT branch_NN sang_VBD a_DT lovely_JJ tune_NN	The_DT child_NN near_IN the_DT riverbank_NN drew_VBD a_DT colorful_JJ picture_NN
+I_PRP drink_VBP some_DT water_NN and_CC he_PRP drinks_VBZ some_DT juice_NN	You_PRP eat_VBP some_DT fruit_NN and_CC she_PRP eats_VBZ some_DT bread_NN
+I_PRP remember_VBP a_DT name_NN and_CC she_PRP remembers_VBZ a_DT face_NN	We_PRP admire_VBP the_DT painting_NN and_CC they_PRP admire_VBZ the_DT sculpture_NN
+He_PRP should_MD say_VB a_DT prayer_NN for_IN his_PRP$ sick_JJ relative_NN	She_PRP might_MD write_VB a_DT letter_NN to_IN her_PRP$ distant_JJ mentor_NN
+The_DT new_JJ system_NN in_IN the_DT office_NN worked_VBD exceptionally_RB well_RB	The_DT modern_JJ printer_NN inside_IN the_DT studio_NN performed_VBD surprisingly_RB smoothly_RB
+A_DT piece_NN of_IN the_DT puzzle_NN was_VBD a_DT different_JJ color_NN	A_DT shard_NN from_IN the_DT mirror_NN showed_VBD a_DT distorted_JJ image_NN
+A_DT tired_JJ worker_NN in_IN the_DT chair_NN rested_VBD absolutely_RB still_JJ	A_DT nervous_JJ actor_NN behind_IN the_DT curtain_NN waited_VBD completely_RB silent_JJ
+The_DT air_NN appears_VBZ remarkably_RB humid_JJ in_IN the_DT tropics_NNS	The_DT sky_NN looks_VBZ unusually_RB hazy_JJ over_IN the_DT mountains_NNS
+The_DT message_NN seems_VBZ perfectly_RB clear_JJ for_IN the_DT recipients_NNS	The_DT warning_NN sounds_VBZ strangely_RB vague_JJ to_IN the_DT listeners_NNS
+It_PRP offers_VBP a_DT unique_JJ opportunity_NN for_IN the_DT team_NN	She_PRP provides_VBP a_DT rare_JJ insight_NN to_IN the_DT committee_NN
+He_PRP is_VBZ a_DT famous_JJ writer_NN throughout_IN the_DT world_NN	She_PRP remains_VBZ a_DT respected_JJ scientist_NN across_IN the_DT continent_NN
+The_DT urgent_JJ message_NN felt_VBD instantly_RB critical_JJ to_TO deliver_VB	The_DT sudden_JJ earthquake_NN seemed_VBD unbearably_RB violent_JJ to_TO witness_VB
+The_DT sweet_JJ fruit_NN tasted_VBD deliciously_RB ripe_JJ to_TO eat_VB	The_DT strong_JJ coffee_NN smelled_VBD intensely_RB bitter_JJ to_TO brew_VB
+He_PRP can_MD book_VB a_DT room_NN for_IN our_PRP$ vacation_NN	She_PRP may_MD reserve_VB a_DT table_NN for_IN their_PRP$ anniversary_NN
+I_PRP should_MD find_VB a_DT cure_NN for_IN my_PRP$ ailment_NN	We_PRP might_MD design_VB a_DT plan_NN for_IN our_PRP$ project_NN
+The_DT child_NN fell_VBD on_IN the_DT ground_NN and_CC cried_VBD	The_DT cyclist_NN slipped_VBD along_IN the_DT road_NN and_CC cursed_VBD
+A_DT volcano_NN erupted_VBD near_IN the_DT town_NN and_CC destroyed_VBD	A_DT storm_NN formed_VBD above_IN the_DT ocean_NN and_CC intensified_VBD
+They_PRP took_VBD a_DT long_JJ walk_NN along_IN the_DT beach_NN	We_PRP planned_VBD a_DT short_JJ trip_NN into_IN the_DT forest_NN
+He_PRP showed_VBD a_DT real_JJ talent_NN for_IN the_DT music_NN	She_PRP displayed_VBD a_DT natural_JJ gift_NN for_IN the_DT science_NN
+The_DT clear_JJ sky_NN looked_VBD truly_RB beautiful_JJ to_TO behold_VB	The_DT crowded_JJ market_NN sounded_VBD overwhelmingly_RB loud_JJ to_TO navigate_VB
+Near_IN the_DT peaceful_JJ lake_NN the_DT ducks_NNS swam_VBD calmly_RB	Behind_IN the_DT old_JJ barn_NN the_DT horses_NNS grazed_VBD quietly_RB
+Around_IN the_DT central_JJ pillar_NN the_DT stairs_NNS wound_VBD upward_RB	Above_IN the_DT ancient_JJ gate_NN the_DT banners_NNS fluttered_VBD wildly_RB
+He_PRP sings_VBP a_DT song_NN which_WDT is_VBZ always_RB memorable_JJ	She_PRP writes_VBP a_DT letter_NN which_WDT feels_VBZ deeply_RB personal_JJ
+It_PRP sends_VBP a_DT message_NN that_WDT is_VBZ critically_RB urgent_JJ	He_PRP delivers_VBP a_DT speech_NN that_WDT sounds_VBZ incredibly_RB inspiring_JJ
+We_PRP have_VBP a_DT friend_NN who_WDT is_VBZ always_RB kind_JJ	They_PRP share_VBP a_DT secret_NN that_WDT remains_VBZ forever_RB hidden_JJ
+He_PRP chooses_VBP a_DT route_NN that_WDT is_VBZ usually_RB scenic_JJ	She_PRP picks_VBP a_DT project_NN that_WDT feels_VBZ rarely_RB simple_JJ
