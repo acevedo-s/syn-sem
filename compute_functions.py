@@ -94,7 +94,7 @@ def similarities(
         #     total_sample_size = syn_syn_indices.shape[0]
     
     elif data_var == 'syn' and centers_var == 'sem':
-        syn_ids_with_sem = from_numpy(np.loadtxt(syn_ids_with_sem_path,dtype=int)).long() # filtering sem_data to have their syntax group in space A 
+        syn_ids_with_sem = from_numpy(np.loadtxt(syn_ids_with_sem_path,dtype=int)).long() # filtering syn_data to have their semantic centroid in space A 
         for layer in all_activations_A:
             all_activations_A[layer] = all_activations_A[layer][syn_ids_with_sem]
             all_activations_B[layer] = all_activations_B[layer][syn_ids_with_sem]    
