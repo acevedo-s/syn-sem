@@ -104,9 +104,9 @@ def main(model_name,
 if __name__ == "__main__":
     print(f'{sys.argv=}')
     model_name = 'deepseek' # 
-    language = sys.argv[1] # 
-    data_var = sys.argv[2] # syn or sem
-    match_var = sys.argv[3] # 'matching' or 'mismatching'
+    language = 'english' #sys.argv[1] # 
+    data_var = 'syn' #sys.argv[2] # syn or sem
+    match_var = 'matching'#sys.argv[3] # 'matching' or 'mismatching'
     dataset_var = 'third'
 
     tp_size, nnodes = get_slurm_config()

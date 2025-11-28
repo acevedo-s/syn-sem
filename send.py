@@ -64,7 +64,7 @@ if __name__ == "__main__":
     input_path_B = ' '
     modelB = args.modelA
     precision = 32
-    batch_shuffle = 0
+    batch_shuffle = 1
 
     min_token_length = args.min_token_length
     n_tokens_list = np.array([args.min_token_length])

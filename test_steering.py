@@ -82,82 +82,79 @@ def generate_with_multilayer_steering(
     input_en: str, 
     T_all: torch.Tensor, 
     max_new_tokens=40,
-    start_layer_idx: int = 0, # New: Start steering from this layer
-    end_layer_idx: int = None # New: Stop steering before this layer
+    start_layer_idx: int = 0,
+    end_layer_idx: int = None
 ):
-    """
-    Applies steering to a specified range of layers using the corresponding 
-    vector from T_all. Defaults to the full range if indices are not set 
-    (or set to 0 and None).
-    """
     inputs = qwen_tok(input_en, return_tensors="pt").to(device)
-    
-    # Identify layers
+    prompt_len = inputs["input_ids"].shape[1]
+
     if hasattr(qwen, "model"):
         layers = qwen.model.decoder.layers
     else:
         layers = qwen.transformer.h
     
     num_layers = len(layers)
-
-    # Set end_layer_idx to the total number of layers if None
     if end_layer_idx is None:
         end_layer_idx = num_layers
-    
-    # Validate shapes and range
+
     if T_all.shape[0] != num_layers:
         raise ValueError(f"T_all has {T_all.shape[0]} layers, but model has {num_layers}.")
     if not (0 <= start_layer_idx < end_layer_idx <= num_layers):
-         raise ValueError(f"Invalid layer indices. Must be 0 <= start({start_layer_idx}) < end({end_layer_idx}) <= {num_layers}")
+        raise ValueError(
+            f"Invalid layer indices. Must be 0 <= start({start_layer_idx}) < end({end_layer_idx}) <= {num_layers}"
+        )
+
+    print(f"Steering layers in range: {start_layer_idx} to {end_layer_idx - 1}")
 
     def make_hook(T_layer):
-        """Creates a closure for a specific layer's vector T_layer"""
         def _hook(module, args, output):
-            # Unpack tuple when necessary (related to QK cache's during generation?)
+            # Unpack tuple if necessary
             if isinstance(output, tuple):
                 hidden_states = output[0]
+                rest = output[1:]
             else:
                 hidden_states = output
-            # Modification
-            # [Batch, Seq, Dim]
-            hidden_states = hidden_states.clone() 
-            
-            # [Batch, Dim] (Last token)
-            last_token = hidden_states[:, -1, :] 
-            
-            # Cast T to match fp16/bf16 if needed
-            T_vec = T_layer.to(last_token.dtype)
-            
-            # Projection: (v . u) * u
-            dot = (last_token * T_vec).sum(dim=-1, keepdim=True)
-            proj = dot * T_vec
-            
-            # Remove projection
-            hidden_states[:, -1, :] = last_token - proj
-            
-            # Repack
-            if isinstance(output, tuple):
-                return (hidden_states,) + output[1:]
+                rest = None
+
+            # Prefill vs decode:
+            #   prefill: (batch, seq_len_prompt, d)
+            #   decode:  (batch, 1, d)
+            if hidden_states.shape[1] == 1:
+                # decoding step -> do NOT steer
+                return output
+
+            # Clone to avoid in-place issues
+            hidden_states = hidden_states.clone()
+
+            # steer *all* prompt tokens, not just the last one
+            # hidden_states: (B, S, D)
+            # T_vec:         (D,)
+            T_vec = T_layer.to(hidden_states.dtype)           # (D,)
+            T_vec_b = T_vec.view(1, 1, -1)                    # (1, 1, D) for broadcasting
+
+            # dot: (B, S, 1) = ⟨h_t, T⟩ for each token t
+            dot = (hidden_states * T_vec_b).sum(dim=-1, keepdim=True)
+            # proj: (B, S, D) = ⟨h_t, T⟩ T
+            proj = dot * T_vec_b
+            # remove T component from every token
+            hidden_states = hidden_states - proj
+
+            if rest is not None:
+                return (hidden_states,) + rest
             return hidden_states
+
         return _hook
 
-    # Register hooks for the selected range of layers
     hooks = []
-    # Loop over the indices in the defined range
     for i in range(start_layer_idx, end_layer_idx):
         layer = layers[i]
-        # Extract the vector for this specific layer index
-        T_l = T_all[i] 
-        # Create and register hook
+        T_l = T_all[i]
         h = layer.register_forward_hook(make_hook(T_l))
         hooks.append(h)
 
     try:
         with torch.no_grad():
             output_ids = qwen.generate(**inputs, max_new_tokens=max_new_tokens)
-    except Exception as e:
-        print(f"[!] Generation failed with error: {type(e).__name__}: {e}")
-        output_ids = None
     finally:
         for h in hooks:
             h.remove()
