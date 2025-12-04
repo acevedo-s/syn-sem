@@ -6,7 +6,7 @@ n_files = 21
 model_name = 'qwen7b'
 precision = 32
 data_var = 'syn'
-global_center_flag = 0
+global_center_flag = 1
 min_token_length = 3
 avg_tokens = 0
 n_tokens = min_token_length 
@@ -18,7 +18,6 @@ shuffled_control = 0
 layers = list(range(1, depths[model_name] + 1))
 layer_vals = reduce_list_half_preserve_extremes(layers)
 layer_vals = reduce_list_half_preserve_extremes(layer_vals)  # double halving
-# layer_vals = reduce_list_half_preserve_extremes(layer_vals)  # triple halving
 
 syntax_labels = jnp.array(np.loadtxt(syn_group_ids_path).astype(int))  # (n_samples,)
 syn_ids_with_sem = jnp.array(np.loadtxt(syn_ids_with_sem_path,dtype=int),dtype=jnp.int32) # filtering syn_data to have their semantic centroid in space A 
@@ -55,9 +54,10 @@ sem_ablated_accs_A  = np.empty(n_layers, dtype=np.float32)
 
 # --------- MAIN LOOP ---------
 for i, layer in enumerate(layer_vals):
-    act_A, syn_centroids_A, sem_centroids_A = preprocessing_syn_data(
+    act_A, syn_centroids_A, sem_centroids_A, global_center_A = preprocessing_syn_data(
         model_name=model_name,
         all_activations=all_activations_A,
+        global_center_flag=global_center_flag,
         space_index='A',
         layer=layer,
         avg_tokens=avg_tokens,
@@ -65,9 +65,10 @@ for i, layer in enumerate(layer_vals):
         min_token_length=min_token_length,
         syn_ids_with_sem=syn_ids_with_sem,
     )
-    act_B, syn_centroids_B, _ = preprocessing_syn_data(
+    act_B, syn_centroids_B, _, global_center_B = preprocessing_syn_data(
         model_name=model_name,
         all_activations=all_activations_B,
+        global_center_flag=global_center_flag,
         space_index='B',
         layer=layer,
         avg_tokens=avg_tokens,
