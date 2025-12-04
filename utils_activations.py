@@ -2,6 +2,8 @@ import os
 os.environ["JAX_PLATFORMS"] = 'cpu'
 import jax.numpy as jnp
 import jax 
+from functools import partial
+from tqdm import tqdm
 import numpy as np
 from torch import from_numpy
 from geometry import normalized_L2_distance
@@ -103,6 +105,7 @@ def preprocessing_sem_data(
 def preprocessing_syn_data(
                            model_name,
                            all_activations,
+                           global_center_flag,
                            space_index,
                            layer,
                            avg_tokens,
@@ -128,11 +131,19 @@ def preprocessing_syn_data(
                               None,
                               space_index,
                               )
-  expanded_syn_centroids = unique_syn_centroids[syn_group_ids] # (n_samples,E)
+  expanded_syn_centroids = unique_syn_centroids[syn_group_ids] # (n_syn_samples,E)
 
-  ### Semantic centroids
+  ### Syn data with semantic centroids
   act = act[syn_ids_with_sem]
   expanded_syn_centroids = expanded_syn_centroids[syn_ids_with_sem]
+
+  # globally centering data [with all samples]
+  if global_center_flag:
+      global_center = jnp.mean(act,axis=0)
+      act = act - jnp.broadcast_to(global_center,act.shape)
+      expanded_syn_centroids = expanded_syn_centroids - jnp.broadcast_to(global_center,expanded_syn_centroids.shape)
+  else:
+      global_center = None
 
   if space_index == 'A':
     sem_centroids = load_and_subtract_sem_group_averages(
@@ -147,9 +158,10 @@ def preprocessing_syn_data(
   else:
     sem_centroids = None
 
-  return act, expanded_syn_centroids, sem_centroids
+  return act, expanded_syn_centroids, sem_centroids, global_center
 
-def compute_rowwise_cosine_similarity(act_A, act_B, eps=1e-8):
+@jax.jit
+def cosine_similarity(act_A, act_B, eps=1e-8):
     """
     Compute row-wise cosine similarity between two activation matrices.
 
@@ -164,4 +176,40 @@ def compute_rowwise_cosine_similarity(act_A, act_B, eps=1e-8):
     numerator = jnp.sum(act_A * act_B, axis=1)
     denominator = jnp.linalg.norm(act_A, axis=1) * jnp.linalg.norm(act_B, axis=1)
     return numerator / (denominator + eps)
+
+@jax.jit
+def all_cosine_similarities(act_A, act_B, eps=1e-8):
+    """
+    Compute all-pairs cosine similarities between the rows of act_A and act_B.
+
+    Args:
+        act_A: (N, D)
+        act_B: (M, D)
+        eps: small constant to avoid division by zero
+
+    Returns:
+        (N, M) array where entry (i, j) is cos_sim(act_A[i], act_B[j])
+    """
+    # Dot products between all row pairs: (N, D) @ (D, M) -> (N, M)
+    numerator = act_A @ act_B.T
+
+    # Row-wise norms
+    norm_A = jnp.linalg.norm(act_A, axis=1, keepdims=True)  # (N, 1)
+    norm_B = jnp.linalg.norm(act_B, axis=1, keepdims=True)  # (M, 1)
+
+    # Broadcast to (N, M)
+    denominator = norm_A * norm_B.T
+
+    return numerator / (denominator + eps)
+
+@partial(jax.jit, static_argnums=(1,))
+def recall_at_k_jax(cos_matrix, k):
+    N, M = cos_matrix.shape
+    
+    # top_k works along the last axis; returns values, indices
+    _, topk_idx = jax.lax.top_k(cos_matrix, k)  # (N, k)
+
+    targets = jnp.arange(N)[:, None]  # (N, 1)
+    hits = (topk_idx == targets)
+    return hits.any(axis=1).mean()
 

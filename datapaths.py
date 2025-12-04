@@ -5,7 +5,7 @@ from collections import defaultdict
 input_paths = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
 
 _languages = ['english','turkish','arabic','italian','spanish','german','chinese']
-_models = ['llama8b', 'deepseek','qwen7b']
+_models = ['deepseek','qwen7b']
 _match_types = ['matching', 'mismatching']
 _txt_vars = ['syn', 'sem']
 _indices = range(2)
