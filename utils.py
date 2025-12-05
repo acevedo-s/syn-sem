@@ -398,9 +398,13 @@ def load_and_subtract_sem_group_averages(sim_folder,
                                          number_of_languages,
                                          language_list_permutation,
                                          removal_method,
+                                         batch_shuffle=False,
+                                         seed_batch_shuffle=None,
                                          ):
 
   semantic_centroids = load_sem_centroids(sim_folder,number_of_languages,language_list_permutation).astype(act.dtype) #(num_sem_sentences,E)
+  if batch_shuffle:
+    semantic_centroids = reshuffle_batch_axis(semantic_centroids, jax.random.PRNGKey(seed_batch_shuffle))
   if data_var == 'syn':
     sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
     semantic_centroids = semantic_centroids[sem_center_ids] # this alignes centers to syntax data

@@ -1,4 +1,5 @@
 import sys,os
+sys.path.append('../')
 from time import time
 import torch
 from transformers import AutoModelForCausalLM,AutoTokenizer
@@ -10,14 +11,15 @@ from modelpaths import *
 
 if __name__ == '__main__':
     print(f'{sys.argv=}')
-    model_name = 'qwen7b' 
+    model_name = 'gemma12b' 
     language = sys.argv[1] # 
     data_var = sys.argv[2] # syn or sem
     match_var = sys.argv[3] # 'matching' or 'mismatching'
 
-    n_lines = 2100
+    n_lines = 10
     chunk_size = 100
-    dataset_var = 'third'
+
+    dataset_var = 'second'
 
     IO_paths_list = [
         {
@@ -33,7 +35,7 @@ if __name__ == '__main__':
         IO_paths_list = IO_paths_list[1:]
 
     for IO_paths in IO_paths_list:
-
+        os.makedirs(IO_paths['output_folder'], exist_ok=True)
         input_sentences = load_lines(IO_paths['input_path'])[:n_lines]
 
         tokenizer = AutoTokenizer.from_pretrained(repo_ids[model_name])
@@ -51,7 +53,6 @@ if __name__ == '__main__':
         model_dtype = next(model_obj.parameters()).dtype
         print(f"Model dtype: {model_dtype}")
 
-        activations_dir = os.path.join('./', "activations")
 
 
         export(
