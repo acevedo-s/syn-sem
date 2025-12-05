@@ -13,8 +13,9 @@ removal_methods=("projection")
 global_centerings=(0)
 avg_tokens_list=(0 1)
 similarity_fn='normalized_L2_distance'
+batch_shuffle=1
 
-if [ "$data_var" = "syn" ] && [ "$centers_var" = "syn" ]; then
+if [ "$data_var" = "syn" ] && [ "$centers_var" = "syn" ] && [ "$batch_shuffle" -eq 0 ]; then
     min_token_length=6
 else
     min_token_length=3
@@ -54,7 +55,8 @@ for avg_tokens in "${avg_tokens_list[@]}";do
             $removal_method \
             $global_centering \
             $avg_tokens \
-            $similarity_fn
+            $similarity_fn \
+            $batch_shuffle
           sleep .2
         done
       done

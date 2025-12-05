@@ -53,6 +53,7 @@ if __name__ == "__main__":
     parser.add_argument("global_centering", type=int, choices=[0,1])
     parser.add_argument("avg_tokens", type=int, choices=[0,1])
     parser.add_argument("similarity_fn", type=str, choices=['L2_distance','normalized_L2_distance'])
+    parser.add_argument("batch_shuffle",type=int, choices=[0,1])
     args = parser.parse_args()
 
     spaces = 'AB'
@@ -64,7 +65,7 @@ if __name__ == "__main__":
     input_path_B = ' '
     modelB = args.modelA
     precision = 32
-    batch_shuffle = 1
+    batch_shuffle = args.batch_shuffle
 
     min_token_length = args.min_token_length
     n_tokens_list = np.array([args.min_token_length])

@@ -3,7 +3,7 @@ from utils_syn_classifying import *
 from utils import makefolder
 
 n_files = 21
-model_name = 'qwen7b'
+model_name = 'deepseek'
 precision = 32
 data_var = 'syn'
 global_center_flag = 1
@@ -13,7 +13,7 @@ n_tokens = min_token_length
 lambda_l2 = 10.0
 
 normalization_flag = 1
-shuffled_control = 0
+shuffled_control = 1
 
 layers = list(range(1, depths[model_name] + 1))
 layer_vals = reduce_list_half_preserve_extremes(layers)

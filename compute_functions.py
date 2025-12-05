@@ -63,6 +63,8 @@ def similarities(
         global_centering,
         ):
     start_time = time()
+    seed_batch_shuffle = 69
+    seed_distances = 42
 
     number_of_languages_list = set_number_of_languages_list(center_A_flag,center_B_flag,centers_var)
     language_list_permutations = set_language_list_permutations(center_A_flag,center_B_flag,centers_var)
@@ -106,7 +108,7 @@ def similarities(
     print(f'{all_activations_A[next(reversed(all_activations_A))].shape=}')
     print(f'{all_activations_B[next(reversed(all_activations_B))].shape=}')
     
-    key_distances = jax.random.PRNGKey(42)
+    key_distances = jax.random.PRNGKey(seed_distances)
     key_distances, subkey_distances = jax.random.split(key_distances) 
     
     for n_tokens_id, n_tokens in enumerate(n_tokens_list):
@@ -144,7 +146,7 @@ def similarities(
 
                             if batch_shuffle:
                                 print(f'batch_shuffling A')
-                                act_A = reshuffle_batch_axis(act_A, jax.random.PRNGKey(111))
+                                act_A = reshuffle_batch_axis(act_A, jax.random.PRNGKey(seed_batch_shuffle))
                             
                             (act_A, global_center_A) = set_global_center(act_A, global_centering)
                             (act_B, global_center_B) = set_global_center(act_B, global_centering)
@@ -175,7 +177,7 @@ def similarities(
                                         # act_A = act_A[syn_syn_indices] # for these, first I subtract their centers and then I subsample them
                             elif centers_var == 'sem':
                                 if center_A_flag != 0:
-                                    act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages,language_list_permutation,removal_method)
+                                    act_A = load_and_subtract_sem_group_averages(sim_folder,act_A,data_var,center_A_flag,number_of_languages,language_list_permutation,removal_method,batch_shuffle,seed_batch_shuffle)
                                 if center_B_flag != 0:
                                     act_B = load_and_subtract_sem_group_averages(sim_folder,act_B,data_var,center_B_flag,number_of_languages,language_list_permutation,removal_method)
 
