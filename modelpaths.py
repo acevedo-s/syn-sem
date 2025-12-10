@@ -11,3 +11,13 @@ model_paths['bert'] = f'{base_path}LLMs_google-bert/bert-base-multilingual-cased
 repo_ids = {
     'gemma12b' : "google/gemma-3-12b-pt",
 }
+
+if __name__ == "__main__":
+    from transformers import AutoConfig
+    _test_model = "gemma12b"
+    config = AutoConfig.from_pretrained(model_paths[_test_model])
+    # print(config)
+    print(f'{config.text_config.num_hidden_layers=}')
+    # print(f'{config.text_config.=}')
+
+

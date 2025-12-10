@@ -11,8 +11,9 @@ from datapaths import *
 import matplotlib.pyplot as plt
 from utils import (
                   syn_group_id_paths_for_sem_data,
-                  syn_ids_with_sem_path,
+                  sem_centers_ids_path,
                   sem_ids_with_syn_path,
+                  syn_ids_with_sem_path,
                   syn_group_ids_path,
                   collect_data,
                   torch_to_jax,
@@ -146,17 +147,18 @@ def preprocessing_syn_data(
       global_center = None
 
   if space_index == 'A':
-    sem_centroids = load_and_subtract_sem_group_averages(
-                                            sim_folder=sim_folder,
-                                            act=act,
-                                            data_var='syn',
-                                            center_flag=0,
-                                            number_of_languages=6,
-                                            language_list_permutation=0,
-                                            removal_method='projection',
-                                            )
+    sem_centroids = load_sem_centroids(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sem_sentences,E)
+    sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
+    sem_centroids = sem_centroids[sem_center_ids] # this alignes centers to syntax data
+
   else:
     sem_centroids = None
+
+  if layer == 1:
+    print(f'{act.shape=}')
+    print(f'{expanded_syn_centroids.shape=}')
+    if sem_centroids is not None:
+      print(f'{sem_centroids.shape=}')
 
   return act, expanded_syn_centroids, sem_centroids, global_center
 
@@ -212,4 +214,12 @@ def recall_at_k_jax(cos_matrix, k):
     targets = jnp.arange(N)[:, None]  # (N, 1)
     hits = (topk_idx == targets)
     return hits.any(axis=1).mean()
+
+def squared_norm_fraction(act, centroid, eps=1e-8):
+    # elementwise dot
+    dot = jnp.sum(act * centroid, axis=1, keepdims=True)
+    centroid_norm_sq = jnp.sum(centroid * centroid, axis=1, keepdims=True) + eps
+    proj = (dot / centroid_norm_sq) * centroid
+    frac = jnp.sum(proj**2, axis=1) / (jnp.sum(act**2, axis=1) + eps)
+    return frac  # shape: (batch,)
 

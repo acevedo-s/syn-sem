@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=12:00:00
 #SBATCH --ntasks-per-node=1
-# SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:1
 #SBATCH --output=./log_activations/%x.o%j              # Standard output
 #SBATCH --error=./log_activations/%x.o%j               # Standard error
 #SBATCH --qos=mira

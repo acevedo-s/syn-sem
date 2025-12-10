@@ -23,6 +23,7 @@ from utils import (
                 flatten_tokens_features, 
                 makefolder,
                 collect_data,
+                collect_data_hf,
                 reshuffle_batch_axis,
                 compute_and_subtract_syn_group_averages,
                 load_and_subtract_syn_group_averages,
@@ -68,15 +69,20 @@ def similarities(
 
     number_of_languages_list = set_number_of_languages_list(center_A_flag,center_B_flag,centers_var)
     language_list_permutations = set_language_list_permutations(center_A_flag,center_B_flag,centers_var)
+    
+    if modelA != 'gemma12b' and modelA == modelB:
+        loading_data_f = collect_data
+    else:
+        loading_data_f = collect_data_hf
 
-    all_activations_A = collect_data(input_path_A,
+    all_activations_A = loading_data_f(input_path=input_path_A,
                                      min_token_length=min_token_length, 
                                      n_files=n_files,
                                      model_name=modelA,
                                      avg_tokens=avg_tokens,
                                      )
     if spaces == 'AB':
-        all_activations_B = collect_data(input_path_B,
+        all_activations_B = loading_data_f(input_path=input_path_B,
                                         min_token_length=min_token_length, 
                                         n_files=n_files,
                                         model_name=modelB,

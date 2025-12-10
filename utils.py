@@ -43,20 +43,6 @@ def get_syn_centroids_folder(sim_folder):
   centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
   return centers_folder
 
-def get_num_hidden_layers(model_dir: str) -> int:
-    """
-    Load model config from the given directory and return the number of hidden layers.
-    """
-    config = AutoConfig.from_pretrained(model_dir)
-    return config.num_hidden_layers
-
-def get_hidden_size(model_dir: str) -> int:
-    """
-    Load model config from the given directory and return the embedding (hidden) size.
-    """
-    config = AutoConfig.from_pretrained(model_dir)
-    return config.hidden_size
-
 def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_paths: dict) -> None:
     """
     Add the number of hidden layers and embedding size for a model to the given dictionaries.
@@ -68,13 +54,14 @@ def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_path
         model_paths (dict): Dictionary mapping model names to local paths.
     """
     config = AutoConfig.from_pretrained(model_paths[model_name])
+    if model_name == 'gemma12b': config = config.text_config
     depths[model_name] = config.num_hidden_layers
     emb_dims[model_name] = config.hidden_size
 
 
 depths = {}
 emb_dims = {}
-models = ['qwen7b', 'deepseek',]
+models = ['qwen7b', 'deepseek', 'gemma12b']
 
 for model in models:
   add_model_metadata(depths, emb_dims, model, model_paths)
@@ -243,6 +230,108 @@ def collect_data(input_path,
     print(f'importing took {(time()-start_time)/60.} m')
 
     return all_hidden_states
+
+def collect_data_hf(
+        input_path,
+        min_token_length,
+        n_files,
+        model_name,   # kept for API compatibility, but actual model name is read from file
+        avg_tokens,
+    ):
+    """
+    Load activations from new HF pipeline and return them in the same
+    dictionary format as `collect_data`, i.e.:
+
+        {
+            "layer_0": Tensor(shape = (N, T, E) or (N, E)),
+            "layer_1": ...,
+            ...
+        }
+
+    where:
+        - N = number of samples
+        - T = min_token_length (if avg_tokens != 1)
+        - E = embedding dim
+    """
+
+    start_time = time()
+
+    # ----------------------------
+    # Find activation chunk files
+    # ----------------------------
+    files = sorted(
+        [f for f in os.listdir(input_path) if f.endswith(".pkl")],
+        key=lambda x: int(x.replace("chunk_", "").replace(".pkl", ""))
+    )
+
+    if n_files:
+        files = files[:n_files]
+
+    print(f"Reading {len(files)} chunks from: {input_path}")
+
+    stored_model_name, stored_model_dtype = None, None
+    all_hidden_states = defaultdict(list)   # layer -> list of tensors
+
+    # ----------------------------
+    # Load and restore dtype for each chunk
+    # ----------------------------
+    for file in tqdm(files, desc="Loading"):
+        with open(os.path.join(input_path, file), "rb") as f:
+            data = pickle.load(f)
+
+        if stored_model_name is None:
+            stored_model_name = data.get("model", "unknown")
+            stored_model_dtype = data.get("model_dtype", "unknown")
+
+            # map stored_model_dtype (likely a string) to a torch.dtype
+            if isinstance(stored_model_dtype, torch.dtype):
+                torch_dtype = stored_model_dtype
+            else:
+                if "bfloat16" in str(stored_model_dtype):
+                    torch_dtype = torch.bfloat16
+                elif "float16" in str(stored_model_dtype):
+                    torch_dtype = torch.float16
+                else:
+                    torch_dtype = torch.float32
+        # in case it's set only once above
+        dtype = torch_dtype
+
+        for entry in data["samples"]:
+            raw = entry["activations"]  # numpy array, shape (L, T, E)
+
+            # Restore dtype from uint16 packing if needed
+            if str(raw.dtype) == "uint16":
+                acts = torch.tensor(raw, dtype=torch.uint16).view(dtype)
+            else:
+                acts = torch.tensor(raw, dtype=dtype)
+
+            L, T, E = acts.shape
+
+            # crop token window
+            assert T >= min_token_length, f"{T=} tokens"
+            acts = acts[:, -min_token_length:, :]   # (L, min_token_length, E)
+
+            # average over tokens if requested (match collect_data semantics)
+            if avg_tokens == 1:
+                # (L, min_token_length, E) -> (L, E)
+                acts = acts.to(torch.float32).mean(dim=1).to(dtype)
+
+            # split by layer and append to dict
+            for i in range(acts.shape[0]):  # over layers
+                all_hidden_states[f"layer_{i}"].append(acts[i])
+
+    # ----------------------------
+    # Stack per-layer lists into tensors
+    # ----------------------------
+    for layer in all_hidden_states:
+        all_hidden_states[layer] = torch.stack(all_hidden_states[layer])
+
+    print(f"\nLoaded model: {stored_model_name} (dtype={stored_model_dtype})")
+    print(f'{all_hidden_states["layer_0"].shape=}')
+    print(f'importing took {(time() - start_time) / 60.} m')
+
+    return all_hidden_states
+
 
 def compute_and_subtract_syn_group_averages(sim_folder,
                                             act,
@@ -444,7 +533,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = [6] #list(range(1,len(my_languages)+1))
+        number_of_languages_list = [1,2] #list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 
