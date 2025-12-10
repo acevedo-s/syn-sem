@@ -16,7 +16,7 @@ if __name__ == '__main__':
     data_var = sys.argv[2] # syn or sem
     match_var = sys.argv[3] # 'matching' or 'mismatching'
 
-    n_lines = 10
+    n_lines = 2100
     chunk_size = 100
 
     dataset_var = 'second'
@@ -33,6 +33,9 @@ if __name__ == '__main__':
     condition_2 = language == 'english' and data_var == 'syn' and dataset_var == 'third' 
     if condition_1 or condition_2:
         IO_paths_list = IO_paths_list[1:]
+    
+    if dataset_var == 'third':
+        IO_paths_list = IO_paths_list[:1]
 
     for IO_paths in IO_paths_list:
         os.makedirs(IO_paths['output_folder'], exist_ok=True)
@@ -43,17 +46,16 @@ if __name__ == '__main__':
                                                         cache_dir=model_paths[model_name],
                                                         device_map="auto",
                                                         low_cpu_mem_usage=True,
+                                                        torch_dtype="auto",
                                                         )
         model_obj.config.output_hidden_states = True
         model_obj.eval()
 
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        model_obj.to(device)
+        # model_obj.to(device)
 
         model_dtype = next(model_obj.parameters()).dtype
         print(f"Model dtype: {model_dtype}")
-
-
 
         export(
                 sentences=input_sentences,

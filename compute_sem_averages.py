@@ -22,6 +22,7 @@ from utils import (
                 emb_dims,
                 reduce_list_half_preserve_extremes,
                 collect_data,
+                collect_data_hf,
                 )
 
 from geometry import *
@@ -53,19 +54,24 @@ def main(
     start_time = time()
     centers = 'sem'
     batch_shuffle = 0
-
+    Nbits = Nbits_list[0]
     all_activations = []
     
+    if model != 'gemma12b':
+        loading_data_f = collect_data
+    else:
+        loading_data_f = collect_data_hf
+
     for language_id,language in enumerate(languages):
-        all_activations.append(collect_data(input_paths[language][model]['matching']['1'][data_var],
+        all_activations.append(loading_data_f(input_paths[language][model]['matching']['1'][data_var],
                                             min_token_length=min_token_length, 
                                             n_files=n_files,
                                             model_name=model,
-                                            avg_tokens=avg_tokens
+                                            avg_tokens=avg_tokens,
                                             )
         )
     if avg_tokens == 0:
-        B, _, E = all_activations[0][f"layer_{layers[0]}"].shape
+        B, T, E = all_activations[0][f"layer_{layers[0]}"].shape
     else:    
         B, E = all_activations[0][f"layer_{layers[0]}"].shape
         T = 1
@@ -74,35 +80,33 @@ def main(
         print(f'{n_tokens=}')
         if avg_tokens == 0: T = n_tokens
 
-        for Nbits_id, Nbits in enumerate(Nbits_list):
-            print(f'{Nbits=}')
-            for layer_counter,layer in enumerate(layers):
-                print(f'{layer=}')
-                semantic_center = jnp.zeros(shape=(len(languages),
-                                                B,
-                                                T*E),dtype=precision_map[precision])
-                for language_id in range(len(all_activations)):
-                    print(f'processing {languages[language_id]}')
-                    activations = all_activations[language_id][f"layer_{layer}"]
-                    if avg_tokens == 0: 
-                        activations = flatten_tokens_features(activations[:,-n_tokens:,:])
-                    activations = torch_to_jax(activations,precision)
-                    semantic_center = semantic_center.at[language_id].set(activations)
-                    print(f'{activations.shape=}')
-                print(f'{semantic_center.shape=}')
-                semantic_center = jnp.mean(semantic_center,axis=0)
+        for layer_counter,layer in enumerate(layers):
+            print(f'{layer=}')
+            semantic_center = jnp.zeros(shape=(len(languages),
+                                            B,
+                                            T*E),dtype=precision_map[precision])
+            for language_id in range(len(all_activations)):
+                print(f'processing {languages[language_id]}')
+                activations = all_activations[language_id][f"layer_{layer}"]
+                if avg_tokens == 0: 
+                    activations = flatten_tokens_features(activations)
+                activations = torch_to_jax(activations,precision)
+                semantic_center = semantic_center.at[language_id].set(activations)
+                print(f'{activations.shape=}')
+            print(f'{semantic_center.shape=}')
+            semantic_center = jnp.mean(semantic_center,axis=0)
 
-                centers_folder = makefolder(base=output_folder0+f'semantic_centers/',
-                                        create_folder=True,
-                                        centers=centers,
-                                        Nbits=Nbits,
-                                        n_tokens=n_tokens,
-                                        avg_tokens=avg_tokens,
-                                        batch_shuffle=batch_shuffle,
-                                        layer_A=layer,
-                                        layer_B=layer,
-                                        )
-                np.save(os.path.join(centers_folder,f"semantic_centers_{len(languages)}_{language_list_permutation}.npy"),semantic_center)
+            centers_folder = makefolder(base=output_folder0+f'semantic_centers/',
+                                    create_folder=True,
+                                    centers=centers,
+                                    Nbits=Nbits,
+                                    n_tokens=n_tokens,
+                                    avg_tokens=avg_tokens,
+                                    batch_shuffle=batch_shuffle,
+                                    layer_A=layer,
+                                    layer_B=layer,
+                                    )
+            np.save(os.path.join(centers_folder,f"semantic_centers_{len(languages)}_{language_list_permutation}.npy"),semantic_center)
     print(f'this took {(time()-start_time)/60:.1f} m')
 
     return

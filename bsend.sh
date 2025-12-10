@@ -1,19 +1,19 @@
 #!/bin/bash
 
 dbg=0
-modelA="deepseek"
+modelA="gemma12b"
 method="min"
 data_var="sem"
 match_var="matching"  # "matching" or "mismatching"
 centers_var="sem"
 languages=('english')
 zero_activations=0
-center_A_flags=(0)
+center_A_flags=(1)
 removal_methods=("projection")
 global_centerings=(0)
-avg_tokens_list=(0 1)
+avg_tokens_list=(1)
 similarity_fn='normalized_L2_distance'
-batch_shuffle=1
+batch_shuffle=0
 
 if [ "$data_var" = "syn" ] && [ "$centers_var" = "syn" ] && [ "$batch_shuffle" -eq 0 ]; then
     min_token_length=6
