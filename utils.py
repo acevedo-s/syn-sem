@@ -39,6 +39,12 @@ syn_ids_with_sem_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/
 sem_centers_ids_path = "/home/acevedo/syn-sem/datasets/txt/syn/second/matching/english/sem_centers_ids.txt"
 syn_syn_ids_path = "/home/acevedo/syn-sem/datasets/txt/sem/second/matching/english/syn_syn_indices.txt"
 
+def cyclic_permute(indices, N):
+    """Return a cyclic permutation of `indices` shifted left by N."""
+    assert len(indices) > N
+    return indices[N:] + indices[:N]
+
+
 def get_syn_centroids_folder(sim_folder):
   centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
   return centers_folder
@@ -466,7 +472,7 @@ def load_and_subtract_syn_group_averages(act,
     act = batched_remove_centroid_projections(act,indices,loo_expanded_syn_centroids)
   return act
 
-def load_sem_centroids(sim_folder,number_of_languages,language_list_permutation):
+def load_sem_centroids(sim_folder,number_of_languages,language_list_permutation,precision=32):
 
   centers_folder = sim_folder
   # centers_folder = re.sub(r'language_[^/]+', 'language_english', centers_folder)
@@ -476,9 +482,16 @@ def load_sem_centroids(sim_folder,number_of_languages,language_list_permutation)
   centers_folder = re.sub(r'similarities','semantic_centers',centers_folder)
   centers_folder = re.sub(r'batch_shuffle_1','batch_shuffle_0',centers_folder)
 
-  semantic_centers = jnp.array(np.load(centers_folder+f'semantic_centers_{number_of_languages}_{language_list_permutation}.npy')) #(num_sentences,E)
+  language_ids = list(range(len(my_languages)))
+  language_ids = cyclic_permute(language_ids,language_list_permutation)[:number_of_languages]
 
-  return semantic_centers # careful about precision
+  for enum_idx,language_id in enumerate(language_ids):
+    act = jnp.array(np.load(os.path.join(centers_folder, f'activations_{language_id}.npy'))).astype(precision_map[precision])
+    if enum_idx == 0:
+      semantic_centroids = jnp.zeros(shape=(number_of_languages,*act.shape),dtype=precision_map[precision])
+    else:
+      semantic_centroids = semantic_centroids.at[enum_idx].set(act)
+  return semantic_centroids.mean(axis=0) # careful about precision
 
 def load_and_subtract_sem_group_averages(sim_folder,
                                          act,
@@ -533,7 +546,7 @@ def set_number_of_languages_list(center_A_flag, center_B_flag, centers_var):
 
     if center_A_flag != 0 or center_B_flag != 0:
       if centers_var == 'sem':
-        number_of_languages_list = [1,2] #list(range(1,len(my_languages)+1))
+        number_of_languages_list = [6] #list(range(1,len(my_languages)+1))
 
     return number_of_languages_list
 
@@ -543,7 +556,7 @@ def set_language_list_permutations(center_A_flag, center_B_flag, centers_var):
 
   if center_A_flag != 0 or center_B_flag != 0:
     if centers_var == 'sem':
-       language_list_permutations = [0] #list(range(0,len(my_languages)))
+       language_list_permutations = [0] #list(range(1,len(my_languages)))
 
   return language_list_permutations
 

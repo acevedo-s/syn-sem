@@ -16,6 +16,7 @@ from utils import (
                   syn_ids_with_sem_path,
                   syn_group_ids_path,
                   collect_data,
+                  collect_data_hf,
                   torch_to_jax,
                   flatten_tokens_features,
                   depths,

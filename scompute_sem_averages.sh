@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1
 #SBATCH --mem=1000G
-#SBATCH --output=./log_output/%x.o%j              # Standard output
-#SBATCH --error=./log_output/%x.o%j               # Standard error
+#SBATCH --output=./log_sem_centroids/%j.txt              # Standard output
+#SBATCH --error=./log_sem_centroids/%j.txt               # Standard error
 #SBATCH --qos=mira
 # SBATCH --reservation=acevedo
 

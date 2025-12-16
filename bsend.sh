@@ -1,22 +1,22 @@
 #!/bin/bash
 
 dbg=0
-modelA="gemma12b"
+modelA="qwen7b"
 method="min"
-data_var="sem"
+data_var="syn"
 match_var="matching"  # "matching" or "mismatching"
 centers_var="sem"
 languages=('english')
 zero_activations=0
-center_A_flags=(1)
+center_A_flags=(-1)
 removal_methods=("projection")
 global_centerings=(0)
-avg_tokens_list=(1)
+avg_tokens_list=(0)
 similarity_fn='normalized_L2_distance'
 batch_shuffle=0
 
 if [ "$data_var" = "syn" ] && [ "$centers_var" = "syn" ] && [ "$batch_shuffle" -eq 0 ]; then
-    min_token_length=6
+    min_token_length=3
 else
     min_token_length=3
 fi
