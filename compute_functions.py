@@ -235,10 +235,8 @@ def compute_II(
     language_list_permutations = set_language_list_permutations(center_A_flag,center_B_flag,centers_var)
     
     for Nbits_id,Nbits in enumerate(Nbits_list):
-        print(f'{Nbits=}')
 
         for n_tokens_id,n_tokens in enumerate(n_tokens_list):
-            print(f'{n_tokens=}')
 
             for number_of_languages in number_of_languages_list:
                 if number_of_languages != None: print(f'{number_of_languages=}') 

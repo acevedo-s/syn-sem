@@ -3,7 +3,7 @@ from utils_syn_classifying import *
 from utils import makefolder
 
 n_files = 21
-model_name = 'deepseek'
+model_name = 'qwen7b'
 precision = 32
 data_var = 'syn'
 global_center_flag = 1
@@ -13,7 +13,7 @@ n_tokens = min_token_length
 lambda_l2 = 10.0
 
 normalization_flag = 1
-shuffled_control = 1
+shuffled_control = 0
 
 layers = list(range(1, depths[model_name] + 1))
 layer_vals = reduce_list_half_preserve_extremes(layers)
@@ -86,6 +86,7 @@ for i, layer in enumerate(layer_vals):
         key_centers = jax.random.PRNGKey(11)
         idx = jax.random.permutation(key_centers,idx)
 
+    ### Here I don't remove from the sentax vector its projection on the semantic vector because I did not do that in the training set, for which I don't have the semantic vectors. 
     syn_ablated_A = batched_remove_centroid_projections(act_A, idx, syn_centroids_A)
     syn_ablated_B = batched_remove_centroid_projections(act_B, idx, syn_centroids_B)
     sem_ablated_A = batched_remove_centroid_projections(act_A, idx, sem_centroids_A)
