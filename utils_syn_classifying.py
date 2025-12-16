@@ -1,5 +1,7 @@
 import jax
 import jax.numpy as jnp
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 def l2_normalize(x, eps=1e-8):
     norms = jnp.linalg.norm(x, axis=-1, keepdims=True)
