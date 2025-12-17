@@ -207,20 +207,31 @@ def all_cosine_similarities(act_A, act_B, eps=1e-8):
 
 @partial(jax.jit, static_argnums=(1,))
 def recall_at_k_jax(cos_matrix, k):
-    N, M = cos_matrix.shape
     
-    # top_k works along the last axis; returns values, indices
-    _, topk_idx = jax.lax.top_k(cos_matrix, k)  # (N, k)
+  N, M = cos_matrix.shape
+  
+  # top_k works along the last axis; returns values, indices
+  _, topk_idx = jax.lax.top_k(cos_matrix, k)  # (N, k)
 
-    targets = jnp.arange(N)[:, None]  # (N, 1)
-    hits = (topk_idx == targets)
-    return hits.any(axis=1).mean()
+  targets = jnp.arange(N)[:, None]  # (N, 1)
+  hits = (topk_idx == targets)
+  return hits.any(axis=1).mean()
+
+@partial(jax.jit,static_argnums=(1,))
+def recall_at_k_syn(cos_matrix,k,syntax_labels):
+
+  N, M = cos_matrix.shape
+  assert N == M
+  _, topk_idx = jax.lax.top_k(cos_matrix, k)  # (N, k)
+  topk_labels = syntax_labels[topk_idx]
+  hits = (syntax_labels[:,None] == topk_labels)
+  return hits.any(axis=1).mean()
 
 def squared_norm_fraction(act, centroid, eps=1e-8):
-    # elementwise dot
-    dot = jnp.sum(act * centroid, axis=1, keepdims=True)
-    centroid_norm_sq = jnp.sum(centroid * centroid, axis=1, keepdims=True) + eps
-    proj = (dot / centroid_norm_sq) * centroid
-    frac = jnp.sum(proj**2, axis=1) / (jnp.sum(act**2, axis=1) + eps)
-    return frac  # shape: (batch,)
+  # elementwise dot
+  dot = jnp.sum(act * centroid, axis=1, keepdims=True)
+  centroid_norm_sq = jnp.sum(centroid * centroid, axis=1, keepdims=True) + eps
+  proj = (dot / centroid_norm_sq) * centroid
+  frac = jnp.sum(proj**2, axis=1) / (jnp.sum(act**2, axis=1) + eps)
+  return frac  # shape: (batch,)
 
