@@ -9,12 +9,6 @@ from jax import random
 def hamming_distance(x, y):
     return jnp.count_nonzero(x != y)
 
-def modified_L2_distance(x, y, significant_digits=2):
-    u = (x-y)
-    normalized_distance = jnp.sqrt(jnp.sum(u*u) / (jnp.sum(x*x) * jnp.sum(y*y)))
-    scale = 10**significant_digits
-    return (scale*normalized_distance).astype(jnp.int32)
-
 def normalized_L2_distance(x, y):
     x /= jnp.linalg.norm(x)
     y /= jnp.linalg.norm(y)
