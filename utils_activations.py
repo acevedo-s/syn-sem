@@ -125,7 +125,7 @@ def preprocessing_syn_data(
   ### Syntax centroids
   sim_folder = f"/home/acevedo/syn-sem/results/global_centering_0/spaces_AB/similarity_fn_normalized_L2_distance/precision_32/language_english/data_var_syn/modelA_{model_name}/modelB_{model_name}/match_var_matching/n_files_21/min_token_length_{min_token_length}/similarities/centers_syn/Nbits_0/n_tokens_{n_tokens}/avg_tokens_{avg_tokens}/batch_shuffle_0/layer_A_{layer}/layer_B_{layer}/"
   (unique_syn_centroids, #(n_groups,E)
-   syn_group_ids, #(n_syn_samples,)
+   all_syn_group_ids, #(n_syn_samples,)
    ) = load_syn_group_averages(act,
                               syn_group_ids_path,
                               sim_folder,
@@ -133,7 +133,9 @@ def preprocessing_syn_data(
                               None,
                               space_index,
                               )
-  expanded_syn_centroids = unique_syn_centroids[syn_group_ids] # (n_syn_samples,E)
+  expanded_syn_centroids = unique_syn_centroids[all_syn_group_ids] # (n_syn_samples,E)
+  # expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,all_syn_group_ids)
+  # expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
 
   ### Syn data with semantic centroids
   act = act[syn_ids_with_sem]
@@ -151,7 +153,6 @@ def preprocessing_syn_data(
     sem_centroids = load_sem_centroids(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sem_sentences,E)
     sem_center_ids = jnp.array(np.loadtxt(sem_centers_ids_path,dtype=int),dtype=jnp.int32)
     sem_centroids = sem_centroids[sem_center_ids] # this alignes centers to syntax data
-
   else:
     sem_centroids = None
 
@@ -217,13 +218,16 @@ def recall_at_k_jax(cos_matrix, k):
   hits = (topk_idx == targets)
   return hits.any(axis=1).mean()
 
-@partial(jax.jit,static_argnums=(1,))
+# @partial(jax.jit,static_argnums=(1,))
 def recall_at_k_syn(cos_matrix,k,syntax_labels):
 
   N, M = cos_matrix.shape
   assert N == M
   _, topk_idx = jax.lax.top_k(cos_matrix, k)  # (N, k)
   topk_labels = syntax_labels[topk_idx]
+  # jax.debug.print("topk_idx:\n{}", topk_idx)
+  # combo = jnp.concatenate([topk_labels, syntax_labels[:, None]], axis=1)
+  # jax.debug.print("topk_labels + syntax_label:\n{}", combo)
   hits = (syntax_labels[:,None] == topk_labels)
   return hits.any(axis=1).mean()
 
