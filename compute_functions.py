@@ -65,7 +65,7 @@ def similarities(
         ):
     start_time = time()
     seed_batch_shuffle = 69
-    seed_distances = 42
+    seed_distances = 41
 
     number_of_languages_list = set_number_of_languages_list(center_A_flag,center_B_flag,centers_var)
     language_list_permutations = set_language_list_permutations(center_A_flag,center_B_flag,centers_var)
@@ -171,9 +171,9 @@ def similarities(
                             if centers_var == 'syn':
                                 if data_var == 'syn':
                                     if center_A_flag != 0:
-                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, center_A_flag,'A', removal_method, syn_group_ids_path)
+                                        act_A = compute_and_subtract_syn_group_averages(sim_folder, act_A, act_B, center_A_flag,'A', removal_method, syn_group_ids_path)
                                     if center_B_flag != 0:
-                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_B, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
+                                        act_B = compute_and_subtract_syn_group_averages(sim_folder, act_A, act_B, center_B_flag,'B', removal_method, syn_group_ids_path) # note that A and B share the syntax here
                                 elif data_var == 'sem':
                                     if center_A_flag != 0:
                                         act_A = load_and_subtract_syn_group_averages(act_A, syn_group_id_paths_for_sem_data['A'], sim_folder, center_A_flag, removal_method, global_center_A, 'A')

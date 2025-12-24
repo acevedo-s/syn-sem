@@ -86,8 +86,8 @@ def preprocessing_sem_data(
                                 )
 
     syn_centroids = unique_syn_centroids[syn_group_ids_for_sem] #(n_samples_sem_with_syn,)
-    expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,syn_group_ids_for_sem)
-    syn_centroids = (expanded_group_counts[:,None] * syn_centroids - act) / (expanded_group_counts[:,None] - 1) # loo syn_centers
+    # expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,syn_group_ids_for_sem)
+    # syn_centroids = (expanded_group_counts[:,None] * syn_centroids - act) / (expanded_group_counts[:,None] - 1) # loo syn_centers
 
     # global_centering syntax centroids...
     if global_center_flag: 
