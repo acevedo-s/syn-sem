@@ -1,22 +1,22 @@
 #!/bin/bash
 
 dbg=0
-modelA="qwen7b"
+modelA="deepseek"
 method="min"
 data_var="syn"
 match_var="matching"  # "matching" or "mismatching"
-centers_var="sem"
+centers_var="syn"
 languages=('english')
 zero_activations=0
-center_A_flags=(-1)
+center_A_flags=(1)
 removal_methods=("projection")
 global_centerings=(0)
-avg_tokens_list=(0)
+avg_tokens_list=(0 1)
 similarity_fn='normalized_L2_distance'
 batch_shuffle=0
 
 if [ "$data_var" = "syn" ] && [ "$centers_var" = "syn" ] && [ "$batch_shuffle" -eq 0 ]; then
-    min_token_length=3
+    min_token_length=6
 else
     min_token_length=3
 fi

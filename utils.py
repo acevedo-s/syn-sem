@@ -340,7 +340,8 @@ def collect_data_hf(
 
 
 def compute_and_subtract_syn_group_averages(sim_folder,
-                                            act,
+                                            act_A,
+                                            act_B,
                                             center_flag,
                                             space_index,
                                             removal_method:str,
@@ -348,31 +349,39 @@ def compute_and_subtract_syn_group_averages(sim_folder,
                                             ):
   centers_folder = sim_folder
 
-  assert len(act.shape) == 2
+  assert len(act_A.shape) == 2
+  assert act_A.shape == act_B.shape
   assert space_index == 'A' or space_index == 'B'
   assert removal_method in ['subtraction','projection']
+
+  if space_index == 'A':
+    main_act = act_A
+    crossed_act = act_B
+  else:
+    main_act = act_B
+    crossed_act = act_A
 
   all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(jnp.int32)) # (n_syn_samples,)
   (
   unique_syn_centroids, # (n_groups,n_features)
   all_indices, # (n_groups, n_samples)
   all_counts, # (n_groups, 1)
-    ) = _compute_and_export_syn_centers(syn_group_ids_path, act, centers_folder, space_index)
+    ) = _compute_and_export_syn_centers(syn_group_ids_path, crossed_act, centers_folder, space_index)
   expanded_syn_centroids = unique_syn_centroids[all_syn_group_ids] # (n_samples,E)
 
-  indices = jnp.arange(act.shape[0],dtype=jnp.int32)
+  indices = jnp.arange(main_act.shape[0],dtype=jnp.int32)
   if center_flag == -1:
     key_centers = jax.random.PRNGKey(np.random.randint(1E5))
     indices = jax.random.permutation(key_centers,indices)
 
-  expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,all_syn_group_ids)
-  loo_expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
+  # expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,all_syn_group_ids)
+  # loo_expanded_syn_centroids = (expanded_group_counts[:,None] * expanded_syn_centroids - act) / (expanded_group_counts[:,None] - 1)
   
   if removal_method == 'subtraction':
-    act = batched_subtract_centroids(act,indices,loo_expanded_syn_centroids)
+    main_act = batched_subtract_centroids(main_act,indices,expanded_syn_centroids)
   elif removal_method == 'projection':
-    act = batched_remove_centroid_projections(act,indices,loo_expanded_syn_centroids)
-  return act
+    main_act = batched_remove_centroid_projections(main_act,indices,expanded_syn_centroids)
+  return main_act
 
 def get_syntax_expanded_counts(unique_syn_centroids, expanding_indices):
   unique_syn_group_ids, unique_syn_group_counts = jnp.unique(expanding_indices,return_counts=True)
