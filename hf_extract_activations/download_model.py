@@ -56,3 +56,4 @@ model_name = 'gemma12b'
 download_dir = base_path_models + f'{repo_ids[model_name]}/'
 
 download_model(repo_ids[model_name], download_dir)
+#token="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"
