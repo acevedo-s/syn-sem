@@ -5,3 +5,4 @@ log_output
 __pycache__
 log_steering
 log_sem_centroids
+pythia/logs

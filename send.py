@@ -41,7 +41,6 @@ if __name__ == "__main__":
     parser.add_argument("dbg", type=int)
     parser.add_argument("min_token_length", type=int)
     parser.add_argument("modelA", type=str)
-    parser.add_argument("method", type=str, choices=['max','min'], help="max = corr coeff, min = II")
     parser.add_argument("data_var", type=str, choices=['syn','sem'], help="syntax or semantics")
     parser.add_argument("match_var", type=str, choices=['matching','mismatching'])
     parser.add_argument("centers_var", type=str, choices=['syn','sem'])
@@ -54,6 +53,7 @@ if __name__ == "__main__":
     parser.add_argument("avg_tokens", type=int, choices=[0,1])
     parser.add_argument("similarity_fn", type=str, choices=['L2_distance','normalized_L2_distance'])
     parser.add_argument("batch_shuffle",type=int, choices=[0,1])
+    parser.add_argument("--last-token-only", action="store_true")
     args = parser.parse_args()
 
     spaces = 'AB'
@@ -68,7 +68,13 @@ if __name__ == "__main__":
     batch_shuffle = args.batch_shuffle
 
     min_token_length = args.min_token_length
-    n_tokens_list = np.array([args.min_token_length])
+    if args.avg_tokens == 0:
+        if args.last_token_only:
+            n_tokens_list = np.array([1])
+        else:
+            n_tokens_list = np.array(sorted(set([args.min_token_length, 1])))
+    else:
+        n_tokens_list = np.array([args.min_token_length])
 
     removal_method = args.removal_method
     if removal_method == 'none':
@@ -173,7 +179,6 @@ if __name__ == "__main__":
             n_tokens_list,
             args.avg_tokens,
             diagonal_constraint,
-            args.method,
             batch_shuffle,
             args.centers_var,
             center_A_flag=args.center_A_flag,
@@ -183,6 +188,3 @@ if __name__ == "__main__":
             precision=precision,
             # n_jack_seeds=n_jack_seeds,
     )
-
-
-

@@ -212,7 +212,6 @@ def compute_II(
                 n_tokens_list,
                 avg_tokens,
                 diagonal_constraint,
-                method,
                 batch_shuffle,
                 centers_var,
                 center_A_flag,
@@ -227,6 +226,7 @@ def compute_II(
         ratio_jackknife = 1.0
             
     start_time = time()
+    method = 'min'
 
     jack_seeds = np.arange(n_jack_seeds,dtype=int)
     II_fn = build_information_imbalance(k=1)

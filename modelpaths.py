@@ -7,9 +7,16 @@ model_paths["llama8b"] = f"{base_path}LLMs_meta-llama/Meta-Llama-3-8B/"
 model_paths['qwen7b'] =  f"{base_path}/qwen2-7b-local/"
 model_paths['gemma12b'] = f'{base_path}google/gemma-3-12b-pt/'
 model_paths['bert'] = f'{base_path}LLMs_google-bert/bert-base-multilingual-cased/'
+model_paths['pythia6p9b'] = f'{base_path}EleutherAI/pythia-6.9b/'
+for _pythia_step in [0, 256, 512, 2000, 4000, 16000, 64000]:
+    model_paths[f'pythia6p9b_step{_pythia_step}'] = (
+        f'{base_path}EleutherAI/pythia-6.9b/step{_pythia_step}/'
+    )
+model_paths['pythia6p9b_step143000'] = f'{base_path}EleutherAI/pythia-6.9b/step143000/'
 
 repo_ids = {
     'gemma12b' : "google/gemma-3-12b-pt",
+    'pythia6p9b': "EleutherAI/pythia-6.9b",
 }
 
 def get_model_depths():
@@ -41,4 +48,3 @@ if __name__ == "__main__":
     # # print(f'{config.text_config.=}')
     depths = get_model_depths()
     print(f'{depths=}')
-

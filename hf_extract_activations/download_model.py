@@ -1,59 +1,44 @@
 import os
+import shutil
 from pathlib import Path
+
+from huggingface_hub import snapshot_download
+
 from utils_extract import base_path_models
-from modelpaths import repo_ids
-
-from transformers import (
-    AutoTokenizer,
-    AutoModelForCausalLM,
-    AutoModelForSeq2SeqLM,
-    AutoModel,
-    AutoConfig,
-)
 
 
-def download_model(repo_id: str, cache_dir: str | os.PathLike):
-    """
-    Download HF model + tokenizer and save them in `cache_dir`.
+REPO_ID = "EleutherAI/pythia-6.9b"
+REVISIONS = ["step0", "step256", "step512", "step2000", "step4000", "step16000", "step64000", "step143000"]
 
-    `repo_id` is the HF id, e.g.:
-      - "CohereForAI/aya-101"
-      - "bert-base-uncased"
-      - "meta-llama/Llama-3-8B-Instruct"
-    """
-    cache_dir = Path(cache_dir)
+
+def materialize_snapshot(cache_dir: Path, snapshot_dir: Path) -> None:
+    for src_path in snapshot_dir.iterdir():
+        dest_path = cache_dir / src_path.name
+        if os.path.lexists(dest_path):
+            continue
+        if src_path.is_dir():
+            shutil.copytree(src_path, dest_path)
+            continue
+        try:
+            os.link(src_path, dest_path)
+        except OSError:
+            shutil.copy2(src_path, dest_path)
+
+
+def download_revision(repo_id: str, revision: str) -> None:
+    cache_dir = Path(base_path_models) / repo_id / revision
     cache_dir.mkdir(parents=True, exist_ok=True)
 
-    # Inspect config to pick the right class
-    cfg = AutoConfig.from_pretrained(repo_id)
-
-    if cfg.model_type in {"t5", "mt5"}:
-        # Aya-101 falls here (mt5-xxl architecture)
-        ModelCls = AutoModelForSeq2SeqLM
-    elif "bert" in cfg.model_type:
-        ModelCls = AutoModel          # encoder-only BERTs
-    else:
-        ModelCls = AutoModelForCausalLM  # decoder-only LMs
-
-    print(f"→ Downloading {repo_id} into {cache_dir}")
-
-    model = ModelCls.from_pretrained(
-        repo_id,
-        cache_dir=str(cache_dir),
+    print(f"→ Downloading {repo_id} @ {revision} into {cache_dir}")
+    snapshot_dir = Path(
+        snapshot_download(
+            repo_id,
+            revision=revision,
+            cache_dir=str(cache_dir),
+        )
     )
-    tokenizer = AutoTokenizer.from_pretrained(
-        repo_id,
-        cache_dir=str(cache_dir),
-        use_fast=True,
-    )
-
-    model.save_pretrained(cache_dir)
-    tokenizer.save_pretrained(cache_dir)
-    return model, tokenizer
+    materialize_snapshot(cache_dir, snapshot_dir)
 
 
-model_name = 'gemma12b'
-download_dir = base_path_models + f'{repo_ids[model_name]}/'
-
-download_model(repo_ids[model_name], download_dir)
-#token="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"
+for revision in REVISIONS:
+    download_revision(REPO_ID, revision)

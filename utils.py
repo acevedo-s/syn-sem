@@ -49,6 +49,36 @@ def get_syn_centroids_folder(sim_folder):
   centers_folder = sim_folder.replace("data_var_sem", "data_var_syn")
   return centers_folder
 
+
+def _extract_path_int(path: str, key: str):
+    match = re.search(rf"{re.escape(key)}_(\d+)", path)
+    return int(match.group(1)) if match else None
+
+
+def _load_syn_centers_from_existing_results(centers_folder, space_index, dtype):
+  path = os.path.join(centers_folder, f"syn_centers_{space_index}.npy")
+  if os.path.exists(path):
+    return jnp.array(np.load(path)).astype(dtype)
+
+  n_tokens = _extract_path_int(centers_folder, "n_tokens")
+  min_token_length = _extract_path_int(centers_folder, "min_token_length")
+  avg_tokens = _extract_path_int(centers_folder, "avg_tokens")
+  if avg_tokens != 0 or n_tokens is None or min_token_length is None or n_tokens >= min_token_length:
+    raise FileNotFoundError(path)
+
+  fallback_folder = re.sub(rf"n_tokens_{n_tokens}(?=/)", f"n_tokens_{min_token_length}", centers_folder)
+  fallback_path = os.path.join(fallback_folder, f"syn_centers_{space_index}.npy")
+  if not os.path.exists(fallback_path):
+    raise FileNotFoundError(path)
+
+  centers = jnp.array(np.load(fallback_path)).astype(dtype)
+  hidden_size = centers.shape[1] // min_token_length
+  assert hidden_size * min_token_length == centers.shape[1]
+  centers = centers.reshape(centers.shape[0], min_token_length, hidden_size)
+  centers = centers[:, -n_tokens:, :]
+  centers = centers.reshape(centers.shape[0], n_tokens * hidden_size)
+  return centers
+
 def add_model_metadata(depths: dict, emb_dims: dict, model_name: str, model_paths: dict) -> None:
     """
     Add the number of hidden layers and embedding size for a model to the given dictionaries.
@@ -361,12 +391,8 @@ def compute_and_subtract_syn_group_averages(sim_folder,
     main_act = act_B
     crossed_act = act_A
 
+  unique_syn_centroids = _load_syn_centers_from_existing_results(centers_folder, space_index, crossed_act.dtype)
   all_syn_group_ids = jnp.array(np.loadtxt(syn_group_ids_path).astype(jnp.int32)) # (n_syn_samples,)
-  (
-  unique_syn_centroids, # (n_groups,n_features)
-  all_indices, # (n_groups, n_samples)
-  all_counts, # (n_groups, 1)
-    ) = _compute_and_export_syn_centers(syn_group_ids_path, crossed_act, centers_folder, space_index)
   expanded_syn_centroids = unique_syn_centroids[all_syn_group_ids] # (n_samples,E)
 
   indices = jnp.arange(main_act.shape[0],dtype=jnp.int32)
@@ -432,7 +458,7 @@ def load_syn_group_averages(act,
   if global_center != None:
     centers_folder = centers_folder.replace("global_centering_1","global_centering_0")
 
-  centers = jnp.array(np.load(centers_folder+f'syn_centers_{space_index}.npy')).astype(act.dtype) #(num_groups,E)
+  centers = _load_syn_centers_from_existing_results(centers_folder, space_index, act.dtype) #(num_groups,E)
 
   if global_center != None: 
     centers = centers - jnp.broadcast_to(global_center,centers.shape)

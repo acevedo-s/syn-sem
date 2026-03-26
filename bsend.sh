@@ -2,7 +2,6 @@
 
 dbg=0
 modelA="deepseek"
-method="min"
 data_var="syn"
 match_var="matching"  # "matching" or "mismatching"
 centers_var="syn"
@@ -44,7 +43,6 @@ for avg_tokens in "${avg_tokens_list[@]}";do
             $dbg \
             $min_token_length \
             $modelA \
-            $method \
             $data_var \
             $match_var \
             $centers_var \

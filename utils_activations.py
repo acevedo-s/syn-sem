@@ -20,6 +20,7 @@ from utils import (
                   torch_to_jax,
                   flatten_tokens_features,
                   depths,
+                  emb_dims,
                   reduce_list_half_preserve_extremes,
                   load_and_subtract_syn_group_averages,
                   load_sem_centroids,
@@ -45,9 +46,15 @@ def preprocessing_sem_data(
                   centroids=True,
                   ):
 
+  if avg_tokens == 1:
+    assert n_tokens == min_token_length, (
+        f"{n_tokens=} must equal {min_token_length=} when avg_tokens=1"
+    )
+
   # loading data
   _all_activations = all_activations[f"layer_{layer}"]
   if avg_tokens == 0:
+    _all_activations = _all_activations[:, -n_tokens:, :]
     _all_activations = flatten_tokens_features(_all_activations)
   
   act = torch_to_jax(_all_activations,precision)
@@ -63,10 +70,14 @@ def preprocessing_sem_data(
   act = act[sem_ids]
 
   if centroids:
-    sim_folder = f"/home/acevedo/syn-sem/results/global_centering_0/spaces_AB/similarity_fn_normalized_L2_distance/precision_32/language_english/data_var_syn/modelA_{model_name}/modelB_{model_name}/match_var_matching/n_files_21/min_token_length_{min_token_length}/similarities/centers_syn/Nbits_0/n_tokens_{n_tokens}/avg_tokens_{avg_tokens}/batch_shuffle_0/layer_A_{layer}/layer_B_{layer}/"
+    centroids_n_tokens = min_token_length if avg_tokens == 0 else n_tokens
+    sim_folder = f"/home/acevedo/syn-sem/results/global_centering_0/spaces_AB/similarity_fn_normalized_L2_distance/precision_32/language_english/data_var_syn/modelA_{model_name}/modelB_{model_name}/match_var_matching/n_files_21/min_token_length_{min_token_length}/similarities/centers_syn/Nbits_0/n_tokens_{centroids_n_tokens}/avg_tokens_{avg_tokens}/batch_shuffle_0/layer_A_{layer}/layer_B_{layer}/"
 
     # loading semantic_centroids
     sem_centroids = load_sem_centroids(sim_folder,number_of_languages=6,language_list_permutation=0).astype(act.dtype) #(num_sentences,E)
+    if avg_tokens == 0:
+        sem_centroids = sem_centroids.reshape(sem_centroids.shape[0], min_token_length, emb_dims[model_name])
+        sem_centroids = flatten_tokens_features(sem_centroids[:, -n_tokens:, :])
 
     # keeping data with syn_centroids
     sem_centroids = sem_centroids[sem_ids]
@@ -84,6 +95,9 @@ def preprocessing_sem_data(
                                 None,
                                 space_index,
                                 )
+    if avg_tokens == 0:
+        unique_syn_centroids = unique_syn_centroids.reshape(unique_syn_centroids.shape[0], min_token_length, emb_dims[model_name])
+        unique_syn_centroids = flatten_tokens_features(unique_syn_centroids[:, -n_tokens:, :])
 
     syn_centroids = unique_syn_centroids[syn_group_ids_for_sem] #(n_samples_sem_with_syn,)
     # expanded_group_counts = get_syntax_expanded_counts(unique_syn_centroids,syn_group_ids_for_sem)
@@ -238,4 +252,3 @@ def squared_norm_fraction(act, centroid, eps=1e-8):
   proj = (dot / centroid_norm_sq) * centroid
   frac = jnp.sum(proj**2, axis=1) / (jnp.sum(act**2, axis=1) + eps)
   return frac  # shape: (batch,)
-

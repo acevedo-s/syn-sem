@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=1:00:00
 #SBATCH --ntasks-per-node=1
-# SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:1
 #SBATCH --mem=600G
 #SBATCH --output=./log_output/%x.o%j              # Standard output
 #SBATCH --error=./log_output/%x.o%j               # Standard error
