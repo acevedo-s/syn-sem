@@ -89,6 +89,8 @@ def main():
             dtype=jnp.float32,
         )
 
+        # Export crossed centroids: centers_A are computed from space B and vice versa,
+        # so downstream evaluations on one split do not reuse the same sentences.
         _compute_and_export_syn_centers(syn_group_ids_path, act_B, str(layer_dir), "A")
         _compute_and_export_syn_centers(syn_group_ids_path, act_A, str(layer_dir), "B")
 

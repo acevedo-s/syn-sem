@@ -25,7 +25,7 @@ DEFAULT_MODEL = "pythia6p9b_step143000"
 ENGLISH = "english"
 
 
-def activation_dir(language, sample_index, model_name=DEFAULT_MODEL):
+def activation_dir(language, sample_index, model_name=DEFAULT_MODEL, match_var="matching"):
     return (
         REPO_ROOT
         / "datasets"
@@ -33,7 +33,7 @@ def activation_dir(language, sample_index, model_name=DEFAULT_MODEL):
         / "sem"
         / "second"
         / model_name
-        / "matching"
+        / match_var
         / language
         / str(sample_index)
     )
@@ -107,6 +107,23 @@ def output_root(model_name, avg_tokens, min_token_length, n_samples, n_tokens=No
     return root
 
 
+def cosines_root(model_name, avg_tokens, min_token_length, n_chunks, global_center_flag=0, n_tokens=None):
+    n_tokens = _validate_n_tokens(avg_tokens, min_token_length, n_tokens)
+    root = (
+        PYTHIA_ROOT
+        / "results"
+        / f"model_{model_name}"
+        / "cosines"
+        / f"avg_tokens_{avg_tokens}"
+        / f"min_token_length_{min_token_length}"
+        / f"n_chunks_{n_chunks}"
+        / f"global_center_flag_{global_center_flag}"
+    )
+    if avg_tokens == 0 and n_tokens != min_token_length:
+        root = root / f"n_tokens_{n_tokens}"
+    return root
+
+
 def semantic_centers_root(model_name, avg_tokens, min_token_length, n_samples, n_tokens=None):
     return output_root(model_name, avg_tokens, min_token_length, n_samples, n_tokens=n_tokens) / "semantic_centers"
 
@@ -128,3 +145,9 @@ def save_metadata(output_dir, metadata):
     with (output_dir / "metadata.json").open("w", encoding="utf-8") as handle:
         json.dump(metadata, handle, indent=2, sort_keys=True)
         handle.write("\n")
+
+
+def select_initial_middle_last_layers(layers):
+    if not layers:
+        raise ValueError("layers must be non-empty")
+    return [layers[0], layers[len(layers) // 2], layers[-1]]

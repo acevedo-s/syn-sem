@@ -26,6 +26,9 @@ def parse_args():
     parser.add_argument("--avg-tokens", type=int, choices=[0, 1], required=True)
     parser.add_argument("--n-tokens", type=int, default=None)
     parser.add_argument("--n-samples", type=int, default=100)
+    parser.add_argument("--permute-syntax-centroids", type=int, choices=[0, 1], default=0)
+    parser.add_argument("--shuffle-tokens", type=int, choices=[0, 1], default=0)
+    parser.add_argument("--activation-match-var", default="matching")
     return parser.parse_args()
 
 
@@ -85,10 +88,24 @@ def remove_centroid_projections(act, centroids, eps=1e-8):
     return act - proj_coeffs * centroids
 
 
-def cosine_similarity(act, centroid, eps=1e-8):
-    numerator = torch.sum(act * centroid, dim=1)
-    denominator = torch.linalg.norm(act, dim=1) * torch.linalg.norm(centroid, dim=1)
-    return numerator / denominator.clamp_min(eps)
+def permuted_index(tensor, permutation):
+    return tensor.index_select(0, permutation)
+
+
+def reshape_token_blocks(tensor, n_token_blocks):
+    hidden_size = tensor.shape[1] // n_token_blocks
+    if hidden_size * n_token_blocks != tensor.shape[1]:
+        raise ValueError(
+            f"Cannot split feature dimension {tensor.shape[1]} into {n_token_blocks} token blocks"
+        )
+    return tensor.reshape(tensor.shape[0], n_token_blocks, hidden_size)
+
+
+def shuffle_token_blocks(tensor, n_token_blocks, permutation):
+    token_blocks = reshape_token_blocks(tensor, n_token_blocks)
+    flat_blocks = token_blocks.reshape(-1, token_blocks.shape[-1])
+    shuffled_blocks = flat_blocks.index_select(0, permutation)
+    return shuffled_blocks.reshape(token_blocks.shape[0], n_token_blocks, token_blocks.shape[-1]).reshape(tensor.shape)
 
 
 def load_semantic_syntax_alignment(n_samples, device, space_index="A"):
@@ -112,6 +129,8 @@ def load_semantic_syntax_alignment(n_samples, device, space_index="A"):
 def main():
     args = parse_args()
     global_center_flag = 1
+    if args.shuffle_tokens == 1 and args.avg_tokens != 0:
+        raise ValueError("--shuffle-tokens is only supported for concatenated representations (avg_tokens=0)")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     sem_ids, syn_group_ids_for_sem = load_semantic_syntax_alignment(
         args.n_samples,
@@ -142,6 +161,8 @@ def main():
         global_center_flag,
         n_tokens=args.n_tokens,
     )
+    if args.activation_match_var != "matching":
+        output_dir = output_dir / f"activation_match_var_{args.activation_match_var}"
 
     metadata = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
@@ -155,13 +176,21 @@ def main():
         "n_samples": args.n_samples,
         "effective_semantic_syntax_samples": int(sem_ids.numel()),
         "centers_n_tokens": centers_n_tokens,
+        "permute_syntax_centroids": args.permute_syntax_centroids,
+        "shuffle_tokens": args.shuffle_tokens,
+        "activation_match_var": args.activation_match_var,
         "semantic_centers_dir": str(sem_root),
         "syntax_centers_dir": str(syn_root),
         "uses_syn_centroids": True,
     }
     save_metadata(output_dir, metadata)
 
-    english_dir = activation_dir(language=ENGLISH, sample_index=0, model_name=args.model)
+    english_dir = activation_dir(
+        language=ENGLISH,
+        sample_index=0,
+        model_name=args.model,
+        match_var=args.activation_match_var,
+    )
     english_activations = load_activations(
         input_dir=english_dir,
         min_token_length=args.min_token_length,
@@ -181,13 +210,29 @@ def main():
     sem_means = []
     syn_means = []
     residual_means = []
+    sem_stds = []
+    syn_stds = []
+    residual_stds = []
     sem_abs_means = []
     syn_abs_means = []
     residual_abs_means = []
     total_abs_means = []
-    cos_means = []
-    cos_stds = []
+    permuted_syn_means = []
+    permuted_syn_stds = []
+    shuffled_tokens_syn_means = []
+    shuffled_tokens_syn_stds = []
+    combined_shuffle_syn_means = []
+    combined_shuffle_syn_stds = []
+    syn_distributions = []
+    permuted_syn_distributions = []
+    shuffled_tokens_syn_distributions = []
+    combined_shuffle_syn_distributions = []
     rel_depths = np.array(layers, dtype=np.float32) / float(max(layers))
+    rng = np.random.default_rng(0)
+    perm_indices = torch.from_numpy(rng.permutation(sem_ids.numel())).to(device=device, dtype=torch.long)
+    n_token_blocks = args.n_tokens if args.n_tokens is not None else args.min_token_length
+    token_perm_size = sem_ids.numel() * n_token_blocks
+    token_shuffle_indices = torch.from_numpy(rng.permutation(token_perm_size)).to(device=device, dtype=torch.long)
 
     for layer in layers:
         full_act = english_activations[f"layer_{layer}"].to(device=device, dtype=torch.float32)
@@ -211,6 +256,8 @@ def main():
             min_token_length=args.min_token_length,
             n_tokens=args.n_tokens,
         )
+        # centers_A are the crossed syntax centroids for semantic space A:
+        # they were computed from syntax split B, not from the evaluated samples.
         syn_centroid_raw = unique_syn_centers.index_select(0, syn_group_ids_for_sem)
         syn_centroid_raw = syn_centroid_raw - global_center
         syn_centroid = remove_centroid_projections(syn_centroid_raw, sem_centroid)
@@ -222,7 +269,6 @@ def main():
             f"syn_centroid_raw.shape={tuple(syn_centroid_raw.shape)}"
         )
 
-        cos = cosine_similarity(syn_centroid_raw, sem_centroid)
         act_norm_sq = torch.sum(act * act, dim=1)
         syn_norm_sq = projected_squared_norm(act, syn_centroid)
         sem_norm_sq = projected_squared_norm(act, sem_centroid)
@@ -230,20 +276,90 @@ def main():
         syn_fraction = syn_norm_sq / act_norm_sq.clamp_min(1e-8)
         sem_fraction = sem_norm_sq / act_norm_sq.clamp_min(1e-8)
         residual_fraction = residual_norm_sq / act_norm_sq.clamp_min(1e-8)
+        permuted_syn_mean = np.nan
+        permuted_syn_std = np.nan
+        shuffled_tokens_syn_mean = np.nan
+        shuffled_tokens_syn_std = np.nan
+        combined_shuffle_syn_mean = np.nan
+        combined_shuffle_syn_std = np.nan
+        permuted_syn_distribution = np.full(sem_ids.numel(), np.nan, dtype=np.float32)
+        shuffled_tokens_syn_distribution = np.full(sem_ids.numel(), np.nan, dtype=np.float32)
+        combined_shuffle_syn_distribution = np.full(sem_ids.numel(), np.nan, dtype=np.float32)
+
+        if args.permute_syntax_centroids == 1:
+            permuted_syn_centroid_raw = permuted_index(syn_centroid_raw, perm_indices)
+            permuted_syn_centroid = remove_centroid_projections(permuted_syn_centroid_raw, sem_centroid)
+            permuted_syn_norm_sq = projected_squared_norm(act, permuted_syn_centroid)
+            permuted_syn_fraction = permuted_syn_norm_sq / act_norm_sq.clamp_min(1e-8)
+            permuted_syn_mean = permuted_syn_fraction.mean().item()
+            permuted_syn_std = permuted_syn_fraction.std(unbiased=False).item()
+            permuted_syn_distribution = permuted_syn_fraction.detach().cpu().numpy().astype(np.float32)
+
+        if args.shuffle_tokens == 1:
+            # Destroy token-wise syntax structure by rebuilding each concatenated syntax centroid
+            # from a global shuffle of its token blocks, while leaving activations untouched.
+            shuffled_tokens_syn_centroid_raw = shuffle_token_blocks(
+                syn_centroid_raw,
+                n_token_blocks,
+                token_shuffle_indices,
+            )
+            shuffled_tokens_syn_centroid = remove_centroid_projections(
+                shuffled_tokens_syn_centroid_raw,
+                sem_centroid,
+            )
+            shuffled_tokens_syn_norm_sq = projected_squared_norm(act, shuffled_tokens_syn_centroid)
+            shuffled_tokens_syn_fraction = shuffled_tokens_syn_norm_sq / act_norm_sq.clamp_min(1e-8)
+            shuffled_tokens_syn_mean = shuffled_tokens_syn_fraction.mean().item()
+            shuffled_tokens_syn_std = shuffled_tokens_syn_fraction.std(unbiased=False).item()
+            shuffled_tokens_syn_distribution = (
+                shuffled_tokens_syn_fraction.detach().cpu().numpy().astype(np.float32)
+            )
+
+        if args.permute_syntax_centroids == 1 and args.shuffle_tokens == 1:
+            combined_shuffle_syn_centroid_raw = shuffle_token_blocks(
+                permuted_syn_centroid_raw,
+                n_token_blocks,
+                token_shuffle_indices,
+            )
+            combined_shuffle_syn_centroid = remove_centroid_projections(
+                combined_shuffle_syn_centroid_raw,
+                sem_centroid,
+            )
+            combined_shuffle_syn_norm_sq = projected_squared_norm(act, combined_shuffle_syn_centroid)
+            combined_shuffle_syn_fraction = combined_shuffle_syn_norm_sq / act_norm_sq.clamp_min(1e-8)
+            combined_shuffle_syn_mean = combined_shuffle_syn_fraction.mean().item()
+            combined_shuffle_syn_std = combined_shuffle_syn_fraction.std(unbiased=False).item()
+            combined_shuffle_syn_distribution = (
+                combined_shuffle_syn_fraction.detach().cpu().numpy().astype(np.float32)
+            )
 
         syn_means.append(syn_fraction.mean().item())
         sem_means.append(sem_fraction.mean().item())
         residual_means.append(residual_fraction.mean().item())
+        syn_stds.append(syn_fraction.std(unbiased=False).item())
+        sem_stds.append(sem_fraction.std(unbiased=False).item())
+        residual_stds.append(residual_fraction.std(unbiased=False).item())
         syn_abs_means.append(syn_norm_sq.mean().item())
         sem_abs_means.append(sem_norm_sq.mean().item())
         residual_abs_means.append(residual_norm_sq.mean().item())
         total_abs_means.append(act_norm_sq.mean().item())
-        cos_means.append(cos.mean().item())
-        cos_stds.append(cos.std(unbiased=False).item())
+        permuted_syn_means.append(permuted_syn_mean)
+        permuted_syn_stds.append(permuted_syn_std)
+        shuffled_tokens_syn_means.append(shuffled_tokens_syn_mean)
+        shuffled_tokens_syn_stds.append(shuffled_tokens_syn_std)
+        combined_shuffle_syn_means.append(combined_shuffle_syn_mean)
+        combined_shuffle_syn_stds.append(combined_shuffle_syn_std)
+        syn_distributions.append(syn_fraction.detach().cpu().numpy().astype(np.float32))
+        permuted_syn_distributions.append(permuted_syn_distribution)
+        shuffled_tokens_syn_distributions.append(shuffled_tokens_syn_distribution)
+        combined_shuffle_syn_distributions.append(combined_shuffle_syn_distribution)
 
         print(
             f"layer={layer} syn_mean={syn_means[-1]:.6f} sem_mean={sem_means[-1]:.6f} residual_mean={residual_means[-1]:.6f} "
-            f"syn_abs_mean={syn_abs_means[-1]:.6f} sem_abs_mean={sem_abs_means[-1]:.6f} residual_abs_mean={residual_abs_means[-1]:.6f}"
+            f"syn_std={syn_stds[-1]:.6f} "
+            f"syn_abs_mean={syn_abs_means[-1]:.6f} sem_abs_mean={sem_abs_means[-1]:.6f} residual_abs_mean={residual_abs_means[-1]:.6f} "
+            f"permuted_syn_mean={permuted_syn_means[-1]:.6f} shuffled_tokens_syn_mean={shuffled_tokens_syn_means[-1]:.6f} "
+            f"combined_shuffle_syn_mean={combined_shuffle_syn_means[-1]:.6f}"
         )
 
     np.savez(
@@ -253,12 +369,26 @@ def main():
         syn_means=np.array(syn_means, dtype=np.float32),
         sem_means=np.array(sem_means, dtype=np.float32),
         residual_means=np.array(residual_means, dtype=np.float32),
+        syn_stds=np.array(syn_stds, dtype=np.float32),
+        sem_stds=np.array(sem_stds, dtype=np.float32),
+        residual_stds=np.array(residual_stds, dtype=np.float32),
         syn_abs_means=np.array(syn_abs_means, dtype=np.float32),
         sem_abs_means=np.array(sem_abs_means, dtype=np.float32),
         residual_abs_means=np.array(residual_abs_means, dtype=np.float32),
         total_abs_means=np.array(total_abs_means, dtype=np.float32),
-        cos_means=np.array(cos_means, dtype=np.float32),
-        cos_stds=np.array(cos_stds, dtype=np.float32),
+        permuted_syn_means=np.array(permuted_syn_means, dtype=np.float32),
+        permuted_syn_stds=np.array(permuted_syn_stds, dtype=np.float32),
+        shuffled_tokens_syn_means=np.array(shuffled_tokens_syn_means, dtype=np.float32),
+        shuffled_tokens_syn_stds=np.array(shuffled_tokens_syn_stds, dtype=np.float32),
+        combined_shuffle_syn_means=np.array(combined_shuffle_syn_means, dtype=np.float32),
+        combined_shuffle_syn_stds=np.array(combined_shuffle_syn_stds, dtype=np.float32),
+        syn_dists=np.stack(syn_distributions).astype(np.float32),
+        permuted_syn_dists=np.stack(permuted_syn_distributions).astype(np.float32),
+        shuffled_tokens_syn_dists=np.stack(shuffled_tokens_syn_distributions).astype(np.float32),
+        combined_shuffle_syn_dists=np.stack(combined_shuffle_syn_distributions).astype(np.float32),
+        has_permuted_syn_centroids=np.array(args.permute_syntax_centroids == 1),
+        has_shuffled_tokens=np.array(args.shuffle_tokens == 1),
+        has_combined_shuffle=np.array(args.permute_syntax_centroids == 1 and args.shuffle_tokens == 1),
         has_syn_centroids=np.array(True),
     )
     print(f"norm results written to {output_dir / 'norms.npz'}")
