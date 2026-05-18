@@ -20,7 +20,7 @@ def parse_args():
     parser.add_argument("--min-token-length", type=int, default=3)
     parser.add_argument("--avg-tokens", type=int, choices=[0, 1], required=True)
     parser.add_argument("--n-tokens", type=int, default=None)
-    parser.add_argument("--n-samples", type=int, default=100)
+    parser.add_argument("--n-samples", type=int, default=2018)
     return parser.parse_args()
 
 
